@@ -10,11 +10,32 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Faultline",
+  description:
+    "Cross-domain strategic infrastructure mapping platform. Maps dependencies, escalation pathways, and governance fractures across orbital, nuclear, and cyber systems.",
+  applicationCategory: "Research Platform",
+  url: "https://faultline.vercel.app",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+  },
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <Navbar />
-      <main>
+      <main id="main-content">
         <HeroSection />
         <AboutSection />
         <DomainsSection />
