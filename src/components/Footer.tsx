@@ -104,7 +104,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-6 border-t border-steel-500/8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-steel-400/30 text-xs">
-            &copy; {new Date().getFullYear()} Faultline
+            &copy; {new Date().getFullYear()} Risa Koyanagi. All rights reserved.
           </p>
           <p className="text-steel-400/20 text-xs tracking-[0.05em]">
             Strategic infrastructure mapping platform

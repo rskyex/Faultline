@@ -7,6 +7,7 @@ import ThesisSection from "@/components/ThesisSection";
 import CenterpieceSection from "@/components/CenterpieceSection";
 import RevealsSection from "@/components/RevealsSection";
 import CTASection from "@/components/CTASection";
+import CreatorSection from "@/components/CreatorSection";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
 
@@ -18,6 +19,11 @@ const jsonLd = {
     "Cross-domain strategic infrastructure mapping platform. Maps dependencies, escalation pathways, and governance fractures across orbital, nuclear, and cyber systems.",
   applicationCategory: "Research Platform",
   url: "https://faultline.vercel.app",
+  creator: {
+    "@type": "Person",
+    name: "Risa Koyanagi",
+    url: "https://risakoyanagi.com",
+  },
   offers: {
     "@type": "Offer",
     price: "0",
@@ -46,6 +52,7 @@ export default function Home() {
         <CenterpieceSection />
         <RevealsSection />
         <CTASection />
+        <CreatorSection />
       </main>
       <Footer />
     </>

@@ -6,9 +6,9 @@ import ScrollReveal from "./ScrollReveal";
 export default function CenterpieceSection() {
   return (
     <section className="relative py-28 lg:py-44 bg-navy-900/30 overflow-hidden">
-      {/* Optional background image — uncomment when /images/systems-dark.png is available */}
-      {/* <div
-        className="absolute inset-0 opacity-[0.08] mix-blend-screen"
+      {/* Systems texture background */}
+      <div
+        className="absolute inset-0 opacity-[0.06] mix-blend-screen"
         aria-hidden="true"
         style={{
           backgroundImage: "url(/images/systems-dark.png)",
@@ -17,7 +17,7 @@ export default function CenterpieceSection() {
           maskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%)",
           WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%)",
         }}
-      /> */}
+      />
 
       <div className="absolute inset-0 opacity-[0.025]" aria-hidden="true">
         <svg className="w-full h-full" preserveAspectRatio="none">

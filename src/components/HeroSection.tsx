@@ -1,7 +1,7 @@
 "use client";
 
 import { C } from "@/lib/colors";
-import FaultlineLogo from "./FaultlineLogo";
+import Image from "next/image";
 import HeroBackground from "./HeroBackground";
 
 export default function HeroSection() {
@@ -14,7 +14,14 @@ export default function HeroSection() {
           {/* Left: Text */}
           <div className="lg:col-span-7 space-y-7">
             <div className="flex items-center gap-5 animate-fade-in-up">
-              <FaultlineLogo size={64} />
+              <Image
+                src="/images/logo.png"
+                alt="Faultline"
+                width={64}
+                height={64}
+                className="w-16 h-16"
+                priority
+              />
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-[-0.02em] text-white leading-none text-premium">
                 Faultline
               </h1>

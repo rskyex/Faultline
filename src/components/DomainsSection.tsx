@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { C } from "@/lib/colors";
 import ScrollReveal from "./ScrollReveal";
 
@@ -41,87 +42,89 @@ export default function DomainsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-[1px] bg-steel-500/10">
           {/* Orbital */}
           <ScrollReveal delay={0}>
-            <a href="https://orbitalrisktracker.vercel.app/" target="_blank" rel="noopener noreferrer" className="group relative bg-navy-950 p-8 lg:p-10 flex flex-col h-full hover-lift">
+            <a href="/platform/orbital" className="group relative bg-navy-950 flex flex-col h-full hover-lift">
               <div className="absolute top-0 left-0 right-0 h-px bg-steel-500/30 group-hover:bg-steel-400/50 transition-colors duration-500" />
-              <div className="mb-8" aria-hidden="true">
-                <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
-                  <ellipse cx="28" cy="28" rx="24" ry="9" stroke={C.steel[500]} strokeWidth="0.8" transform="rotate(-25 28 28)" />
-                  <ellipse cx="28" cy="28" rx="22" ry="8" stroke={C.steel[400]} strokeWidth="0.4" transform="rotate(30 28 28)" />
-                  <ellipse cx="28" cy="28" rx="18" ry="7" stroke={C.steel[500]} strokeWidth="0.3" transform="rotate(-50 28 28)" opacity="0.5" />
-                  <circle cx="28" cy="28" r="3.5" fill={C.steel[300]} opacity="0.8" />
-                  <circle cx="28" cy="28" r="6" stroke={C.steel[500]} strokeWidth="0.4" strokeDasharray="2 3" opacity="0.4" />
-                  <circle cx="48" cy="22" r="1.5" fill={C.steel[500]} opacity="0.6" />
-                  <circle cx="12" cy="20" r="1" fill={C.steel[300]} opacity="0.4" />
-                </svg>
+
+              {/* Thumbnail */}
+              <div className="relative overflow-hidden">
+                <Image
+                  src="/images/orbital-og.jpg"
+                  alt="Orbital Risk Tracker platform"
+                  width={640}
+                  height={360}
+                  className="w-full h-auto opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent" />
               </div>
-              <p className="text-steel-300 text-xs font-medium tracking-[0.2em] uppercase mb-3">Orbital</p>
-              <h3 className="text-xl font-semibold text-white mb-4 leading-snug group-hover:text-steel-300 transition-colors duration-300">Orbital Risk Tracker</h3>
-              <p className="text-sm text-steel-400 leading-[1.7] mb-8 flex-1">
-                Mapping satellite constellations, orbital debris fields, and the strategic vulnerabilities of space-based infrastructure. Tracks risks from congestion, weaponization, and governance gaps in the orbital commons.
-              </p>
-              <span className="inline-flex items-center gap-2 text-sm font-medium text-steel-300/70 group-hover:text-white transition-all duration-300 group-hover:gap-3">
-                Enter Platform <ArrowIcon />
-              </span>
+
+              <div className="p-8 lg:p-10 flex flex-col flex-1">
+                <p className="text-steel-300 text-xs font-medium tracking-[0.2em] uppercase mb-3">Orbital</p>
+                <h3 className="text-xl font-semibold text-white mb-4 leading-snug group-hover:text-steel-300 transition-colors duration-300">Orbital Risk Tracker</h3>
+                <p className="text-sm text-steel-400 leading-[1.7] mb-8 flex-1">
+                  Mapping satellite constellations, orbital debris fields, and the strategic vulnerabilities of space-based infrastructure.
+                </p>
+                <span className="inline-flex items-center gap-2 text-sm font-medium text-steel-300/70 group-hover:text-white transition-all duration-300 group-hover:gap-3">
+                  Enter Platform <ArrowIcon />
+                </span>
+              </div>
             </a>
           </ScrollReveal>
 
           {/* Nuclear */}
           <ScrollReveal delay={120}>
-            <a href="https://globalnuclearinfrastructureatlas.vercel.app/" target="_blank" rel="noopener noreferrer" className="group relative bg-navy-950 p-8 lg:p-10 flex flex-col h-full hover-lift">
+            <a href="/platform/nuclear" className="group relative bg-navy-950 flex flex-col h-full hover-lift">
               <div className="absolute top-0 left-0 right-0 h-px bg-steel-400/30 group-hover:bg-steel-300/50 transition-colors duration-500" />
-              <div className="mb-8" aria-hidden="true">
-                <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
-                  <circle cx="28" cy="28" r="22" stroke={C.steel[400]} strokeWidth="0.4" opacity="0.4" />
-                  <circle cx="28" cy="28" r="16" stroke={C.steel[400]} strokeWidth="0.6" opacity="0.5" />
-                  <circle cx="28" cy="28" r="10" stroke={C.steel[300]} strokeWidth="0.8" opacity="0.6" />
-                  <circle cx="28" cy="28" r="4" stroke={C.slate[200]} strokeWidth="1" opacity="0.7" />
-                  <circle cx="28" cy="28" r="1.5" fill={C.slate[200]} opacity="0.8" />
-                  <line x1="28" y1="6" x2="28" y2="16" stroke={C.steel[400]} strokeWidth="0.5" opacity="0.4" />
-                  <line x1="28" y1="40" x2="28" y2="50" stroke={C.steel[400]} strokeWidth="0.5" opacity="0.4" />
-                  <line x1="8" y1="18" x2="17" y2="23" stroke={C.steel[400]} strokeWidth="0.5" opacity="0.3" />
-                  <line x1="39" y1="33" x2="48" y2="38" stroke={C.steel[400]} strokeWidth="0.5" opacity="0.3" />
-                </svg>
+
+              <div className="relative overflow-hidden">
+                <Image
+                  src="/images/nuclear-og.png"
+                  alt="Global Nuclear Infrastructure Atlas platform"
+                  width={640}
+                  height={360}
+                  className="w-full h-auto opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent" />
               </div>
-              <p className="text-steel-300 text-xs font-medium tracking-[0.2em] uppercase mb-3">Nuclear</p>
-              <h3 className="text-xl font-semibold text-white mb-4 leading-snug group-hover:text-steel-300 transition-colors duration-300">Global Nuclear Infrastructure Atlas</h3>
-              <p className="text-sm text-steel-400 leading-[1.7] mb-8 flex-1">
-                A geospatial atlas of global nuclear facilities, enrichment sites, reactor networks, and strategic posture. Visualizes the physical and political topology of nuclear infrastructure worldwide.
-              </p>
-              <span className="inline-flex items-center gap-2 text-sm font-medium text-steel-300/70 group-hover:text-white transition-all duration-300 group-hover:gap-3">
-                Enter Platform <ArrowIcon />
-              </span>
+
+              <div className="p-8 lg:p-10 flex flex-col flex-1">
+                <p className="text-steel-300 text-xs font-medium tracking-[0.2em] uppercase mb-3">Nuclear</p>
+                <h3 className="text-xl font-semibold text-white mb-4 leading-snug group-hover:text-steel-300 transition-colors duration-300">Global Nuclear Infrastructure Atlas</h3>
+                <p className="text-sm text-steel-400 leading-[1.7] mb-8 flex-1">
+                  A geospatial atlas of global nuclear facilities, enrichment sites, reactor networks, and strategic posture.
+                </p>
+                <span className="inline-flex items-center gap-2 text-sm font-medium text-steel-300/70 group-hover:text-white transition-all duration-300 group-hover:gap-3">
+                  Enter Platform <ArrowIcon />
+                </span>
+              </div>
             </a>
           </ScrollReveal>
 
           {/* Cyber */}
           <ScrollReveal delay={240}>
-            <a href="https://cyber-escalation-atlas-5yp5.vercel.app/" target="_blank" rel="noopener noreferrer" className="group relative bg-navy-950 p-8 lg:p-10 flex flex-col h-full hover-lift">
+            <a href="/platform/cyber" className="group relative bg-navy-950 flex flex-col h-full hover-lift">
               <div className="absolute top-0 left-0 right-0 h-px bg-gold-400/25 group-hover:bg-gold-400/45 transition-colors duration-500" />
-              <div className="mb-8" aria-hidden="true">
-                <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
-                  <circle cx="28" cy="10" r="3" fill={C.gold[400]} opacity="0.7" />
-                  <circle cx="12" cy="36" r="3" fill={C.gold[400]} opacity="0.5" />
-                  <circle cx="44" cy="36" r="3" fill={C.gold[400]} opacity="0.5" />
-                  <circle cx="28" cy="46" r="2" fill={C.gold[300]} opacity="0.35" />
-                  <circle cx="16" cy="20" r="1.5" fill={C.gold[300]} opacity="0.3" />
-                  <circle cx="40" cy="20" r="1.5" fill={C.gold[300]} opacity="0.3" />
-                  <circle cx="28" cy="28" r="2" fill={C.gold[400]} opacity="0.4" />
-                  <line x1="28" y1="13" x2="12" y2="33" stroke={C.gold[400]} strokeWidth="0.5" opacity="0.4" />
-                  <line x1="28" y1="13" x2="44" y2="33" stroke={C.gold[400]} strokeWidth="0.5" opacity="0.4" />
-                  <line x1="12" y1="36" x2="44" y2="36" stroke={C.gold[400]} strokeWidth="0.5" opacity="0.35" />
-                  <line x1="28" y1="10" x2="28" y2="28" stroke={C.gold[300]} strokeWidth="0.3" opacity="0.25" strokeDasharray="2 2" />
-                  <line x1="28" y1="28" x2="12" y2="36" stroke={C.gold[300]} strokeWidth="0.3" opacity="0.25" strokeDasharray="2 2" />
-                  <line x1="28" y1="28" x2="44" y2="36" stroke={C.gold[300]} strokeWidth="0.3" opacity="0.25" strokeDasharray="2 2" />
-                </svg>
+
+              <div className="relative overflow-hidden">
+                <Image
+                  src="/images/cyber-og.jpg"
+                  alt="Cyber Escalation Atlas platform"
+                  width={640}
+                  height={360}
+                  className="w-full h-auto opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent" />
               </div>
-              <p className="text-gold-400 text-xs font-medium tracking-[0.2em] uppercase mb-3">Cyber</p>
-              <h3 className="text-xl font-semibold text-white mb-4 leading-snug group-hover:text-gold-300 transition-colors duration-300">Cyber Escalation Atlas</h3>
-              <p className="text-sm text-steel-400 leading-[1.7] mb-8 flex-1">
-                Charting cyber operations, escalation dynamics, and the evolving attack surfaces of critical infrastructure. Maps the pathways through which digital disruption cascades into strategic consequence.
-              </p>
-              <span className="inline-flex items-center gap-2 text-sm font-medium text-gold-400/60 group-hover:text-white transition-all duration-300 group-hover:gap-3">
-                Enter Platform <ArrowIcon />
-              </span>
+
+              <div className="p-8 lg:p-10 flex flex-col flex-1">
+                <p className="text-gold-400 text-xs font-medium tracking-[0.2em] uppercase mb-3">Cyber</p>
+                <h3 className="text-xl font-semibold text-white mb-4 leading-snug group-hover:text-gold-300 transition-colors duration-300">Cyber Escalation Atlas</h3>
+                <p className="text-sm text-steel-400 leading-[1.7] mb-8 flex-1">
+                  Charting cyber operations, escalation dynamics, and the pathways through which digital disruption cascades into strategic consequence.
+                </p>
+                <span className="inline-flex items-center gap-2 text-sm font-medium text-gold-400/60 group-hover:text-white transition-all duration-300 group-hover:gap-3">
+                  Enter Platform <ArrowIcon />
+                </span>
+              </div>
             </a>
           </ScrollReveal>
         </div>
