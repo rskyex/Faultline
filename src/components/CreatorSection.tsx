@@ -8,8 +8,8 @@ export default function CreatorSection() {
     <section className="relative py-20 lg:py-28 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
         <ScrollReveal>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            {/* Left: Sister project — card with thumbnail */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {/* Sister project: Govern the Human */}
             <a
               href="https://govern-the-human.vercel.app/"
               target="_blank"
@@ -25,7 +25,7 @@ export default function CreatorSection() {
                   className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-5">
                 <p className="text-xs font-medium tracking-[0.2em] uppercase mb-2" style={{ color: "#8a6d20" }}>
                   Sister Project
                 </p>
@@ -38,7 +38,7 @@ export default function CreatorSection() {
               </div>
             </a>
 
-            {/* Right: Creator — same card structure */}
+            {/* Creator */}
             <a
               href="https://risakoyanagi.com"
               target="_blank"
@@ -54,7 +54,7 @@ export default function CreatorSection() {
                   className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-5">
                 <p className="text-xs font-medium tracking-[0.2em] uppercase mb-2" style={{ color: "#8a6d20" }}>
                   Creator
                 </p>
@@ -69,6 +69,30 @@ export default function CreatorSection() {
                 </span>
               </div>
             </a>
+
+            {/* Sister project: MYTHERA — Coming Soon */}
+            <div className="relative block overflow-hidden border border-navy-800/8 rounded-sm">
+              <div className="overflow-hidden">
+                <Image
+                  src="/images/mythera-og.png"
+                  alt="MYTHERA"
+                  width={640}
+                  height={336}
+                  className="w-full h-auto"
+                />
+              </div>
+              <div className="p-5">
+                <p className="text-xs font-medium tracking-[0.2em] uppercase mb-2" style={{ color: "#8a6d20" }}>
+                  Sister Project
+                </p>
+                <h3 className="text-lg font-semibold text-navy-950 mb-1">
+                  MYTHERA
+                </h3>
+                <span className="inline-block text-xs font-medium tracking-[0.1em] uppercase text-navy-500 border border-navy-800/15 px-3 py-1 rounded-sm">
+                  Coming Soon
+                </span>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
       </div>
