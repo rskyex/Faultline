@@ -41,44 +41,71 @@ export default function CTASection() {
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto">
+            {/* Orbital */}
             <a
               href="https://orbitalrisktracker.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col items-center gap-3 px-8 py-7 border border-white/15 hover:border-white/30 bg-white/5 backdrop-blur-sm transition-all duration-300 hover-lift"
+              className="group bg-white rounded-sm overflow-hidden hover-lift transition-all duration-300"
             >
-              <span className="text-white/70 text-xs font-medium tracking-[0.2em] uppercase">Orbital</span>
-              <span className="text-white text-sm font-medium">Orbital Risk Tracker</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-1 opacity-40 group-hover:opacity-80 transition-opacity duration-300">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <div className="overflow-hidden">
+                <Image
+                  src="/images/orbital-og.jpg"
+                  alt="Orbital Risk Tracker"
+                  width={640}
+                  height={360}
+                  className="w-full h-auto group-hover:scale-[1.03] transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5 text-left">
+                <p className="text-navy-600 text-xs font-medium tracking-[0.15em] uppercase mb-1">Orbital</p>
+                <p className="text-navy-950 text-sm font-medium">Orbital Risk Tracker</p>
+              </div>
             </a>
 
+            {/* Nuclear */}
             <a
               href="https://globalnuclearinfrastructureatlas.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col items-center gap-3 px-8 py-7 border border-white/15 hover:border-white/30 bg-white/5 backdrop-blur-sm transition-all duration-300 hover-lift"
+              className="group bg-white rounded-sm overflow-hidden hover-lift transition-all duration-300"
             >
-              <span className="text-white/70 text-xs font-medium tracking-[0.2em] uppercase">Nuclear</span>
-              <span className="text-white text-sm font-medium">Nuclear Infrastructure Atlas</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-1 opacity-40 group-hover:opacity-80 transition-opacity duration-300">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <div className="overflow-hidden">
+                <Image
+                  src="/images/nuclear-og.png"
+                  alt="Nuclear Infrastructure Atlas"
+                  width={640}
+                  height={360}
+                  className="w-full h-auto group-hover:scale-[1.03] transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5 text-left">
+                <p className="text-navy-600 text-xs font-medium tracking-[0.15em] uppercase mb-1">Nuclear</p>
+                <p className="text-navy-950 text-sm font-medium">Nuclear Infrastructure Atlas</p>
+              </div>
             </a>
 
+            {/* Cyber */}
             <a
               href="https://cyber-escalation-atlas-5yp5.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col items-center gap-3 px-8 py-7 border border-white/15 hover:border-white/30 bg-white/5 backdrop-blur-sm transition-all duration-300 hover-lift"
+              className="group bg-white rounded-sm overflow-hidden hover-lift transition-all duration-300"
             >
-              <span className="text-gold-300/80 text-xs font-medium tracking-[0.2em] uppercase">Cyber</span>
-              <span className="text-white text-sm font-medium">Cyber Escalation Atlas</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-1 opacity-40 group-hover:opacity-80 transition-opacity duration-300">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <div className="overflow-hidden">
+                <Image
+                  src="/images/cyber-og.jpg"
+                  alt="Cyber Escalation Atlas"
+                  width={640}
+                  height={360}
+                  className="w-full h-auto group-hover:scale-[1.03] transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5 text-left">
+                <p className="text-xs font-medium tracking-[0.15em] uppercase mb-1" style={{ color: "#8a6d20" }}>Cyber</p>
+                <p className="text-navy-950 text-sm font-medium">Cyber Escalation Atlas</p>
+              </div>
             </a>
           </div>
         </ScrollReveal>

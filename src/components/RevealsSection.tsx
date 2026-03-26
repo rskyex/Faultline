@@ -4,35 +4,23 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function RevealsSection() {
   return (
-    <section className="relative py-28 lg:py-36 overflow-hidden">
-      {/* Topo background */}
-      <div
-        className="absolute inset-0"
-        aria-hidden="true"
-        style={{
-          backgroundImage: "url(/images/topo-dark.png)",
-          backgroundSize: "cover",
-          backgroundPosition: "center 60%",
-        }}
-      />
-      <div className="absolute inset-0 bg-navy-950/75" />
-
-      <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
+    <section className="relative py-28 lg:py-36 bg-white">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
         <ScrollReveal>
           <div className="mb-16 max-w-2xl">
-            <p className="text-gold-300 text-xs font-medium tracking-[0.2em] uppercase mb-4">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase mb-4" style={{ color: "#8a6d20" }}>
               Analytical Framework
             </p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-white leading-tight tracking-[-0.01em]">
+            <h2 className="text-3xl md:text-4xl font-semibold text-navy-950 leading-tight tracking-[-0.01em]">
               What the Platform Reveals
             </h2>
-            <div className="mt-6 w-16 h-px bg-white/25" />
+            <div className="mt-6 w-16 h-px bg-navy-800/15" />
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-14">
           <ScrollReveal delay={0}>
-            <div className="bg-white rounded-sm p-8 lg:p-10">
+            <div>
               <div className="flex items-center gap-4 mb-5">
                 <span className="text-steel-500 text-xs font-semibold tracking-[0.1em]">01</span>
                 <div className="flex-1 h-px bg-navy-800/10" />
@@ -50,7 +38,7 @@ export default function RevealsSection() {
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <div className="bg-white rounded-sm p-8 lg:p-10">
+            <div>
               <div className="flex items-center gap-4 mb-5">
                 <span className="text-steel-400 text-xs font-semibold tracking-[0.1em]">02</span>
                 <div className="flex-1 h-px bg-navy-800/10" />
@@ -69,7 +57,7 @@ export default function RevealsSection() {
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <div className="bg-white rounded-sm p-8 lg:p-10">
+            <div>
               <div className="flex items-center gap-4 mb-5">
                 <span className="text-steel-300 text-xs font-semibold tracking-[0.1em]">03</span>
                 <div className="flex-1 h-px bg-navy-800/10" />
@@ -87,7 +75,7 @@ export default function RevealsSection() {
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
-            <div className="bg-white rounded-sm p-8 lg:p-10">
+            <div>
               <div className="flex items-center gap-4 mb-5">
                 <span className="text-gold-500 text-xs font-semibold tracking-[0.1em]">04</span>
                 <div className="flex-1 h-px bg-navy-800/10" />
