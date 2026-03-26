@@ -19,7 +19,7 @@ export default function DomainsSection() {
         className="absolute inset-0"
         aria-hidden="true"
         style={{
-          backgroundImage: "url(/images/govern-og.png)",
+          backgroundImage: "url(/images/risa-og.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
