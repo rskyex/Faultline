@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { C } from "@/lib/colors";
 
 export default function FaultlineLogo({
@@ -9,7 +10,7 @@ export default function FaultlineLogo({
   className?: string;
   size?: number;
 }) {
-  const id = `logo-${Math.random().toString(36).slice(2, 8)}`;
+  const id = useId();
 
   return (
     <svg
