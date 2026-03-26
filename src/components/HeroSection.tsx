@@ -10,21 +10,21 @@ export default function HeroSection() {
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 pt-24 pb-20 lg:py-32">
         <div className="max-w-3xl space-y-7">
-          <div className="flex items-center gap-6 animate-fade-in-up">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 animate-fade-in-up">
             <Image
               src="/images/logo.png"
               alt="Faultline"
               width={88}
               height={88}
-              className="w-[80px] h-[80px] md:w-[88px] md:h-[88px]"
+              className="w-14 h-14 sm:w-[72px] sm:h-[72px] md:w-[80px] md:h-[80px] lg:w-[88px] lg:h-[88px]"
               priority
             />
-            <h1 className="wordmark text-6xl md:text-7xl lg:text-9xl text-white leading-none drop-shadow-lg">
+            <h1 className="wordmark text-4xl sm:text-5xl md:text-7xl lg:text-9xl text-white leading-none drop-shadow-lg">
               Faultline
             </h1>
           </div>
 
-          <p className="text-white text-lg md:text-xl font-medium tracking-[0.15em] uppercase animate-fade-in-up animate-delay-100">
+          <p className="text-white text-sm sm:text-lg md:text-xl font-medium tracking-[0.1em] sm:tracking-[0.15em] uppercase animate-fade-in-up animate-delay-100">
             Cross-Domain Strategic Infrastructure Mapping
           </p>
 
