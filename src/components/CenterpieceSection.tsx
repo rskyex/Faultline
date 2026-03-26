@@ -37,9 +37,6 @@ export default function CenterpieceSection() {
       <div className="relative py-16 lg:py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
           <ScrollReveal delay={150} distance={16}>
-            {/* Diagram in a card for contrast */}
-            <div className="bg-white/95 border border-navy-800/8 rounded p-4 lg:p-8">
-
             {/* Mobile */}
             <div className="block md:hidden">
               <svg viewBox="0 0 400 360" fill="none" className="w-full max-w-[400px] mx-auto" role="img" aria-label="Simplified cross-domain convergence diagram">
@@ -116,19 +113,19 @@ export default function CenterpieceSection() {
 
                 {/* Fault line */}
                 <path d="M350 80 L400 180 L440 250 L480 290 L500 310 L520 345 L560 410 L610 500 L650 580"
-                  stroke={C.steel[500]} strokeWidth="2.5" fill="none" opacity="0.3" strokeLinecap="round" strokeLinejoin="round" filter="url(#cp-blur)" />
+                  stroke={C.navy[700]} strokeWidth="3" fill="none" opacity="0.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#cp-blur)" />
                 <path d="M350 80 L400 180 L440 250 L480 290 L500 310 L520 345 L560 410 L610 500 L650 580"
-                  stroke={C.steel[500]} strokeWidth="1.5" fill="none" opacity="0.45" strokeLinecap="round" strokeLinejoin="round" />
+                  stroke={C.navy[700]} strokeWidth="2" fill="none" opacity="0.5" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M356 88 L406 188 L446 258 L486 298 L506 318 L526 353 L566 418 L616 508"
-                  stroke={C.gold[400]} strokeWidth="0.5" fill="none" opacity="0.2" strokeDasharray="3 6" />
+                  stroke={C.gold[500]} strokeWidth="0.8" fill="none" opacity="0.3" strokeDasharray="3 6" />
 
                 <path d="M120 280 L250 290 L380 300 L500 310 L620 300 L750 285 L880 270"
-                  stroke={C.steel[500]} strokeWidth="1" fill="none" opacity="0.15" strokeLinecap="round" />
+                  stroke={C.navy[700]} strokeWidth="1.2" fill="none" opacity="0.2" strokeLinecap="round" />
 
                 {/* Center */}
-                <circle cx="500" cy="310" r="16" fill="none" stroke={C.steel[500]} strokeWidth="1.5" opacity="0.5" />
-                <circle cx="500" cy="310" r="8" fill="none" stroke={C.steel[500]} strokeWidth="0.6" opacity="0.35" />
-                <circle cx="500" cy="310" r="4" fill={C.steel[500]} opacity="0.6" className="animate-gentle-pulse" style={{ transformOrigin: '500px 310px' }} />
+                <circle cx="500" cy="310" r="18" fill="none" stroke={C.navy[700]} strokeWidth="2" opacity="0.5" />
+                <circle cx="500" cy="310" r="9" fill="none" stroke={C.navy[700]} strokeWidth="0.8" opacity="0.4" />
+                <circle cx="500" cy="310" r="5" fill={C.navy[700]} opacity="0.7" className="animate-gentle-pulse" style={{ transformOrigin: '500px 310px' }} />
 
                 {/* Labels */}
                 <text x="405" y="268" fill={C.navy[800]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" opacity="0.7" transform="rotate(-48 405 268)" letterSpacing="0.08em">ESCALATION PATHWAY</text>
@@ -138,9 +135,7 @@ export default function CenterpieceSection() {
               </svg>
             </div>
 
-            </div>{/* close card wrapper */}
-
-            <p className="text-center text-white/40 text-xs mt-8 tracking-[0.05em]">
+            <p className="text-center text-navy-600/50 text-xs mt-8 tracking-[0.05em]">
               Structural convergence of cross-domain risk pathways and governance fault lines
             </p>
           </ScrollReveal>

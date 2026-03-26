@@ -11,7 +11,7 @@ export default function ThesisSection() {
           {/* Left: Diagram */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <ScrollReveal delay={200}>
-              <div className="relative lg:sticky lg:top-28 bg-slate-100/60 border border-navy-800/8 rounded p-6 lg:p-8">
+              <div className="relative lg:sticky lg:top-28">
                 <svg
                   viewBox="0 0 420 540"
                   fill="none"
@@ -20,7 +20,7 @@ export default function ThesisSection() {
                   aria-label="Layered diagram showing escalation and spillover pathways between orbital, nuclear, and cyber infrastructure layers"
                 >
                   {/* Orbital layer */}
-                  <rect x="30" y="40" width="360" height="120" fill={C.steel[500]} fillOpacity="0.08" stroke={C.steel[500]} strokeWidth="1.5" rx="4" />
+                  <rect x="30" y="40" width="360" height="120" fill={C.steel[500]} fillOpacity="0.06" stroke={C.steel[500]} strokeWidth="2" rx="4" />
                   <text x="50" y="66" fill={C.navy[800]} fontSize="11" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.1em">ORBITAL INFRASTRUCTURE</text>
                   <circle cx="120" cy="110" r="8" fill={C.steel[500]} opacity="0.25" stroke={C.steel[500]} strokeWidth="1" />
                   <circle cx="120" cy="110" r="3" fill={C.steel[500]} />
@@ -32,7 +32,7 @@ export default function ThesisSection() {
                   <line x1="216" y1="100" x2="295" y2="115" stroke={C.steel[500]} strokeWidth="1.2" opacity="0.4" />
 
                   {/* Nuclear layer */}
-                  <rect x="30" y="210" width="360" height="120" fill={C.steel[400]} fillOpacity="0.08" stroke={C.steel[400]} strokeWidth="1.5" rx="4" />
+                  <rect x="30" y="210" width="360" height="120" fill={C.steel[400]} fillOpacity="0.06" stroke={C.steel[400]} strokeWidth="2" rx="4" />
                   <text x="50" y="236" fill={C.navy[800]} fontSize="11" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.1em">NUCLEAR INFRASTRUCTURE</text>
                   <circle cx="140" cy="280" r="8" fill={C.steel[400]} opacity="0.25" stroke={C.steel[400]} strokeWidth="1" />
                   <circle cx="140" cy="280" r="3" fill={C.steel[400]} />
@@ -42,7 +42,7 @@ export default function ThesisSection() {
                   <circle cx="320" cy="290" r="2" fill={C.steel[400]} />
 
                   {/* Cyber layer */}
-                  <rect x="30" y="380" width="360" height="120" fill={C.gold[400]} fillOpacity="0.08" stroke={C.gold[400]} strokeWidth="1.5" rx="4" />
+                  <rect x="30" y="380" width="360" height="120" fill={C.gold[400]} fillOpacity="0.06" stroke={C.gold[400]} strokeWidth="2" rx="4" />
                   <text x="50" y="406" fill={C.navy[800]} fontSize="11" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.1em">CYBER OPERATIONS</text>
                   <circle cx="170" cy="450" r="7" fill={C.gold[400]} opacity="0.25" stroke={C.gold[400]} strokeWidth="1" />
                   <circle cx="170" cy="450" r="3" fill={C.gold[400]} />

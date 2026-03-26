@@ -7,6 +7,17 @@ export default function AboutSection() {
   return (
     <section className="relative py-28 lg:py-36 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
+        {/* Pull quote */}
+        <ScrollReveal>
+          <div className="mb-20 max-w-3xl">
+            <blockquote className="text-xl md:text-2xl leading-[1.6] text-navy-800 font-serif-accent border-l-4 border-navy-800/20 pl-6">
+              Orbital, nuclear, and cyber systems do not fail in isolation.
+              Faultline maps the dependencies, escalation pathways, and
+              governance fractures that emerge across them.
+            </blockquote>
+          </div>
+        </ScrollReveal>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-32">
@@ -23,8 +34,7 @@ export default function AboutSection() {
               <ScrollReveal delay={200}>
                 <div className="hidden lg:block mt-12">
                   <svg viewBox="0 0 280 240" fill="none" className="w-72" aria-hidden="true">
-                    {/* Background */}
-                    <rect x="10" y="10" width="260" height="220" rx="4" fill={C.navy[950]} fillOpacity="0.04" />
+                    {/* No background — diagram floats on section bg */}
 
                     {/* Domain nodes — larger, filled */}
                     <circle cx="140" cy="40" r="14" fill={C.steel[500]} fillOpacity="0.12" stroke={C.steel[500]} strokeWidth="1.5" />

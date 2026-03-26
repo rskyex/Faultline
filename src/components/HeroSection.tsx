@@ -30,13 +30,7 @@ export default function HeroSection() {
 
           <div className="w-24 h-[2px] bg-white/50 animate-line-grow animate-delay-200" />
 
-          <p className="text-xl md:text-2xl leading-[1.6] text-white/90 max-w-2xl font-serif-accent font-normal animate-fade-in-up animate-delay-300 drop-shadow-sm">
-            Orbital, nuclear, and cyber systems do not fail in isolation.
-            Faultline maps the dependencies, escalation pathways, and
-            governance fractures that emerge across them.
-          </p>
-
-          <div className="flex flex-wrap gap-4 pt-4 animate-fade-in-up animate-delay-400">
+          <div className="flex flex-wrap gap-4 pt-4 animate-fade-in-up animate-delay-300">
             <a
               href="#domains"
               className="inline-flex items-center gap-3 px-8 py-4 bg-white text-navy-950 text-sm font-semibold tracking-[0.03em] hover:bg-white/90 transition-all duration-300 shadow-lg"
