@@ -6,7 +6,7 @@ export default function QuoteStrip() {
   return (
     <section className="relative py-20 lg:py-28 overflow-hidden">
       {/* Background visual accent — diagonal stress field */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" aria-hidden="true">
         <svg className="absolute inset-0 w-full h-full opacity-[0.04]" preserveAspectRatio="none" viewBox="0 0 1600 400">
           {/* Tectonic stress lines */}
           {Array.from({ length: 20 }, (_, i) => (
@@ -34,7 +34,7 @@ export default function QuoteStrip() {
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-block mb-6">
+            <div className="inline-block mb-6" aria-hidden="true">
               <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
                 <path d="M0 10 L14 2 L14 18 Z" fill="#4a6fa5" opacity="0.2" />
                 <path d="M32 10 L18 2 L18 18 Z" fill="#d4a843" opacity="0.15" />
