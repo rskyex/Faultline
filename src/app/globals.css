@@ -107,6 +107,45 @@
   box-shadow: 0 4px 24px rgba(74, 111, 165, 0.08);
 }
 
+/* Subtle SVG animations */
+@keyframes slowRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slowRotateReverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 0.65; r: 4; }
+  50% { opacity: 0.9; r: 5; }
+}
+
+@keyframes driftUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.animate-slow-rotate {
+  animation: slowRotate 90s linear infinite;
+  transform-origin: center;
+}
+
+.animate-slow-rotate-reverse {
+  animation: slowRotateReverse 120s linear infinite;
+  transform-origin: center;
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 4s ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: driftUp 8s ease-in-out infinite;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

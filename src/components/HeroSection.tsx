@@ -106,22 +106,26 @@ export default function HeroSection() {
                   />
                 ))}
 
-                {/* Orbital ellipses */}
-                <ellipse
-                  cx="250" cy="250" rx="200" ry="70"
-                  stroke="#4a6fa5" strokeWidth="0.6" fill="none" opacity="0.35"
-                  transform="rotate(-22 250 250)"
-                />
-                <ellipse
-                  cx="250" cy="250" rx="170" ry="55"
-                  stroke="#4a6fa5" strokeWidth="0.35" fill="none" opacity="0.2"
-                  transform="rotate(-22 250 250)"
-                />
-                <ellipse
-                  cx="250" cy="250" rx="200" ry="70"
-                  stroke="#6b8fc0" strokeWidth="0.4" fill="none" opacity="0.15"
-                  transform="rotate(35 250 250)"
-                />
+                {/* Orbital ellipses — animated */}
+                <g className="animate-slow-rotate" style={{ transformOrigin: '250px 250px' }}>
+                  <ellipse
+                    cx="250" cy="250" rx="200" ry="70"
+                    stroke="#4a6fa5" strokeWidth="0.6" fill="none" opacity="0.35"
+                    transform="rotate(-22 250 250)"
+                  />
+                  <ellipse
+                    cx="250" cy="250" rx="170" ry="55"
+                    stroke="#4a6fa5" strokeWidth="0.35" fill="none" opacity="0.2"
+                    transform="rotate(-22 250 250)"
+                  />
+                </g>
+                <g className="animate-slow-rotate-reverse" style={{ transformOrigin: '250px 250px' }}>
+                  <ellipse
+                    cx="250" cy="250" rx="200" ry="70"
+                    stroke="#6b8fc0" strokeWidth="0.4" fill="none" opacity="0.15"
+                    transform="rotate(35 250 250)"
+                  />
+                </g>
 
                 {/* Nuclear concentric rings */}
                 {[100, 70, 40, 18].map((r, i) => (
@@ -180,7 +184,7 @@ export default function HeroSection() {
                 </text>
 
                 {/* Nuclear — center */}
-                <circle cx="250" cy="250" r="7" fill="#6b8fc0" opacity="0.7" />
+                <circle cx="250" cy="250" r="7" fill="#6b8fc0" opacity="0.7" className="animate-gentle-pulse" style={{ transformOrigin: '250px 250px' }} />
                 <circle cx="250" cy="250" r="14" fill="none" stroke="#8eb0d8" strokeWidth="0.6" opacity="0.4" />
 
                 {/* Cyber — bottom-right */}

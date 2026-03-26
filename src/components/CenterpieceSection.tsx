@@ -136,10 +136,12 @@ export default function CenterpieceSection() {
                 strokeLinecap="round"
               />
 
-              {/* Central node */}
+              {/* Central node — animated */}
               <circle cx="500" cy="310" r="16" fill="none" stroke="#8eb0d8" strokeWidth="1.5" opacity="0.5" />
               <circle cx="500" cy="310" r="8" fill="none" stroke="#8eb0d8" strokeWidth="0.6" opacity="0.35" />
-              <circle cx="500" cy="310" r="4" fill="#8eb0d8" opacity="0.65" />
+              <circle cx="500" cy="310" r="4" fill="#8eb0d8" opacity="0.65" className="animate-gentle-pulse" style={{ transformOrigin: '500px 310px' }} />
+              {/* Subtle ripple rings */}
+              <circle cx="500" cy="310" r="24" fill="none" stroke="#8eb0d8" strokeWidth="0.3" opacity="0.15" strokeDasharray="3 5" />
 
               {/* Labels */}
               <text x="405" y="268" fill="#8eb0d8" fontSize="8" fontFamily="Inter, sans-serif" opacity="0.4" transform="rotate(-48 405 268)" letterSpacing="0.08em">ESCALATION PATHWAY</text>
