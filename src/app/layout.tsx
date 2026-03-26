@@ -5,6 +5,20 @@ export const metadata: Metadata = {
   title: "Faultline — Cross-Domain Strategic Infrastructure Mapping",
   description:
     "Faultline maps the dependencies, escalation pathways, and governance fractures that emerge across orbital, nuclear, and cyber infrastructures.",
+  openGraph: {
+    title: "Faultline — Cross-Domain Strategic Infrastructure Mapping",
+    description:
+      "Mapping the dependencies, escalation pathways, and governance fractures across orbital, nuclear, and cyber systems.",
+    type: "website",
+    siteName: "Faultline",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Faultline — Cross-Domain Strategic Infrastructure Mapping",
+    description:
+      "Mapping the dependencies, escalation pathways, and governance fractures across orbital, nuclear, and cyber systems.",
+  },
+  metadataBase: new URL("https://faultline.vercel.app"),
 };
 
 export default function RootLayout({
