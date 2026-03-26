@@ -3,70 +3,72 @@
 export default function HeroBackground() {
   return (
     <div className="absolute inset-0 z-0">
-      {/* Base gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950" />
+      {/* Base gradient — layered for depth */}
+      <div className="absolute inset-0 bg-navy-950" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(160deg, #0d1326 0%, #0a0e1a 35%, #111b36 65%, #0a0e1a 100%)",
+        }}
+      />
 
-      {/* Subtle grid */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.04]">
+      {/* Fine grid */}
+      <svg className="absolute inset-0 w-full h-full opacity-[0.035]">
         <defs>
-          <pattern
-            id="hero-grid"
-            width="60"
-            height="60"
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              d="M 60 0 L 0 0 0 60"
-              fill="none"
-              stroke="#6b8fc0"
-              strokeWidth="0.5"
-            />
+          <pattern id="hero-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+            <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#6b8fc0" strokeWidth="0.5" />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#hero-grid)" />
       </svg>
 
-      {/* Topographic contour lines */}
+      {/* Dense topographic contour field */}
       <svg
-        className="absolute inset-0 w-full h-full opacity-[0.06]"
+        className="absolute inset-0 w-full h-full opacity-[0.05]"
         preserveAspectRatio="none"
-        viewBox="0 0 1400 900"
+        viewBox="0 0 1600 900"
       >
-        {[
-          "M0 450 Q200 380 400 420 Q600 460 800 400 Q1000 340 1200 390 Q1400 440 1400 440",
-          "M0 480 Q200 410 400 450 Q600 490 800 430 Q1000 370 1200 420 Q1400 470 1400 470",
-          "M0 510 Q200 440 400 480 Q600 520 800 460 Q1000 400 1200 450 Q1400 500 1400 500",
-          "M0 540 Q200 470 400 510 Q600 550 800 490 Q1000 430 1200 480 Q1400 530 1400 530",
-          "M0 570 Q250 500 450 540 Q650 580 850 520 Q1050 460 1250 510 Q1400 550 1400 550",
-          "M0 600 Q250 530 450 570 Q650 610 850 550 Q1050 490 1250 540 Q1400 580 1400 580",
-        ].map((d, i) => (
-          <path
-            key={i}
-            d={d}
-            stroke="#6b8fc0"
-            strokeWidth="1"
-            fill="none"
-          />
-        ))}
+        {Array.from({ length: 12 }, (_, i) => {
+          const y = 350 + i * 25;
+          const wave = i % 2 === 0 ? 30 : -20;
+          return (
+            <path
+              key={`topo-${i}`}
+              d={`M0 ${y + wave} Q400 ${y - 30 + wave} 800 ${y + 10 + wave} Q1200 ${y + 40 + wave} 1600 ${y - 10 + wave}`}
+              stroke="#6b8fc0"
+              strokeWidth={i % 3 === 0 ? "1.2" : "0.6"}
+              fill="none"
+            />
+          );
+        })}
       </svg>
 
-      {/* Radial glow center-right */}
+      {/* Diagonal stress lines */}
+      <svg className="absolute inset-0 w-full h-full opacity-[0.02]" preserveAspectRatio="none" viewBox="0 0 1600 900">
+        <line x1="200" y1="0" x2="800" y2="900" stroke="#8eb0d8" strokeWidth="1" />
+        <line x1="600" y1="0" x2="1200" y2="900" stroke="#4a6fa5" strokeWidth="0.5" />
+        <line x1="1000" y1="0" x2="1400" y2="900" stroke="#d4a843" strokeWidth="0.5" />
+      </svg>
+
+      {/* Primary radial glow — offset right */}
       <div
-        className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-[0.08]"
+        className="absolute top-1/3 right-1/5 w-[900px] h-[900px] -translate-y-1/3"
         style={{
-          background:
-            "radial-gradient(circle, rgba(74,111,165,0.4) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(74,111,165,0.08) 0%, transparent 65%)",
         }}
       />
 
-      {/* Faint gold accent */}
+      {/* Secondary glow — gold accent, subtle */}
       <div
-        className="absolute top-1/3 left-1/3 w-[400px] h-[400px] rounded-full opacity-[0.03]"
+        className="absolute top-2/5 left-1/4 w-[500px] h-[500px]"
         style={{
-          background:
-            "radial-gradient(circle, rgba(212,168,67,0.5) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(212,168,67,0.03) 0%, transparent 60%)",
         }}
       />
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-navy-950 to-transparent" />
     </div>
   );
 }

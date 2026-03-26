@@ -2,340 +2,183 @@
 
 export default function CenterpieceSection() {
   return (
-    <section className="relative py-28 lg:py-40 bg-navy-900/30 overflow-hidden">
-      {/* Background texture */}
-      <div className="absolute inset-0 opacity-[0.03]">
+    <section className="relative py-28 lg:py-44 bg-navy-900/30 overflow-hidden">
+      {/* Background grid */}
+      <div className="absolute inset-0 opacity-[0.025]">
         <svg className="w-full h-full" preserveAspectRatio="none">
           <defs>
-            <pattern
-              id="cp-grid"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 40 0 L 0 0 0 40"
-                fill="none"
-                stroke="#6b8fc0"
-                strokeWidth="0.5"
-              />
+            <pattern id="cp-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#6b8fc0" strokeWidth="0.5" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#cp-grid)" />
         </svg>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
+      <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <p className="text-gold-400 text-xs font-medium tracking-[0.2em] uppercase mb-4">
             Systems Convergence
           </p>
-          <h2 className="text-3xl md:text-4xl font-semibold text-white leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight tracking-[-0.02em]">
             Mapping the Fault Lines
           </h2>
-          <p className="mt-4 text-steel-400 text-base max-w-xl mx-auto">
+          <p className="mt-5 text-steel-400 text-base max-w-lg mx-auto leading-relaxed">
             Where orbital, nuclear, and cyber infrastructures intersect,
             strategic vulnerabilities accumulate.
           </p>
         </div>
 
-        {/* Central visual */}
+        {/* Central visualization */}
         <div className="relative flex justify-center">
-          <svg
-            viewBox="0 0 900 600"
-            fill="none"
-            className="w-full max-w-[900px]"
-          >
+          <svg viewBox="0 0 1000 650" fill="none" className="w-full max-w-[1000px]">
             <defs>
-              <radialGradient id="cp-glow" cx="0.5" cy="0.5" r="0.45">
-                <stop offset="0%" stopColor="#4a6fa5" stopOpacity="0.12" />
+              <radialGradient id="cp-glow" cx="0.5" cy="0.48" r="0.42">
+                <stop offset="0%" stopColor="#4a6fa5" stopOpacity="0.1" />
                 <stop offset="100%" stopColor="#0a0e1a" stopOpacity="0" />
               </radialGradient>
-              <radialGradient id="cp-center" cx="0.5" cy="0.5" r="0.15">
-                <stop offset="0%" stopColor="#8eb0d8" stopOpacity="0.2" />
+              <radialGradient id="cp-core" cx="0.5" cy="0.48" r="0.1">
+                <stop offset="0%" stopColor="#8eb0d8" stopOpacity="0.18" />
                 <stop offset="100%" stopColor="#0a0e1a" stopOpacity="0" />
               </radialGradient>
+              <filter id="cp-blur">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
+              </filter>
             </defs>
 
             {/* Background glow */}
-            <circle cx="450" cy="300" r="280" fill="url(#cp-glow)" />
-            <circle cx="450" cy="300" r="100" fill="url(#cp-center)" />
+            <ellipse cx="500" cy="310" rx="380" ry="260" fill="url(#cp-glow)" />
+            <circle cx="500" cy="310" r="90" fill="url(#cp-core)" />
 
-            {/* Concentric pressure rings */}
-            {[240, 200, 160, 120, 80, 40].map((r, i) => (
+            {/* Topographic contour field */}
+            {Array.from({ length: 8 }, (_, i) => {
+              const rx = 70 + i * 45;
+              const ry = 30 + i * 22;
+              return (
+                <ellipse
+                  key={`topo-${i}`}
+                  cx={500} cy={310}
+                  rx={rx} ry={ry}
+                  stroke="#4a6fa5"
+                  strokeWidth={i < 3 ? "0.6" : "0.35"}
+                  fill="none"
+                  opacity={0.06 + (7 - i) * 0.015}
+                  transform={`rotate(${-10 + i * 3} 500 310)`}
+                />
+              );
+            })}
+
+            {/* Pressure rings */}
+            {[280, 220, 160, 100, 50].map((r, i) => (
               <circle
                 key={`ring-${i}`}
-                cx="450"
-                cy="300"
-                r={r}
+                cx="500" cy="310" r={r}
                 stroke="#4a6fa5"
-                strokeWidth={i < 2 ? "0.3" : "0.5"}
+                strokeWidth={i > 2 ? "0.6" : "0.3"}
                 fill="none"
-                opacity={0.1 + i * 0.04}
-                strokeDasharray={i % 2 === 0 ? "none" : "4 6"}
+                opacity={0.06 + i * 0.03}
+                strokeDasharray={i % 2 === 0 ? "none" : "5 8"}
               />
             ))}
 
-            {/* Domain zones — three triangulated regions */}
+            {/* === DOMAIN ZONES === */}
+
             {/* Orbital zone — top */}
-            <path
-              d="M450 60 L350 200 L550 200 Z"
-              stroke="#4a6fa5"
-              strokeWidth="0.6"
-              fill="#4a6fa5"
-              fillOpacity="0.03"
-            />
-            <text
-              x="450"
-              y="110"
-              textAnchor="middle"
-              fill="#4a6fa5"
-              fontSize="11"
-              fontFamily="Inter, sans-serif"
-              letterSpacing="0.1em"
-              opacity="0.6"
-            >
+            <path d="M500 70 L380 210 L620 210 Z" stroke="#4a6fa5" strokeWidth="0.7" fill="#4a6fa5" fillOpacity="0.025" />
+            <text x="500" y="120" textAnchor="middle" fill="#4a6fa5" fontSize="11" fontFamily="Inter, sans-serif" letterSpacing="0.15em" opacity="0.55">
               ORBITAL
             </text>
+            {/* Orbital infrastructure nodes */}
+            {[[460, 160, 4.5], [540, 150, 3.5], [500, 175, 3], [520, 130, 2.5], [480, 195, 2]].map(([cx, cy, r], i) => (
+              <circle key={`on-${i}`} cx={cx} cy={cy} r={r} fill="#4a6fa5" opacity={0.45 - i * 0.07} />
+            ))}
 
             {/* Nuclear zone — bottom left */}
-            <path
-              d="M200 500 L300 360 L150 340 Z"
-              stroke="#6b8fc0"
-              strokeWidth="0.6"
-              fill="#6b8fc0"
-              fillOpacity="0.03"
-            />
-            <text
-              x="210"
-              y="480"
-              textAnchor="middle"
-              fill="#6b8fc0"
-              fontSize="11"
-              fontFamily="Inter, sans-serif"
-              letterSpacing="0.1em"
-              opacity="0.6"
-            >
+            <path d="M200 540 L320 380 L140 360 Z" stroke="#6b8fc0" strokeWidth="0.7" fill="#6b8fc0" fillOpacity="0.025" />
+            <text x="210" y="520" textAnchor="middle" fill="#6b8fc0" fontSize="11" fontFamily="Inter, sans-serif" letterSpacing="0.15em" opacity="0.55">
               NUCLEAR
             </text>
+            {[[260, 420, 5], [220, 400, 3.5], [300, 410, 3], [240, 460, 2.5], [180, 430, 2]].map(([cx, cy, r], i) => (
+              <circle key={`nn-${i}`} cx={cx} cy={cy} r={r} fill="#6b8fc0" opacity={0.4 - i * 0.06} />
+            ))}
 
             {/* Cyber zone — bottom right */}
-            <path
-              d="M700 500 L600 360 L750 340 Z"
-              stroke="#d4a843"
-              strokeWidth="0.6"
-              fill="#d4a843"
-              fillOpacity="0.03"
-            />
-            <text
-              x="690"
-              y="480"
-              textAnchor="middle"
-              fill="#d4a843"
-              fontSize="11"
-              fontFamily="Inter, sans-serif"
-              letterSpacing="0.1em"
-              opacity="0.6"
-            >
+            <path d="M800 540 L680 380 L860 360 Z" stroke="#d4a843" strokeWidth="0.7" fill="#d4a843" fillOpacity="0.02" />
+            <text x="790" y="520" textAnchor="middle" fill="#d4a843" fontSize="11" fontFamily="Inter, sans-serif" letterSpacing="0.15em" opacity="0.5">
               CYBER
             </text>
+            {[[740, 420, 4.5], [780, 400, 3.5], [710, 410, 3], [760, 460, 2.5], [820, 430, 2]].map(([cx, cy, r], i) => (
+              <circle key={`cn-${i}`} cx={cx} cy={cy} r={r} fill="#d4a843" opacity={0.35 - i * 0.05} />
+            ))}
 
-            {/* Convergence lines — toward center */}
-            {/* From orbital */}
-            <line x1="450" y1="130" x2="450" y2="280" stroke="#4a6fa5" strokeWidth="1" opacity="0.3" />
-            {/* From nuclear */}
-            <line x1="230" y1="450" x2="420" y2="310" stroke="#6b8fc0" strokeWidth="1" opacity="0.3" />
-            {/* From cyber */}
-            <line x1="680" y1="450" x2="480" y2="310" stroke="#d4a843" strokeWidth="1" opacity="0.3" />
+            {/* === CONVERGENCE LINES TO CENTER === */}
+            <line x1="500" y1="145" x2="500" y2="290" stroke="#4a6fa5" strokeWidth="1.2" opacity="0.25" />
+            <line x1="240" y1="470" x2="470" y2="325" stroke="#6b8fc0" strokeWidth="1.2" opacity="0.25" />
+            <line x1="770" y1="470" x2="530" y2="325" stroke="#d4a843" strokeWidth="1.2" opacity="0.2" />
 
-            {/* Cross-domain dependency arcs */}
+            {/* === CROSS-DOMAIN DEPENDENCY ARCS === */}
+            <path d="M400 195 Q280 290 255 400" stroke="#8eb0d8" strokeWidth="0.9" fill="none" opacity="0.2" strokeDasharray="6 5" />
+            <path d="M600 195 Q720 290 745 400" stroke="#e0be6a" strokeWidth="0.9" fill="none" opacity="0.15" strokeDasharray="6 5" />
+            <path d="M290 480 Q500 460 720 480" stroke="#6b8fc0" strokeWidth="0.9" fill="none" opacity="0.15" strokeDasharray="6 5" />
+
+            {/* === PRIMARY FAULT LINE === */}
             <path
-              d="M360 190 Q280 280 250 380"
-              stroke="#8eb0d8"
-              strokeWidth="0.8"
-              fill="none"
-              opacity="0.25"
-              strokeDasharray="6 4"
+              d="M350 80 L400 180 L440 250 L480 290 L500 310 L520 345 L560 410 L610 500 L650 580"
+              stroke="#8eb0d8" strokeWidth="2.5" fill="none" opacity="0.45"
+              strokeLinecap="round" strokeLinejoin="round"
+              filter="url(#cp-blur)"
             />
             <path
-              d="M540 190 Q620 280 650 380"
-              stroke="#e0be6a"
-              strokeWidth="0.8"
-              fill="none"
-              opacity="0.2"
-              strokeDasharray="6 4"
+              d="M350 80 L400 180 L440 250 L480 290 L500 310 L520 345 L560 410 L610 500 L650 580"
+              stroke="#8eb0d8" strokeWidth="1.5" fill="none" opacity="0.5"
+              strokeLinecap="round" strokeLinejoin="round"
             />
+            {/* Shadow fracture */}
             <path
-              d="M280 440 Q450 420 630 440"
-              stroke="#6b8fc0"
-              strokeWidth="0.8"
-              fill="none"
-              opacity="0.2"
-              strokeDasharray="6 4"
+              d="M356 88 L406 188 L446 258 L486 298 L506 318 L526 353 L566 418 L616 508"
+              stroke="#d4a843" strokeWidth="0.5" fill="none" opacity="0.15"
+              strokeDasharray="3 6"
             />
 
-            {/* Faultline fractures */}
+            {/* === SECONDARY FRACTURE === */}
             <path
-              d="M320 100 L370 180 L400 240 L430 280 L450 300 L470 330 L500 380 L540 460 L580 540"
-              stroke="#8eb0d8"
-              strokeWidth="2"
-              fill="none"
-              opacity="0.5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M325 105 L375 185 L405 245 L435 285 L455 305 L475 335 L505 385 L545 465"
-              stroke="#d4a843"
-              strokeWidth="0.6"
-              fill="none"
-              opacity="0.2"
-              strokeDasharray="3 5"
-            />
-
-            {/* Secondary fracture */}
-            <path
-              d="M150 250 L250 270 L350 290 L450 300 L550 290 L650 270 L750 250"
-              stroke="#4a6fa5"
-              strokeWidth="1"
-              fill="none"
-              opacity="0.2"
+              d="M120 280 L250 290 L380 300 L500 310 L620 300 L750 285 L880 270"
+              stroke="#4a6fa5" strokeWidth="1.2" fill="none" opacity="0.18"
               strokeLinecap="round"
             />
 
-            {/* Node clusters */}
-            {/* Orbital nodes */}
-            {[
-              [410, 150, 4],
-              [490, 160, 3],
-              [440, 180, 3],
-              [470, 140, 2],
-            ].map(([cx, cy, r], i) => (
-              <circle
-                key={`on-${i}`}
-                cx={cx}
-                cy={cy}
-                r={r}
-                fill="#4a6fa5"
-                opacity={0.5 - i * 0.1}
-              />
-            ))}
+            {/* === CENTRAL CONVERGENCE NODE === */}
+            <circle cx="500" cy="310" r="16" fill="none" stroke="#8eb0d8" strokeWidth="1.5" opacity="0.5" />
+            <circle cx="500" cy="310" r="8" fill="none" stroke="#8eb0d8" strokeWidth="0.6" opacity="0.35" />
+            <circle cx="500" cy="310" r="4" fill="#8eb0d8" opacity="0.65" />
 
-            {/* Nuclear nodes */}
-            {[
-              [260, 400, 4],
-              [220, 370, 3],
-              [300, 380, 3],
-              [250, 420, 2],
-            ].map(([cx, cy, r], i) => (
-              <circle
-                key={`nn-${i}`}
-                cx={cx}
-                cy={cy}
-                r={r}
-                fill="#6b8fc0"
-                opacity={0.5 - i * 0.1}
-              />
-            ))}
-
-            {/* Cyber nodes */}
-            {[
-              [640, 400, 4],
-              [680, 370, 3],
-              [610, 380, 3],
-              [660, 420, 2],
-            ].map(([cx, cy, r], i) => (
-              <circle
-                key={`cn-${i}`}
-                cx={cx}
-                cy={cy}
-                r={r}
-                fill="#d4a843"
-                opacity={0.4 - i * 0.08}
-              />
-            ))}
-
-            {/* Central convergence node */}
-            <circle
-              cx="450"
-              cy="300"
-              r="12"
-              fill="none"
-              stroke="#8eb0d8"
-              strokeWidth="1.5"
-              opacity="0.6"
-            />
-            <circle cx="450" cy="300" r="4" fill="#8eb0d8" opacity="0.7" />
-
-            {/* Labels along fault lines */}
-            <text
-              x="370"
-              y="260"
-              fill="#8eb0d8"
-              fontSize="8"
-              fontFamily="Inter, sans-serif"
-              opacity="0.45"
-              transform="rotate(-50 370 260)"
-            >
+            {/* === ANALYTICAL LABELS === */}
+            <text x="405" y="268" fill="#8eb0d8" fontSize="8" fontFamily="Inter, sans-serif" opacity="0.4" transform="rotate(-48 405 268)" letterSpacing="0.08em">
               ESCALATION PATHWAY
             </text>
-            <text
-              x="340"
-              y="340"
-              fill="#6b8fc0"
-              fontSize="8"
-              fontFamily="Inter, sans-serif"
-              opacity="0.4"
-            >
+            <text x="350" y="365" fill="#6b8fc0" fontSize="8" fontFamily="Inter, sans-serif" opacity="0.35" letterSpacing="0.08em">
               DEPENDENCIES
             </text>
-            <text
-              x="500"
-              y="340"
-              fill="#d4a843"
-              fontSize="8"
-              fontFamily="Inter, sans-serif"
-              opacity="0.35"
-            >
+            <text x="565" y="360" fill="#d4a843" fontSize="8" fontFamily="Inter, sans-serif" opacity="0.3" letterSpacing="0.08em">
               GOVERNANCE GAPS
             </text>
-            <text
-              x="410"
-              y="395"
-              fill="#8eb0d8"
-              fontSize="8"
-              fontFamily="Inter, sans-serif"
-              opacity="0.35"
-            >
+            <text x="445" y="425" fill="#8eb0d8" fontSize="7.5" fontFamily="Inter, sans-serif" opacity="0.3" letterSpacing="0.06em">
               INFRASTRUCTURAL COUPLING
             </text>
-
-            {/* Topographic contour hints */}
-            {[0, 1, 2, 3, 4].map((i) => (
-              <ellipse
-                key={`topo-${i}`}
-                cx={450}
-                cy={300}
-                rx={60 + i * 40}
-                ry={20 + i * 15}
-                stroke="#4a6fa5"
-                strokeWidth="0.3"
-                fill="none"
-                opacity={0.08 - i * 0.01}
-                transform={`rotate(${-15 + i * 5} 450 300)`}
-              />
-            ))}
+            <text x="540" y="265" fill="#4a6fa5" fontSize="7.5" fontFamily="Inter, sans-serif" opacity="0.25" letterSpacing="0.06em">
+              CROSS-DOMAIN EXPOSURE
+            </text>
           </svg>
         </div>
 
         {/* Caption */}
-        <p className="text-center text-steel-400/60 text-xs mt-8 tracking-wide">
-          Schematic representation of cross-domain convergence zones and
-          structural fault lines
+        <p className="text-center text-steel-400/50 text-xs mt-10 tracking-[0.05em]">
+          Structural convergence of cross-domain risk pathways and governance
+          fault lines
         </p>
       </div>
 
-      {/* Section divider */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-steel-500/15 to-transparent" />
     </section>
   );
