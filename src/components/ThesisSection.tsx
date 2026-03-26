@@ -11,56 +11,61 @@ export default function ThesisSection() {
           {/* Left: Diagram */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <ScrollReveal delay={200}>
-              <div className="relative lg:sticky lg:top-28">
+              <div className="relative lg:sticky lg:top-28 bg-slate-100/60 border border-navy-800/8 rounded p-6 lg:p-8">
                 <svg
                   viewBox="0 0 420 540"
                   fill="none"
-                  className="w-full max-w-[420px]"
+                  className="w-full"
                   role="img"
                   aria-label="Layered diagram showing escalation and spillover pathways between orbital, nuclear, and cyber infrastructure layers"
                 >
-                  <defs>
-                    <pattern id="thesis-grid" width="30" height="30" patternUnits="userSpaceOnUse">
-                      <path d="M 30 0 L 0 0 0 30" fill="none" stroke={C.navy[700]} strokeWidth="0.5" opacity="0.15" />
-                    </pattern>
-                  </defs>
-                  <rect x="40" y="40" width="340" height="460" fill="url(#thesis-grid)" opacity="0.4" />
-                  <line x1="210" y1="50" x2="210" y2="490" stroke={C.navy[700]} strokeWidth="0.5" opacity="0.15" />
-
                   {/* Orbital layer */}
-                  <rect x="60" y="60" width="300" height="110" fill={C.steel[500]} fillOpacity="0.06" stroke={C.steel[500]} strokeWidth="0.8" opacity="0.4" rx="2" />
-                  <text x="76" y="82" fill={C.navy[700]} fontSize="9" fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.12em">ORBITAL INFRASTRUCTURE</text>
-                  <circle cx="130" cy="120" r="5" fill={C.steel[500]} opacity="0.6" />
-                  <circle cx="210" cy="110" r="4" fill={C.steel[500]} opacity="0.5" />
-                  <circle cx="290" cy="125" r="3.5" fill={C.steel[500]} opacity="0.4" />
-                  <line x1="130" y1="120" x2="210" y2="110" stroke={C.steel[500]} strokeWidth="0.8" opacity="0.3" />
-                  <line x1="210" y1="110" x2="290" y2="125" stroke={C.steel[500]} strokeWidth="0.8" opacity="0.3" />
+                  <rect x="30" y="40" width="360" height="120" fill={C.steel[500]} fillOpacity="0.08" stroke={C.steel[500]} strokeWidth="1.5" rx="4" />
+                  <text x="50" y="66" fill={C.navy[800]} fontSize="11" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.1em">ORBITAL INFRASTRUCTURE</text>
+                  <circle cx="120" cy="110" r="8" fill={C.steel[500]} opacity="0.25" stroke={C.steel[500]} strokeWidth="1" />
+                  <circle cx="120" cy="110" r="3" fill={C.steel[500]} />
+                  <circle cx="210" cy="100" r="6" fill={C.steel[500]} opacity="0.2" stroke={C.steel[500]} strokeWidth="0.8" />
+                  <circle cx="210" cy="100" r="2.5" fill={C.steel[500]} />
+                  <circle cx="300" cy="115" r="5" fill={C.steel[500]} opacity="0.15" stroke={C.steel[500]} strokeWidth="0.8" />
+                  <circle cx="300" cy="115" r="2" fill={C.steel[500]} />
+                  <line x1="128" y1="110" x2="204" y2="100" stroke={C.steel[500]} strokeWidth="1.2" opacity="0.4" />
+                  <line x1="216" y1="100" x2="295" y2="115" stroke={C.steel[500]} strokeWidth="1.2" opacity="0.4" />
 
                   {/* Nuclear layer */}
-                  <rect x="60" y="210" width="300" height="110" fill={C.steel[400]} fillOpacity="0.06" stroke={C.steel[400]} strokeWidth="0.8" opacity="0.4" rx="2" />
-                  <text x="76" y="232" fill={C.navy[700]} fontSize="9" fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.12em">NUCLEAR INFRASTRUCTURE</text>
-                  <circle cx="140" cy="270" r="5.5" fill={C.steel[400]} opacity="0.55" />
-                  <circle cx="250" cy="260" r="4.5" fill={C.steel[400]} opacity="0.45" />
-                  <circle cx="310" cy="280" r="3.5" fill={C.steel[400]} opacity="0.35" />
+                  <rect x="30" y="210" width="360" height="120" fill={C.steel[400]} fillOpacity="0.08" stroke={C.steel[400]} strokeWidth="1.5" rx="4" />
+                  <text x="50" y="236" fill={C.navy[800]} fontSize="11" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.1em">NUCLEAR INFRASTRUCTURE</text>
+                  <circle cx="140" cy="280" r="8" fill={C.steel[400]} opacity="0.25" stroke={C.steel[400]} strokeWidth="1" />
+                  <circle cx="140" cy="280" r="3" fill={C.steel[400]} />
+                  <circle cx="250" cy="270" r="7" fill={C.steel[400]} opacity="0.2" stroke={C.steel[400]} strokeWidth="0.8" />
+                  <circle cx="250" cy="270" r="2.5" fill={C.steel[400]} />
+                  <circle cx="320" cy="290" r="5" fill={C.steel[400]} opacity="0.15" stroke={C.steel[400]} strokeWidth="0.8" />
+                  <circle cx="320" cy="290" r="2" fill={C.steel[400]} />
 
                   {/* Cyber layer */}
-                  <rect x="60" y="360" width="300" height="110" fill={C.gold[400]} fillOpacity="0.06" stroke={C.gold[400]} strokeWidth="0.8" opacity="0.35" rx="2" />
-                  <text x="76" y="382" fill={C.navy[700]} fontSize="9" fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.12em">CYBER OPERATIONS</text>
-                  <circle cx="170" cy="420" r="4.5" fill={C.gold[400]} opacity="0.5" />
-                  <circle cx="260" cy="410" r="3.5" fill={C.gold[400]} opacity="0.4" />
-                  <circle cx="200" cy="440" r="3" fill={C.gold[300]} opacity="0.3" />
+                  <rect x="30" y="380" width="360" height="120" fill={C.gold[400]} fillOpacity="0.08" stroke={C.gold[400]} strokeWidth="1.5" rx="4" />
+                  <text x="50" y="406" fill={C.navy[800]} fontSize="11" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.1em">CYBER OPERATIONS</text>
+                  <circle cx="170" cy="450" r="7" fill={C.gold[400]} opacity="0.25" stroke={C.gold[400]} strokeWidth="1" />
+                  <circle cx="170" cy="450" r="3" fill={C.gold[400]} />
+                  <circle cx="270" cy="440" r="6" fill={C.gold[400]} opacity="0.2" stroke={C.gold[400]} strokeWidth="0.8" />
+                  <circle cx="270" cy="440" r="2.5" fill={C.gold[400]} />
 
-                  {/* Cross-domain paths */}
-                  <path d="M130 125 C145 165 115 200 140 265" stroke={C.steel[500]} strokeWidth="1.5" fill="none" opacity="0.45" strokeDasharray="5 5" />
-                  <path d="M250 264 C260 310 210 345 170 416" stroke={C.gold[400]} strokeWidth="1.5" fill="none" opacity="0.35" strokeDasharray="5 5" />
-                  <path d="M290 129 C310 210 315 320 260 406" stroke={C.gold[500]} strokeWidth="1" fill="none" opacity="0.25" strokeDasharray="4 6" />
+                  {/* Cross-domain escalation paths */}
+                  <path d="M120 118 C135 165 100 200 140 272" stroke={C.steel[500]} strokeWidth="2" fill="none" opacity="0.5" strokeDasharray="6 5" />
+                  <path d="M250 277 C260 330 210 370 170 443" stroke={C.gold[400]} strokeWidth="2" fill="none" opacity="0.4" strokeDasharray="6 5" />
+                  <path d="M300 123 C325 230 330 340 270 433" stroke={C.gold[500]} strokeWidth="1.5" fill="none" opacity="0.3" strokeDasharray="5 6" />
 
-                  <text x="95" y="192" fill={C.navy[700]} fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500" opacity="0.6" letterSpacing="0.05em">ESCALATION</text>
-                  <text x="220" y="342" fill={C.navy[700]} fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500" opacity="0.5" letterSpacing="0.05em">SPILLOVER</text>
+                  {/* Escalation labels */}
+                  <rect x="72" y="180" width="90" height="20" rx="3" fill="white" stroke={C.steel[500]} strokeWidth="0.8" opacity="0.8" />
+                  <text x="117" y="194" textAnchor="middle" fill={C.navy[800]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.06em">ESCALATION</text>
 
-                  <circle cx="210" cy="265" r="10" fill="none" stroke={C.steel[500]} strokeWidth="1.2" opacity="0.5" />
-                  <circle cx="210" cy="265" r="3.5" fill={C.steel[500]} opacity="0.6" />
-                  <text x="226" y="269" fill={C.navy[800]} fontSize="8" fontFamily="Inter, sans-serif" fontWeight="600" opacity="0.6" letterSpacing="0.08em">FAULT LINE</text>
+                  <rect x="215" y="350" width="80" height="20" rx="3" fill="white" stroke={C.gold[400]} strokeWidth="0.8" opacity="0.8" />
+                  <text x="255" y="364" textAnchor="middle" fill={C.navy[800]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.06em">SPILLOVER</text>
+
+                  {/* Fault line convergence */}
+                  <circle cx="210" cy="275" r="14" fill="white" stroke={C.navy[700]} strokeWidth="1.5" />
+                  <circle cx="210" cy="275" r="5" fill={C.navy[700]} />
+                  <rect x="230" y="266" width="90" height="20" rx="3" fill={C.navy[800]} />
+                  <text x="275" y="280" textAnchor="middle" fill="white" fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.08em">FAULT LINE</text>
                 </svg>
               </div>
             </ScrollReveal>

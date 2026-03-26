@@ -22,17 +22,33 @@ export default function AboutSection() {
 
               <ScrollReveal delay={200}>
                 <div className="hidden lg:block mt-12">
-                  <svg viewBox="0 0 200 160" fill="none" className="w-48" aria-hidden="true">
-                    <circle cx="100" cy="20" r="6" stroke={C.steel[500]} strokeWidth="1.2" fill={C.steel[500]} fillOpacity="0.1" />
-                    <circle cx="40" cy="130" r="6" stroke={C.steel[400]} strokeWidth="1.2" fill={C.steel[400]} fillOpacity="0.1" />
-                    <circle cx="160" cy="130" r="6" stroke={C.gold[400]} strokeWidth="1.2" fill={C.gold[400]} fillOpacity="0.1" />
-                    <line x1="100" y1="26" x2="40" y2="124" stroke={C.steel[500]} strokeWidth="0.8" opacity="0.5" strokeDasharray="3 4" />
-                    <line x1="100" y1="26" x2="160" y2="124" stroke={C.steel[400]} strokeWidth="0.8" opacity="0.5" strokeDasharray="3 4" />
-                    <line x1="46" y1="130" x2="154" y2="130" stroke={C.gold[400]} strokeWidth="0.8" opacity="0.4" strokeDasharray="3 4" />
-                    <circle cx="100" cy="90" r="4" fill={C.steel[500]} opacity="0.5" />
-                    <text x="100" y="8" textAnchor="middle" fill={C.navy[700]} fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500">ORB</text>
-                    <text x="22" y="148" fill={C.navy[700]} fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500">NUC</text>
-                    <text x="160" y="148" textAnchor="middle" fill={C.navy[700]} fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500">CYB</text>
+                  <svg viewBox="0 0 280 240" fill="none" className="w-72" aria-hidden="true">
+                    {/* Background */}
+                    <rect x="10" y="10" width="260" height="220" rx="4" fill={C.navy[950]} fillOpacity="0.04" />
+
+                    {/* Domain nodes — larger, filled */}
+                    <circle cx="140" cy="40" r="14" fill={C.steel[500]} fillOpacity="0.12" stroke={C.steel[500]} strokeWidth="1.5" />
+                    <circle cx="50" cy="195" r="14" fill={C.steel[400]} fillOpacity="0.12" stroke={C.steel[400]} strokeWidth="1.5" />
+                    <circle cx="230" cy="195" r="14" fill={C.gold[400]} fillOpacity="0.12" stroke={C.gold[400]} strokeWidth="1.5" />
+
+                    {/* Inner dots */}
+                    <circle cx="140" cy="40" r="4" fill={C.steel[500]} />
+                    <circle cx="50" cy="195" r="4" fill={C.steel[400]} />
+                    <circle cx="230" cy="195" r="4" fill={C.gold[400]} />
+
+                    {/* Connecting lines */}
+                    <line x1="140" y1="54" x2="50" y2="181" stroke={C.steel[500]} strokeWidth="1.5" opacity="0.35" strokeDasharray="6 4" />
+                    <line x1="140" y1="54" x2="230" y2="181" stroke={C.steel[400]} strokeWidth="1.5" opacity="0.35" strokeDasharray="6 4" />
+                    <line x1="64" y1="195" x2="216" y2="195" stroke={C.gold[400]} strokeWidth="1.5" opacity="0.3" strokeDasharray="6 4" />
+
+                    {/* Center convergence */}
+                    <circle cx="140" cy="135" r="10" fill="none" stroke={C.navy[700]} strokeWidth="1.5" opacity="0.4" />
+                    <circle cx="140" cy="135" r="4" fill={C.navy[700]} opacity="0.5" />
+
+                    {/* Labels */}
+                    <text x="140" y="18" textAnchor="middle" fill={C.navy[800]} fontSize="11" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.1em">ORBITAL</text>
+                    <text x="50" y="222" textAnchor="middle" fill={C.navy[800]} fontSize="11" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.1em">NUCLEAR</text>
+                    <text x="230" y="222" textAnchor="middle" fill={C.navy[800]} fontSize="11" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.1em">CYBER</text>
                   </svg>
                 </div>
               </ScrollReveal>

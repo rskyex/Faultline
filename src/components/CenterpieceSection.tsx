@@ -37,22 +37,25 @@ export default function CenterpieceSection() {
       <div className="relative py-16 lg:py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
           <ScrollReveal delay={150} distance={16}>
+            {/* Diagram in a card for contrast */}
+            <div className="bg-white/95 border border-navy-800/8 rounded p-4 lg:p-8">
+
             {/* Mobile */}
             <div className="block md:hidden">
               <svg viewBox="0 0 400 360" fill="none" className="w-full max-w-[400px] mx-auto" role="img" aria-label="Simplified cross-domain convergence diagram">
                 <circle cx="200" cy="60" r="8" fill={C.steel[500]} opacity="0.6" />
-                <text x="200" y="40" textAnchor="middle" fill={C.navy[700]} fontSize="9" fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.12em">ORBITAL</text>
+                <text x="200" y="40" textAnchor="middle" fill={C.navy[700]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.12em">ORBITAL</text>
                 <circle cx="90" cy="280" r="8" fill={C.steel[400]} opacity="0.6" />
-                <text x="90" y="310" textAnchor="middle" fill={C.navy[700]} fontSize="9" fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.12em">NUCLEAR</text>
+                <text x="90" y="310" textAnchor="middle" fill={C.navy[700]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.12em">NUCLEAR</text>
                 <circle cx="310" cy="280" r="8" fill={C.gold[400]} opacity="0.55" />
-                <text x="310" y="310" textAnchor="middle" fill={C.navy[700]} fontSize="9" fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.12em">CYBER</text>
+                <text x="310" y="310" textAnchor="middle" fill={C.navy[700]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.12em">CYBER</text>
                 <line x1="200" y1="68" x2="90" y2="272" stroke={C.steel[500]} strokeWidth="1" opacity="0.3" strokeDasharray="4 5" />
                 <line x1="200" y1="68" x2="310" y2="272" stroke={C.steel[400]} strokeWidth="1" opacity="0.3" strokeDasharray="4 5" />
                 <line x1="98" y1="280" x2="302" y2="280" stroke={C.gold[400]} strokeWidth="1" opacity="0.25" strokeDasharray="4 5" />
                 <circle cx="200" cy="180" r="12" fill="none" stroke={C.steel[500]} strokeWidth="1.5" opacity="0.5" />
                 <circle cx="200" cy="180" r="4" fill={C.steel[500]} opacity="0.6" />
                 <path d="M150 40 L175 110 L190 160 L200 180 L210 210 L230 270 L250 330" stroke={C.steel[500]} strokeWidth="1.5" fill="none" opacity="0.5" strokeLinecap="round" />
-                <text x="220" y="175" fill={C.navy[700]} fontSize="7.5" fontFamily="Inter, sans-serif" fontWeight="500" opacity="0.6">FAULT LINE</text>
+                <text x="220" y="175" fill={C.navy[700]} fontSize="7.5" fontFamily="DM Sans, sans-serif" fontWeight="600" opacity="0.6">FAULT LINE</text>
               </svg>
             </div>
 
@@ -82,24 +85,24 @@ export default function CenterpieceSection() {
                 ))}
 
                 {/* Orbital */}
-                <path d="M500 70 L380 210 L620 210 Z" stroke={C.steel[500]} strokeWidth="0.8" fill={C.steel[500]} fillOpacity="0.04" />
-                <text x="500" y="120" textAnchor="middle" fill={C.navy[700]} fontSize="11" fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.15em" opacity="0.7">ORBITAL</text>
-                {[[460,160,4.5],[540,150,3.5],[500,175,3],[520,130,2.5]].map(([cx,cy,r],i)=>(
-                  <circle key={`on-${i}`} cx={cx} cy={cy} r={r} fill={C.steel[500]} opacity={0.5-i*0.1}/>
+                <path d="M500 70 L380 210 L620 210 Z" stroke={C.steel[500]} strokeWidth="1.5" fill={C.steel[500]} fillOpacity="0.06" />
+                <text x="500" y="118" textAnchor="middle" fill={C.navy[800]} fontSize="12" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.15em">ORBITAL</text>
+                {[[460,160,6],[540,150,5],[500,175,4.5],[520,130,3.5]].map(([cx,cy,r],i)=>(
+                  <circle key={`on-${i}`} cx={cx} cy={cy} r={r} fill={C.steel[500]} opacity={0.6-i*0.1}/>
                 ))}
 
                 {/* Nuclear */}
-                <path d="M200 540 L320 380 L140 360 Z" stroke={C.steel[400]} strokeWidth="0.8" fill={C.steel[400]} fillOpacity="0.04" />
-                <text x="210" y="520" textAnchor="middle" fill={C.navy[700]} fontSize="11" fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.15em" opacity="0.7">NUCLEAR</text>
-                {[[260,420,5],[220,400,3.5],[300,410,3],[240,460,2.5]].map(([cx,cy,r],i)=>(
-                  <circle key={`nn-${i}`} cx={cx} cy={cy} r={r} fill={C.steel[400]} opacity={0.45-i*0.08}/>
+                <path d="M200 540 L320 380 L140 360 Z" stroke={C.steel[400]} strokeWidth="1.5" fill={C.steel[400]} fillOpacity="0.06" />
+                <text x="210" y="518" textAnchor="middle" fill={C.navy[800]} fontSize="12" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.15em">NUCLEAR</text>
+                {[[260,420,6.5],[220,400,5],[300,410,4.5],[240,460,3.5]].map(([cx,cy,r],i)=>(
+                  <circle key={`nn-${i}`} cx={cx} cy={cy} r={r} fill={C.steel[400]} opacity={0.55-i*0.08}/>
                 ))}
 
                 {/* Cyber */}
-                <path d="M800 540 L680 380 L860 360 Z" stroke={C.gold[400]} strokeWidth="0.8" fill={C.gold[400]} fillOpacity="0.035" />
-                <text x="790" y="520" textAnchor="middle" fill={C.navy[700]} fontSize="11" fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.15em" opacity="0.65">CYBER</text>
-                {[[740,420,4.5],[780,400,3.5],[710,410,3],[760,460,2.5]].map(([cx,cy,r],i)=>(
-                  <circle key={`cn-${i}`} cx={cx} cy={cy} r={r} fill={C.gold[400]} opacity={0.4-i*0.07}/>
+                <path d="M800 540 L680 380 L860 360 Z" stroke={C.gold[400]} strokeWidth="1.5" fill={C.gold[400]} fillOpacity="0.05" />
+                <text x="790" y="518" textAnchor="middle" fill={C.navy[800]} fontSize="12" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.15em">CYBER</text>
+                {[[740,420,6],[780,400,5],[710,410,4.5],[760,460,3.5]].map(([cx,cy,r],i)=>(
+                  <circle key={`cn-${i}`} cx={cx} cy={cy} r={r} fill={C.gold[400]} opacity={0.5-i*0.08}/>
                 ))}
 
                 {/* Lines */}
@@ -128,14 +131,16 @@ export default function CenterpieceSection() {
                 <circle cx="500" cy="310" r="4" fill={C.steel[500]} opacity="0.6" className="animate-gentle-pulse" style={{ transformOrigin: '500px 310px' }} />
 
                 {/* Labels */}
-                <text x="405" y="268" fill={C.navy[700]} fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500" opacity="0.55" transform="rotate(-48 405 268)" letterSpacing="0.08em">ESCALATION PATHWAY</text>
-                <text x="350" y="365" fill={C.navy[700]} fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500" opacity="0.45" letterSpacing="0.08em">DEPENDENCIES</text>
-                <text x="565" y="360" fill={C.navy[700]} fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500" opacity="0.4" letterSpacing="0.08em">GOVERNANCE GAPS</text>
-                <text x="445" y="425" fill={C.navy[700]} fontSize="7.5" fontFamily="Inter, sans-serif" opacity="0.4" letterSpacing="0.06em">INFRASTRUCTURAL COUPLING</text>
+                <text x="405" y="268" fill={C.navy[800]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" opacity="0.7" transform="rotate(-48 405 268)" letterSpacing="0.08em">ESCALATION PATHWAY</text>
+                <text x="350" y="365" fill={C.navy[800]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" opacity="0.6" letterSpacing="0.08em">DEPENDENCIES</text>
+                <text x="565" y="360" fill={C.navy[800]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" opacity="0.55" letterSpacing="0.08em">GOVERNANCE GAPS</text>
+                <text x="445" y="425" fill={C.navy[700]} fontSize="8.5" fontFamily="DM Sans, sans-serif" fontWeight="600" opacity="0.5" letterSpacing="0.06em">INFRASTRUCTURAL COUPLING</text>
               </svg>
             </div>
 
-            <p className="text-center text-navy-600/50 text-xs mt-10 tracking-[0.05em]">
+            </div>{/* close card wrapper */}
+
+            <p className="text-center text-white/40 text-xs mt-8 tracking-[0.05em]">
               Structural convergence of cross-domain risk pathways and governance fault lines
             </p>
           </ScrollReveal>
