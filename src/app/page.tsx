@@ -6,7 +6,6 @@ import QuoteStrip from "@/components/QuoteStrip";
 import ThesisSection from "@/components/ThesisSection";
 import CenterpieceSection from "@/components/CenterpieceSection";
 import RevealsSection from "@/components/RevealsSection";
-import CTASection from "@/components/CTASection";
 import CreatorSection from "@/components/CreatorSection";
 import Footer from "@/components/Footer";
 
@@ -48,7 +47,6 @@ export default function Home() {
         <ThesisSection />
         <CenterpieceSection />
         <RevealsSection />
-        <CTASection />
         <CreatorSection />
       </main>
       <Footer />

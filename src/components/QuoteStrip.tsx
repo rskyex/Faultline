@@ -15,8 +15,6 @@ export default function QuoteStrip() {
           backgroundPosition: "center",
         }}
       />
-      <div className="absolute inset-0 bg-navy-950/70" />
-
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto text-center">
