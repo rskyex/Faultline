@@ -17,12 +17,21 @@ export const metadata: Metadata = {
       "Mapping the dependencies, escalation pathways, and governance fractures across orbital, nuclear, and cyber systems.",
     type: "website",
     siteName: "Faultline",
+    images: [
+      {
+        url: "/images/faultline-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Faultline — Cross-Domain Strategic Infrastructure Mapping",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Faultline — Cross-Domain Strategic Infrastructure Mapping",
     description:
       "Mapping the dependencies, escalation pathways, and governance fractures across orbital, nuclear, and cyber systems.",
+    images: ["/images/faultline-og.png"],
   },
   metadataBase: new URL("https://faultline.vercel.app"),
 };
