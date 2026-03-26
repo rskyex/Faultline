@@ -43,8 +43,8 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <DomainsSection />
-        <QuoteStrip />
         <ThesisSection />
+        <QuoteStrip />
         <CenterpieceSection />
         <RevealsSection />
         <CreatorSection />
