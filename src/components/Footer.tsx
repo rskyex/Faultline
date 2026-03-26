@@ -30,7 +30,7 @@ export default function Footer() {
                   Faultline
                 </span>
               </div>
-              <p className="text-steel-400/80 text-sm leading-[1.7] max-w-sm">
+              <p className="text-slate-200/60 text-sm leading-[1.7] max-w-sm">
                 Cross-domain strategic infrastructure mapping. Revealing the
                 dependencies, escalation pathways, and governance fractures across
                 orbital, nuclear, and cyber systems.

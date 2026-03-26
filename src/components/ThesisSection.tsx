@@ -92,7 +92,7 @@ export default function ThesisSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <p className="text-base leading-[1.7] text-steel-400">
+              <p className="text-base leading-[1.7] text-slate-200/65">
                 A disruption in orbital systems can degrade nuclear
                 command-and-control. A cyber operation against energy grids can
                 alter nuclear posture calculations. Misperception in one domain
@@ -105,15 +105,15 @@ export default function ThesisSection() {
               <div className="space-y-5 pt-6">
                 <div className="pl-5 border-l-2 border-steel-500/25">
                   <p className="text-white text-sm font-medium mb-1.5">Infrastructure interdependence creates risk spillover</p>
-                  <p className="text-steel-400 text-sm leading-[1.7]">Systems designed independently now share physical links, data pathways, and supply chains that transmit disruption across boundaries.</p>
+                  <p className="text-slate-200/70 text-sm leading-[1.7]">Systems designed independently now share physical links, data pathways, and supply chains that transmit disruption across boundaries.</p>
                 </div>
                 <div className="pl-5 border-l-2 border-steel-400/25">
                   <p className="text-white text-sm font-medium mb-1.5">Escalation travels through technical and political coupling</p>
-                  <p className="text-steel-400 text-sm leading-[1.7]">A failure or attack in one domain can reshape calculations and responses in others, often through indirect and poorly understood channels.</p>
+                  <p className="text-slate-200/70 text-sm leading-[1.7]">A failure or attack in one domain can reshape calculations and responses in others, often through indirect and poorly understood channels.</p>
                 </div>
                 <div className="pl-5 border-l-2 border-gold-400/25">
                   <p className="text-white text-sm font-medium mb-1.5">Governance institutions remain fragmented by sector</p>
-                  <p className="text-steel-400 text-sm leading-[1.7]">Regulatory and diplomatic frameworks still operate within domain silos, leaving cross-domain risks systematically under-governed.</p>
+                  <p className="text-slate-200/70 text-sm leading-[1.7]">Regulatory and diplomatic frameworks still operate within domain silos, leaving cross-domain risks systematically under-governed.</p>
                 </div>
               </div>
             </ScrollReveal>

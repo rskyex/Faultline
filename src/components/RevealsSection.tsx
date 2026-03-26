@@ -28,7 +28,7 @@ export default function RevealsSection() {
               <h3 className="text-lg font-semibold text-white mb-3 tracking-[-0.01em]">
                 Cross-Domain Dependencies
               </h3>
-              <p className="text-sm text-steel-400 leading-[1.75]">
+              <p className="text-sm text-slate-200/65 leading-[1.75]">
                 Orbital communication links underpin nuclear command-and-control.
                 Cyber networks enable satellite operations. Energy grids sustain
                 all three. Faultline maps these dependencies to show where
@@ -46,7 +46,7 @@ export default function RevealsSection() {
               <h3 className="text-lg font-semibold text-white mb-3 tracking-[-0.01em]">
                 Escalation Transfer
               </h3>
-              <p className="text-sm text-steel-400 leading-[1.75]">
+              <p className="text-sm text-slate-200/65 leading-[1.75]">
                 A cyber intrusion into early-warning systems can trigger nuclear
                 miscalculation. Anti-satellite operations can sever the
                 communications that prevent escalation. These are not
@@ -65,7 +65,7 @@ export default function RevealsSection() {
               <h3 className="text-lg font-semibold text-white mb-3 tracking-[-0.01em]">
                 Shared Pressure Points
               </h3>
-              <p className="text-sm text-steel-400 leading-[1.75]">
+              <p className="text-sm text-slate-200/65 leading-[1.75]">
                 Certain nodes&mdash;undersea cables, ground stations, enrichment
                 facilities, critical data centers&mdash;sit at the intersection of
                 multiple domains. Their compromise generates cascading effects that
@@ -83,7 +83,7 @@ export default function RevealsSection() {
               <h3 className="text-lg font-semibold text-white mb-3 tracking-[-0.01em]">
                 Governance Fragmentation
               </h3>
-              <p className="text-sm text-steel-400 leading-[1.75]">
+              <p className="text-sm text-slate-200/65 leading-[1.75]">
                 Space governance, nuclear diplomacy, and cyber norms operate in
                 separate institutional tracks. This fragmentation leaves
                 cross-domain risks&mdash;the most dangerous kind&mdash;systematically

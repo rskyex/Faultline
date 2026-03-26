@@ -60,7 +60,7 @@ export default function DomainsSection() {
               <div className="p-8 lg:p-10 flex flex-col flex-1">
                 <p className="text-steel-300 text-xs font-medium tracking-[0.2em] uppercase mb-3">Orbital</p>
                 <h3 className="text-xl font-semibold text-white mb-4 leading-snug group-hover:text-steel-300 transition-colors duration-300">Orbital Risk Tracker</h3>
-                <p className="text-sm text-steel-400 leading-[1.7] mb-8 flex-1">
+                <p className="text-sm text-slate-200/60 leading-[1.7] mb-8 flex-1">
                   Mapping satellite constellations, orbital debris fields, and the strategic vulnerabilities of space-based infrastructure.
                 </p>
                 <span className="inline-flex items-center gap-2 text-sm font-medium text-steel-300/70 group-hover:text-white transition-all duration-300 group-hover:gap-3">
@@ -89,7 +89,7 @@ export default function DomainsSection() {
               <div className="p-8 lg:p-10 flex flex-col flex-1">
                 <p className="text-steel-300 text-xs font-medium tracking-[0.2em] uppercase mb-3">Nuclear</p>
                 <h3 className="text-xl font-semibold text-white mb-4 leading-snug group-hover:text-steel-300 transition-colors duration-300">Global Nuclear Infrastructure Atlas</h3>
-                <p className="text-sm text-steel-400 leading-[1.7] mb-8 flex-1">
+                <p className="text-sm text-slate-200/60 leading-[1.7] mb-8 flex-1">
                   A geospatial atlas of global nuclear facilities, enrichment sites, reactor networks, and strategic posture.
                 </p>
                 <span className="inline-flex items-center gap-2 text-sm font-medium text-steel-300/70 group-hover:text-white transition-all duration-300 group-hover:gap-3">
@@ -118,7 +118,7 @@ export default function DomainsSection() {
               <div className="p-8 lg:p-10 flex flex-col flex-1">
                 <p className="text-gold-400 text-xs font-medium tracking-[0.2em] uppercase mb-3">Cyber</p>
                 <h3 className="text-xl font-semibold text-white mb-4 leading-snug group-hover:text-gold-300 transition-colors duration-300">Cyber Escalation Atlas</h3>
-                <p className="text-sm text-steel-400 leading-[1.7] mb-8 flex-1">
+                <p className="text-sm text-slate-200/60 leading-[1.7] mb-8 flex-1">
                   Charting cyber operations, escalation dynamics, and the pathways through which digital disruption cascades into strategic consequence.
                 </p>
                 <span className="inline-flex items-center gap-2 text-sm font-medium text-gold-400/60 group-hover:text-white transition-all duration-300 group-hover:gap-3">

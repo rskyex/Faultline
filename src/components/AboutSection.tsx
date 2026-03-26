@@ -50,7 +50,7 @@ export default function AboutSection() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={200}>
-              <p className="text-base leading-relaxed text-steel-400">
+              <p className="text-base leading-relaxed text-slate-200/65">
                 Each platform maps one domain in depth. Faultline provides the
                 connective layer&mdash;identifying where dependencies accumulate,
                 where escalation pathways cross boundaries, and where governance
@@ -63,15 +63,15 @@ export default function AboutSection() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10">
                 <div className="border-t border-steel-500/25 pt-5">
                   <p className="text-steel-300 text-xs font-medium tracking-[0.15em] uppercase mb-2.5">Orbital</p>
-                  <p className="text-sm text-steel-400 leading-relaxed">Space systems, satellite infrastructure, and orbital risk dynamics</p>
+                  <p className="text-sm text-slate-200/60 leading-relaxed">Space systems, satellite infrastructure, and orbital risk dynamics</p>
                 </div>
                 <div className="border-t border-steel-500/25 pt-5">
                   <p className="text-steel-300 text-xs font-medium tracking-[0.15em] uppercase mb-2.5">Nuclear</p>
-                  <p className="text-sm text-steel-400 leading-relaxed">Global nuclear infrastructure, facilities, and strategic posture</p>
+                  <p className="text-sm text-slate-200/60 leading-relaxed">Global nuclear infrastructure, facilities, and strategic posture</p>
                 </div>
                 <div className="border-t border-gold-400/25 pt-5">
                   <p className="text-gold-400 text-xs font-medium tracking-[0.15em] uppercase mb-2.5">Cyber</p>
-                  <p className="text-sm text-steel-400 leading-relaxed">Cyber operations, escalation patterns, and attack surface mapping</p>
+                  <p className="text-sm text-slate-200/60 leading-relaxed">Cyber operations, escalation patterns, and attack surface mapping</p>
                 </div>
               </div>
             </ScrollReveal>
