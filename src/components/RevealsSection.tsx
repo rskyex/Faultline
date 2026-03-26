@@ -15,6 +15,7 @@ export default function RevealsSection() {
           backgroundPosition: "center 60%",
         }}
       />
+      <div className="absolute inset-0 bg-navy-950/50" />
 
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
         <ScrollReveal>

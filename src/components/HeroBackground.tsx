@@ -12,6 +12,8 @@ export default function HeroBackground() {
           backgroundPosition: "center 40%",
         }}
       />
+      {/* Darken overlay for text readability */}
+      <div className="absolute inset-0 bg-navy-950/50" />
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-950 to-transparent" />
     </div>
