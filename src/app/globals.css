@@ -130,6 +130,28 @@
   animation: gentlePulse 4s ease-in-out infinite;
 }
 
+/* Reduced motion: disable all animations for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-line-grow,
+  .animate-slow-rotate,
+  .animate-slow-rotate-reverse,
+  .animate-gentle-pulse {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

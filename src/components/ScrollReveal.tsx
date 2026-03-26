@@ -19,6 +19,16 @@ export default function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
+    // Respect prefers-reduced-motion
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReduced) {
+      el.style.opacity = "1";
+      return;
+    }
+
     el.style.opacity = "0";
     el.style.transform = `translateY(${distance}px)`;
     el.style.transition = `opacity 0.7s ease-out ${delay}ms, transform 0.7s ease-out ${delay}ms`;

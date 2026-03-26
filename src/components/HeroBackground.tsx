@@ -66,6 +66,18 @@ export default function HeroBackground() {
         }}
       />
 
+      {/* Optional hero image — uncomment when /images/hero-terrain.png is available */}
+      {/* <div
+        className="absolute inset-0 opacity-[0.07] mix-blend-luminosity"
+        style={{
+          backgroundImage: "url(/images/hero-terrain.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center 60%",
+          maskImage: "radial-gradient(ellipse 80% 70% at 65% 50%, black 20%, transparent 70%)",
+          WebkitMaskImage: "radial-gradient(ellipse 80% 70% at 65% 50%, black 20%, transparent 70%)",
+        }}
+      /> */}
+
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-navy-950 to-transparent" />
     </div>

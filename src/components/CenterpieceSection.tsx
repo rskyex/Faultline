@@ -6,6 +6,19 @@ import ScrollReveal from "./ScrollReveal";
 export default function CenterpieceSection() {
   return (
     <section className="relative py-28 lg:py-44 bg-navy-900/30 overflow-hidden">
+      {/* Optional background image — uncomment when /images/systems-dark.png is available */}
+      {/* <div
+        className="absolute inset-0 opacity-[0.08] mix-blend-screen"
+        aria-hidden="true"
+        style={{
+          backgroundImage: "url(/images/systems-dark.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          maskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%)",
+        }}
+      /> */}
+
       <div className="absolute inset-0 opacity-[0.025]" aria-hidden="true">
         <svg className="w-full h-full" preserveAspectRatio="none">
           <defs>
@@ -29,7 +42,48 @@ export default function CenterpieceSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={150} distance={16}>
-          <div className="relative flex justify-center">
+          {/* Mobile simplified version */}
+          <div className="block md:hidden mb-8">
+            <svg viewBox="0 0 400 360" fill="none" className="w-full max-w-[400px] mx-auto" role="img" aria-label="Simplified cross-domain convergence diagram">
+              <defs>
+                <radialGradient id="cp-m-glow" cx="0.5" cy="0.5" r="0.45">
+                  <stop offset="0%" stopColor={C.steel[500]} stopOpacity="0.1" />
+                  <stop offset="100%" stopColor={C.navy[950]} stopOpacity="0" />
+                </radialGradient>
+              </defs>
+              <circle cx="200" cy="180" r="160" fill="url(#cp-m-glow)" />
+
+              {/* Three domain nodes */}
+              <circle cx="200" cy="60" r="8" fill={C.steel[500]} opacity="0.5" />
+              <text x="200" y="40" textAnchor="middle" fill={C.steel[500]} fontSize="9" fontFamily="Inter, sans-serif" opacity="0.6" letterSpacing="0.12em">ORBITAL</text>
+
+              <circle cx="90" cy="280" r="8" fill={C.steel[400]} opacity="0.5" />
+              <text x="90" y="310" textAnchor="middle" fill={C.steel[400]} fontSize="9" fontFamily="Inter, sans-serif" opacity="0.6" letterSpacing="0.12em">NUCLEAR</text>
+
+              <circle cx="310" cy="280" r="8" fill={C.gold[400]} opacity="0.45" />
+              <text x="310" y="310" textAnchor="middle" fill={C.gold[400]} fontSize="9" fontFamily="Inter, sans-serif" opacity="0.55" letterSpacing="0.12em">CYBER</text>
+
+              {/* Connecting lines */}
+              <line x1="200" y1="68" x2="90" y2="272" stroke={C.steel[500]} strokeWidth="0.8" opacity="0.25" strokeDasharray="4 5" />
+              <line x1="200" y1="68" x2="310" y2="272" stroke={C.steel[400]} strokeWidth="0.8" opacity="0.25" strokeDasharray="4 5" />
+              <line x1="98" y1="280" x2="302" y2="280" stroke={C.gold[400]} strokeWidth="0.8" opacity="0.2" strokeDasharray="4 5" />
+
+              {/* Center convergence */}
+              <circle cx="200" cy="180" r="12" fill="none" stroke={C.steel[300]} strokeWidth="1.2" opacity="0.5" />
+              <circle cx="200" cy="180" r="4" fill={C.steel[300]} opacity="0.6" />
+
+              {/* Fault line */}
+              <path d="M150 40 L175 110 L190 160 L200 180 L210 210 L230 270 L250 330" stroke={C.steel[300]} strokeWidth="1.5" fill="none" opacity="0.4" strokeLinecap="round" />
+
+              {/* Labels */}
+              <text x="230" y="170" fill={C.steel[300]} fontSize="7" fontFamily="Inter, sans-serif" opacity="0.35" letterSpacing="0.06em">FAULT LINE</text>
+              <text x="120" y="220" fill={C.steel[400]} fontSize="6.5" fontFamily="Inter, sans-serif" opacity="0.3" letterSpacing="0.05em">DEPENDENCIES</text>
+              <text x="230" y="240" fill={C.gold[400]} fontSize="6.5" fontFamily="Inter, sans-serif" opacity="0.25" letterSpacing="0.05em">GOVERNANCE GAPS</text>
+            </svg>
+          </div>
+
+          {/* Desktop full version */}
+          <div className="relative hidden md:flex justify-center">
             <svg
               viewBox="0 0 1000 650"
               fill="none"
