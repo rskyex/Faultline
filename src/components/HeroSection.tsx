@@ -10,16 +10,16 @@ export default function HeroSection() {
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 pt-24 pb-20 lg:py-32">
         <div className="max-w-3xl space-y-7">
-          <div className="flex items-center gap-5 animate-fade-in-up">
+          <div className="flex items-center gap-6 animate-fade-in-up">
             <Image
               src="/images/logo.png"
               alt="Faultline"
-              width={72}
-              height={72}
-              className="w-[72px] h-[72px]"
+              width={88}
+              height={88}
+              className="w-[80px] h-[80px] md:w-[88px] md:h-[88px]"
               priority
             />
-            <h1 className="wordmark text-5xl md:text-6xl lg:text-8xl text-white leading-none drop-shadow-lg">
+            <h1 className="wordmark text-6xl md:text-7xl lg:text-9xl text-white leading-none drop-shadow-lg">
               Faultline
             </h1>
           </div>

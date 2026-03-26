@@ -1,5 +1,4 @@
 import Image from "next/image";
-import FaultlineLogo from "@/components/FaultlineLogo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { notFound } from "next/navigation";
@@ -229,7 +228,7 @@ export default async function PlatformPage({
         {/* CTA */}
         <section className="relative py-20 lg:py-28 border-t border-steel-500/10">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center">
-            <FaultlineLogo size={40} className="mx-auto mb-8" />
+            <Image src="/images/logo-black.png" alt="Faultline" width={40} height={40} className="mx-auto mb-8 w-10 h-10" />
             <p className="text-steel-400 text-sm mb-6">
               Explore the other strategic layers
             </p>

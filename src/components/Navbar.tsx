@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import FaultlineLogo from "./FaultlineLogo";
+import Image from "next/image";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -27,7 +27,7 @@ export default function Navbar() {
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 h-16 flex items-center justify-between">
         {/* Brand */}
         <a href="/" className="flex items-center gap-3 group">
-          <FaultlineLogo size={26} />
+          <Image src="/images/logo.png" alt="Faultline" width={26} height={26} className="w-[26px] h-[26px]" />
           <span className="wordmark text-white text-sm group-hover:text-steel-300 transition-colors duration-200">
             Faultline
           </span>
