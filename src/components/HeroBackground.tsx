@@ -7,7 +7,7 @@ export default function HeroBackground() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: "url(/images/topo-dark.png)",
+          backgroundImage: "url(/images/systems-dark.png)",
           backgroundSize: "cover",
           backgroundPosition: "center 40%",
         }}

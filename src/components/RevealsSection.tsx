@@ -10,7 +10,7 @@ export default function RevealsSection() {
         className="absolute inset-0"
         aria-hidden="true"
         style={{
-          backgroundImage: "url(/images/topo-dark.png)",
+          backgroundImage: "url(/images/systems-dark.png)",
           backgroundSize: "cover",
           backgroundPosition: "center 60%",
         }}
@@ -22,7 +22,7 @@ export default function RevealsSection() {
             <p className="text-gold-300 text-xs font-medium tracking-[0.2em] uppercase mb-4">
               Analytical Framework
             </p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-white leading-tight tracking-[-0.01em]">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-[-0.01em]">
               What the Platform Reveals
             </h2>
             <div className="mt-6 w-16 h-px bg-white/25" />

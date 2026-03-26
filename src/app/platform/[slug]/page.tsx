@@ -104,7 +104,7 @@ export default async function PlatformPage({
             className="absolute inset-0 opacity-[0.03]"
             aria-hidden="true"
             style={{
-              backgroundImage: "url(/images/systems-dark.png)",
+              backgroundImage: "url(/images/topo-dark.png)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

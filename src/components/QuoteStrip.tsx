@@ -10,7 +10,7 @@ export default function QuoteStrip() {
         className="absolute inset-0"
         aria-hidden="true"
         style={{
-          backgroundImage: "url(/images/systems-dark.png)",
+          backgroundImage: "url(/images/topo-dark.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

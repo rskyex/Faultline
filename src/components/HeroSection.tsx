@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { C } from "@/lib/colors";
 import HeroBackground from "./HeroBackground";
 
 export default function HeroSection() {
@@ -15,21 +14,21 @@ export default function HeroSection() {
             <Image
               src="/images/logo.png"
               alt="Faultline"
-              width={64}
-              height={64}
-              className="w-16 h-16"
+              width={72}
+              height={72}
+              className="w-[72px] h-[72px]"
               priority
             />
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-[-0.02em] text-white leading-none drop-shadow-lg">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold tracking-[-0.03em] text-white leading-none drop-shadow-lg">
               Faultline
             </h1>
           </div>
 
-          <p className="text-white/80 text-sm md:text-base font-normal tracking-[0.25em] uppercase animate-fade-in-up animate-delay-100">
+          <p className="text-white text-lg md:text-xl font-medium tracking-[0.15em] uppercase animate-fade-in-up animate-delay-100">
             Cross-Domain Strategic Infrastructure Mapping
           </p>
 
-          <div className="w-20 h-px bg-white/30 animate-line-grow animate-delay-200" />
+          <div className="w-24 h-[2px] bg-white/50 animate-line-grow animate-delay-200" />
 
           <p className="text-xl md:text-2xl leading-[1.6] text-white/90 max-w-2xl font-serif-accent font-normal animate-fade-in-up animate-delay-300 drop-shadow-sm">
             Orbital, nuclear, and cyber systems do not fail in isolation.
@@ -37,10 +36,10 @@ export default function HeroSection() {
             governance fractures that emerge across them.
           </p>
 
-          <div className="flex flex-wrap gap-4 pt-2 animate-fade-in-up animate-delay-400">
+          <div className="flex flex-wrap gap-4 pt-4 animate-fade-in-up animate-delay-400">
             <a
               href="#domains"
-              className="inline-flex items-center gap-3 px-7 py-3.5 bg-white/10 backdrop-blur-sm border border-white/25 text-white text-sm font-medium tracking-[0.05em] hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-navy-950 text-sm font-semibold tracking-[0.03em] hover:bg-white/90 transition-all duration-300 shadow-lg"
             >
               Explore the Domains
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -49,7 +48,7 @@ export default function HeroSection() {
             </a>
             <a
               href="#thesis"
-              className="inline-flex items-center gap-2 px-6 py-3.5 text-white/70 text-sm font-medium tracking-[0.05em] hover:text-white transition-colors duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 text-white text-sm font-semibold tracking-[0.03em] border-2 border-white/40 hover:border-white/70 hover:bg-white/10 transition-all duration-300"
             >
               Why Cross-Domain Analysis
             </a>

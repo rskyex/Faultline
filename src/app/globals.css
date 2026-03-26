@@ -15,9 +15,11 @@
   --color-gold-400: #d4a843;
   --color-gold-300: #e0be6a;
 
-  --font-heading: "Inter", system-ui, -apple-system, sans-serif;
+  --font-heading: "DM Sans", system-ui, -apple-system, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
   --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  --font-family-heading: "DM Sans", system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
@@ -31,6 +33,10 @@
     background-color: var(--color-navy-950);
     color: var(--color-slate-200);
     font-family: var(--font-body);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-heading);
   }
 
   ::selection {

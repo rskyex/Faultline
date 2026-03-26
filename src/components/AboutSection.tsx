@@ -14,7 +14,7 @@ export default function AboutSection() {
                 <p className="text-xs font-medium tracking-[0.2em] uppercase mb-4" style={{ color: C.gold[500] }}>
                   About the Platform
                 </p>
-                <h2 className="text-3xl md:text-4xl font-semibold text-navy-950 leading-tight tracking-[-0.01em]">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-950 leading-tight tracking-[-0.01em]">
                   What Faultline Is
                 </h2>
                 <div className="mt-6 w-16 h-px bg-navy-800/20" />

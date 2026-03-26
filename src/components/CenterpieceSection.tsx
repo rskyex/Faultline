@@ -12,7 +12,7 @@ export default function CenterpieceSection() {
           className="absolute inset-0"
           aria-hidden="true"
           style={{
-            backgroundImage: "url(/images/systems-dark.png)",
+            backgroundImage: "url(/images/topo-dark.png)",
             backgroundSize: "cover",
             backgroundPosition: "center 40%",
           }}
@@ -22,7 +22,7 @@ export default function CenterpieceSection() {
           <ScrollReveal>
             <div className="text-center">
               <p className="text-gold-300 text-xs font-medium tracking-[0.2em] uppercase mb-4">Systems Convergence</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight tracking-[-0.02em]">Mapping the Fault Lines</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-[-0.02em]">Mapping the Fault Lines</h2>
               <p className="mt-5 text-white/70 text-base max-w-lg mx-auto leading-relaxed">
                 Where orbital, nuclear, and cyber infrastructures intersect, strategic vulnerabilities accumulate.
               </p>

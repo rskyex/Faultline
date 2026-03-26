@@ -30,8 +30,8 @@ export default function DomainsSection() {
         <ScrollReveal>
           <div className="mb-20">
             <p className="text-xs font-medium tracking-[0.2em] uppercase mb-4 text-navy-600">Three Connected Domains</p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-navy-950 leading-tight max-w-xl tracking-[-0.01em]">Enter the Strategic Layers</h2>
-            <p className="mt-6 text-navy-700 text-base max-w-2xl leading-relaxed">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-950 leading-tight max-w-xl tracking-[-0.01em]">Enter the Strategic Layers</h2>
+            <p className="mt-6 text-navy-700 text-lg max-w-2xl leading-relaxed">
               Each platform maps one domain of critical infrastructure in depth.
               Together, they form the analytical foundation upon which Faultline
               reveals cross-domain dependencies and systemic risk.

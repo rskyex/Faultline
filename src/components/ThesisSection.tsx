@@ -71,7 +71,7 @@ export default function ThesisSection() {
             <ScrollReveal>
               <div>
                 <p className="text-xs font-medium tracking-[0.2em] uppercase mb-4" style={{ color: C.gold[500] }}>Cross-Domain Thesis</p>
-                <h2 className="text-3xl md:text-4xl font-semibold text-navy-950 leading-tight max-w-lg tracking-[-0.01em]">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-950 leading-tight max-w-lg tracking-[-0.01em]">
                   Why Siloed Analysis Is No Longer Sufficient
                 </h2>
               </div>
