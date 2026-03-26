@@ -28,7 +28,7 @@ export default function Navbar() {
         {/* Brand */}
         <a href="/" className="flex items-center gap-3 group">
           <FaultlineLogo size={26} />
-          <span className="text-white text-sm font-semibold tracking-tight group-hover:text-steel-300 transition-colors duration-200">
+          <span className="wordmark text-white text-sm group-hover:text-steel-300 transition-colors duration-200">
             Faultline
           </span>
         </a>

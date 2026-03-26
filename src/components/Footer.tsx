@@ -25,7 +25,7 @@ export default function Footer() {
             <div className="md:col-span-5">
               <div className="flex items-center gap-3 mb-5">
                 <Image src="/images/logo.png" alt="Faultline" width={28} height={28} className="w-7 h-7" />
-                <span className="text-white text-lg font-semibold tracking-tight">
+                <span className="wordmark text-white text-lg">
                   Faultline
                 </span>
               </div>

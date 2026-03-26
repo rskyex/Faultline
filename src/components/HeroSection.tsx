@@ -19,7 +19,7 @@ export default function HeroSection() {
               className="w-[72px] h-[72px]"
               priority
             />
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold tracking-[-0.03em] text-white leading-none drop-shadow-lg">
+            <h1 className="wordmark text-5xl md:text-6xl lg:text-8xl text-white leading-none drop-shadow-lg">
               Faultline
             </h1>
           </div>
