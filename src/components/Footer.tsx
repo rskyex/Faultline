@@ -89,11 +89,11 @@ export default function Footer() {
                 analysis and policy-grade mapping.
               </p>
               <a
-                href="#"
+                href="#main-content"
                 className="inline-flex items-center gap-1.5 text-steel-400/40 text-xs hover:text-steel-300 transition-colors duration-200"
               >
                 Back to top
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                   <path d="M5 8V2M2 4l3-3 3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>

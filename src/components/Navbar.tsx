@@ -1,10 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import FaultlineLogo from "./FaultlineLogo";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const closeMobile = useCallback(() => setMobileOpen(false), []);
+
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMobile();
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [mobileOpen, closeMobile]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-steel-500/8">
@@ -12,7 +26,7 @@ export default function Navbar() {
 
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 h-16 flex items-center justify-between">
         {/* Brand */}
-        <a href="#" className="flex items-center gap-3 group">
+        <a href="/" className="flex items-center gap-3 group">
           <FaultlineLogo size={26} />
           <span className="text-white text-sm font-semibold tracking-tight group-hover:text-steel-300 transition-colors duration-200">
             Faultline
@@ -50,18 +64,10 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="relative md:hidden border-t border-steel-500/10 bg-navy-950/95 backdrop-blur-md">
           <div className="px-6 py-6 space-y-4">
-            <a
-              href="#domains"
-              onClick={() => setMobileOpen(false)}
-              className="block text-steel-300 text-sm font-medium tracking-[0.05em] py-2 hover:text-white transition-colors"
-            >
+            <a href="#domains" onClick={closeMobile} className="block text-steel-300 text-sm font-medium tracking-[0.05em] py-2 hover:text-white transition-colors">
               Domains
             </a>
-            <a
-              href="#thesis"
-              onClick={() => setMobileOpen(false)}
-              className="block text-steel-300 text-sm font-medium tracking-[0.05em] py-2 hover:text-white transition-colors"
-            >
+            <a href="#thesis" onClick={closeMobile} className="block text-steel-300 text-sm font-medium tracking-[0.05em] py-2 hover:text-white transition-colors">
               Thesis
             </a>
             <div className="h-px bg-steel-500/15" />

@@ -136,17 +136,17 @@ export default function HeroSection() {
                 <text x="310" y="408" fill={C.gold[400]} fontSize="10" fontFamily="Inter, sans-serif" opacity="0.45" letterSpacing="0.08em">CYBER</text>
 
                 {/* Scatter nodes */}
-                {[
-                  [120, 200, 2.5, C.steel[500], 0.3],
-                  [200, 170, 2, C.steel[400], 0.25],
-                  [310, 180, 2, C.steel[500], 0.2],
-                  [370, 260, 2.5, C.gold[400], 0.25],
-                  [300, 310, 2, C.steel[400], 0.3],
-                  [180, 320, 2, C.gold[400], 0.2],
-                  [400, 330, 1.5, C.gold[400], 0.15],
-                  [140, 280, 1.5, C.steel[400], 0.2],
-                ].map(([cx, cy, r, fill, op], i) => (
-                  <circle key={i} cx={cx as number} cy={cy as number} r={r as number} fill={fill as string} opacity={op as number} />
+                {([
+                  { cx: 120, cy: 200, r: 2.5, fill: C.steel[500], opacity: 0.3 },
+                  { cx: 200, cy: 170, r: 2, fill: C.steel[400], opacity: 0.25 },
+                  { cx: 310, cy: 180, r: 2, fill: C.steel[500], opacity: 0.2 },
+                  { cx: 370, cy: 260, r: 2.5, fill: C.gold[400], opacity: 0.25 },
+                  { cx: 300, cy: 310, r: 2, fill: C.steel[400], opacity: 0.3 },
+                  { cx: 180, cy: 320, r: 2, fill: C.gold[400], opacity: 0.2 },
+                  { cx: 400, cy: 330, r: 1.5, fill: C.gold[400], opacity: 0.15 },
+                  { cx: 140, cy: 280, r: 1.5, fill: C.steel[400], opacity: 0.2 },
+                ] as const).map((n, i) => (
+                  <circle key={i} cx={n.cx} cy={n.cy} r={n.r} fill={n.fill} opacity={n.opacity} />
                 ))}
               </svg>
             </div>
