@@ -9,7 +9,6 @@ import RevealsSection from "@/components/RevealsSection";
 import CTASection from "@/components/CTASection";
 import CreatorSection from "@/components/CreatorSection";
 import Footer from "@/components/Footer";
-import SectionDivider from "@/components/SectionDivider";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -45,9 +44,7 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <DomainsSection />
-        <SectionDivider variant="wide" />
         <QuoteStrip />
-        <SectionDivider variant="accent" />
         <ThesisSection />
         <CenterpieceSection />
         <RevealsSection />
