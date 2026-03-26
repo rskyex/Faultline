@@ -9,8 +9,8 @@ export default function AboutSection() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
         {/* Pull quote */}
         <ScrollReveal>
-          <div className="mb-20 max-w-3xl">
-            <blockquote className="text-xl md:text-2xl leading-[1.6] text-navy-800 font-serif-accent border-l-4 border-navy-800/20 pl-6">
+          <div className="mb-20 text-center">
+            <blockquote className="text-xl md:text-2xl leading-[1.6] text-navy-800 font-serif-accent italic max-w-3xl mx-auto">
               Orbital, nuclear, and cyber systems do not fail in isolation.
               Faultline maps the dependencies, escalation pathways, and
               governance fractures that emerge across them.
