@@ -16,7 +16,7 @@ const jsonLd = {
   description:
     "Cross-domain strategic infrastructure mapping platform. Maps dependencies, escalation pathways, and governance fractures across orbital, nuclear, and cyber systems.",
   applicationCategory: "Research Platform",
-  url: "https://faultline.vercel.app",
+  url: "https://faultline-nqmm.vercel.app",
   creator: {
     "@type": "Person",
     name: "Risa Koyanagi",

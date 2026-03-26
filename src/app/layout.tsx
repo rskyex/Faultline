@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       "Mapping the dependencies, escalation pathways, and governance fractures across orbital, nuclear, and cyber systems.",
     images: ["/images/faultline-og.png"],
   },
-  metadataBase: new URL("https://faultline.vercel.app"),
+  metadataBase: new URL("https://faultline-nqmm.vercel.app"),
 };
 
 export default function RootLayout({
