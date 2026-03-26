@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #0a0e1a;
+  --color-navy-900: #0d1326;
+  --color-navy-800: #111b36;
+  --color-navy-700: #162347;
+  --color-navy-600: #1c2d5a;
+  --color-steel-500: #4a6fa5;
+  --color-steel-400: #6b8fc0;
+  --color-steel-300: #8eb0d8;
+  --color-slate-200: #c8d6e5;
+  --color-slate-100: #e8eef5;
+  --color-gold-500: #b8922f;
+  --color-gold-400: #d4a843;
+  --color-gold-300: #e0be6a;
+
+  --font-heading: "Inter", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-navy-950);
+    color: var(--color-slate-200);
+    font-family: var(--font-body);
+  }
+
+  ::selection {
+    background-color: var(--color-steel-500);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
