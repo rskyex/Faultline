@@ -32,6 +32,9 @@ export default function CreatorSection() {
                 <h3 className="text-lg font-semibold text-navy-950 mb-1 group-hover:text-steel-500 transition-colors">
                   Govern the Human
                 </h3>
+                <p className="text-sm leading-[1.6] text-navy-600 mb-2">
+                  A research platform on what AI governance misses: how AI-mediated environments may reshape the human subject.
+                </p>
                 <span className="text-navy-500 text-sm group-hover:text-steel-500 transition-colors">
                   Visit Project &rarr;
                 </span>
@@ -88,6 +91,9 @@ export default function CreatorSection() {
                 <h3 className="text-lg font-semibold text-navy-950 mb-1">
                   MYTHERA
                 </h3>
+                <p className="text-sm leading-[1.6] text-navy-600 mb-2">
+                  The interactive mythic world of cultural and philosophical interfaces where memory, meaning, and selfhood can be explored.
+                </p>
                 <span className="inline-block text-xs font-medium tracking-[0.1em] uppercase text-navy-500 border border-navy-800/15 px-3 py-1 rounded-sm">
                   Coming Soon
                 </span>
