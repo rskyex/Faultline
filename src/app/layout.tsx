@@ -4,17 +4,17 @@ import "./globals.css";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0a0e1a",
+  themeColor: "#06080e",
 };
 
 export const metadata: Metadata = {
   title: "Faultline — Cross-Domain Strategic Infrastructure Mapping",
   description:
-    "Faultline maps the dependencies, escalation pathways, and governance fractures that emerge across orbital, nuclear, and cyber infrastructures.",
+    "Faultline maps the dependencies, escalation pathways, and governance fractures that emerge across orbital, nuclear, space governance, and cyber infrastructures.",
   openGraph: {
     title: "Faultline — Cross-Domain Strategic Infrastructure Mapping",
     description:
-      "Mapping the dependencies, escalation pathways, and governance fractures across orbital, nuclear, and cyber systems.",
+      "Mapping the dependencies, escalation pathways, and governance fractures across orbital, nuclear, space governance, and cyber systems.",
     type: "website",
     siteName: "Faultline",
     images: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Faultline — Cross-Domain Strategic Infrastructure Mapping",
     description:
-      "Mapping the dependencies, escalation pathways, and governance fractures across orbital, nuclear, and cyber systems.",
+      "Mapping the dependencies, escalation pathways, and governance fractures across orbital, nuclear, space governance, and cyber systems.",
     images: ["/images/faultline-og.png"],
   },
   metadataBase: new URL("https://faultline-nqmm.vercel.app"),
@@ -51,7 +51,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Space+Grotesk:wght@500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
       </head>

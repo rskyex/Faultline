@@ -5,15 +5,18 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function CenterpieceSection() {
   return (
-    <section className="relative py-28 lg:py-40 bg-white overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
+    <section className="relative py-24 lg:py-36 overflow-hidden">
+      <div className="absolute inset-0 bg-deep" />
+      <div className="absolute inset-0 grid-pattern opacity-25" />
+
+      <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
         {/* Header */}
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase mb-4" style={{ color: C.gold[500] }}>Systems Convergence</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-950 leading-tight tracking-[-0.02em]">Mapping the Fault Lines</h2>
-            <p className="mt-5 text-navy-700 text-base max-w-lg mx-auto leading-relaxed">
-              Where orbital, nuclear, and cyber infrastructures intersect, strategic vulnerabilities accumulate.
+          <div className="text-center mb-14">
+            <p className="text-[11px] font-medium tracking-[0.25em] uppercase mb-3 text-orbital-500">Systems Convergence</p>
+            <h2 className="wordmark text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">Mapping the Fault Lines</h2>
+            <p className="mt-4 text-text-muted text-sm max-w-lg mx-auto leading-relaxed">
+              Where orbital, nuclear, space governance, and cyber infrastructures intersect, strategic vulnerabilities accumulate.
             </p>
           </div>
         </ScrollReveal>
@@ -22,103 +25,114 @@ export default function CenterpieceSection() {
         <ScrollReveal delay={150} distance={16}>
           {/* Mobile */}
           <div className="block md:hidden">
-            <svg viewBox="0 0 400 360" fill="none" className="w-full max-w-[400px] mx-auto" role="img" aria-label="Simplified cross-domain convergence diagram">
-              <circle cx="200" cy="60" r="8" fill={C.steel[500]} opacity="0.6" />
-              <text x="200" y="40" textAnchor="middle" fill={C.navy[700]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.12em">ORBITAL</text>
-              <circle cx="90" cy="280" r="8" fill={C.steel[400]} opacity="0.6" />
-              <text x="90" y="310" textAnchor="middle" fill={C.navy[700]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.12em">NUCLEAR</text>
-              <circle cx="310" cy="280" r="8" fill={C.gold[400]} opacity="0.55" />
-              <text x="310" y="310" textAnchor="middle" fill={C.navy[700]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.12em">CYBER</text>
-              <line x1="200" y1="68" x2="90" y2="272" stroke={C.steel[500]} strokeWidth="1" opacity="0.3" strokeDasharray="4 5" />
-              <line x1="200" y1="68" x2="310" y2="272" stroke={C.steel[400]} strokeWidth="1" opacity="0.3" strokeDasharray="4 5" />
-              <line x1="98" y1="280" x2="302" y2="280" stroke={C.gold[400]} strokeWidth="1" opacity="0.25" strokeDasharray="4 5" />
-              <circle cx="200" cy="180" r="12" fill="none" stroke={C.steel[500]} strokeWidth="1.5" opacity="0.5" />
-              <circle cx="200" cy="180" r="4" fill={C.steel[500]} opacity="0.6" />
-              <path d="M150 40 L175 110 L190 160 L200 180 L210 210 L230 270 L250 330" stroke={C.steel[500]} strokeWidth="1.5" fill="none" opacity="0.5" strokeLinecap="round" />
-              <text x="220" y="175" fill={C.navy[700]} fontSize="7.5" fontFamily="DM Sans, sans-serif" fontWeight="600" opacity="0.6">FAULT LINE</text>
+            <svg viewBox="0 0 400 400" fill="none" className="w-full max-w-[360px] mx-auto" role="img" aria-label="Cross-domain convergence diagram">
+              {/* Domain nodes */}
+              <circle cx="200" cy="50" r="6" fill={C.orbital[500]} opacity="0.6" />
+              <text x="200" y="32" textAnchor="middle" fill={C.orbital[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.7">ORBITAL</text>
+
+              <circle cx="60" cy="230" r="6" fill={C.nuclear[500]} opacity="0.6" />
+              <text x="60" y="255" textAnchor="middle" fill={C.nuclear[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.7">NUCLEAR</text>
+
+              <circle cx="340" cy="230" r="6" fill={C.cyber[500]} opacity="0.55" />
+              <text x="340" y="255" textAnchor="middle" fill={C.cyber[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.7">CYBER</text>
+
+              <circle cx="200" cy="360" r="6" fill={C.space[500]} opacity="0.5" />
+              <text x="200" y="385" textAnchor="middle" fill={C.space[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.7">SPACE GOV</text>
+
+              {/* Connecting lines */}
+              <line x1="200" y1="56" x2="60" y2="224" stroke={C.orbital[500]} strokeWidth="0.6" opacity="0.15" strokeDasharray="3 4" />
+              <line x1="200" y1="56" x2="340" y2="224" stroke={C.orbital[500]} strokeWidth="0.6" opacity="0.15" strokeDasharray="3 4" />
+              <line x1="66" y1="230" x2="334" y2="230" stroke={C.nuclear[500]} strokeWidth="0.6" opacity="0.12" strokeDasharray="3 4" />
+              <line x1="60" y1="236" x2="194" y2="354" stroke={C.space[500]} strokeWidth="0.6" opacity="0.12" strokeDasharray="3 4" />
+              <line x1="340" y1="236" x2="206" y2="354" stroke={C.space[500]} strokeWidth="0.6" opacity="0.12" strokeDasharray="3 4" />
+              <line x1="200" y1="56" x2="200" y2="354" stroke={C.text.muted} strokeWidth="0.4" opacity="0.1" strokeDasharray="2 4" />
+
+              {/* Center */}
+              <circle cx="200" cy="200" r="10" fill="none" stroke={C.text.muted} strokeWidth="0.8" opacity="0.2" />
+              <circle cx="200" cy="200" r="3" fill={C.text.secondary} fillOpacity="0.5" />
+              <text x="218" y="195" fill={C.text.muted} fontSize="7" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.5" letterSpacing="0.1em">FAULT LINE</text>
             </svg>
           </div>
 
           {/* Desktop */}
           <div className="hidden md:block">
-            <svg viewBox="0 0 1000 650" fill="none" className="w-full max-w-[1000px] mx-auto" role="img" aria-label="Cross-domain systems convergence map">
+            <svg viewBox="0 0 1000 600" fill="none" className="w-full max-w-[1000px] mx-auto" role="img" aria-label="Cross-domain systems convergence map">
               <defs>
-                <radialGradient id="cp-glow" cx="0.5" cy="0.48" r="0.42">
-                  <stop offset="0%" stopColor={C.steel[500]} stopOpacity="0.06" />
-                  <stop offset="100%" stopColor="white" stopOpacity="0" />
+                <radialGradient id="cp-glow" cx="0.5" cy="0.5" r="0.45">
+                  <stop offset="0%" stopColor={C.orbital[500]} stopOpacity="0.03" />
+                  <stop offset="100%" stopColor={C.deep} stopOpacity="0" />
                 </radialGradient>
-                <filter id="cp-blur"><feGaussianBlur in="SourceGraphic" stdDeviation="1.5" /></filter>
               </defs>
 
-              <ellipse cx="500" cy="310" rx="380" ry="260" fill="url(#cp-glow)" />
+              <ellipse cx="500" cy="300" rx="380" ry="250" fill="url(#cp-glow)" />
 
-              {Array.from({ length: 8 }, (_, i) => (
-                <ellipse key={`topo-${i}`} cx={500} cy={310} rx={70 + i * 45} ry={30 + i * 22}
-                  stroke={C.steel[500]} strokeWidth={i < 3 ? "0.6" : "0.35"} fill="none"
-                  opacity={0.08 + (7 - i) * 0.015} transform={`rotate(${-10 + i * 3} 500 310)`} />
+              {/* Topo rings */}
+              {[240, 190, 140, 95, 55].map((r, i) => (
+                <circle key={`ring-${i}`} cx="500" cy="300" r={r} stroke={C.orbital[500]}
+                  strokeWidth={i > 2 ? "0.5" : "0.3"} fill="none" opacity={0.04 + i * 0.015}
+                  strokeDasharray={i % 2 === 0 ? "none" : "4 6"} />
               ))}
 
-              {[280, 220, 160, 100, 50].map((r, i) => (
-                <circle key={`ring-${i}`} cx="500" cy="310" r={r} stroke={C.steel[500]}
-                  strokeWidth={i > 2 ? "0.6" : "0.3"} fill="none" opacity={0.06 + i * 0.03}
-                  strokeDasharray={i % 2 === 0 ? "none" : "5 8"} />
+              {/* Orbital — top */}
+              <path d="M500 60 L400 180 L600 180 Z" stroke={C.orbital[500]} strokeWidth="1" fill={C.orbital[500]} fillOpacity="0.03" />
+              <text x="500" y="105" textAnchor="middle" fill={C.orbital[500]} fontSize="11" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.2em" opacity="0.7">ORBITAL</text>
+              {[[470,145,4],[530,140,3.5],[500,158,3]].map(([cx,cy,r],i)=>(
+                <circle key={`on-${i}`} cx={cx} cy={cy} r={r} fill={C.orbital[500]} opacity={0.5-i*0.1}/>
               ))}
 
-              {/* Orbital */}
-              <path d="M500 70 L380 210 L620 210 Z" stroke={C.steel[500]} strokeWidth="1.5" fill={C.steel[500]} fillOpacity="0.06" />
-              <text x="500" y="118" textAnchor="middle" fill={C.navy[800]} fontSize="12" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.15em">ORBITAL</text>
-              {[[460,160,6],[540,150,5],[500,175,4.5],[520,130,3.5]].map(([cx,cy,r],i)=>(
-                <circle key={`on-${i}`} cx={cx} cy={cy} r={r} fill={C.steel[500]} opacity={0.6-i*0.1}/>
+              {/* Nuclear — bottom-left */}
+              <path d="M200 520 L300 380 L140 380 Z" stroke={C.nuclear[500]} strokeWidth="1" fill={C.nuclear[500]} fillOpacity="0.03" />
+              <text x="210" y="502" textAnchor="middle" fill={C.nuclear[500]} fontSize="11" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.2em" opacity="0.7">NUCLEAR</text>
+              {[[240,420,4.5],[210,405,3.5],[270,412,3]].map(([cx,cy,r],i)=>(
+                <circle key={`nn-${i}`} cx={cx} cy={cy} r={r} fill={C.nuclear[500]} opacity={0.45-i*0.08}/>
               ))}
 
-              {/* Nuclear */}
-              <path d="M200 540 L320 380 L140 360 Z" stroke={C.steel[400]} strokeWidth="1.5" fill={C.steel[400]} fillOpacity="0.06" />
-              <text x="210" y="518" textAnchor="middle" fill={C.navy[800]} fontSize="12" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.15em">NUCLEAR</text>
-              {[[260,420,6.5],[220,400,5],[300,410,4.5],[240,460,3.5]].map(([cx,cy,r],i)=>(
-                <circle key={`nn-${i}`} cx={cx} cy={cy} r={r} fill={C.steel[400]} opacity={0.55-i*0.08}/>
+              {/* Cyber — bottom-right */}
+              <path d="M800 520 L700 380 L860 380 Z" stroke={C.cyber[500]} strokeWidth="1" fill={C.cyber[500]} fillOpacity="0.03" />
+              <text x="790" y="502" textAnchor="middle" fill={C.cyber[500]} fontSize="11" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.2em" opacity="0.7">CYBER</text>
+              {[[750,420,4],[780,405,3.5],[730,412,3]].map(([cx,cy,r],i)=>(
+                <circle key={`cn-${i}`} cx={cx} cy={cy} r={r} fill={C.cyber[500]} opacity={0.4-i*0.08}/>
               ))}
 
-              {/* Cyber */}
-              <path d="M800 540 L680 380 L860 360 Z" stroke={C.gold[400]} strokeWidth="1.5" fill={C.gold[400]} fillOpacity="0.05" />
-              <text x="790" y="518" textAnchor="middle" fill={C.navy[800]} fontSize="12" fontFamily="DM Sans, sans-serif" fontWeight="600" letterSpacing="0.15em">CYBER</text>
-              {[[740,420,6],[780,400,5],[710,410,4.5],[760,460,3.5]].map(([cx,cy,r],i)=>(
-                <circle key={`cn-${i}`} cx={cx} cy={cy} r={r} fill={C.gold[400]} opacity={0.5-i*0.08}/>
+              {/* Space Governance — bottom-center */}
+              <path d="M500 560 L420 440 L580 440 Z" stroke={C.space[500]} strokeWidth="1" fill={C.space[500]} fillOpacity="0.03" />
+              <text x="500" y="542" textAnchor="middle" fill={C.space[500]} fontSize="11" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.2em" opacity="0.7">SPACE GOV</text>
+              {[[480,470,4],[520,465,3.5],[500,480,3]].map(([cx,cy,r],i)=>(
+                <circle key={`sn-${i}`} cx={cx} cy={cy} r={r} fill={C.space[500]} opacity={0.4-i*0.08}/>
               ))}
 
-              {/* Lines */}
-              <line x1="500" y1="145" x2="500" y2="290" stroke={C.steel[500]} strokeWidth="1.2" opacity="0.25" />
-              <line x1="240" y1="470" x2="470" y2="325" stroke={C.steel[400]} strokeWidth="1.2" opacity="0.25" />
-              <line x1="770" y1="470" x2="530" y2="325" stroke={C.gold[400]} strokeWidth="1.2" opacity="0.2" />
+              {/* Connection lines */}
+              <line x1="500" y1="140" x2="500" y2="280" stroke={C.orbital[500]} strokeWidth="0.8" opacity="0.12" />
+              <line x1="240" y1="440" x2="470" y2="310" stroke={C.nuclear[500]} strokeWidth="0.8" opacity="0.12" />
+              <line x1="760" y1="440" x2="530" y2="310" stroke={C.cyber[500]} strokeWidth="0.8" opacity="0.12" />
+              <line x1="500" y1="440" x2="500" y2="320" stroke={C.space[500]} strokeWidth="0.8" opacity="0.12" />
 
-              <path d="M400 195 Q280 290 255 400" stroke={C.steel[500]} strokeWidth="0.9" fill="none" opacity="0.2" strokeDasharray="6 5" />
-              <path d="M600 195 Q720 290 745 400" stroke={C.gold[400]} strokeWidth="0.9" fill="none" opacity="0.18" strokeDasharray="6 5" />
-              <path d="M290 480 Q500 460 720 480" stroke={C.steel[400]} strokeWidth="0.9" fill="none" opacity="0.18" strokeDasharray="6 5" />
+              {/* Curved escalation paths */}
+              <path d="M420 175 Q280 280 255 400" stroke={C.orbital[500]} strokeWidth="0.6" fill="none" opacity="0.1" strokeDasharray="4 4" />
+              <path d="M580 175 Q720 280 745 400" stroke={C.cyber[500]} strokeWidth="0.6" fill="none" opacity="0.1" strokeDasharray="4 4" />
+              <path d="M290 460 Q400 480 460 440" stroke={C.nuclear[500]} strokeWidth="0.6" fill="none" opacity="0.1" strokeDasharray="4 4" />
+              <path d="M720 460 Q600 480 540 440" stroke={C.cyber[500]} strokeWidth="0.6" fill="none" opacity="0.1" strokeDasharray="4 4" />
 
               {/* Fault line */}
-              <path d="M350 80 L400 180 L440 250 L480 290 L500 310 L520 345 L560 410 L610 500 L650 580"
-                stroke={C.navy[700]} strokeWidth="3" fill="none" opacity="0.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#cp-blur)" />
-              <path d="M350 80 L400 180 L440 250 L480 290 L500 310 L520 345 L560 410 L610 500 L650 580"
-                stroke={C.navy[700]} strokeWidth="2" fill="none" opacity="0.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M356 88 L406 188 L446 258 L486 298 L506 318 L526 353 L566 418 L616 508"
-                stroke={C.gold[500]} strokeWidth="0.8" fill="none" opacity="0.3" strokeDasharray="3 6" />
+              <path d="M380 80 L420 170 L460 240 L490 280 L500 300 L510 330 L540 390 L560 440 L580 520"
+                stroke={C.text.muted} strokeWidth="2" fill="none" opacity="0.15" strokeLinecap="round" />
+              <path d="M380 80 L420 170 L460 240 L490 280 L500 300 L510 330 L540 390 L560 440 L580 520"
+                stroke={C.text.secondary} strokeWidth="1" fill="none" opacity="0.3" strokeLinecap="round" />
 
-              <path d="M120 280 L250 290 L380 300 L500 310 L620 300 L750 285 L880 270"
-                stroke={C.navy[700]} strokeWidth="1.2" fill="none" opacity="0.2" strokeLinecap="round" />
-
-              {/* Center */}
-              <circle cx="500" cy="310" r="18" fill="none" stroke={C.navy[700]} strokeWidth="2" opacity="0.5" />
-              <circle cx="500" cy="310" r="9" fill="none" stroke={C.navy[700]} strokeWidth="0.8" opacity="0.4" />
-              <circle cx="500" cy="310" r="5" fill={C.navy[700]} opacity="0.7" className="animate-gentle-pulse" style={{ transformOrigin: '500px 310px' }} />
+              {/* Center convergence */}
+              <circle cx="500" cy="300" r="16" fill="none" stroke={C.text.muted} strokeWidth="1" opacity="0.2" />
+              <circle cx="500" cy="300" r="8" fill="none" stroke={C.text.muted} strokeWidth="0.5" opacity="0.15" />
+              <circle cx="500" cy="300" r="4" fill={C.text.secondary} opacity="0.5" className="animate-gentle-pulse" style={{ transformOrigin: '500px 300px' }} />
 
               {/* Labels */}
-              <text x="405" y="268" fill={C.navy[800]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" opacity="0.7" transform="rotate(-48 405 268)" letterSpacing="0.08em">ESCALATION PATHWAY</text>
-              <text x="350" y="365" fill={C.navy[800]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" opacity="0.6" letterSpacing="0.08em">DEPENDENCIES</text>
-              <text x="565" y="360" fill={C.navy[800]} fontSize="9" fontFamily="DM Sans, sans-serif" fontWeight="600" opacity="0.55" letterSpacing="0.08em">GOVERNANCE GAPS</text>
-              <text x="445" y="425" fill={C.navy[700]} fontSize="8.5" fontFamily="DM Sans, sans-serif" fontWeight="600" opacity="0.5" letterSpacing="0.06em">INFRASTRUCTURAL COUPLING</text>
+              <text x="420" y="258" fill={C.text.muted} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.4" transform="rotate(-50 420 258)" letterSpacing="0.1em">ESCALATION PATHWAY</text>
+              <text x="350" y="350" fill={C.text.muted} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.35" letterSpacing="0.1em">DEPENDENCIES</text>
+              <text x="570" y="350" fill={C.text.muted} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.3" letterSpacing="0.1em">GOVERNANCE GAPS</text>
+              <text x="440" y="400" fill={C.text.muted} fontSize="7.5" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.3" letterSpacing="0.08em">INFRASTRUCTURAL COUPLING</text>
             </svg>
           </div>
 
-          <p className="text-center text-navy-600/50 text-xs mt-8 tracking-[0.05em]">
+          <p className="text-center text-text-muted/40 text-[11px] mt-6 tracking-[0.08em]">
             Structural convergence of cross-domain risk pathways and governance fault lines
           </p>
         </ScrollReveal>

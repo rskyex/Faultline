@@ -1,23 +1,48 @@
 export const C = {
-  navy: {
-    950: "#0a0e1a",
-    900: "#0d1326",
-    800: "#111b36",
-    700: "#162347",
-    600: "#1c2d5a",
+  // Backgrounds — space-noir gradient
+  void: "#04060a",
+  deep: "#06080e",
+  surface: "#0a0e18",
+  elevated: "#101624",
+  raised: "#182038",
+
+  // Accent — domain colors
+  orbital: {
+    500: "#38bdf8",
+    400: "#7dd3fc",
+    300: "#bae6fd",
+    glow: "rgba(56, 189, 248, 0.08)",
   },
-  steel: {
-    500: "#4a6fa5",
-    400: "#6b8fc0",
-    300: "#8eb0d8",
+  nuclear: {
+    500: "#2dd4bf",
+    400: "#5eead4",
+    300: "#99f6e4",
+    glow: "rgba(45, 212, 191, 0.08)",
   },
-  slate: {
-    200: "#c8d6e5",
-    100: "#e8eef5",
+  space: {
+    500: "#a78bfa",
+    400: "#c4b5fd",
+    300: "#ddd6fe",
+    glow: "rgba(167, 139, 250, 0.08)",
   },
-  gold: {
-    500: "#b8922f",
-    400: "#d4a843",
-    300: "#e0be6a",
+  cyber: {
+    500: "#f59e0b",
+    400: "#fbbf24",
+    300: "#fde68a",
+    glow: "rgba(245, 158, 11, 0.08)",
+  },
+
+  // Text
+  text: {
+    primary: "#e8ecf2",
+    secondary: "#8892a4",
+    muted: "#4a5568",
+  },
+
+  // Borders
+  border: {
+    subtle: "rgba(255,255,255,0.06)",
+    accent: "rgba(255,255,255,0.10)",
+    focus: "rgba(56,189,248,0.35)",
   },
 } as const;

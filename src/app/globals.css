@@ -1,25 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy-950: #0a0e1a;
-  --color-navy-900: #0d1326;
-  --color-navy-800: #111b36;
-  --color-navy-700: #162347;
-  --color-navy-600: #1c2d5a;
-  --color-steel-500: #4a6fa5;
-  --color-steel-400: #6b8fc0;
-  --color-steel-300: #8eb0d8;
-  --color-slate-200: #c8d6e5;
-  --color-slate-100: #e8eef5;
-  --color-gold-500: #b8922f;
-  --color-gold-400: #d4a843;
-  --color-gold-300: #e0be6a;
+  /* Backgrounds — space-noir */
+  --color-void: #04060a;
+  --color-deep: #06080e;
+  --color-surface: #0a0e18;
+  --color-elevated: #101624;
+  --color-raised: #182038;
 
-  --font-heading: "DM Sans", system-ui, -apple-system, sans-serif;
+  /* Domain accents */
+  --color-orbital-500: #38bdf8;
+  --color-orbital-400: #7dd3fc;
+  --color-orbital-300: #bae6fd;
+
+  --color-nuclear-500: #2dd4bf;
+  --color-nuclear-400: #5eead4;
+  --color-nuclear-300: #99f6e4;
+
+  --color-space-500: #a78bfa;
+  --color-space-400: #c4b5fd;
+  --color-space-300: #ddd6fe;
+
+  --color-cyber-500: #f59e0b;
+  --color-cyber-400: #fbbf24;
+  --color-cyber-300: #fde68a;
+
+  /* Text */
+  --color-text-primary: #e8ecf2;
+  --color-text-secondary: #8892a4;
+  --color-text-muted: #4a5568;
+
+  /* Typography */
+  --font-heading: "Barlow Condensed", "DM Sans", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
-  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-
-  --font-family-heading: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", "Fira Code", monospace;
+  --font-family-heading: "Barlow Condensed", "DM Sans", system-ui, sans-serif;
 }
 
 @layer base {
@@ -30,9 +45,10 @@
   }
 
   body {
-    background-color: var(--color-navy-950);
-    color: var(--color-slate-200);
+    background-color: var(--color-deep);
+    color: var(--color-text-primary);
     font-family: var(--font-body);
+    font-size: 14px;
   }
 
   h1, h2, h3 {
@@ -40,52 +56,51 @@
   }
 
   ::selection {
-    background-color: var(--color-steel-500);
+    background-color: var(--color-orbital-500);
     color: white;
   }
 
-  /* Keyboard focus styles */
   :focus-visible {
-    outline: 2px solid var(--color-steel-400);
+    outline: 2px solid var(--color-orbital-500);
     outline-offset: 2px;
   }
 
-  /* Skip-to-content link */
   .skip-link {
     position: absolute;
     top: -100%;
     left: 16px;
     z-index: 100;
     padding: 8px 16px;
-    background: var(--color-navy-800);
+    background: var(--color-elevated);
     color: white;
     font-size: 14px;
     text-decoration: none;
-    border: 1px solid var(--color-steel-500);
+    border: 1px solid var(--color-orbital-500);
   }
   .skip-link:focus {
     top: 8px;
   }
 }
 
-/* Wordmark — strategic security risk suite identity */
+/* Wordmark */
 .wordmark {
-  font-family: "Space Grotesk", "DM Sans", system-ui, sans-serif;
+  font-family: "Barlow Condensed", "DM Sans", system-ui, sans-serif;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+/* Monospace data labels */
+.font-mono-data {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
 }
 
 /* Entry animations */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -98,17 +113,36 @@
   to { transform: scaleX(1); }
 }
 
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out both;
+  animation: fadeInUp 0.6s ease-out both;
 }
 
 .animate-fade-in {
-  animation: fadeIn 1s ease-out both;
+  animation: fadeIn 0.8s ease-out both;
 }
 
 .animate-line-grow {
-  animation: lineGrow 1.2s ease-out both;
+  animation: lineGrow 1s ease-out both;
   transform-origin: left;
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 4s ease-in-out infinite;
 }
 
 .animate-delay-100 { animation-delay: 0.1s; }
@@ -117,89 +151,71 @@
 .animate-delay-400 { animation-delay: 0.4s; }
 .animate-delay-500 { animation-delay: 0.5s; }
 
-/* Serif accent class */
-.font-serif-accent {
-  font-family: var(--font-serif);
+/* Card glow on hover */
+.card-glow {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+.card-glow:hover {
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.06), 0 0 48px rgba(56, 189, 248, 0.03);
+  transform: translateY(-1px);
 }
 
-/* Premium text rendering */
-.text-premium {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+.card-glow-nuclear:hover {
+  box-shadow: 0 0 24px rgba(45, 212, 191, 0.06), 0 0 48px rgba(45, 212, 191, 0.03);
+  transform: translateY(-1px);
 }
 
-/* Subtle hover lift for interactive elements */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 24px rgba(74, 111, 165, 0.08);
+.card-glow-space:hover {
+  box-shadow: 0 0 24px rgba(167, 139, 250, 0.06), 0 0 48px rgba(167, 139, 250, 0.03);
+  transform: translateY(-1px);
 }
 
-/* SVG animations */
-@keyframes slowRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.card-glow-cyber:hover {
+  box-shadow: 0 0 24px rgba(245, 158, 11, 0.06), 0 0 48px rgba(245, 158, 11, 0.03);
+  transform: translateY(-1px);
 }
 
-@keyframes slowRotateReverse {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+/* Noise texture overlay */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.5;
 }
 
-@keyframes gentlePulse {
-  0%, 100% { opacity: 0.65; }
-  50% { opacity: 0.9; }
+/* Grid line pattern */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
-.animate-slow-rotate {
-  animation: slowRotate 90s linear infinite;
-  transform-origin: center;
-}
-
-.animate-slow-rotate-reverse {
-  animation: slowRotateReverse 120s linear infinite;
-  transform-origin: center;
-}
-
-.animate-gentle-pulse {
-  animation: gentlePulse 4s ease-in-out infinite;
-}
-
-/* Reduced motion: disable all animations for accessibility */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in-up,
   .animate-fade-in,
   .animate-line-grow,
-  .animate-slow-rotate,
-  .animate-slow-rotate-reverse,
   .animate-gentle-pulse {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
 
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 
-  .hover-lift:hover {
+  .card-glow:hover,
+  .card-glow-nuclear:hover,
+  .card-glow-space:hover,
+  .card-glow-cyber:hover {
     transform: none;
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-navy-950);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-navy-700);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-steel-500);
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-void); }
+::-webkit-scrollbar-thumb { background: var(--color-raised); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-orbital-500); }
