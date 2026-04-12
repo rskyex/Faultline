@@ -97,10 +97,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-5 flex flex-col md:flex-row justify-between items-center gap-3" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-          <p className="text-text-muted text-[11px]">
+          <p className="text-text-secondary text-[11px]">
             &copy; {new Date().getFullYear()} Risa Koyanagi. All rights reserved.
           </p>
-          <p className="text-text-muted/80 text-[10px] tracking-[0.08em]">
+          <p className="text-text-secondary text-[10px] tracking-[0.08em]">
             Strategic infrastructure mapping platform
           </p>
         </div>

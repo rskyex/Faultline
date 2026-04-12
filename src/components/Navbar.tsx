@@ -79,16 +79,16 @@ export default function Navbar() {
             </a>
             <div className="h-px bg-white/6 my-2" />
             <div className="grid grid-cols-1 gap-2 pt-1">
-              <a href="https://orbitalrisktracker.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text-muted text-[11px] tracking-[0.05em] py-1.5 hover:text-orbital-400 transition-colors">
+              <a href="https://orbitalrisktracker.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text-secondary text-[11px] tracking-[0.05em] py-1.5 hover:text-orbital-400 transition-colors">
                 <span className="w-1 h-1 rounded-full bg-orbital-500/60" />Orbital Risk Tracker
               </a>
-              <a href="https://globalnuclearinfrastructureatlas.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text-muted text-[11px] tracking-[0.05em] py-1.5 hover:text-nuclear-400 transition-colors">
+              <a href="https://globalnuclearinfrastructureatlas.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text-secondary text-[11px] tracking-[0.05em] py-1.5 hover:text-nuclear-400 transition-colors">
                 <span className="w-1 h-1 rounded-full bg-nuclear-500/60" />Nuclear Infrastructure Atlas
               </a>
-              <a href="https://space-mandate-atlas.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text-muted text-[11px] tracking-[0.05em] py-1.5 hover:text-space-400 transition-colors">
+              <a href="https://space-mandate-atlas.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text-secondary text-[11px] tracking-[0.05em] py-1.5 hover:text-space-400 transition-colors">
                 <span className="w-1 h-1 rounded-full bg-space-500/60" />Space Mandate Atlas
               </a>
-              <a href="https://cyber-escalation-atlas.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text-muted text-[11px] tracking-[0.05em] py-1.5 hover:text-cyber-400 transition-colors">
+              <a href="https://cyber-escalation-atlas.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text-secondary text-[11px] tracking-[0.05em] py-1.5 hover:text-cyber-400 transition-colors">
                 <span className="w-1 h-1 rounded-full bg-cyber-500/60" />Cyber Escalation Atlas
               </a>
             </div>

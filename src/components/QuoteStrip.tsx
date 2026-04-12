@@ -23,7 +23,7 @@ export default function QuoteStrip() {
 
             <div className="mt-8 flex items-center justify-center gap-3">
               <div className="w-6 h-px bg-orbital-500/20" />
-              <span className="text-text-muted text-[10px] tracking-[0.2em] uppercase font-medium">
+              <span className="text-text-secondary text-[10px] tracking-[0.2em] uppercase font-medium">
                 Cross-Domain Imperative
               </span>
               <div className="w-6 h-px bg-orbital-500/20" />

@@ -46,16 +46,16 @@ export default function HeroSection() {
 
           {/* Domain indicators */}
           <div className="flex flex-wrap gap-4 pt-2 animate-fade-in-up animate-delay-300">
-            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-muted">
+            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-secondary">
               <span className="w-1.5 h-1.5 rounded-full bg-orbital-500/70" />Orbital
             </span>
-            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-muted">
+            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-secondary">
               <span className="w-1.5 h-1.5 rounded-full bg-nuclear-500/70" />Nuclear
             </span>
-            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-muted">
+            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-secondary">
               <span className="w-1.5 h-1.5 rounded-full bg-space-500/70" />Space Governance
             </span>
-            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-muted">
+            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-secondary">
               <span className="w-1.5 h-1.5 rounded-full bg-cyber-500/70" />Cyber
             </span>
           </div>
