@@ -94,7 +94,7 @@ export default function DomainsSection() {
             <h2 className="wordmark text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight max-w-xl">
               Enter the Strategic Layers
             </h2>
-            <p className="mt-5 text-text-secondary text-sm max-w-2xl leading-relaxed">
+            <p className="mt-5 text-text-primary/70 text-sm max-w-2xl leading-relaxed">
               Each platform maps one domain of critical infrastructure in depth.
               Together, they form the analytical foundation upon which Faultline
               reveals cross-domain dependencies and systemic risk.

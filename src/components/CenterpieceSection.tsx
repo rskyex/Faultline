@@ -15,7 +15,7 @@ export default function CenterpieceSection() {
           <div className="text-center mb-14">
             <p className="text-[11px] font-medium tracking-[0.25em] uppercase mb-3 text-orbital-500">Systems Convergence</p>
             <h2 className="wordmark text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">Mapping the Fault Lines</h2>
-            <p className="mt-4 text-text-secondary text-sm max-w-lg mx-auto leading-relaxed">
+            <p className="mt-4 text-text-primary/70 text-sm max-w-lg mx-auto leading-relaxed">
               Where orbital, nuclear, space governance, and cyber infrastructures intersect, strategic vulnerabilities accumulate.
             </p>
           </div>
