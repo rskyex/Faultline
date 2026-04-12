@@ -5,7 +5,7 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function AboutSection() {
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-14 lg:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-surface" />
       <div className="absolute inset-0 grid-pattern opacity-30" />
 

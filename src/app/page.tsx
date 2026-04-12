@@ -1,13 +1,14 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
 import DomainsSection from "@/components/DomainsSection";
+import AboutSection from "@/components/AboutSection";
 import QuoteStrip from "@/components/QuoteStrip";
 import ThesisSection from "@/components/ThesisSection";
 import CenterpieceSection from "@/components/CenterpieceSection";
 import RevealsSection from "@/components/RevealsSection";
 import CreatorSection from "@/components/CreatorSection";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -41,12 +42,19 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <HeroSection />
-        <AboutSection />
+        <SectionDivider />
         <DomainsSection />
+        <SectionDivider />
+        <AboutSection />
+        <SectionDivider />
         <ThesisSection />
+        <SectionDivider />
         <QuoteStrip />
+        <SectionDivider />
         <CenterpieceSection />
+        <SectionDivider />
         <RevealsSection />
+        <SectionDivider />
         <CreatorSection />
       </main>
       <Footer />

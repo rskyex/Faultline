@@ -35,7 +35,7 @@ const reveals = [
 
 export default function RevealsSection() {
   return (
-    <section id="framework" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="framework" className="relative py-14 lg:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-surface" />
       <div className="absolute inset-0 grid-pattern opacity-20" />
 

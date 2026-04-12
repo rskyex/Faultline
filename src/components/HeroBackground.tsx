@@ -3,11 +3,21 @@
 export default function HeroBackground() {
   return (
     <div className="absolute inset-0 z-0" aria-hidden="true">
-      {/* Deep space base */}
-      <div className="absolute inset-0 bg-void" />
+      {/* Hero image */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url(/images/systems-dark.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center 40%",
+        }}
+      />
+
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-void/60" />
 
       {/* Subtle grid pattern */}
-      <div className="absolute inset-0 grid-pattern opacity-40" />
+      <div className="absolute inset-0 grid-pattern opacity-20" />
 
       {/* Radial glow — orbital cyan */}
       <div
@@ -25,13 +35,8 @@ export default function HeroBackground() {
         }}
       />
 
-      {/* Top-down vignette */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(to bottom, transparent 0%, rgba(6,8,14,0.3) 60%, rgba(6,8,14,0.8) 100%)",
-        }}
-      />
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-deep to-transparent" />
 
       {/* Noise overlay */}
       <div className="absolute inset-0 noise-overlay" />

@@ -4,7 +4,7 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function QuoteStrip() {
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden">
+    <section className="relative py-14 lg:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-void" />
       <div className="absolute inset-0 grid-pattern opacity-15" />
 
