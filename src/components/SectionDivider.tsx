@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function SectionDivider() {
   return (
-    <div className="relative flex items-center justify-center py-1 bg-deep overflow-hidden">
+    <div className="relative flex items-center justify-center py-4 bg-deep overflow-hidden">
       {/* Left glowing line */}
       <div className="flex-1 h-px relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orbital-500/30 to-orbital-500/10" />
@@ -12,22 +12,22 @@ export default function SectionDivider() {
       </div>
 
       {/* Logo */}
-      <div className="relative mx-4 flex-shrink-0">
-        <div className="w-6 h-6 flex items-center justify-center">
+      <div className="relative mx-6 flex-shrink-0">
+        <div className="w-16 h-16 flex items-center justify-center">
           <Image
             src="/images/logo.png"
             alt=""
-            width={18}
-            height={18}
-            className="w-[18px] h-[18px] opacity-40"
+            width={56}
+            height={56}
+            className="w-[56px] h-[56px] opacity-50"
             aria-hidden="true"
           />
         </div>
         {/* Glow behind logo */}
         <div
-          className="absolute inset-0 -m-2 rounded-full animate-gentle-pulse"
+          className="absolute inset-0 -m-6 rounded-full animate-gentle-pulse"
           style={{
-            background: "radial-gradient(circle, rgba(56,189,248,0.08) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(56,189,248,0.10) 0%, transparent 70%)",
           }}
         />
       </div>
