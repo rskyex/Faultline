@@ -99,7 +99,7 @@ export default function ThesisSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <p className="text-sm leading-[1.75] text-text-muted">
+              <p className="text-sm leading-[1.75] text-text-secondary">
                 A disruption in orbital systems can degrade nuclear
                 command-and-control. Contested lunar governance frameworks shape
                 strategic posture. A cyber operation against energy grids can
@@ -113,19 +113,19 @@ export default function ThesisSection() {
               <div className="space-y-3 pt-4">
                 <div className="p-4 border-l-2 border-orbital-500/30 bg-elevated/30">
                   <p className="text-text-primary text-sm font-medium mb-1">Infrastructure interdependence creates risk spillover</p>
-                  <p className="text-text-muted text-[13px] leading-[1.7]">Systems designed independently now share physical links, data pathways, and supply chains that transmit disruption across boundaries.</p>
+                  <p className="text-text-secondary text-[13px] leading-[1.7]">Systems designed independently now share physical links, data pathways, and supply chains that transmit disruption across boundaries.</p>
                 </div>
                 <div className="p-4 border-l-2 border-nuclear-500/30 bg-elevated/30">
                   <p className="text-text-primary text-sm font-medium mb-1">Escalation travels through technical and political coupling</p>
-                  <p className="text-text-muted text-[13px] leading-[1.7]">A failure or attack in one domain can reshape calculations and responses in others, often through indirect and poorly understood channels.</p>
+                  <p className="text-text-secondary text-[13px] leading-[1.7]">A failure or attack in one domain can reshape calculations and responses in others, often through indirect and poorly understood channels.</p>
                 </div>
                 <div className="p-4 border-l-2 border-space-500/30 bg-elevated/30">
                   <p className="text-text-primary text-sm font-medium mb-1">Governance authority concentrates through ambiguous mandates</p>
-                  <p className="text-text-muted text-[13px] leading-[1.7]">Competing lunar governance frameworks deploy universalist language while concentrating interpretive power, leaving cross-domain authority contested.</p>
+                  <p className="text-text-secondary text-[13px] leading-[1.7]">Competing lunar governance frameworks deploy universalist language while concentrating interpretive power, leaving cross-domain authority contested.</p>
                 </div>
                 <div className="p-4 border-l-2 border-cyber-500/30 bg-elevated/30">
                   <p className="text-text-primary text-sm font-medium mb-1">Governance institutions remain fragmented by sector</p>
-                  <p className="text-text-muted text-[13px] leading-[1.7]">Regulatory and diplomatic frameworks still operate within domain silos, leaving cross-domain risks systematically under-governed.</p>
+                  <p className="text-text-secondary text-[13px] leading-[1.7]">Regulatory and diplomatic frameworks still operate within domain silos, leaving cross-domain risks systematically under-governed.</p>
                 </div>
               </div>
             </ScrollReveal>

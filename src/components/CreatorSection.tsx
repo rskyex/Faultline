@@ -34,10 +34,10 @@ export default function CreatorSection() {
                 <h3 className="text-sm font-semibold text-text-primary mb-1 group-hover:text-orbital-400 transition-colors">
                   Govern the Human
                 </h3>
-                <p className="text-[12px] leading-[1.6] text-text-muted mb-2">
+                <p className="text-[12px] leading-[1.6] text-text-secondary mb-2">
                   A research platform on what AI governance misses: how AI-mediated environments may reshape the human subject.
                 </p>
-                <span className="text-text-muted text-[11px] group-hover:text-orbital-400 transition-colors">
+                <span className="text-text-secondary text-[11px] group-hover:text-orbital-400 transition-colors">
                   Visit Project &rarr;
                 </span>
               </div>
@@ -66,10 +66,10 @@ export default function CreatorSection() {
                 <h3 className="text-sm font-semibold text-text-primary mb-1 group-hover:text-orbital-400 transition-colors">
                   Risa Koyanagi
                 </h3>
-                <p className="text-[12px] leading-[1.7] text-text-muted mb-2">
+                <p className="text-[12px] leading-[1.7] text-text-secondary mb-2">
                   Cambridge Future Scholar. Research at the intersection of space governance, nuclear governance, cyber governance, strategic risk, and emerging technology governance.
                 </p>
-                <span className="text-text-muted text-[11px] group-hover:text-orbital-400 transition-colors">
+                <span className="text-text-secondary text-[11px] group-hover:text-orbital-400 transition-colors">
                   risakoyanagi.com &rarr;
                 </span>
               </div>
@@ -93,10 +93,10 @@ export default function CreatorSection() {
                 <h3 className="text-sm font-semibold text-text-primary mb-1">
                   MYTHERA
                 </h3>
-                <p className="text-[12px] leading-[1.6] text-text-muted mb-2">
+                <p className="text-[12px] leading-[1.6] text-text-secondary mb-2">
                   The interactive mythic world of cultural and philosophical interfaces where memory, meaning, and selfhood can be explored.
                 </p>
-                <span className="inline-block text-[10px] font-medium tracking-[0.12em] uppercase text-text-muted border border-white/8 px-3 py-1">
+                <span className="inline-block text-[10px] font-medium tracking-[0.12em] uppercase text-text-secondary border border-white/8 px-3 py-1">
                   Coming Soon
                 </span>
               </div>

@@ -61,7 +61,7 @@ export default function RevealsSection() {
                   <div className={`flex-1 h-px ${r.borderColor}`} />
                 </div>
                 <h3 className="text-base font-semibold text-text-primary mb-3">{r.title}</h3>
-                <p className="text-[13px] text-text-muted leading-[1.75]">{r.text}</p>
+                <p className="text-[13px] text-text-secondary leading-[1.75]">{r.text}</p>
               </div>
             </ScrollReveal>
           ))}

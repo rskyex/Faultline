@@ -12,7 +12,7 @@ export default function NotFound() {
         <h1 className="wordmark text-5xl text-text-primary mb-3">
           404
         </h1>
-        <p className="text-text-muted text-[13px] mb-6 max-w-sm mx-auto leading-relaxed">
+        <p className="text-text-secondary text-[13px] mb-6 max-w-sm mx-auto leading-relaxed">
           This coordinate does not map to any known infrastructure node.
           The page you requested could not be located.
         </p>

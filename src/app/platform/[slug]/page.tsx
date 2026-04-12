@@ -50,7 +50,7 @@ export default async function PlatformPage({
               <div className="lg:col-span-7 space-y-5">
                 <a
                   href="/"
-                  className="inline-flex items-center gap-2 text-text-muted text-[11px] tracking-[0.08em] hover:text-text-secondary transition-colors mb-3"
+                  className="inline-flex items-center gap-2 text-text-secondary text-[11px] tracking-[0.08em] hover:text-text-primary transition-colors mb-3"
                 >
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                     <path d="M8 2L3 6l5 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -115,7 +115,7 @@ export default async function PlatformPage({
                   <p className="font-mono-data text-2xl md:text-3xl font-medium" style={{ color: platform.accent }}>
                     {s.value}
                   </p>
-                  <p className="text-text-muted text-[11px] tracking-[0.15em] uppercase mt-1">{s.label}</p>
+                  <p className="text-text-secondary text-[11px] tracking-[0.15em] uppercase mt-1">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -175,7 +175,7 @@ export default async function PlatformPage({
                     <div className="flex-1 h-px" style={{ backgroundColor: platform.accent, opacity: 0.12 }} />
                   </div>
                   <h3 className="text-sm font-semibold text-text-primary mb-2">{f.title}</h3>
-                  <p className="text-[13px] text-text-muted leading-[1.75]">{f.description}</p>
+                  <p className="text-[13px] text-text-secondary leading-[1.75]">{f.description}</p>
                 </div>
               ))}
             </div>
@@ -203,7 +203,7 @@ export default async function PlatformPage({
                         STAGE {i + 1}
                       </p>
                       <h3 className="text-sm font-semibold text-text-primary mb-2">{m.title}</h3>
-                      <p className="text-[12px] text-text-muted leading-[1.7]">{m.description}</p>
+                      <p className="text-[12px] text-text-secondary leading-[1.7]">{m.description}</p>
                     </div>
                   ))}
                 </div>
@@ -262,7 +262,7 @@ export default async function PlatformPage({
           <div className="absolute inset-0 bg-surface" />
           <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center">
             <Image src="/images/logo.png" alt="Faultline" width={32} height={32} className="mx-auto mb-5 w-8 h-8 opacity-50" />
-            <p className="text-text-muted text-[12px] mb-5 tracking-[0.08em]">
+            <p className="text-text-secondary text-[12px] mb-5 tracking-[0.08em]">
               Explore the other strategic layers
             </p>
             <div className="flex flex-wrap justify-center gap-3">

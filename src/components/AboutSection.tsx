@@ -92,7 +92,7 @@ export default function AboutSection() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={200}>
-              <p className="text-sm leading-[1.75] text-text-muted">
+              <p className="text-sm leading-[1.75] text-text-secondary">
                 Each platform maps one domain in depth. Faultline provides the
                 connective layer&mdash;identifying where dependencies accumulate,
                 where escalation pathways cross boundaries, and where governance
@@ -108,28 +108,28 @@ export default function AboutSection() {
                     <span className="w-1.5 h-1.5 rounded-full bg-orbital-500/70" />
                     <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-orbital-400">Orbital</p>
                   </div>
-                  <p className="text-[13px] text-text-muted leading-relaxed">Space systems, satellite infrastructure, and orbital risk dynamics</p>
+                  <p className="text-[13px] text-text-secondary leading-relaxed">Space systems, satellite infrastructure, and orbital risk dynamics</p>
                 </div>
                 <div className="p-4 border border-white/6 bg-elevated/50">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-nuclear-500/70" />
                     <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-nuclear-400">Nuclear</p>
                   </div>
-                  <p className="text-[13px] text-text-muted leading-relaxed">Global nuclear infrastructure, facilities, and strategic posture</p>
+                  <p className="text-[13px] text-text-secondary leading-relaxed">Global nuclear infrastructure, facilities, and strategic posture</p>
                 </div>
                 <div className="p-4 border border-white/6 bg-elevated/50">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-space-500/70" />
                     <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-space-400">Space Governance</p>
                   </div>
-                  <p className="text-[13px] text-text-muted leading-relaxed">Lunar governance authority mapping, mandate analysis, and treaty framework comparison</p>
+                  <p className="text-[13px] text-text-secondary leading-relaxed">Lunar governance authority mapping, mandate analysis, and treaty framework comparison</p>
                 </div>
                 <div className="p-4 border border-white/6 bg-elevated/50">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-cyber-500/70" />
                     <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-cyber-400">Cyber</p>
                   </div>
-                  <p className="text-[13px] text-text-muted leading-relaxed">Cyber operations, escalation patterns, and attack surface mapping</p>
+                  <p className="text-[13px] text-text-secondary leading-relaxed">Cyber operations, escalation patterns, and attack surface mapping</p>
                 </div>
               </div>
             </ScrollReveal>
