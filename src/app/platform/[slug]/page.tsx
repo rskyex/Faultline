@@ -1,70 +1,9 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
 import { notFound } from "next/navigation";
-
-const platforms = {
-  orbital: {
-    name: "Orbital Risk Tracker",
-    slug: "orbital",
-    url: "https://orbitalrisktracker.vercel.app/",
-    ogImage: "/images/orbital-og.jpg",
-    accent: "#4a6fa5",
-    accentName: "steel-500",
-    tagline: "Space Security Intelligence Platform",
-    description:
-      "Mapping real-world space security incidents across orbit, cyberspace, and the electromagnetic spectrum. The Orbital Risk Tracker provides a policy-grade interface for understanding the strategic vulnerabilities of space-based infrastructure.",
-    capabilities: [
-      "Satellite constellation risk mapping",
-      "Orbital debris field tracking",
-      "Space security incident database",
-      "Electromagnetic spectrum analysis",
-      "Governance gap identification",
-    ],
-    crossDomain:
-      "Orbital systems underpin nuclear command-and-control, enable cyber operations through satellite communications, and create dependencies that cascade across all strategic domains when disrupted.",
-  },
-  nuclear: {
-    name: "Global Nuclear Infrastructure Atlas",
-    slug: "nuclear",
-    url: "https://globalnuclearinfrastructureatlas.vercel.app/",
-    ogImage: "/images/nuclear-og.png",
-    accent: "#6b8fc0",
-    accentName: "steel-400",
-    tagline: "Global Nuclear Facility Mapping",
-    description:
-      "A geospatial atlas of global nuclear facilities, enrichment sites, reactor networks, and strategic posture. Visualizes the physical and political topology of nuclear infrastructure worldwide, from civilian reactors to dual-use enrichment facilities.",
-    capabilities: [
-      "Global reactor network visualization",
-      "Enrichment facility mapping",
-      "Strategic posture analysis",
-      "Nuclear governance frameworks",
-      "Dual-use infrastructure identification",
-    ],
-    crossDomain:
-      "Nuclear command-and-control depends on orbital communication links and is increasingly vulnerable to cyber intrusion. Disruptions in either domain can alter nuclear posture calculations and escalation dynamics.",
-  },
-  cyber: {
-    name: "Cyber Escalation Atlas",
-    slug: "cyber",
-    url: "https://cyber-escalation-atlas-5yp5.vercel.app/",
-    ogImage: "/images/cyber-og.jpg",
-    accent: "#d4a843",
-    accentName: "gold-400",
-    tagline: "Strategic Cyber Operations Mapping",
-    description:
-      "A policy-grade reference mapping how state-linked cyber operations unfold, escalate, and reshape international governance. Charts escalation dynamics, attack techniques, and the pathways through which digital disruption cascades into strategic consequence.",
-    capabilities: [
-      "State-linked cyber operation case studies",
-      "Escalation lens analysis",
-      "Attack technique cataloguing",
-      "Cross-domain impact tracing",
-      "Governance response mapping",
-    ],
-    crossDomain:
-      "Cyber operations can target satellite ground stations, disrupt nuclear early-warning systems, and create misperception cascades that travel across orbital and nuclear domains. Digital disruption is rarely contained to cyberspace alone.",
-  },
-} as const;
+import { platforms } from "@/lib/platformData";
 
 type PlatformKey = keyof typeof platforms;
 
@@ -77,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const platform = platforms[slug as PlatformKey];
   if (!platform) return {};
   return {
-    title: `${platform.name} — Faultline`,
+    title: `${platform.name} \u2014 Faultline`,
     description: platform.description,
   };
 }
@@ -94,49 +33,42 @@ export default async function PlatformPage({
   return (
     <>
       <Navbar />
-      <main id="main-content" className="pt-16">
+      <main id="main-content" className="pt-14">
         {/* Hero */}
-        <section className="relative py-20 lg:py-32 overflow-hidden">
-          {/* Background */}
-          <div className="absolute inset-0 bg-navy-950" />
+        <section className="relative py-16 lg:py-24 overflow-hidden">
+          <div className="absolute inset-0 bg-void" />
+          <div className="absolute inset-0 grid-pattern opacity-20" />
           <div
-            className="absolute inset-0 opacity-[0.03]"
-            aria-hidden="true"
+            className="absolute inset-0"
             style={{
-              backgroundImage: "url(/images/topo-dark.png)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              background: `radial-gradient(ellipse 60% 50% at 30% 50%, ${platform.accentDim.replace("0.15", "0.04")} 0%, transparent 70%)`,
             }}
           />
 
           <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              {/* Text */}
-              <div className="lg:col-span-7 space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              <div className="lg:col-span-7 space-y-5">
                 <a
                   href="/"
-                  className="inline-flex items-center gap-2 text-steel-400/60 text-xs tracking-[0.05em] hover:text-steel-300 transition-colors mb-4"
+                  className="inline-flex items-center gap-2 text-text-muted text-[11px] tracking-[0.08em] hover:text-text-secondary transition-colors mb-3"
                 >
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M8 2L3 6l5 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   Back to Faultline
                 </a>
 
-                <p
-                  className="text-xs font-medium tracking-[0.2em] uppercase"
-                  style={{ color: platform.accent }}
-                >
+                <p className="text-[11px] font-medium tracking-[0.25em] uppercase" style={{ color: platform.accent }}>
                   {platform.tagline}
                 </p>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-[-0.02em] leading-tight">
+                <h1 className="wordmark text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">
                   {platform.name}
                 </h1>
 
-                <div className="w-16 h-px" style={{ backgroundColor: platform.accent, opacity: 0.4 }} />
+                <div className="w-12 h-px" style={{ backgroundColor: platform.accent, opacity: 0.3 }} />
 
-                <p className="text-lg leading-[1.7] text-slate-200/90 font-serif-accent max-w-2xl">
+                <p className="text-sm md:text-base leading-[1.75] text-text-secondary max-w-2xl">
                   {platform.description}
                 </p>
 
@@ -144,61 +76,72 @@ export default async function PlatformPage({
                   href={platform.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-7 py-3.5 border text-white text-sm font-medium tracking-[0.05em] transition-all duration-300 mt-4"
+                  className="inline-flex items-center gap-3 px-5 py-2.5 border text-text-primary text-[12px] font-medium tracking-[0.08em] uppercase transition-all duration-300 mt-2 hover:bg-white/5"
                   style={{
-                    borderColor: `${platform.accent}50`,
-                    backgroundColor: `${platform.accent}15`,
+                    borderColor: platform.accentBorder,
+                    backgroundColor: platform.accentDim.replace("0.15", "0.05"),
                   }}
                 >
                   Enter Platform
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+                    <path d="M4 1h6v6M10 1L4.5 6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </a>
               </div>
 
-              {/* OG Image */}
               <div className="lg:col-span-5">
-                <div className="relative overflow-hidden border border-steel-500/15">
+                <div className="relative overflow-hidden border border-white/8">
                   <Image
                     src={platform.ogImage}
                     alt={`${platform.name} platform screenshot`}
                     width={640}
                     height={360}
-                    className="w-full h-auto"
+                    className="w-full h-auto opacity-85"
                     priority
                   />
-                  <div className="absolute inset-0 border border-steel-500/10 pointer-events-none" />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Stats */}
+        <section className="relative" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="absolute inset-0 bg-surface" />
+          <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 py-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {platform.stats.map((s, i) => (
+                <div key={i} className="text-center">
+                  <p className="font-mono-data text-2xl md:text-3xl font-medium" style={{ color: platform.accent }}>
+                    {s.value}
+                  </p>
+                  <p className="text-text-muted text-[11px] tracking-[0.15em] uppercase mt-1">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <SectionDivider />
+
         {/* Capabilities */}
-        <section className="relative py-20 lg:py-28 border-t border-steel-500/10">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-              <div className="lg:col-span-5">
-                <p
-                  className="text-xs font-medium tracking-[0.2em] uppercase mb-4"
-                  style={{ color: platform.accent }}
-                >
+        <section className="relative py-14 lg:py-20">
+          <div className="absolute inset-0 bg-deep" />
+          <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+              <div className="lg:col-span-4">
+                <p className="text-[11px] font-medium tracking-[0.25em] uppercase mb-3" style={{ color: platform.accent }}>
                   Capabilities
                 </p>
-                <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-[-0.01em]">
+                <h2 className="wordmark text-2xl md:text-3xl text-text-primary">
                   What This Platform Maps
                 </h2>
               </div>
-
-              <div className="lg:col-span-7">
-                <ul className="space-y-4">
+              <div className="lg:col-span-8">
+                <ul className="space-y-3">
                   {platform.capabilities.map((cap, i) => (
-                    <li key={i} className="flex items-start gap-4 text-steel-400 text-sm leading-relaxed">
-                      <span
-                        className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
-                        style={{ backgroundColor: platform.accent, opacity: 0.6 }}
-                      />
+                    <li key={i} className="flex items-start gap-3 text-text-secondary text-[13px] leading-relaxed">
+                      <span className="mt-1.5 w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: platform.accent, opacity: 0.6 }} />
                       {cap}
                     </li>
                   ))}
@@ -208,38 +151,128 @@ export default async function PlatformPage({
           </div>
         </section>
 
-        {/* Cross-domain connection */}
-        <section className="relative py-20 lg:py-28 bg-navy-900/40 border-t border-steel-500/10">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
+        <SectionDivider />
+
+        {/* Features */}
+        <section className="relative py-14 lg:py-20">
+          <div className="absolute inset-0 bg-surface" />
+          <div className="absolute inset-0 grid-pattern opacity-15" />
+          <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
+            <p className="text-[11px] font-medium tracking-[0.25em] uppercase mb-3" style={{ color: platform.accent }}>
+              Core Features
+            </p>
+            <h2 className="wordmark text-2xl md:text-3xl text-text-primary mb-10">
+              Analytical Depth
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {platform.features.map((f, i) => (
+                <div key={i} className="p-5 lg:p-6 bg-elevated border border-white/6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="font-mono-data font-medium text-[12px]" style={{ color: platform.accent }}>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="flex-1 h-px" style={{ backgroundColor: platform.accent, opacity: 0.12 }} />
+                  </div>
+                  <h3 className="text-sm font-semibold text-text-primary mb-2">{f.title}</h3>
+                  <p className="text-[13px] text-text-muted leading-[1.75]">{f.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Methodology — only for Space Mandate Atlas */}
+        {platform.methodology && (
+          <>
+            <SectionDivider />
+            <section className="relative py-14 lg:py-20">
+              <div className="absolute inset-0 bg-deep" />
+              <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
+                <p className="text-[11px] font-medium tracking-[0.25em] uppercase mb-3" style={{ color: platform.accent }}>
+                  Analytical Architecture
+                </p>
+                <h2 className="wordmark text-2xl md:text-3xl text-text-primary mb-10">
+                  Three-Stage Framework
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {platform.methodology.map((m, i) => (
+                    <div key={i} className="p-5 bg-elevated border border-white/6">
+                      <p className="font-mono-data text-[11px] mb-3" style={{ color: platform.accent }}>
+                        STAGE {i + 1}
+                      </p>
+                      <h3 className="text-sm font-semibold text-text-primary mb-2">{m.title}</h3>
+                      <p className="text-[12px] text-text-muted leading-[1.7]">{m.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </>
+        )}
+
+        <SectionDivider />
+
+        {/* Key Insights */}
+        <section className="relative py-14 lg:py-20">
+          <div className="absolute inset-0 bg-surface" />
+          <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
+            <p className="text-[11px] font-medium tracking-[0.25em] uppercase mb-3" style={{ color: platform.accent }}>
+              Key Insights
+            </p>
+            <h2 className="wordmark text-2xl md:text-3xl text-text-primary mb-8">
+              What the Analysis Reveals
+            </h2>
+
+            <div className="space-y-3">
+              {platform.keyInsights.map((insight, i) => (
+                <div key={i} className="p-4 border-l-2 bg-elevated/40" style={{ borderColor: `${platform.accent}40` }}>
+                  <p className="text-[13px] text-text-secondary leading-[1.75]">{insight}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <SectionDivider />
+
+        {/* Cross-domain */}
+        <section className="relative py-14 lg:py-20">
+          <div className="absolute inset-0 bg-deep" />
+          <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
             <div className="max-w-3xl">
-              <p className="text-gold-400 text-xs font-medium tracking-[0.2em] uppercase mb-4">
+              <p className="text-orbital-500 text-[11px] font-medium tracking-[0.25em] uppercase mb-3">
                 Cross-Domain Significance
               </p>
-              <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-[-0.01em] mb-6">
+              <h2 className="wordmark text-2xl md:text-3xl text-text-primary mb-5">
                 Why This Domain Cannot Be Analyzed in Isolation
               </h2>
-              <p className="text-base leading-[1.7] text-steel-400">
+              <p className="text-sm leading-[1.75] text-text-secondary">
                 {platform.crossDomain}
               </p>
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="relative py-20 lg:py-28 border-t border-steel-500/10">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center">
-            <Image src="/images/logo-black.png" alt="Faultline" width={40} height={40} className="mx-auto mb-8 w-10 h-10" />
-            <p className="text-steel-400 text-sm mb-6">
+        <SectionDivider />
+
+        {/* CTA — other platforms */}
+        <section className="relative py-14 lg:py-20">
+          <div className="absolute inset-0 bg-surface" />
+          <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center">
+            <Image src="/images/logo.png" alt="Faultline" width={32} height={32} className="mx-auto mb-5 w-8 h-8 opacity-50" />
+            <p className="text-text-muted text-[12px] mb-5 tracking-[0.08em]">
               Explore the other strategic layers
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3">
               {Object.values(platforms)
                 .filter((p) => p.slug !== platform.slug)
                 .map((p) => (
                   <a
                     key={p.slug}
                     href={`/platform/${p.slug}`}
-                    className="px-6 py-3 border border-steel-500/20 text-white text-sm font-medium hover:border-steel-400/40 transition-all duration-300"
+                    className="px-5 py-2.5 border border-white/8 text-text-secondary text-[12px] font-medium tracking-[0.05em] hover:border-white/15 hover:text-text-primary transition-all duration-300"
                   >
                     {p.name}
                   </a>
