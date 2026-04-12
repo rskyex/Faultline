@@ -54,7 +54,7 @@ const domains = [
     title: "Space Mandate Atlas",
     description: "Mapping authority structures in contested lunar governance. Framework analysis across all spacefaring states\u2014who writes the rules, who interprets them, and who decides who participates.",
     image: "/images/govern-og.png",
-    externalUrl: "https://space-mandate-atlas.vercel.app/",
+    externalUrl: "https://lunar-mandate-atlas.vercel.app/",
     detailUrl: "/platform/space",
     dotClass: "bg-space-500",
     labelClass: "text-space-400",
