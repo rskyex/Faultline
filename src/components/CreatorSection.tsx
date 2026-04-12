@@ -67,7 +67,7 @@ export default function CreatorSection() {
                   Risa Koyanagi
                 </h3>
                 <p className="text-[12px] leading-[1.7] text-text-secondary mb-2">
-                  Cambridge Future Scholar. Research at the intersection of space governance, nuclear governance, cyber governance, strategic risk, and emerging technology governance.
+                  Cambridge Future Scholar. Research at the intersection of lunar governance, nuclear governance, cyber governance, strategic risk, and emerging technology governance.
                 </p>
                 <span className="text-text-secondary text-[11px] group-hover:text-orbital-400 transition-colors">
                   risakoyanagi.com &rarr;

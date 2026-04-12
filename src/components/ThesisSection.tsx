@@ -38,9 +38,9 @@ export default function ThesisSection() {
                   <circle cx="250" cy="225" r="4.5" fill={C.nuclear[500]} opacity="0.4" />
                   <circle cx="320" cy="235" r="3.5" fill={C.nuclear[500]} opacity="0.35" />
 
-                  {/* Space Governance layer */}
+                  {/* Lunar Governance layer */}
                   <rect x="30" y="310" width="360" height="100" fill={C.space[500]} fillOpacity="0.04" stroke={C.space[500]} strokeWidth="1" rx="2" />
-                  <text x="46" y="332" fill={C.space[500]} fontSize="10" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.2em" opacity="0.8">SPACE GOVERNANCE</text>
+                  <text x="46" y="332" fill={C.space[500]} fontSize="10" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.2em" opacity="0.8">LUNAR GOVERNANCE</text>
                   <circle cx="160" cy="370" r="5" fill={C.space[500]} opacity="0.45" />
                   <circle cx="260" cy="365" r="4" fill={C.space[500]} opacity="0.35" />
 

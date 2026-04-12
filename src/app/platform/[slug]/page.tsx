@@ -182,7 +182,7 @@ export default async function PlatformPage({
           </div>
         </section>
 
-        {/* Methodology — only for Space Mandate Atlas */}
+        {/* Methodology — only for Lunar Governance Authority Tracker */}
         {platform.methodology && (
           <>
             <SectionDivider />

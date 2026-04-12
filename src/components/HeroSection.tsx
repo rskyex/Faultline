@@ -26,7 +26,7 @@ export default function HeroSection() {
           </div>
 
           {/* Tagline */}
-          <p className="text-text-primary/70 text-[11px] sm:text-[13px] md:text-[14px] font-medium tracking-[0.25em] uppercase animate-fade-in-up animate-delay-100">
+          <p className="text-text-primary text-[11px] sm:text-[13px] md:text-[14px] font-medium tracking-[0.25em] uppercase animate-fade-in-up animate-delay-100" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}>
             Cross-Domain Strategic Infrastructure Mapping
           </p>
 
@@ -39,23 +39,23 @@ export default function HeroSection() {
           </div>
 
           {/* Subtitle */}
-          <p className="text-text-primary/70 text-sm md:text-base max-w-2xl leading-relaxed animate-fade-in-up animate-delay-200">
+          <p className="text-text-primary/90 text-sm md:text-base max-w-2xl leading-relaxed animate-fade-in-up animate-delay-200" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}>
             Mapping the dependencies, escalation pathways, and governance fractures
-            across orbital, nuclear, space governance, and cyber systems.
+            across orbital, nuclear, lunar governance, and cyber systems.
           </p>
 
           {/* Domain indicators */}
           <div className="flex flex-wrap gap-4 pt-2 animate-fade-in-up animate-delay-300">
-            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-secondary">
+            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-primary/80" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
               <span className="w-1.5 h-1.5 rounded-full bg-orbital-500/70" />Orbital
             </span>
-            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-secondary">
+            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-primary/80" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
               <span className="w-1.5 h-1.5 rounded-full bg-nuclear-500/70" />Nuclear
             </span>
-            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-secondary">
-              <span className="w-1.5 h-1.5 rounded-full bg-space-500/70" />Space Governance
+            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-primary/80" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
+              <span className="w-1.5 h-1.5 rounded-full bg-space-500/70" />Lunar Governance
             </span>
-            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-secondary">
+            <span className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-text-primary/80" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
               <span className="w-1.5 h-1.5 rounded-full bg-cyber-500/70" />Cyber
             </span>
           </div>
@@ -73,7 +73,7 @@ export default function HeroSection() {
             </a>
             <a
               href="#thesis"
-              className="inline-flex items-center gap-2 px-6 py-3 text-text-secondary text-[12px] font-medium tracking-[0.08em] uppercase border border-white/8 hover:border-white/15 hover:text-text-primary transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 text-text-primary/80 text-[12px] font-medium tracking-[0.08em] uppercase border border-white/12 hover:border-white/20 hover:text-text-primary transition-all duration-300"
             >
               Why Cross-Domain Analysis
             </a>

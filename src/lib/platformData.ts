@@ -33,7 +33,7 @@ export const platforms: Record<string, PlatformData> = {
       "Orbital debris field tracking and collision probability modeling",
       "Comprehensive space security incident database with timeline analysis",
       "Electromagnetic spectrum interference and jamming event cataloguing",
-      "Space governance gap identification and institutional fragmentation analysis",
+      "Lunar governance gap identification and institutional fragmentation analysis",
       "Launch activity monitoring and dual-use capability tracking",
     ],
     crossDomain:
@@ -94,7 +94,7 @@ export const platforms: Record<string, PlatformData> = {
       "Spent fuel storage and reprocessing site cataloguing",
     ],
     crossDomain:
-      "Nuclear command-and-control depends on orbital communication links and is increasingly vulnerable to cyber intrusion. Contested space governance frameworks shape nuclear posture calculations. Disruptions in any domain can alter escalation dynamics.",
+      "Nuclear command-and-control depends on orbital communication links and is increasingly vulnerable to cyber intrusion. Contested lunar governance frameworks shape nuclear posture calculations. Disruptions in any domain can alter escalation dynamics.",
     stats: [
       { label: "Countries Mapped", value: "30+" },
       { label: "Nuclear Facilities", value: "400+" },
@@ -132,10 +132,10 @@ export const platforms: Record<string, PlatformData> = {
   },
 
   space: {
-    name: "Space Mandate Atlas",
+    name: "Lunar Governance Authority Tracker",
     slug: "space",
     url: "https://lunar-mandate-atlas.vercel.app/",
-    ogImage: "/images/govern-og.png",
+    ogImage: "/images/LGAT-og.svg",
     accent: "#a78bfa",
     accentDim: "rgba(167,139,250,0.15)",
     accentBorder: "rgba(167,139,250,0.25)",
@@ -151,7 +151,7 @@ export const platforms: Record<string, PlatformData> = {
       "Document corpus analysis covering national strategies, bilateral agreements, and multilateral instruments",
     ],
     crossDomain:
-      "Space governance frameworks shape the institutional architecture within which orbital, nuclear, and cyber systems operate. Concentrated interpretive authority in governance documents creates structural vulnerabilities that cascade across all strategic domains.",
+      "Lunar governance frameworks shape the institutional architecture within which orbital, nuclear, and cyber systems operate. Concentrated interpretive authority in governance documents creates structural vulnerabilities that cascade across all strategic domains.",
     stats: [
       { label: "Documents Analyzed", value: "42" },
       { label: "States Covered", value: "30+" },
@@ -225,7 +225,7 @@ export const platforms: Record<string, PlatformData> = {
       "Strategic signaling analysis\u2014how cyber operations communicate intent",
     ],
     crossDomain:
-      "Cyber operations can target satellite ground stations, disrupt nuclear early-warning systems, undermine space governance communications, and create misperception cascades that travel across orbital, nuclear, and governance domains. Digital disruption is rarely contained to cyberspace alone.",
+      "Cyber operations can target satellite ground stations, disrupt nuclear early-warning systems, undermine lunar governance communications, and create misperception cascades that travel across orbital, nuclear, and governance domains. Digital disruption is rarely contained to cyberspace alone.",
     stats: [
       { label: "Operations Catalogued", value: "50+" },
       { label: "State Actors", value: "15+" },

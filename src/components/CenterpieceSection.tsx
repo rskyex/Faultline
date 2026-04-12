@@ -16,7 +16,7 @@ export default function CenterpieceSection() {
             <p className="text-[11px] font-medium tracking-[0.25em] uppercase mb-3 text-orbital-500">Systems Convergence</p>
             <h2 className="wordmark text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">Mapping the Fault Lines</h2>
             <p className="mt-4 text-text-primary/70 text-sm max-w-lg mx-auto leading-relaxed">
-              Where orbital, nuclear, space governance, and cyber infrastructures intersect, strategic vulnerabilities accumulate.
+              Where orbital, nuclear, lunar governance, and cyber infrastructures intersect, strategic vulnerabilities accumulate.
             </p>
           </div>
         </ScrollReveal>
@@ -37,7 +37,7 @@ export default function CenterpieceSection() {
               <text x="340" y="255" textAnchor="middle" fill={C.cyber[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.7">CYBER</text>
 
               <circle cx="200" cy="360" r="6" fill={C.space[500]} opacity="0.5" />
-              <text x="200" y="385" textAnchor="middle" fill={C.space[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.7">SPACE GOV</text>
+              <text x="200" y="385" textAnchor="middle" fill={C.space[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.7">LUNAR GOV</text>
 
               {/* Connecting lines */}
               <line x1="200" y1="56" x2="60" y2="224" stroke={C.orbital[500]} strokeWidth="0.6" opacity="0.15" strokeDasharray="3 4" />
@@ -94,9 +94,9 @@ export default function CenterpieceSection() {
                 <circle key={`cn-${i}`} cx={cx} cy={cy} r={r} fill={C.cyber[500]} opacity={0.4-i*0.08}/>
               ))}
 
-              {/* Space Governance — bottom-center */}
+              {/* Lunar Governance — bottom-center */}
               <path d="M500 560 L420 440 L580 440 Z" stroke={C.space[500]} strokeWidth="1" fill={C.space[500]} fillOpacity="0.03" />
-              <text x="500" y="542" textAnchor="middle" fill={C.space[500]} fontSize="11" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.2em" opacity="0.7">SPACE GOV</text>
+              <text x="500" y="542" textAnchor="middle" fill={C.space[500]} fontSize="11" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.2em" opacity="0.7">LUNAR GOV</text>
               {[[480,470,4],[520,465,3.5],[500,480,3]].map(([cx,cy,r],i)=>(
                 <circle key={`sn-${i}`} cx={cx} cy={cy} r={r} fill={C.space[500]} opacity={0.4-i*0.08}/>
               ))}
