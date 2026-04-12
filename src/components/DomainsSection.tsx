@@ -54,7 +54,7 @@ const domains = [
     title: "Space Mandate Atlas",
     description: "Mapping authority structures in contested lunar governance. Framework analysis across all spacefaring states\u2014who writes the rules, who interprets them, and who decides who participates.",
     image: "/images/govern-og.png",
-    externalUrl: "https://space-mandate-atlas.vercel.app/",
+    externalUrl: "https://lunar-mandate-atlas.vercel.app/",
     detailUrl: "/platform/space",
     dotClass: "bg-space-500",
     labelClass: "text-space-400",
@@ -94,7 +94,7 @@ export default function DomainsSection() {
             <h2 className="wordmark text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight max-w-xl">
               Enter the Strategic Layers
             </h2>
-            <p className="mt-5 text-text-secondary text-sm max-w-2xl leading-relaxed">
+            <p className="mt-5 text-text-primary/70 text-sm max-w-2xl leading-relaxed">
               Each platform maps one domain of critical infrastructure in depth.
               Together, they form the analytical foundation upon which Faultline
               reveals cross-domain dependencies and systemic risk.

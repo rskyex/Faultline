@@ -13,7 +13,7 @@ export default function AboutSection() {
         {/* Pull quote */}
         <ScrollReveal>
           <div className="mb-20 text-center">
-            <blockquote className="text-lg md:text-xl leading-[1.7] text-text-secondary max-w-3xl mx-auto italic">
+            <blockquote className="text-lg md:text-xl leading-[1.7] text-text-primary/70 max-w-3xl mx-auto italic">
               &ldquo;Orbital, nuclear, space governance, and cyber systems do not fail
               in isolation. Faultline maps the dependencies, escalation pathways, and
               governance fractures that emerge across them.&rdquo;
@@ -83,7 +83,7 @@ export default function AboutSection() {
           {/* Right */}
           <div className="lg:col-span-8 space-y-6">
             <ScrollReveal delay={100}>
-              <p className="text-base md:text-lg leading-[1.75] text-text-secondary">
+              <p className="text-base md:text-lg leading-[1.75] text-text-primary/70">
                 Faultline is a connective research interface linking four
                 domain-specific platforms: orbital infrastructure, nuclear
                 infrastructure, space governance, and cyber escalation. Its purpose is not only to

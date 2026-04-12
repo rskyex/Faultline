@@ -26,7 +26,7 @@ export default function HeroSection() {
           </div>
 
           {/* Tagline */}
-          <p className="text-text-secondary text-[11px] sm:text-[13px] md:text-[14px] font-medium tracking-[0.25em] uppercase animate-fade-in-up animate-delay-100">
+          <p className="text-text-primary/70 text-[11px] sm:text-[13px] md:text-[14px] font-medium tracking-[0.25em] uppercase animate-fade-in-up animate-delay-100">
             Cross-Domain Strategic Infrastructure Mapping
           </p>
 
@@ -39,7 +39,7 @@ export default function HeroSection() {
           </div>
 
           {/* Subtitle */}
-          <p className="text-text-secondary text-sm md:text-base max-w-2xl leading-relaxed animate-fade-in-up animate-delay-200">
+          <p className="text-text-primary/70 text-sm md:text-base max-w-2xl leading-relaxed animate-fade-in-up animate-delay-200">
             Mapping the dependencies, escalation pathways, and governance fractures
             across orbital, nuclear, space governance, and cyber systems.
           </p>

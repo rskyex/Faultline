@@ -90,7 +90,7 @@ export default function ThesisSection() {
             <div className="w-12 h-px bg-white/8" />
 
             <ScrollReveal delay={100}>
-              <p className="text-base leading-[1.75] text-text-secondary">
+              <p className="text-base leading-[1.75] text-text-primary/70">
                 Strategic risk no longer remains neatly bounded by sector.
                 Technical dependencies, political signaling, institutional
                 fragmentation, and infrastructural coupling allow disruption to

@@ -134,7 +134,7 @@ export const platforms: Record<string, PlatformData> = {
   space: {
     name: "Space Mandate Atlas",
     slug: "space",
-    url: "https://space-mandate-atlas.vercel.app/",
+    url: "https://lunar-mandate-atlas.vercel.app/",
     ogImage: "/images/govern-og.png",
     accent: "#a78bfa",
     accentDim: "rgba(167,139,250,0.15)",
