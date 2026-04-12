@@ -32,7 +32,7 @@ export default function Footer() {
               <p className="text-text-secondary text-[12px] leading-[1.7] max-w-sm">
                 Cross-domain strategic infrastructure mapping. Revealing the
                 dependencies, escalation pathways, and governance fractures across
-                orbital, nuclear, space governance, and cyber systems.
+                orbital, nuclear, lunar governance, and cyber systems.
               </p>
             </div>
 
@@ -60,7 +60,7 @@ export default function Footer() {
                   <a href="https://lunar-mandate-atlas.vercel.app/" target="_blank" rel="noopener noreferrer"
                     className="group inline-flex items-center gap-2 text-text-secondary text-[12px] hover:text-space-400 transition-colors duration-200">
                     <span className="w-1.5 h-1.5 rounded-full bg-space-500/70 group-hover:bg-space-400 transition-colors duration-200" />
-                    Space Mandate Atlas
+                    Lunar Governance Authority Tracker
                   </a>
                 </li>
                 <li>

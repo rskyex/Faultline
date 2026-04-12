@@ -17,7 +17,7 @@ export default function QuoteStrip() {
           <div className="max-w-3xl mx-auto text-center">
             <blockquote className="text-lg md:text-xl lg:text-[1.4rem] leading-[1.7] text-text-primary/70 italic">
               &ldquo;To understand escalation today, separate maps are not enough.
-              Risk travels across orbital, nuclear, space governance, and cyber domains
+              Risk travels across orbital, nuclear, lunar governance, and cyber domains
               through pathways that no single framework can trace alone.&rdquo;
             </blockquote>
 

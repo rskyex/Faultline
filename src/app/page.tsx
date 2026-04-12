@@ -15,7 +15,7 @@ const jsonLd = {
   "@type": "WebApplication",
   name: "Faultline",
   description:
-    "Cross-domain strategic infrastructure mapping platform. Maps dependencies, escalation pathways, and governance fractures across orbital, nuclear, space governance, and cyber systems.",
+    "Cross-domain strategic infrastructure mapping platform. Maps dependencies, escalation pathways, and governance fractures across orbital, nuclear, lunar governance, and cyber systems.",
   applicationCategory: "Research Platform",
   url: "https://faultline-nqmm.vercel.app",
   creator: {

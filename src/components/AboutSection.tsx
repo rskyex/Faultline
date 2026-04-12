@@ -14,7 +14,7 @@ export default function AboutSection() {
         <ScrollReveal>
           <div className="mb-20 text-center">
             <blockquote className="text-lg md:text-xl leading-[1.7] text-text-primary/70 max-w-3xl mx-auto italic">
-              &ldquo;Orbital, nuclear, space governance, and cyber systems do not fail
+              &ldquo;Orbital, nuclear, lunar governance, and cyber systems do not fail
               in isolation. Faultline maps the dependencies, escalation pathways, and
               governance fractures that emerge across them.&rdquo;
             </blockquote>
@@ -73,7 +73,7 @@ export default function AboutSection() {
                     <text x="140" y="18" textAnchor="middle" fill={C.orbital[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.8">ORBITAL</text>
                     <text x="40" y="198" textAnchor="middle" fill={C.nuclear[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.8">NUCLEAR</text>
                     <text x="240" y="198" textAnchor="middle" fill={C.cyber[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.8">CYBER</text>
-                    <text x="140" y="268" textAnchor="middle" fill={C.space[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.8">SPACE GOV</text>
+                    <text x="140" y="268" textAnchor="middle" fill={C.space[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.8">LUNAR GOV</text>
                   </svg>
                 </div>
               </ScrollReveal>
@@ -86,7 +86,7 @@ export default function AboutSection() {
               <p className="text-base md:text-lg leading-[1.75] text-text-primary/70">
                 Faultline is a connective research interface linking four
                 domain-specific platforms: orbital infrastructure, nuclear
-                infrastructure, space governance, and cyber escalation. Its purpose is not only to
+                infrastructure, lunar governance, and cyber escalation. Its purpose is not only to
                 display separate systems, but to reveal the structural fault lines
                 that form between them.
               </p>
@@ -120,7 +120,7 @@ export default function AboutSection() {
                 <div className="p-4 border border-white/6 bg-elevated/50">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-space-500/70" />
-                    <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-space-400">Space Governance</p>
+                    <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-space-400">Lunar Governance</p>
                   </div>
                   <p className="text-[13px] text-text-secondary leading-relaxed">Lunar governance authority mapping, mandate analysis, and treaty framework comparison</p>
                 </div>
