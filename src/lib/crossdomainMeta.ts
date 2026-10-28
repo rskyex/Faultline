@@ -6,7 +6,7 @@ export const DOMAINS: Domain[] = ["cyber", "orbital", "lunar", "nuclear"];
 export const DOMAIN_META: Record<Domain, { label: string; platform: string; color: string; textClass: string }> = {
   cyber: { label: "Cyber", platform: "Cyber Escalation Atlas", color: "#f59e0b", textClass: "text-cyber-400" },
   orbital: { label: "Orbital", platform: "Orbital Risk Tracker", color: "#38bdf8", textClass: "text-orbital-400" },
-  lunar: { label: "Lunar governance", platform: "Lunar Governance Authority Tracker", color: "#a78bfa", textClass: "text-space-400" },
+  lunar: { label: "Lunar governance", platform: "Lunar Governance Tracker", color: "#a78bfa", textClass: "text-space-400" },
   nuclear: { label: "Nuclear", platform: "Global Nuclear Infrastructure Atlas", color: "#2dd4bf", textClass: "text-nuclear-400" },
 };
 

@@ -55,7 +55,7 @@ const SOURCES = {
     url: "https://globalnuclearinfrastructureatlas.vercel.app",
   },
   lunar: {
-    name: "Lunar Governance Authority Tracker",
+    name: "Lunar Governance Tracker",
     repo: "lunar-mandate-atlas",
     url: "https://lunar-mandate-atlas.vercel.app",
   },

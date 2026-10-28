@@ -51,9 +51,9 @@ const domains = [
   {
     slug: "space",
     label: "Lunar Governance",
-    title: "Lunar Governance Authority Tracker",
+    title: "Lunar Governance Tracker",
     description: "Mapping authority structures in contested lunar governance. Framework analysis across all spacefaring states\u2014who writes the rules, who interprets them, and who decides who participates.",
-    image: "/images/LGAT-og.svg",
+    image: "/images/LGT-og.svg",
     externalUrl: "https://lunar-mandate-atlas.vercel.app/",
     detailUrl: "/platform/space",
     dotClass: "bg-space-500",

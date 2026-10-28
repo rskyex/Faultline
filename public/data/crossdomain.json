@@ -10,7 +10,7 @@
    "name": "Cyber Escalation Atlas",
    "url": "https://cyber-escalation-atlas.vercel.app",
    "repo": "cyber-escalation-atlas",
-   "commit": "d0d9639daa37ed875b6c9675f9d16601940df480",
+   "commit": "8826e75d54aab38c387476f7ebe1105e61e8f220",
    "commitDate": "2026-10-28",
    "dataClean": true,
    "files": [
@@ -29,7 +29,7 @@
    "name": "Orbital Risk Tracker",
    "url": "https://orbitalrisktracker.vercel.app",
    "repo": "Orbital-Risk-Tracker",
-   "commit": "66c801f9a5eb834fa322e0438e733c482962494e",
+   "commit": "c04d646c77225c632c0e2eb40e470209cf4bb90a",
    "commitDate": "2026-10-28",
    "dataClean": true,
    "files": [
@@ -46,7 +46,7 @@
    "name": "Global Nuclear Infrastructure Atlas",
    "url": "https://globalnuclearinfrastructureatlas.vercel.app",
    "repo": "Global-Nuclear-Infrastructure-Atlas",
-   "commit": "7ccee719afb2d4bb595fa818bfe60e5f0073547f",
+   "commit": "7954d597506d3dd104a4e1462062ab6660bb5f1e",
    "commitDate": "2026-10-28",
    "dataClean": true,
    "files": [
@@ -61,10 +61,10 @@
    }
   },
   "lunar": {
-   "name": "Lunar Governance Authority Tracker",
+   "name": "Lunar Governance Tracker",
    "url": "https://lunar-mandate-atlas.vercel.app",
    "repo": "lunar-mandate-atlas",
-   "commit": "f067b99b1342fed711a0901c99d572944a52adba",
+   "commit": "65894c27615ff4d4ab976a768c5dc114e7062e73",
    "commitDate": "2026-10-28",
    "dataClean": true,
    "files": [

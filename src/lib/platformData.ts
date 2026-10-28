@@ -132,14 +132,14 @@ export const platforms: Record<string, PlatformData> = {
   },
 
   space: {
-    name: "Lunar Governance Authority Tracker",
+    name: "Lunar Governance Tracker",
     slug: "space",
     url: "https://lunar-mandate-atlas.vercel.app/",
-    ogImage: "/images/LGAT-og.svg",
+    ogImage: "/images/LGT-og.svg",
     accent: "#a78bfa",
     accentDim: "rgba(167,139,250,0.15)",
     accentBorder: "rgba(167,139,250,0.25)",
-    tagline: "Lunar Governance Authority Tracker",
+    tagline: "Lunar Governance Tracker",
     description:
       "Mapping authority structures in contested lunar governance. Framework analysis across all spacefaring states\u2014who writes the rules, who interprets them, and who decides who participates. Tracking 42 governance documents across 30+ nations with 15+ identified discretion points.",
     capabilities: [

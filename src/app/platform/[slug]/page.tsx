@@ -182,7 +182,7 @@ export default async function PlatformPage({
           </div>
         </section>
 
-        {/* Methodology — only for Lunar Governance Authority Tracker */}
+        {/* Methodology — only for Lunar Governance Tracker */}
         {platform.methodology && (
           <>
             <SectionDivider />
