@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "version": "1.0.0",
- "snapshotId": "faultline-crossdomain-1.0.0-2026-10-28",
+ "version": "1.1.0",
+ "snapshotId": "faultline-crossdomain-1.1.0-2026-10-28",
  "generated": "2026-10-28",
  "generator": "scripts/build-crossdomain.mjs",
  "description": "Cross-domain linkage snapshot for Faultline. Records come from four analyst-coded platform datasets. Links are derived only from fields present in those datasets, through the crosswalk tables included here.",
@@ -10,14 +10,15 @@
    "name": "Cyber Escalation Atlas",
    "url": "https://cyber-escalation-atlas.vercel.app",
    "repo": "cyber-escalation-atlas",
-   "commit": "8b68b1f309b7bdc027e32e080a603044ea880f41",
+   "commit": "d0d9639daa37ed875b6c9675f9d16601940df480",
    "commitDate": "2026-10-28",
    "dataClean": true,
    "files": [
     "src/data/incidents/index.ts (seed.ts, newCases2024.ts, newCasesGlobal.ts, newCasesAttribution.ts, attributionData.ts)",
     "src/data/legalFrameworks.ts",
     "src/data/norms.ts",
-    "src/data/actors.ts"
+    "src/data/actors.ts",
+    "src/data/tallinnRules.ts"
    ],
    "records": 36,
    "recordTypes": {
@@ -28,7 +29,7 @@
    "name": "Orbital Risk Tracker",
    "url": "https://orbitalrisktracker.vercel.app",
    "repo": "Orbital-Risk-Tracker",
-   "commit": "c473a23e946d8f2af84e9f2fc9aad86e38116ee1",
+   "commit": "66c801f9a5eb834fa322e0438e733c482962494e",
    "commitDate": "2026-10-28",
    "dataClean": true,
    "files": [
@@ -45,7 +46,7 @@
    "name": "Global Nuclear Infrastructure Atlas",
    "url": "https://globalnuclearinfrastructureatlas.vercel.app",
    "repo": "Global-Nuclear-Infrastructure-Atlas",
-   "commit": "7f9ea0bcc543985f962f9c3d7ce48f8864decf01",
+   "commit": "7ccee719afb2d4bb595fa818bfe60e5f0073547f",
    "commitDate": "2026-10-28",
    "dataClean": true,
    "files": [
@@ -63,14 +64,15 @@
    "name": "Lunar Governance Authority Tracker",
    "url": "https://lunar-mandate-atlas.vercel.app",
    "repo": "lunar-mandate-atlas",
-   "commit": "b33ad7e865c5981581b2364eb59116f5865ab344",
+   "commit": "f067b99b1342fed711a0901c99d572944a52adba",
    "commitDate": "2026-10-28",
    "dataClean": true,
    "files": [
     "src/data/discretionPoints.ts",
     "src/data/countries.ts",
     "src/data/infrastructure.ts",
-    "src/data/constants.ts"
+    "src/data/constants.ts",
+    "src/data/documents.ts"
    ],
    "records": 32,
    "recordTypes": {
@@ -82,13 +84,13 @@
  },
  "counts": {
   "records": 182,
-  "entities": 77,
+  "entities": 74,
   "entitiesByType": {
    "state": 41,
    "sector": 3,
-   "instrument": 33
+   "instrument": 30
   },
-  "nodes": 259,
+  "nodes": 256,
   "attributeEdges": 430,
   "attributeEdgesByBasis": {
    "attributed_state": 59,
@@ -2239,8 +2241,8 @@
    "domain": "orbital",
    "type": "incident",
    "label": "China SJ-21 GEO Satellite Tow Operation",
-   "date": "2023-01-26",
-   "year": 2023,
+   "date": "2022-01-26",
+   "year": 2022,
    "url": "https://orbitalrisktracker.vercel.app/#/incidents/26",
    "urlPrecision": "record",
    "summary": "China's SJ-21 conducted a rendezvous with the aged Beidou Compass-G2 satellite and towed it to a higher graveyard orbit — the first confirmed satellite tow in GEO. Framed as debris management, but the demonstrated…",
@@ -2859,7 +2861,7 @@
     "reactorType": "PWR / CANDU / CNP (multiple types)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": true,
+    "criticalInfrastructureOverlap": false,
     "safeguardsStatus": "Voluntary Offer Agreement (VOA) - NPT Weapon State"
    }
   },
@@ -2880,7 +2882,7 @@
     "reactorType": "PWR (M310 / ACPR-1000)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": true,
+    "criticalInfrastructureOverlap": false,
     "safeguardsStatus": "Voluntary Offer Agreement (VOA) - NPT Weapon State"
    }
   },
@@ -2901,7 +2903,7 @@
     "reactorType": "VVER-1000 / VVER-1200",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": true,
+    "criticalInfrastructureOverlap": false,
     "safeguardsStatus": "Voluntary Offer Agreement (VOA) - NPT Weapon State"
    }
   },
@@ -2922,7 +2924,7 @@
     "reactorType": "PWR (ACPR-1000)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": true,
+    "criticalInfrastructureOverlap": false,
     "safeguardsStatus": "Voluntary Offer Agreement (VOA) - NPT Weapon State"
    }
   },
@@ -2943,7 +2945,7 @@
     "reactorType": "PWR (CPR-1000 / ACPR-1000)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": true,
+    "criticalInfrastructureOverlap": false,
     "safeguardsStatus": "Voluntary Offer Agreement (VOA) - NPT Weapon State"
    }
   },
@@ -2964,7 +2966,7 @@
     "reactorType": "EPR (1750 MWe)",
     "digitalIandC": true,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": true,
+    "criticalInfrastructureOverlap": false,
     "safeguardsStatus": "Voluntary Offer Agreement (VOA) - NPT Weapon State"
    }
   },
@@ -2985,7 +2987,7 @@
     "reactorType": "VVER-1000",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": true,
+    "criticalInfrastructureOverlap": false,
     "safeguardsStatus": "Voluntary Offer Agreement (VOA) - NPT Weapon State"
    }
   },
@@ -3004,9 +3006,9 @@
     "country": "Russia",
     "status": "operating",
     "reactorType": "RBMK-1000 (Units 1–2, being decommissioned) / VVER-1200 (Units 3–4)",
-    "digitalIandC": false,
+    "digitalIandC": true,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": true,
+    "criticalInfrastructureOverlap": false,
     "safeguardsStatus": "Voluntary Offer Agreement (VOA) - NPT Weapon State"
    }
   },
@@ -3027,7 +3029,7 @@
     "reactorType": "VVER-1000",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": true,
+    "criticalInfrastructureOverlap": false,
     "safeguardsStatus": "Voluntary Offer Agreement (VOA) - NPT Weapon State"
    }
   },
@@ -3048,7 +3050,7 @@
     "reactorType": "RBMK-1000",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": true,
+    "criticalInfrastructureOverlap": false,
     "safeguardsStatus": "Voluntary Offer Agreement (VOA) - NPT Weapon State"
    }
   },
@@ -3069,7 +3071,7 @@
     "reactorType": "BN-800 Fast Neutron / AMB (shutdown) / BN-1200 (planned)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": true,
+    "criticalInfrastructureOverlap": false,
     "safeguardsStatus": "Voluntary Offer Agreement (VOA) - NPT Weapon State"
    }
   },
@@ -3088,8 +3090,8 @@
     "country": "South Korea",
     "status": "operating",
     "reactorType": "PWR (various – OPR-1000, APR-1400, WH)",
-    "digitalIandC": false,
-    "reportedCyberIncident": false,
+    "digitalIandC": true,
+    "reportedCyberIncident": true,
     "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "CSA + Additional Protocol (INFCIRC/236)"
    }
@@ -3110,7 +3112,7 @@
     "status": "operating",
     "reactorType": "PWR (OPR-1000 / APR-1400)",
     "digitalIandC": false,
-    "reportedCyberIncident": true,
+    "reportedCyberIncident": false,
     "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "CSA + Additional Protocol (INFCIRC/236)"
    }
@@ -3131,7 +3133,7 @@
     "status": "operating",
     "reactorType": "PWR (WH / OPR-1000)",
     "digitalIandC": false,
-    "reportedCyberIncident": true,
+    "reportedCyberIncident": false,
     "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "CSA + Additional Protocol (INFCIRC/236)"
    }
@@ -3153,7 +3155,7 @@
     "reactorType": "CANDU (PHWR)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "CSA + Additional Protocol (INFCIRC/164)"
    }
   },
@@ -3174,7 +3176,7 @@
     "reactorType": "CANDU (PHWR)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "CSA + Additional Protocol (INFCIRC/164)"
    }
   },
@@ -3195,7 +3197,7 @@
     "reactorType": "CANDU (PHWR)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "CSA + Additional Protocol (INFCIRC/164)"
    }
   },
@@ -3277,7 +3279,7 @@
     "country": "United Kingdom",
     "status": "under_construction",
     "reactorType": "EPR (1600 MWe)",
-    "digitalIandC": false,
+    "digitalIandC": true,
     "reportedCyberIncident": false,
     "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "Voluntary Offer Agreement (VOA) - NPT Weapon State"
@@ -3552,7 +3554,7 @@
     "reactorType": "BWR (ABB Atom)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "EURATOM + IAEA (INFCIRC/193)"
    }
   },
@@ -3573,7 +3575,7 @@
     "reactorType": "PWR / BWR",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "EURATOM + IAEA (INFCIRC/193)"
    }
   },
@@ -3594,7 +3596,7 @@
     "reactorType": "PWR (Westinghouse)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "EURATOM + IAEA (INFCIRC/193)"
    }
   },
@@ -3615,7 +3617,7 @@
     "reactorType": "PWR (Westinghouse / Framatome)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "EURATOM + IAEA (INFCIRC/193)"
    }
   },
@@ -3741,7 +3743,7 @@
     "reactorType": "BWR (GE)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "CSA + Additional Protocol (INFCIRC/264)"
    }
   },
@@ -3762,7 +3764,7 @@
     "reactorType": "PWR (Westinghouse)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "CSA + Additional Protocol (INFCIRC/264)"
    }
   },
@@ -3804,7 +3806,7 @@
     "reactorType": "PWR (Siemens/KWU)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "EURATOM + IAEA (INFCIRC/193)"
    }
   },
@@ -3867,7 +3869,7 @@
     "reactorType": "PWR (Westinghouse / Siemens-KWU)",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "CSA (INFCIRC/435) - Quadripartite Agreement with ABACC"
    }
   },
@@ -3907,9 +3909,9 @@
     "country": "Pakistan",
     "status": "operating",
     "reactorType": "PHWR (CANDU-derived) / PWR (Hualong One)",
-    "digitalIandC": false,
+    "digitalIandC": true,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "Facility-specific safeguards (INFCIRC/393)"
    }
   },
@@ -3930,7 +3932,7 @@
     "reactorType": "VVER-1000",
     "digitalIandC": false,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "CSA (INFCIRC/214) - Additional Protocol signed but not ratified"
    }
   },
@@ -4056,7 +4058,7 @@
     "reactorType": "VVER-1200",
     "digitalIandC": true,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "CSA + Additional Protocol"
    }
   },
@@ -4098,7 +4100,7 @@
     "reactorType": "VVER-1200",
     "digitalIandC": true,
     "reportedCyberIncident": false,
-    "criticalInfrastructureOverlap": false,
+    "criticalInfrastructureOverlap": true,
     "safeguardsStatus": "CSA (INFCIRC/302)"
    }
   },
@@ -4116,7 +4118,9 @@
    "fields": {
     "term": "Due Regard",
     "document": "Outer Space Treaty",
-    "documentId": "OST-1967",
+    "documentIds": [
+     "OST-1967"
+    ],
     "section": "Article IX",
     "holder": "Each State Party (self-judging)",
     "coalition": "ost",
@@ -4137,8 +4141,10 @@
    "fields": {
     "term": "Harmful Interference",
     "document": "Artemis Accords",
-    "documentId": "AA-2020",
-    "section": "Section 11",
+    "documentIds": [
+     "AA-2020"
+    ],
+    "section": "Section 11.4",
     "holder": "Signatory / Drafting party (USA)",
     "coalition": "artemis",
     "type": "open_ended_qualifier"
@@ -4158,7 +4164,9 @@
    "fields": {
     "term": "Safety Zone",
     "document": "Artemis Accords",
-    "documentId": "AA-2020",
+    "documentIds": [
+     "AA-2020"
+    ],
     "section": "Section 11.7",
     "holder": "Operating State (unilateral notification)",
     "coalition": "artemis",
@@ -4170,7 +4178,7 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Co-consultation (ILRS Memorandum of Understanding)",
+   "label": "Co-consultation (Roscosmos–CNSA Memorandum of Understanding on the ILRS)",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
@@ -4178,8 +4186,10 @@
    "summary": "Consultation without voting rights. Joining partners are consulted but founding states retain architectural control over station design, location, and operational rules.",
    "fields": {
     "term": "Co-consultation",
-    "document": "ILRS Memorandum of Understanding",
-    "documentId": "ILRS-MOU-2021",
+    "document": "Roscosmos–CNSA Memorandum of Understanding on the ILRS",
+    "documentIds": [
+     "ILRS-MOU-2021"
+    ],
     "section": "Article 4",
     "holder": "CNSA / Roscosmos (founding partners)",
     "coalition": "ilrs",
@@ -4200,7 +4210,9 @@
    "fields": {
     "term": "Appropriate Utilization",
     "document": "ILRS Guide for Partnership",
-    "documentId": "ILRS-GUIDE-2023",
+    "documentIds": [
+     "ILRS-GUIDE-2023"
+    ],
     "section": "Section 3.2",
     "holder": "CNSA (architectural lead)",
     "coalition": "ilrs",
@@ -4212,7 +4224,7 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "National Interest (UAE Federal Law No. 12 (Space Sector))",
+   "label": "National Interest (UAE Federal Law No. 12 of 2019 on the Regulation of the Space Sector)",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
@@ -4220,8 +4232,10 @@
    "summary": "Data sharing obligations yield to undefined \"national interest,\" creating a black-box override for transparency commitments.",
    "fields": {
     "term": "National Interest",
-    "document": "UAE Federal Law No. 12 (Space Sector)",
-    "documentId": "UAE-LAW-2019",
+    "document": "UAE Federal Law No. 12 of 2019 on the Regulation of the Space Sector",
+    "documentIds": [
+     "UAE-LAW-2019"
+    ],
     "section": "Article 7",
     "holder": "UAE Space Agency",
     "coalition": "national",
@@ -4242,7 +4256,9 @@
    "fields": {
     "term": "Peaceful Purposes",
     "document": "Japan Basic Space Law",
-    "documentId": "JP-BSL-2008",
+    "documentIds": [
+     "JP-BSL-2008"
+    ],
     "section": "Article 2 (reinterpreted 2008)",
     "holder": "Cabinet Office (post-2008 reinterpretation)",
     "coalition": "national",
@@ -4263,7 +4279,9 @@
    "fields": {
     "term": "Appropriation (negative definition)",
     "document": "Luxembourg Space Resources Law",
-    "documentId": "LUX-SRL-2017",
+    "documentIds": [
+     "LUX-SRL-2017"
+    ],
     "section": "Article 1",
     "holder": "Luxembourg Government (unilateral legislative act)",
     "coalition": "national",
@@ -4284,7 +4302,9 @@
    "fields": {
     "term": "Centralized Authorization",
     "document": "India Space Activities Bill",
-    "documentId": "IN-SAB-2023",
+    "documentIds": [
+     "IN-SAB-2023"
+    ],
     "section": "Chapter III",
     "holder": "IN-SPACe (Indian National Space Promotion and Authorization Centre)",
     "coalition": "national",
@@ -4305,7 +4325,9 @@
    "fields": {
     "term": "Lunar Time Standard",
     "document": "OSTP Coordinated Lunar Time (LTC) Framework",
-    "documentId": "US-OSTP-LTC-2024",
+    "documentIds": [
+     "US-OSTP-LTC-2024"
+    ],
     "section": "Presidential Directive",
     "holder": "NASA / OSTP (USA)",
     "coalition": "artemis",
@@ -4326,7 +4348,9 @@
    "fields": {
     "term": "Multilateral Alignment",
     "document": "ESA Statement on Artemis Accords Principles",
-    "documentId": "ESA-STMT-2023",
+    "documentIds": [
+     "ESA-STMT-2023"
+    ],
     "section": "Director General Statement",
     "holder": "ESA Member States (collective)",
     "coalition": "artemis",
@@ -4347,7 +4371,9 @@
    "fields": {
     "term": "Phase 4 Exploration",
     "document": "CNSA Lunar Exploration Programme Phase 4",
-    "documentId": "CN-LEP4-2024",
+    "documentIds": [
+     "CN-LEP4-2024"
+    ],
     "section": "Programme Architecture",
     "holder": "CNSA (state agency)",
     "coalition": "ilrs",
@@ -4368,8 +4394,10 @@
    "fields": {
     "term": "As Appropriate",
     "document": "Artemis Accords",
-    "documentId": "AA-2020",
-    "section": "Section 5 (Registration)",
+    "documentIds": [
+     "AA-2020"
+    ],
+    "section": "Section 1 (Purpose and Scope), second paragraph",
     "holder": "Each Signatory (self-judging)",
     "coalition": "artemis",
     "type": "open_ended_qualifier"
@@ -4380,7 +4408,7 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Non-military / Non-aggressive (Japan Basic Space Law + JAXA-NASA Artemis MoU)",
+   "label": "Non-military / Non-aggressive (Japan Basic Space Law + JAXA-NASA Artemis MoU (Gateway / HLS))",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
@@ -4388,8 +4416,11 @@
    "summary": "Japan reserves the interpretation of \"peaceful use\" to domestic law. The shift from \"non-military\" to \"non-aggressive\" enables dual-use space capabilities under constitutional cover.",
    "fields": {
     "term": "Non-military / Non-aggressive",
-    "document": "Japan Basic Space Law + JAXA-NASA Artemis MoU",
-    "documentId": "JP-BSL-2008 / JP-NASA-2022",
+    "document": "Japan Basic Space Law + JAXA-NASA Artemis MoU (Gateway / HLS)",
+    "documentIds": [
+     "JP-BSL-2008",
+     "JP-NASA-2022"
+    ],
     "section": "Article 2 / Preamble",
     "holder": "Cabinet Office / Japanese Government",
     "coalition": "national",
@@ -4410,7 +4441,9 @@
    "fields": {
     "term": "Authorised Entity",
     "document": "India Space Activities Bill",
-    "documentId": "IN-SAB-2023",
+    "documentIds": [
+     "IN-SAB-2023"
+    ],
     "section": "Chapter II, Definitions",
     "holder": "Central Government / IN-SPACe",
     "coalition": "national",
@@ -4422,7 +4455,7 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Interoperability Standards (ESA Artemis Accords Statement / LunaNet Architecture)",
+   "label": "Interoperability Standards (ESA Statement on Artemis Accords Principles + LunaNet Interoperability Specification)",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
@@ -4430,8 +4463,11 @@
    "summary": "ESA advocates for multilateral standard-setting but depends on NASA-defined LunaNet interoperability standards. De jure multilateralism coexists with de facto US technical authority.",
    "fields": {
     "term": "Interoperability Standards",
-    "document": "ESA Artemis Accords Statement / LunaNet Architecture",
-    "documentId": "ESA-STMT-2023 / NASA-LUNANET",
+    "document": "ESA Statement on Artemis Accords Principles + LunaNet Interoperability Specification",
+    "documentIds": [
+     "ESA-STMT-2023",
+     "NASA-LUNANET"
+    ],
     "section": "Technical Specifications",
     "holder": "NASA (de facto) / ESA (de jure multilateral claim)",
     "coalition": "artemis",
@@ -4443,7 +4479,7 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Ownership vs. Appropriation (Luxembourg Space Resources Law / US CSLCA)",
+   "label": "Ownership vs. Appropriation (Luxembourg Space Resources Law + U.S. Commercial Space Launch Competitiveness Act)",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
@@ -4451,8 +4487,11 @@
    "summary": "The boundary between \"ownership of extracted resources\" (permitted) and \"appropriation of celestial bodies\" (prohibited by OST) is drawn unilaterally by national legislation without international adjudication.",
    "fields": {
     "term": "Ownership vs. Appropriation",
-    "document": "Luxembourg Space Resources Law / US CSLCA",
-    "documentId": "LUX-SRL-2017 / US-CSLCA-2015",
+    "document": "Luxembourg Space Resources Law + U.S. Commercial Space Launch Competitiveness Act",
+    "documentIds": [
+     "LUX-SRL-2017",
+     "US-CSLCA-2015"
+    ],
     "section": "Article 1 / Title IV",
     "holder": "National legislatures (Luxembourg, USA)",
     "coalition": "artemis",
@@ -4495,7 +4534,7 @@
     "coalition": "ilrs",
     "documents": [
      "ILRS Guide for Partnership",
-     "CNSA Lunar Exploration Phase 4"
+     "CNSA Lunar Exploration Programme Phase 4"
     ]
    }
   },
@@ -4514,7 +4553,7 @@
     "country": "Russia",
     "coalition": "ilrs",
     "documents": [
-     "Roscosmos-CNSA MoU on ILRS"
+     "Roscosmos–CNSA Memorandum of Understanding on the ILRS"
     ]
    }
   },
@@ -4533,7 +4572,7 @@
     "country": "Japan",
     "coalition": "artemis",
     "documents": [
-     "Basic Space Law",
+     "Japan Basic Space Law",
      "JAXA-NASA Artemis MoU (Gateway / HLS)"
     ]
    }
@@ -4553,7 +4592,7 @@
     "country": "India",
     "coalition": "dual",
     "documents": [
-     "Space Activities Bill"
+     "India Space Activities Bill"
     ]
    }
   },
@@ -4572,7 +4611,7 @@
     "country": "Luxembourg",
     "coalition": "artemis",
     "documents": [
-     "Space Resources Law"
+     "Luxembourg Space Resources Law"
     ]
    }
   },
@@ -4591,7 +4630,7 @@
     "country": "United Arab Emirates",
     "coalition": "artemis",
     "documents": [
-     "Federal Law No. 12 on Space Sector Regulation"
+     "UAE Federal Law No. 12 of 2019 on the Regulation of the Space Sector"
     ]
    }
   },
@@ -5314,7 +5353,7 @@
    "kind": "entity",
    "type": "instrument",
    "domain": "shared",
-   "label": "ILRS Memorandum of Understanding",
+   "label": "Roscosmos–CNSA Memorandum of Understanding on the ILRS",
    "domains": [
     "lunar"
    ]
@@ -5334,7 +5373,7 @@
    "kind": "entity",
    "type": "instrument",
    "domain": "shared",
-   "label": "UAE Federal Law No. 12 (Space Sector)",
+   "label": "UAE Federal Law No. 12 of 2019 on the Regulation of the Space Sector",
    "domains": [
     "lunar"
    ]
@@ -5404,7 +5443,7 @@
    "kind": "entity",
    "type": "instrument",
    "domain": "shared",
-   "label": "JAXA-NASA Artemis MoU",
+   "label": "JAXA-NASA Artemis MoU (Gateway / HLS)",
    "domains": [
     "lunar"
    ]
@@ -5414,7 +5453,7 @@
    "kind": "entity",
    "type": "instrument",
    "domain": "shared",
-   "label": "LunaNet Architecture",
+   "label": "LunaNet Interoperability Specification",
    "domains": [
     "lunar"
    ]
@@ -5424,37 +5463,7 @@
    "kind": "entity",
    "type": "instrument",
    "domain": "shared",
-   "label": "US CSLCA",
-   "domains": [
-    "lunar"
-   ]
-  },
-  {
-   "id": "instrument:cnsa-lunar-exploration-phase-4",
-   "kind": "entity",
-   "type": "instrument",
-   "domain": "shared",
-   "label": "CNSA Lunar Exploration Phase 4",
-   "domains": [
-    "lunar"
-   ]
-  },
-  {
-   "id": "instrument:roscosmos-cnsa-mou-on-ilrs",
-   "kind": "entity",
-   "type": "instrument",
-   "domain": "shared",
-   "label": "Roscosmos-CNSA MoU on ILRS",
-   "domains": [
-    "lunar"
-   ]
-  },
-  {
-   "id": "instrument:federal-law-no-12-on-space-sector-regulation",
-   "kind": "entity",
-   "type": "instrument",
-   "domain": "shared",
-   "label": "Federal Law No. 12 on Space Sector Regulation",
+   "label": "U.S. Commercial Space Launch Competitiveness Act",
    "domains": [
     "lunar"
    ]
@@ -8549,10 +8558,10 @@
    "source": "cyber:colonial-pipeline",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 4, State Responsibility.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
    "level": "record",
-   "detail": "Rule 4, State Responsibility",
-   "via": "legalFrameworks:tallinn-r4"
+   "detail": "Rules 14, 15 and 17, State Responsibility and Attribution",
+   "via": "legalFrameworks:tallinn-r14"
   },
   {
    "id": "e334",
@@ -8560,10 +8569,10 @@
    "source": "cyber:costa-rica-conti",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 4, State Responsibility.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
    "level": "record",
-   "detail": "Rule 4, State Responsibility",
-   "via": "legalFrameworks:tallinn-r4"
+   "detail": "Rules 14, 15 and 17, State Responsibility and Attribution",
+   "via": "legalFrameworks:tallinn-r14"
   },
   {
    "id": "e335",
@@ -8571,10 +8580,10 @@
    "source": "cyber:wannacry",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 4, State Responsibility.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
    "level": "record",
-   "detail": "Rule 4, State Responsibility",
-   "via": "legalFrameworks:tallinn-r4"
+   "detail": "Rules 14, 15 and 17, State Responsibility and Attribution",
+   "via": "legalFrameworks:tallinn-r14"
   },
   {
    "id": "e336",
@@ -8582,10 +8591,10 @@
    "source": "cyber:cloud-hopper-apt10",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 4, State Responsibility.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
    "level": "record",
-   "detail": "Rule 4, State Responsibility",
-   "via": "legalFrameworks:tallinn-r4"
+   "detail": "Rules 14, 15 and 17, State Responsibility and Attribution",
+   "via": "legalFrameworks:tallinn-r14"
   },
   {
    "id": "e337",
@@ -8593,10 +8602,10 @@
    "source": "cyber:salt-typhoon",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 4, State Responsibility.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
    "level": "record",
-   "detail": "Rule 4, State Responsibility",
-   "via": "legalFrameworks:tallinn-r4"
+   "detail": "Rules 14, 15 and 17, State Responsibility and Attribution",
+   "via": "legalFrameworks:tallinn-r14"
   },
   {
    "id": "e338",
@@ -8604,10 +8613,10 @@
    "source": "cyber:belgacom-operation-socialist",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 4, State Responsibility.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
    "level": "record",
-   "detail": "Rule 4, State Responsibility",
-   "via": "legalFrameworks:tallinn-r4"
+   "detail": "Rules 14, 15 and 17, State Responsibility and Attribution",
+   "via": "legalFrameworks:tallinn-r14"
   },
   {
    "id": "e339",
@@ -8615,10 +8624,10 @@
    "source": "cyber:volt-typhoon",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 14, Due Diligence.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 6 and 7, Due Diligence.",
    "level": "record",
-   "detail": "Rule 14, Due Diligence",
-   "via": "legalFrameworks:tallinn-r14"
+   "detail": "Rules 6 and 7, Due Diligence",
+   "via": "legalFrameworks:tallinn-r6"
   },
   {
    "id": "e340",
@@ -8626,10 +8635,10 @@
    "source": "cyber:viasat-kasat",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 30, Distinction.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 93, Distinction.",
    "level": "record",
-   "detail": "Rule 30, Distinction",
-   "via": "legalFrameworks:tallinn-r30"
+   "detail": "Rule 93, Distinction",
+   "via": "legalFrameworks:tallinn-r93"
   },
   {
    "id": "e341",
@@ -8637,10 +8646,10 @@
    "source": "cyber:kyivstar",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 30, Distinction.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 93, Distinction.",
    "level": "record",
-   "detail": "Rule 30, Distinction",
-   "via": "legalFrameworks:tallinn-r30"
+   "detail": "Rule 93, Distinction",
+   "via": "legalFrameworks:tallinn-r93"
   },
   {
    "id": "e342",
@@ -8648,10 +8657,10 @@
    "source": "cyber:ukraine-power-grid-2015",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 30, Distinction.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 93, Distinction.",
    "level": "record",
-   "detail": "Rule 30, Distinction",
-   "via": "legalFrameworks:tallinn-r30"
+   "detail": "Rule 93, Distinction",
+   "via": "legalFrameworks:tallinn-r93"
   },
   {
    "id": "e343",
@@ -8659,10 +8668,10 @@
    "source": "cyber:notpetya",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 32, Proportionality.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 113, Proportionality.",
    "level": "record",
-   "detail": "Rule 32, Proportionality",
-   "via": "legalFrameworks:tallinn-r32"
+   "detail": "Rule 113, Proportionality",
+   "via": "legalFrameworks:tallinn-r113"
   },
   {
    "id": "e344",
@@ -8670,10 +8679,10 @@
    "source": "cyber:stuxnet",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 32, Proportionality.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 113, Proportionality.",
    "level": "record",
-   "detail": "Rule 32, Proportionality",
-   "via": "legalFrameworks:tallinn-r32"
+   "detail": "Rule 113, Proportionality",
+   "via": "legalFrameworks:tallinn-r113"
   },
   {
    "id": "e345",
@@ -8681,10 +8690,10 @@
    "source": "cyber:iran-nuclear-cyber",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 69, Countermeasures.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 20, Countermeasures.",
    "level": "record",
-   "detail": "Rule 69, Countermeasures",
-   "via": "legalFrameworks:tallinn-r69"
+   "detail": "Rule 20, Countermeasures",
+   "via": "legalFrameworks:tallinn-r20"
   },
   {
    "id": "e346",
@@ -8692,10 +8701,10 @@
    "source": "cyber:albania-iran",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 69, Countermeasures.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 20, Countermeasures.",
    "level": "record",
-   "detail": "Rule 69, Countermeasures",
-   "via": "legalFrameworks:tallinn-r69"
+   "detail": "Rule 20, Countermeasures",
+   "via": "legalFrameworks:tallinn-r20"
   },
   {
    "id": "e347",
@@ -8703,10 +8712,10 @@
    "source": "cyber:australia-parliament",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 80, Intervention.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 66, Intervention.",
    "level": "record",
-   "detail": "Rule 80, Intervention",
-   "via": "legalFrameworks:tallinn-r80"
+   "detail": "Rule 66, Intervention",
+   "via": "legalFrameworks:tallinn-r66"
   },
   {
    "id": "e348",
@@ -8945,9 +8954,9 @@
    "source": "cyber:ukraine-power-grid-2016",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"Prohibition on Targeting Civilian Critical Infrastructure\", anchored in Tallinn Manual 2.0 Rule 30 (Distinction).",
+   "basisText": "Cyber norms table lists this case under the norm \"Prohibition on Targeting Civilian Critical Infrastructure\", anchored in Tallinn Manual 2.0, Rule 93 – Distinction.",
    "level": "record",
-   "detail": "Tallinn Manual 2.0 Rule 30 (Distinction)",
+   "detail": "Tallinn Manual 2.0, Rule 93 – Distinction",
    "via": "norms:civilian-infrastructure"
   },
   {
@@ -8956,9 +8965,9 @@
    "source": "cyber:industroyer2",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"Prohibition on Targeting Civilian Critical Infrastructure\", anchored in Tallinn Manual 2.0 Rule 30 (Distinction).",
+   "basisText": "Cyber norms table lists this case under the norm \"Prohibition on Targeting Civilian Critical Infrastructure\", anchored in Tallinn Manual 2.0, Rule 93 – Distinction.",
    "level": "record",
-   "detail": "Tallinn Manual 2.0 Rule 30 (Distinction)",
+   "detail": "Tallinn Manual 2.0, Rule 93 – Distinction",
    "via": "norms:civilian-infrastructure"
   },
   {
@@ -9066,9 +9075,9 @@
    "source": "cyber:scattered-spider-mgm",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"State Responsibility for Proxy and Contractor Operations\", anchored in Tallinn Manual 2.0 Rule 4.",
+   "basisText": "Cyber norms table lists this case under the norm \"State Responsibility for Proxy and Contractor Operations\", anchored in Tallinn Manual 2.0, Rule 14 – Internationally wrongful cyber acts; Rule 17 – Attribution of cyber operations by non-State actors.",
    "level": "record",
-   "detail": "Tallinn Manual 2.0 Rule 4",
+   "detail": "Tallinn Manual 2.0, Rule 14 – Internationally wrongful cyber acts; Rule 17 – Attribution of cyber operations by non-State actors",
    "via": "norms:state-proxy-responsibility"
   },
   {
@@ -9077,9 +9086,9 @@
    "source": "cyber:sony-pictures",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"Proportionality in Cyber Operations\", anchored in Tallinn Manual 2.0 Rule 32.",
+   "basisText": "Cyber norms table lists this case under the norm \"Proportionality in Cyber Operations\", anchored in Tallinn Manual 2.0, Rule 113 – Proportionality; Rule 23 – Proportionality of countermeasures.",
    "level": "record",
-   "detail": "Tallinn Manual 2.0 Rule 32",
+   "detail": "Tallinn Manual 2.0, Rule 113 – Proportionality; Rule 23 – Proportionality of countermeasures",
    "via": "norms:proportionality"
   },
   {
@@ -9088,9 +9097,9 @@
    "source": "cyber:shamoon-aramco",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"Proportionality in Cyber Operations\", anchored in Tallinn Manual 2.0 Rule 32.",
+   "basisText": "Cyber norms table lists this case under the norm \"Proportionality in Cyber Operations\", anchored in Tallinn Manual 2.0, Rule 113 – Proportionality; Rule 23 – Proportionality of countermeasures.",
    "level": "record",
-   "detail": "Tallinn Manual 2.0 Rule 32",
+   "detail": "Tallinn Manual 2.0, Rule 113 – Proportionality; Rule 23 – Proportionality of countermeasures",
    "via": "norms:proportionality"
   },
   {
@@ -9209,9 +9218,9 @@
    "source": "cyber:thailand-election-2019",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"Non-Interference in Electoral Infrastructure\", anchored in Tallinn Manual 2.0 Rule 32 (Prohibition of Intervention).",
+   "basisText": "Cyber norms table lists this case under the norm \"Non-Interference in Electoral Infrastructure\", anchored in Tallinn Manual 2.0, Rule 66 – Intervention by States.",
    "level": "record",
-   "detail": "Tallinn Manual 2.0 Rule 32 (Prohibition of Intervention)",
+   "detail": "Tallinn Manual 2.0, Rule 66 – Intervention by States",
    "via": "norms:electoral-noninterference"
   },
   {
@@ -9253,9 +9262,9 @@
    "source": "cyber:taiwan-telecom",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"No-First-Use Norms in Peacetime Critical Infrastructure\", anchored in Tallinn Manual 2.0 Rule 14 (Due Diligence).",
+   "basisText": "Cyber norms table lists this case under the norm \"No-First-Use Norms in Peacetime Critical Infrastructure\", anchored in Tallinn Manual 2.0, Rule 6 – Due diligence (general principle).",
    "level": "record",
-   "detail": "Tallinn Manual 2.0 Rule 14 (Due Diligence)",
+   "detail": "Tallinn Manual 2.0, Rule 6 – Due diligence (general principle)",
    "via": "norms:no-first-use-ci"
   },
   {
@@ -9275,9 +9284,9 @@
    "source": "lunar:dp-002",
    "target": "instrument:artemis-accords",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in Artemis Accords (AA-2020), Section 11.",
+   "basisText": "Lunar discretion point is located in Artemis Accords (AA-2020), Section 11.4.",
    "level": "record",
-   "detail": "Section 11: \"Harmful Interference\"",
+   "detail": "Section 11.4: \"Harmful Interference\"",
    "via": "discretionPoints:AA-2020"
   },
   {
@@ -9297,7 +9306,7 @@
    "source": "lunar:dp-004",
    "target": "instrument:ilrs-mou-2021",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in ILRS Memorandum of Understanding (ILRS-MOU-2021), Article 4.",
+   "basisText": "Lunar discretion point is located in Roscosmos–CNSA Memorandum of Understanding on the ILRS (ILRS-MOU-2021), Article 4.",
    "level": "record",
    "detail": "Article 4: \"Co-consultation\"",
    "via": "discretionPoints:ILRS-MOU-2021"
@@ -9319,7 +9328,7 @@
    "source": "lunar:dp-006",
    "target": "instrument:uae-law-2019",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in UAE Federal Law No. 12 (Space Sector) (UAE-LAW-2019), Article 7.",
+   "basisText": "Lunar discretion point is located in UAE Federal Law No. 12 of 2019 on the Regulation of the Space Sector (UAE-LAW-2019), Article 7.",
    "level": "record",
    "detail": "Article 7: \"National Interest\"",
    "via": "discretionPoints:UAE-LAW-2019"
@@ -9396,9 +9405,9 @@
    "source": "lunar:dp-013",
    "target": "instrument:artemis-accords",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in Artemis Accords (AA-2020), Section 5 (Registration).",
+   "basisText": "Lunar discretion point is located in Artemis Accords (AA-2020), Section 1 (Purpose and Scope), second paragraph.",
    "level": "record",
-   "detail": "Section 5 (Registration): \"As Appropriate\"",
+   "detail": "Section 1 (Purpose and Scope), second paragraph: \"As Appropriate\"",
    "via": "discretionPoints:AA-2020"
   },
   {
@@ -9418,7 +9427,7 @@
    "source": "lunar:dp-014",
    "target": "instrument:jp-nasa-2022",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in JAXA-NASA Artemis MoU (JP-NASA-2022), Article 2 / Preamble.",
+   "basisText": "Lunar discretion point is located in JAXA-NASA Artemis MoU (Gateway / HLS) (JP-NASA-2022), Article 2 / Preamble.",
    "level": "record",
    "detail": "Article 2 / Preamble: \"Non-military / Non-aggressive\"",
    "via": "discretionPoints:JP-NASA-2022"
@@ -9440,7 +9449,7 @@
    "source": "lunar:dp-016",
    "target": "instrument:esa-stmt-2023",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in ESA Artemis Accords Statement (ESA-STMT-2023), Technical Specifications.",
+   "basisText": "Lunar discretion point is located in ESA Statement on Artemis Accords Principles (ESA-STMT-2023), Technical Specifications.",
    "level": "record",
    "detail": "Technical Specifications: \"Interoperability Standards\"",
    "via": "discretionPoints:ESA-STMT-2023"
@@ -9451,7 +9460,7 @@
    "source": "lunar:dp-016",
    "target": "instrument:nasa-lunanet",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in LunaNet Architecture (NASA-LUNANET), Technical Specifications.",
+   "basisText": "Lunar discretion point is located in LunaNet Interoperability Specification (NASA-LUNANET), Technical Specifications.",
    "level": "record",
    "detail": "Technical Specifications: \"Interoperability Standards\"",
    "via": "discretionPoints:NASA-LUNANET"
@@ -9473,7 +9482,7 @@
    "source": "lunar:dp-017",
    "target": "instrument:us-cslca-2015",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in US CSLCA (US-CSLCA-2015), Article 1 / Title IV.",
+   "basisText": "Lunar discretion point is located in U.S. Commercial Space Launch Competitiveness Act (US-CSLCA-2015), Article 1 / Title IV.",
    "level": "record",
    "detail": "Article 1 / Title IV: \"Ownership vs. Appropriation\"",
    "via": "discretionPoints:US-CSLCA-2015"
@@ -9484,7 +9493,7 @@
    "source": "lunar:country-usa",
    "target": "instrument:artemis-accords",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"Artemis Accords\" (exact title match).",
+   "basisText": "Lunar country profile lists the document \"Artemis Accords\" (same document id).",
    "level": "record",
    "detail": "Artemis Accords",
    "via": "countries:doc-usa-01"
@@ -9495,7 +9504,7 @@
    "source": "lunar:country-usa",
    "target": "instrument:us-ostp-ltc-2024",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"OSTP Coordinated Lunar Time (LTC) Framework\" (exact title match).",
+   "basisText": "Lunar country profile lists the document \"OSTP Coordinated Lunar Time (LTC) Framework\" (same document id).",
    "level": "record",
    "detail": "OSTP Coordinated Lunar Time (LTC) Framework",
    "via": "countries:doc-usa-02"
@@ -9506,7 +9515,7 @@
    "source": "lunar:country-china",
    "target": "instrument:ilrs-guide-2023",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"ILRS Guide for Partnership\" (exact title match).",
+   "basisText": "Lunar country profile lists the document \"ILRS Guide for Partnership\" (same document id).",
    "level": "record",
    "detail": "ILRS Guide for Partnership",
    "via": "countries:doc-cn-01"
@@ -9515,22 +9524,22 @@
    "id": "e421",
    "kind": "attribute",
    "source": "lunar:country-china",
-   "target": "instrument:cnsa-lunar-exploration-phase-4",
+   "target": "instrument:cn-lep4-2024",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"CNSA Lunar Exploration Phase 4\" (own document).",
+   "basisText": "Lunar country profile lists the document \"CNSA Lunar Exploration Programme Phase 4\" (same document id).",
    "level": "record",
-   "detail": "CNSA Lunar Exploration Phase 4",
+   "detail": "CNSA Lunar Exploration Programme Phase 4",
    "via": "countries:doc-cn-02"
   },
   {
    "id": "e422",
    "kind": "attribute",
    "source": "lunar:country-russia",
-   "target": "instrument:roscosmos-cnsa-mou-on-ilrs",
+   "target": "instrument:ilrs-mou-2021",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"Roscosmos-CNSA MoU on ILRS\" (own document).",
+   "basisText": "Lunar country profile lists the document \"Roscosmos–CNSA Memorandum of Understanding on the ILRS\" (same document id).",
    "level": "record",
-   "detail": "Roscosmos-CNSA MoU on ILRS",
+   "detail": "Roscosmos–CNSA Memorandum of Understanding on the ILRS",
    "via": "countries:doc-ru-01"
   },
   {
@@ -9539,9 +9548,9 @@
    "source": "lunar:country-japan",
    "target": "instrument:jp-bsl-2008",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"Basic Space Law\" (title containment match).",
+   "basisText": "Lunar country profile lists the document \"Japan Basic Space Law\" (same document id).",
    "level": "record",
-   "detail": "Basic Space Law",
+   "detail": "Japan Basic Space Law",
    "via": "countries:doc-jp-01"
   },
   {
@@ -9550,7 +9559,7 @@
    "source": "lunar:country-japan",
    "target": "instrument:jp-nasa-2022",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"JAXA-NASA Artemis MoU (Gateway / HLS)\" (title containment match).",
+   "basisText": "Lunar country profile lists the document \"JAXA-NASA Artemis MoU (Gateway / HLS)\" (same document id).",
    "level": "record",
    "detail": "JAXA-NASA Artemis MoU (Gateway / HLS)",
    "via": "countries:doc-jp-02"
@@ -9561,9 +9570,9 @@
    "source": "lunar:country-india",
    "target": "instrument:in-sab-2023",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"Space Activities Bill\" (title containment match).",
+   "basisText": "Lunar country profile lists the document \"India Space Activities Bill\" (same document id).",
    "level": "record",
-   "detail": "Space Activities Bill",
+   "detail": "India Space Activities Bill",
    "via": "countries:doc-in-01"
   },
   {
@@ -9572,20 +9581,20 @@
    "source": "lunar:country-luxembourg",
    "target": "instrument:lux-srl-2017",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"Space Resources Law\" (title containment match).",
+   "basisText": "Lunar country profile lists the document \"Luxembourg Space Resources Law\" (same document id).",
    "level": "record",
-   "detail": "Space Resources Law",
+   "detail": "Luxembourg Space Resources Law",
    "via": "countries:doc-lu-01"
   },
   {
    "id": "e427",
    "kind": "attribute",
    "source": "lunar:country-uae",
-   "target": "instrument:federal-law-no-12-on-space-sector-regulation",
+   "target": "instrument:uae-law-2019",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"Federal Law No. 12 on Space Sector Regulation\" (own document).",
+   "basisText": "Lunar country profile lists the document \"UAE Federal Law No. 12 of 2019 on the Regulation of the Space Sector\" (same document id).",
    "level": "record",
-   "detail": "Federal Law No. 12 on Space Sector Regulation",
+   "detail": "UAE Federal Law No. 12 of 2019 on the Regulation of the Space Sector",
    "via": "countries:doc-ae-01"
   },
   {
@@ -9594,7 +9603,7 @@
    "source": "lunar:country-esa",
    "target": "instrument:esa-stmt-2023",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"ESA Statement on Artemis Accords Principles\" (exact title match).",
+   "basisText": "Lunar country profile lists the document \"ESA Statement on Artemis Accords Principles\" (same document id).",
    "level": "record",
    "detail": "ESA Statement on Artemis Accords Principles",
    "via": "countries:doc-esa-01"
@@ -9673,7 +9682,7 @@
    "bases": [
     {
      "basis": "energy_target_host_state",
-     "basisText": "Cyber case targets the energy sector in Canada (targetSectors, targetCountries); the plant is hosted in Canada. Also: the nuclear atlas sets critical_infrastructure_overlap = false for this host state.",
+     "basisText": "Cyber case targets the energy sector in Canada (targetSectors, targetCountries); the plant is hosted in Canada. Also: the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
      "via": "state:canada",
      "digitalIandC": false,
      "plantStatus": "operating",
@@ -9695,7 +9704,7 @@
    "bases": [
     {
      "basis": "energy_target_host_state",
-     "basisText": "Cyber case targets the energy sector in Canada (targetSectors, targetCountries); the plant is hosted in Canada. Also: the nuclear atlas sets critical_infrastructure_overlap = false for this host state.",
+     "basisText": "Cyber case targets the energy sector in Canada (targetSectors, targetCountries); the plant is hosted in Canada. Also: the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
      "via": "state:canada",
      "digitalIandC": false,
      "plantStatus": "operating",
@@ -9717,7 +9726,7 @@
    "bases": [
     {
      "basis": "energy_target_host_state",
-     "basisText": "Cyber case targets the energy sector in Canada (targetSectors, targetCountries); the plant is hosted in Canada. Also: the nuclear atlas sets critical_infrastructure_overlap = false for this host state.",
+     "basisText": "Cyber case targets the energy sector in Canada (targetSectors, targetCountries); the plant is hosted in Canada. Also: the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
      "via": "state:canada",
      "digitalIandC": false,
      "plantStatus": "operating",
@@ -9761,9 +9770,9 @@
    "bases": [
     {
      "basis": "energy_target_host_state",
-     "basisText": "Cyber case targets the energy sector in United Kingdom (targetSectors, targetCountries); the plant is hosted in United Kingdom. Also: the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
+     "basisText": "Cyber case targets the energy sector in United Kingdom (targetSectors, targetCountries); the plant is hosted in United Kingdom. Also: the nuclear atlas codes this plant with digital I&C; the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
      "via": "state:united-kingdom",
-     "digitalIandC": false,
+     "digitalIandC": true,
      "plantStatus": "under_construction",
      "tier": "contextual"
     }
@@ -9915,7 +9924,7 @@
    "bases": [
     {
      "basis": "energy_target_host_state",
-     "basisText": "Cyber case targets the energy sector in South Korea (targetSectors, targetCountries); the plant is hosted in South Korea. Also: the nuclear atlas records a reported cyber incident at this plant; the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
+     "basisText": "Cyber case targets the energy sector in South Korea (targetSectors, targetCountries); the plant is hosted in South Korea. Also: the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
      "via": "state:south-korea",
      "digitalIandC": false,
      "plantStatus": "operating",
@@ -9937,7 +9946,7 @@
    "bases": [
     {
      "basis": "energy_target_host_state",
-     "basisText": "Cyber case targets the energy sector in South Korea (targetSectors, targetCountries); the plant is hosted in South Korea. Also: the nuclear atlas records a reported cyber incident at this plant; the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
+     "basisText": "Cyber case targets the energy sector in South Korea (targetSectors, targetCountries); the plant is hosted in South Korea. Also: the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
      "via": "state:south-korea",
      "digitalIandC": false,
      "plantStatus": "operating",
@@ -9959,9 +9968,9 @@
    "bases": [
     {
      "basis": "energy_target_host_state",
-     "basisText": "Cyber case targets the energy sector in South Korea (targetSectors, targetCountries); the plant is hosted in South Korea. Also: the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
+     "basisText": "Cyber case targets the energy sector in South Korea (targetSectors, targetCountries); the plant is hosted in South Korea. Also: the nuclear atlas codes this plant with digital I&C; the nuclear atlas records a reported cyber incident at this plant; the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
      "via": "state:south-korea",
-     "digitalIandC": false,
+     "digitalIandC": true,
      "plantStatus": "operating",
      "tier": "contextual"
     }
@@ -12221,7 +12230,7 @@
    "bases": [
     {
      "basis": "energy_target_host_state",
-     "basisText": "Cyber case targets the energy sector in Egypt (targetSectors, targetCountries); the plant is hosted in Egypt. Also: the nuclear atlas codes this plant with digital I&C; the nuclear atlas sets critical_infrastructure_overlap = false for this host state.",
+     "basisText": "Cyber case targets the energy sector in Egypt (targetSectors, targetCountries); the plant is hosted in Egypt. Also: the nuclear atlas codes this plant with digital I&C; the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
      "via": "state:egypt",
      "digitalIandC": true,
      "plantStatus": "under_construction",
@@ -12243,7 +12252,7 @@
    "bases": [
     {
      "basis": "energy_target_host_state",
-     "basisText": "Cyber case targets the energy sector in Iran (targetSectors, targetCountries); the plant is hosted in Iran. Also: the nuclear atlas sets critical_infrastructure_overlap = false for this host state.",
+     "basisText": "Cyber case targets the energy sector in Iran (targetSectors, targetCountries); the plant is hosted in Iran. Also: the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
      "via": "state:iran",
      "digitalIandC": false,
      "plantStatus": "operating",
@@ -12697,7 +12706,7 @@
    "bases": [
     {
      "basis": "energy_target_host_state",
-     "basisText": "Cyber case targets the energy sector in Iran (targetSectors, targetCountries); the plant is hosted in Iran. Also: the nuclear atlas sets critical_infrastructure_overlap = false for this host state.",
+     "basisText": "Cyber case targets the energy sector in Iran (targetSectors, targetCountries); the plant is hosted in Iran. Also: the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
      "via": "state:iran",
      "digitalIandC": false,
      "plantStatus": "operating",
@@ -14471,7 +14480,7 @@
    "bases": [
     {
      "basis": "energy_target_host_state",
-     "basisText": "Cyber case targets the energy sector in Iran (targetSectors, targetCountries); the plant is hosted in Iran. Also: the nuclear atlas sets critical_infrastructure_overlap = false for this host state.",
+     "basisText": "Cyber case targets the energy sector in Iran (targetSectors, targetCountries); the plant is hosted in Iran. Also: the nuclear atlas sets critical_infrastructure_overlap = true for this host state.",
      "via": "state:iran",
      "digitalIandC": false,
      "plantStatus": "operating",
@@ -17838,71 +17847,11 @@
    "id": "same-incident-viasat-kasat",
    "severity": "info",
    "title": "Viasat KA-SAT: cyber and orbital records compared",
-   "detail": "Date: cyber dateRange \"February 2022\" (escalation phases 2022-02-24, 2022-02-24, 2022-02-24) vs orbital date 2022-02-24: consistent. Acting state: cyber \"Russia\" vs orbital \"Russia (GRU Sandworm)\": consistent. Sources: cyber cites Viasat: KA-SAT Network Cyber Attack Overview; Guerrero-Saade & Chen (SentinelOne Labs): AcidRain — A Modem Wiper Rains Down on Europe; Council of the EU: Declaration by the High Representative on Russian cyber operations against Ukraine (Viasat/KA-SAT). Orbital cites CISA/NCSC Advisory AA22-110A (2022); SentinelLabs 'AcidRain' analysis; US/UK/EU joint attribution May 2022. No source is shared between the two records.",
+   "detail": "Date: cyber dateRange \"February 2022\" (escalation phases 2022-02-24, 2022-02-24, 2022-02-24) vs orbital date 2022-02-24: consistent. Acting state: cyber \"Russia\" vs orbital \"Russia (GRU Sandworm)\": consistent. Sources: cyber cites 3, orbital cites 4. Shared (same URL): Viasat: KA-SAT Network Cyber Attack Overview; Guerrero-Saade & Chen (SentinelOne Labs): AcidRain — A Modem Wiper Rains Down on Europe; Council of the EU: Declaration by the High Representative on Russian cyber operations against Ukraine (Viasat/KA-SAT). Orbital only: CISA/FBI AA22-076A: Strengthening Cybersecurity of SATCOM Network Providers and Customers.",
    "records": [
     "cyber:viasat-kasat",
     "orbital:21"
    ]
-  },
-  {
-   "id": "nuclear-digitalICFacilities-orphans",
-   "severity": "warning",
-   "title": "Nuclear overlay digitalICFacilities lists ids not present in commercialPlants.js",
-   "detail": "11 of 22 ids do not match a plant record, so their flags never reach the map: cn-sanmen, cn-haiyang, uk-hinkley-point-c, kr-shin-kori, ru-leningrad-ii, ru-novovoronezh-ii, hu-paks-ii, cn-fuqing, cn-karachi-coastal, cn-shidaowan, kr-shin-wolsong.",
-   "records": []
-  },
-  {
-   "id": "nuclear-cyberIncidentFacilities-orphans",
-   "severity": "warning",
-   "title": "Nuclear overlay cyberIncidentFacilities lists ids not present in commercialPlants.js",
-   "detail": "2 of 4 ids do not match a plant record, so their flags never reach the map: kr-shin-kori, kr-shin-wolsong.",
-   "records": []
-  },
-  {
-   "id": "nuclear-overlap-vs-cyber-targets",
-   "severity": "warning",
-   "title": "Nuclear critical_infrastructure_overlap flag does not match cyber atlas target countries",
-   "detail": "Host states targeted in at least one cyber case but flagged false: Canada (apt1-pla-61398, cloud-hopper-apt10); Sweden (cloud-hopper-apt10); Belgium (belgacom-operation-socialist); Switzerland (cloud-hopper-apt10); Netherlands (cloud-hopper-apt10); Brazil (cloud-hopper-apt10); Pakistan (india-pakistan-cyber); Iran (stuxnet, iran-nuclear-cyber, flame-flamer); Bangladesh (bangladesh-bank-swift, bangladesh-egov-2021); Egypt (apt-c23-gaza-cybergang, flame-flamer). Host states flagged true with no cyber case listing them as a target: China, Russia.",
-   "records": []
-  },
-  {
-   "id": "cyber-tallinn-r32-electoral-noninterference",
-   "severity": "warning",
-   "title": "Cyber atlas labels Tallinn Rule 32 two ways",
-   "detail": "norms.ts (electoral-noninterference) cites \"Tallinn Manual 2.0 Rule 32 (Prohibition of Intervention)\"; legalFrameworks.ts names Rule 32 \"Proportionality\".",
-   "records": []
-  },
-  {
-   "id": "orbital-date-russia-22",
-   "severity": "info",
-   "title": "Orbital dates differ for Starlink jamming in Ukraine",
-   "detail": "Actor profile Russia dates \"Systematic Starlink jamming during Ukraine invasion\" to 2022-02; incident 22 \"Russia Starlink Jamming in Ukraine\" is dated 2022-03-05.",
-   "records": [
-    "orbital:22"
-   ]
-  },
-  {
-   "id": "orbital-date-russia-24",
-   "severity": "warning",
-   "title": "Orbital dates differ for Cosmos 2558",
-   "detail": "Actor profile Russia dates \"Cosmos 2558 inspector satellite placed near USA-326 (classified US NRO satellite)\" to 2023-05; incident 24 \"Russia Cosmos-2558 Shadows US Spy Satellite\" is dated 2022-08-04.",
-   "records": [
-    "orbital:24"
-   ]
-  },
-  {
-   "id": "lunar-doc-esa-stmt-2023",
-   "severity": "info",
-   "title": "Lunar document ESA-STMT-2023 appears under 2 titles",
-   "detail": "\"ESA Statement on Artemis Accords Principles\" and \"ESA Artemis Accords Statement\". Treated as one instrument because the documentId is the same.",
-   "records": []
-  },
-  {
-   "id": "lunar-country-docs-unmatched",
-   "severity": "info",
-   "title": "Lunar country profile documents with no matching discretion point document",
-   "detail": "These titles did not match a discretion point document by exact title or unique containment, so they are kept as separate instruments. Some may be the same document under another title: China: \"CNSA Lunar Exploration Phase 4\"; Russia: \"Roscosmos-CNSA MoU on ILRS\"; United Arab Emirates: \"Federal Law No. 12 on Space Sector Regulation\".",
-   "records": []
   }
  ],
  "limitations": [

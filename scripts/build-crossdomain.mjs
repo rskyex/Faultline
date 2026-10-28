@@ -35,7 +35,7 @@ const argVal = (flag) => {
 const REPOS = path.resolve(argVal("--repos") ?? path.join(ROOT, ".."));
 const GENERATED = argVal("--date") ?? new Date().toISOString().slice(0, 10);
 
-const SNAPSHOT_VERSION = "1.0.0";
+const SNAPSHOT_VERSION = "1.1.0";
 const SCHEMA_VERSION = 1;
 
 const SOURCES = {
@@ -361,6 +361,17 @@ const lunarCountries = lunar.COUNTRIES;
 const lunarInfra = lunar.INFRA_GOVERNANCE_LINKS;
 const lunarInfraTypes = lunar.INFRASTRUCTURE_TYPES;
 sourceMeta.lunar.files = ["src/data/discretionPoints.ts", "src/data/countries.ts", "src/data/infrastructure.ts", "src/data/constants.ts"];
+// Newer versions keep one documents registry (documents.ts) and reference it by
+// id (documentIds arrays); older ones carry a "A / B" documentId string and titles.
+const lunarRegistry = new Map((lunar.DOCUMENTS ?? []).map((d) => [d.id, d]));
+if (lunarRegistry.size) sourceMeta.lunar.files.push("src/data/documents.ts");
+const lunarDocIds = (d) => d.documentIds ?? d.documentId.split(" / ").map((s) => s.trim());
+const lunarDocTitles = (d) => {
+  const ids = lunarDocIds(d);
+  if (ids.every((id) => lunarRegistry.has(id))) return ids.map((id) => lunarRegistry.get(id).title);
+  const docs = d.document.split(/\s+\+\s+|\s+\/\s+/).map((s) => s.trim());
+  return ids.map((_, i) => (docs.length === ids.length ? docs[i] : d.document));
+};
 
 // ---------------------------------------------------------------------------
 // Record nodes
@@ -441,7 +452,7 @@ for (const d of lunarDPs) {
     url: `${SOURCES.lunar.url}/`,
     urlPrecision: "root",
     summary: clip(d.implication),
-    fields: { term: d.term, document: d.document, documentId: d.documentId, section: d.section, holder: d.holder, coalition: d.coalition, type: d.type },
+    fields: { term: d.term, document: d.document, documentIds: lunarDocIds(d), section: d.section, holder: d.holder, coalition: d.coalition, type: d.type },
   });
 }
 for (const c of lunarCountries) {
@@ -572,13 +583,15 @@ for (const nm of cyberNorms) {
 }
 // Lunar discretion points -> documents
 const lunarDocInstruments = new Map(); // normalised document title -> instrument
+const lunarDocInstrumentsById = new Map(); // registry document id -> instrument
 for (const d of lunarDPs) {
-  const ids = d.documentId.split(" / ").map((s) => s.trim());
-  const docs = d.document.split(/\s+\+\s+|\s+\/\s+/).map((s) => s.trim());
+  const ids = lunarDocIds(d);
+  const titles = lunarDocTitles(d);
   ids.forEach((docId, i) => {
-    const title = docs.length === ids.length ? docs[i] : d.document;
+    const title = titles[i];
     const inst = instrumentFor(title, { sourceId: docId });
     if (!lunarDocInstruments.has(norm(title))) lunarDocInstruments.set(norm(title), inst);
+    if (!lunarDocInstrumentsById.has(docId)) lunarDocInstrumentsById.set(docId, inst);
     addAttr(`lunar:${d.id}`, inst, "instrument_referenced", `Lunar discretion point is located in ${title} (${docId}), ${d.section}.`, {
       level: "record",
       detail: `${d.section}: "${d.term}"`,
@@ -586,15 +599,24 @@ for (const d of lunarDPs) {
     });
   });
 }
-// Lunar country profiles -> their governance documents. A document is joined to
-// a discretion-point document only on an exact title match or when one title
+// Lunar country profiles -> their governance documents. With a documents
+// registry a document is joined by its id. Otherwise it is joined to a
+// discretion-point document only on an exact title match or when one title
 // contains the other and the match is unique; otherwise it is its own node.
 const unmatchedLunarDocs = [];
 for (const c of lunarCountries) {
   for (const doc of c.documents) {
     const n = norm(doc.title);
-    let inst = lunarDocInstruments.get(n);
-    let how = "exact title match";
+    let inst = doc.documentId ? lunarDocInstrumentsById.get(doc.documentId) : undefined;
+    let how = "same document id";
+    if (!inst && doc.documentId && lunarRegistry.has(doc.documentId)) {
+      inst = instrumentFor(doc.title, { sourceId: doc.documentId });
+      how = "document id, no discretion point";
+    }
+    if (!inst) {
+      inst = lunarDocInstruments.get(n);
+      how = "exact title match";
+    }
     if (!inst) {
       const cands = [...lunarDocInstruments.entries()].filter(([k]) => k.includes(n) || n.includes(k));
       if (cands.length === 1) {
@@ -800,6 +822,20 @@ for (const inst of instrumentNodes.values()) addNode(inst);
 // ---------------------------------------------------------------------------
 
 const checks = [];
+// Compare the source URLs of a cyber case and an orbital incident.
+const urlKey = (u) => String(u ?? "").toLowerCase().replace(/^https?:\/\/(www\.)?/, "").replace(/\/+$/, "");
+function sourcesComparison(c, o) {
+  const oSources = o.sources?.length ? o.sources : [{ title: o.sourceTitle ?? o.source, url: o.sourceUrl }];
+  const oKeys = new Set(oSources.map((s) => urlKey(s.url)).filter(Boolean));
+  const shared = c.sources.filter((s) => oKeys.has(urlKey(s.url)));
+  const orbitalOnly = oSources.filter((s) => !c.sources.some((x) => urlKey(x.url) === urlKey(s.url)));
+  return (
+    `Sources: cyber cites ${c.sources.length}, orbital cites ${oSources.length}. ` +
+    (shared.length
+      ? `Shared (same URL): ${shared.map((s) => s.title).join("; ")}.` + (orbitalOnly.length ? ` Orbital only: ${orbitalOnly.map((s) => s.title).join("; ")}.` : "")
+      : `No source is shared between the two records (cyber: ${c.sources.map((s) => s.title).join("; ")}; orbital: ${o.source}).`)
+  );
+}
 const MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 for (const { c, o } of sameIncidentPairs) {
   const phaseDates = (c.escalation.phases ?? []).map((p) => p.date).filter(Boolean).sort();
@@ -815,19 +851,28 @@ for (const { c, o } of sameIncidentPairs) {
     detail:
       `Date: cyber dateRange "${c.dateRange}" (escalation phases ${phaseDates.join(", ") || "none"}) vs orbital date ${o.date}: ${dateAgrees ? "consistent" : "different"}. ` +
       `Acting state: cyber "${c.attribution.country}" vs orbital "${o.actor}": ${cStates === oStates ? "consistent" : "different"}. ` +
-      `Sources: cyber cites ${c.sources.map((s) => s.title).join("; ")}. Orbital cites ${o.source}. No source is shared between the two records.`,
+      sourcesComparison(c, o),
     records: [`cyber:${c.slug}`, `orbital:${o.id}`],
   });
 }
 
-// Nuclear overlay sets that name plant ids absent from commercialPlants.js.
+// Nuclear overlay tables that name plant ids absent from commercialPlants.js.
+// Newer versions export every lookup table as facilityLookups; older ones are
+// read from the two Set literals in the source.
 {
-  const src = fs.readFileSync(path.join(REPOS, SOURCES.nuclear.repo, "src/data/enrichedFacilities.js"), "utf8");
   const plantIds = new Set(nuclearPlants.map((p) => p.id));
-  for (const setName of ["digitalICFacilities", "cyberIncidentFacilities"]) {
-    const m = src.match(new RegExp(`const ${setName} = new Set\\(\\[([\\s\\S]*?)\\]\\)`));
-    if (!m) continue;
-    const ids = [...m[1].replace(/\/\/.*$/gm, "").matchAll(/'([^']+)'/g)].map((x) => x[1]);
+  const lookups = load.nuclear("data/enrichedFacilities.js").facilityLookups;
+  const tables = {};
+  if (lookups) {
+    for (const [name, t] of Object.entries(lookups)) tables[name] = t instanceof Set ? [...t] : Object.keys(t);
+  } else {
+    const src = fs.readFileSync(path.join(REPOS, SOURCES.nuclear.repo, "src/data/enrichedFacilities.js"), "utf8");
+    for (const setName of ["digitalICFacilities", "cyberIncidentFacilities"]) {
+      const m = src.match(new RegExp(`const ${setName} = new Set\\(\\[([\\s\\S]*?)\\]\\)`));
+      if (m) tables[setName] = [...m[1].replace(/\/\/.*$/gm, "").matchAll(/'([^']+)'/g)].map((x) => x[1]);
+    }
+  }
+  for (const [setName, ids] of Object.entries(tables)) {
     const missing = ids.filter((id) => !plantIds.has(id));
     if (missing.length)
       checks.push({
@@ -866,8 +911,30 @@ for (const { c, o } of sameIncidentPairs) {
     });
 }
 
-// Cyber: Tallinn rule numbering in norms.ts vs legalFrameworks.ts.
-{
+// Cyber: Tallinn rule numbering. Newer versions keep one rule table
+// (tallinnRules.ts); every rule cited in legalFrameworks.ts and norms.ts is
+// checked against it. Older versions compare norms.ts with legalFrameworks.ts.
+let tallinnTable = null;
+try {
+  tallinnTable = load.cyber("data/tallinnRules.ts").TALLINN_RULES ?? null;
+} catch {
+  tallinnTable = null;
+}
+if (tallinnTable) {
+  sourceMeta.cyber.files.push("src/data/tallinnRules.ts");
+  const byNumber = new Map(Object.values(tallinnTable).map((r) => [String(r.number), r.title]));
+  const cited = [];
+  for (const fw of cyberLegal) if (fw.id === "tallinn") for (const r of fw.rules) cited.push({ where: `legalFrameworks.ts (${r.ruleId})`, text: r.name });
+  for (const nm of cyberNorms) for (const a of nm.anchorInstruments) if (/tallinn/i.test(a)) cited.push({ where: `norms.ts (${nm.normId})`, text: a });
+  for (const { where, text } of cited) {
+    const numbers = [...text.matchAll(/\bRules? ((?:\d+(?:, | and )?)+)/g)].flatMap((m) => m[1].match(/\d+/g));
+    for (const n of numbers.filter((x) => !byNumber.has(x)))
+      checks.push({ id: `cyber-tallinn-r${n}-unknown`, severity: "warning", title: `Cyber atlas cites Tallinn Rule ${n}, which is not in its rule table`, detail: `${where} cites "${text}".`, records: [] });
+    for (const m of text.matchAll(/Rule (\d+) – ([^;]+)/g))
+      if (byNumber.has(m[1]) && norm(byNumber.get(m[1])) !== norm(m[2]))
+        checks.push({ id: `cyber-tallinn-r${m[1]}-title`, severity: "warning", title: `Cyber atlas labels Tallinn Rule ${m[1]} two ways`, detail: `${where} cites "${m[0]}"; tallinnRules.ts names Rule ${m[1]} "${byNumber.get(m[1])}".`, records: [] });
+  }
+} else {
   const ruleNames = new Map();
   for (const fw of cyberLegal) for (const r of fw.rules) {
     const m = r.name.match(/^Rule (\d+), (.+)$/);
@@ -940,12 +1007,10 @@ for (const { c, o } of sameIncidentPairs) {
 {
   const byId = new Map();
   for (const d of lunarDPs) {
-    const ids = d.documentId.split(" / ");
-    const docs = d.document.split(/\s+\+\s+|\s+\/\s+/);
-    ids.forEach((id, i) => {
-      const t = docs.length === ids.length ? docs[i] : d.document;
+    const titles = lunarDocTitles(d);
+    lunarDocIds(d).forEach((id, i) => {
       if (!byId.has(id)) byId.set(id, new Set());
-      byId.get(id).add(t.trim());
+      byId.get(id).add(titles[i]);
     });
   }
   for (const [id, titles] of byId)
