@@ -77,6 +77,12 @@ export default function HeroSection() {
             >
               Why Cross-Domain Analysis
             </a>
+            <a
+              href="/crossdomain"
+              className="inline-flex items-center gap-2 px-6 py-3 text-text-primary/80 text-[12px] font-medium tracking-[0.08em] uppercase border border-white/12 hover:border-white/20 hover:text-text-primary transition-all duration-300"
+            >
+              Cross-Domain Data Layer
+            </a>
           </div>
         </div>
       </div>

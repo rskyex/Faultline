@@ -32,18 +32,21 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6">
-          <a href="#domains" className="text-text-secondary text-[11px] font-medium tracking-[0.12em] uppercase hover:text-text-primary transition-colors duration-200">
+          <a href="/#domains" className="text-text-secondary text-[11px] font-medium tracking-[0.12em] uppercase hover:text-text-primary transition-colors duration-200">
             Domains
           </a>
-          <a href="#thesis" className="text-text-secondary text-[11px] font-medium tracking-[0.12em] uppercase hover:text-text-primary transition-colors duration-200">
+          <a href="/#thesis" className="text-text-secondary text-[11px] font-medium tracking-[0.12em] uppercase hover:text-text-primary transition-colors duration-200">
             Thesis
           </a>
-          <a href="#framework" className="text-text-secondary text-[11px] font-medium tracking-[0.12em] uppercase hover:text-text-primary transition-colors duration-200">
+          <a href="/#framework" className="text-text-secondary text-[11px] font-medium tracking-[0.12em] uppercase hover:text-text-primary transition-colors duration-200">
             Framework
+          </a>
+          <a href="/crossdomain" className="text-text-secondary text-[11px] font-medium tracking-[0.12em] uppercase hover:text-text-primary transition-colors duration-200">
+            Cross-Domain Layer
           </a>
           <div className="w-px h-3.5 bg-white/8" />
           <a
-            href="#domains"
+            href="/#domains"
             className="text-[11px] font-medium tracking-[0.08em] uppercase px-4 py-1.5 border text-orbital-400 hover:text-text-primary hover:border-orbital-500/40 transition-all duration-200"
             style={{ borderColor: "rgba(56,189,248,0.2)" }}
           >
@@ -68,14 +71,17 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="relative md:hidden bg-deep/95 backdrop-blur-xl" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="px-6 py-5 space-y-3">
-            <a href="#domains" onClick={closeMobile} className="block text-text-secondary text-[12px] font-medium tracking-[0.1em] uppercase py-2 hover:text-text-primary transition-colors">
+            <a href="/#domains" onClick={closeMobile} className="block text-text-secondary text-[12px] font-medium tracking-[0.1em] uppercase py-2 hover:text-text-primary transition-colors">
               Domains
             </a>
-            <a href="#thesis" onClick={closeMobile} className="block text-text-secondary text-[12px] font-medium tracking-[0.1em] uppercase py-2 hover:text-text-primary transition-colors">
+            <a href="/#thesis" onClick={closeMobile} className="block text-text-secondary text-[12px] font-medium tracking-[0.1em] uppercase py-2 hover:text-text-primary transition-colors">
               Thesis
             </a>
-            <a href="#framework" onClick={closeMobile} className="block text-text-secondary text-[12px] font-medium tracking-[0.1em] uppercase py-2 hover:text-text-primary transition-colors">
+            <a href="/#framework" onClick={closeMobile} className="block text-text-secondary text-[12px] font-medium tracking-[0.1em] uppercase py-2 hover:text-text-primary transition-colors">
               Framework
+            </a>
+            <a href="/crossdomain" onClick={closeMobile} className="block text-text-secondary text-[12px] font-medium tracking-[0.1em] uppercase py-2 hover:text-text-primary transition-colors">
+              Cross-Domain Layer
             </a>
             <div className="h-px bg-white/6 my-2" />
             <div className="grid grid-cols-1 gap-2 pt-1">

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import DomainsSection from "@/components/DomainsSection";
+import CrossDomainCallout from "@/components/CrossDomainCallout";
 import AboutSection from "@/components/AboutSection";
 import QuoteStrip from "@/components/QuoteStrip";
 import ThesisSection from "@/components/ThesisSection";
@@ -44,6 +45,8 @@ export default function Home() {
         <HeroSection />
         <SectionDivider />
         <DomainsSection />
+        <SectionDivider />
+        <CrossDomainCallout />
         <SectionDivider />
         <AboutSection />
         <SectionDivider />
