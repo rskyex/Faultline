@@ -33,7 +33,7 @@
    "name": "Orbital Risk Tracker",
    "url": "https://orbitalrisktracker.vercel.app",
    "repo": "Orbital-Risk-Tracker",
-   "commit": "aafc9377ea00bec9d23d8f72b368f56950cd03c3",
+   "commit": "e219b829477ff104dcc17712338963dbf614a4e5",
    "commitDate": "2026-10-29",
    "dataClean": true,
    "branch": "claude/gtc-hardening",
@@ -11353,7 +11353,7 @@
    "id": "source-branch-orbital",
    "severity": "warning",
    "title": "Orbital Risk Tracker was read from branch claude/gtc-hardening, not the deployed branch",
-   "detail": "The snapshot read Orbital-Risk-Tracker at claude/gtc-hardening (aafc937). The production site https://orbitalrisktracker.vercel.app, which record links open, is built from claude/space-incidents-dashboard-HOnqa. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
+   "detail": "The snapshot read Orbital-Risk-Tracker at claude/gtc-hardening (e219b82). The production site https://orbitalrisktracker.vercel.app, which record links open, is built from claude/space-incidents-dashboard-HOnqa. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
    "records": []
   },
   {
