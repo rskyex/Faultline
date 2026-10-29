@@ -10,7 +10,7 @@
    "name": "Cyber Escalation Atlas",
    "url": "https://cyber-escalation-atlas.vercel.app",
    "repo": "cyber-escalation-atlas",
-   "commit": "d311e2b90f35479ff518df3605e881059c1a5ded",
+   "commit": "8bc0031951bf5daf46a362c776783d9defc54f4e",
    "commitDate": "2026-10-29",
    "dataClean": true,
    "branch": "claude/gtc-hardening",
@@ -24,9 +24,9 @@
     "src/data/actors.ts",
     "src/data/tallinnRules.ts"
    ],
-   "records": 35,
+   "records": 33,
    "recordTypes": {
-    "case": 35
+    "case": 33
    }
   },
   "orbital": {
@@ -99,22 +99,22 @@
   }
  },
  "counts": {
-  "records": 181,
+  "records": 179,
   "entities": 74,
   "entitiesByType": {
    "state": 41,
    "sector": 3,
    "instrument": 30
   },
-  "nodes": 255,
-  "attributeEdges": 413,
+  "nodes": 253,
+  "attributeEdges": 410,
   "attributeEdgesByBasis": {
    "attributed_state": 42,
-   "target_state": 57,
+   "target_state": 56,
    "host_state": 86,
    "profiled_state": 8,
    "infrastructure_category": 122,
-   "instrument_referenced": 98
+   "instrument_referenced": 96
   },
   "links": 6,
   "linksByBasis": {
@@ -1551,59 +1551,6 @@
     ],
     "intrusionSetIds": [
      "G1028"
-    ],
-    "targetEntities": []
-   }
-  },
-  {
-   "id": "cyber:thailand-election-2019",
-   "kind": "record",
-   "domain": "cyber",
-   "type": "case",
-   "label": "Thailand Election Infrastructure Targeting",
-   "date": "2019",
-   "year": 2019,
-   "url": "https://cyber-escalation-atlas.vercel.app/cases/thailand-election-2019",
-   "urlPrecision": "record",
-   "summary": "Intrusions targeting Thailand's Election Commission and political party systems during the 2019 general election, the first since the 2014 military coup. The operations compromised voter registration databases and…",
-   "fields": {
-    "incidentType": "espionage",
-    "attributionCountry": "Unknown (regional state-linked actors assessed)",
-    "attributionConfidence": "low",
-    "aliases": [],
-    "targetSectors": [
-     "government"
-    ],
-    "targetCountries": [
-     "TH"
-    ],
-    "targetEntities": [
-     "Election Commission of Thailand"
-    ]
-   }
-  },
-  {
-   "id": "cyber:bangladesh-egov-2021",
-   "kind": "record",
-   "domain": "cyber",
-   "type": "case",
-   "label": "Bangladesh e-Government Portal Intrusions",
-   "date": "2021 – 2022",
-   "year": 2021,
-   "url": "https://cyber-escalation-atlas.vercel.app/cases/bangladesh-egov-2021",
-   "urlPrecision": "record",
-   "summary": "Series of intrusions targeting Bangladeshi government digital service portals, exposing citizen data including national identity information and disrupting administrative functions. The incidents highlighted the…",
-   "fields": {
-    "incidentType": "espionage",
-    "attributionCountry": "Unknown",
-    "attributionConfidence": "low",
-    "aliases": [],
-    "targetSectors": [
-     "government",
-     "technology"
-    ],
-    "targetCountries": [
-     "BD"
     ],
     "targetEntities": []
    }
@@ -6152,15 +6099,6 @@
   {
    "id": "e46",
    "kind": "attribute",
-   "source": "cyber:bangladesh-egov-2021",
-   "target": "state:bangladesh",
-   "basis": "target_state",
-   "basisText": "Cyber case field infrastructure.targetCountries lists \"BD\" (Bangladesh).",
-   "role": "target"
-  },
-  {
-   "id": "e47",
-   "kind": "attribute",
    "source": "cyber:belgacom-operation-socialist",
    "target": "state:united-kingdom",
    "basis": "attributed_state",
@@ -6170,7 +6108,7 @@
    "raw": "cyber attribution.country \"United Kingdom\""
   },
   {
-   "id": "e48",
+   "id": "e47",
    "kind": "attribute",
    "source": "cyber:belgacom-operation-socialist",
    "target": "state:belgium",
@@ -6179,7 +6117,7 @@
    "role": "target"
   },
   {
-   "id": "e49",
+   "id": "e48",
    "kind": "attribute",
    "source": "cyber:opm-breach",
    "target": "state:china",
@@ -6190,7 +6128,7 @@
    "raw": "cyber attribution.country \"China\""
   },
   {
-   "id": "e50",
+   "id": "e49",
    "kind": "attribute",
    "source": "cyber:opm-breach",
    "target": "state:united-states",
@@ -6199,7 +6137,7 @@
    "role": "target"
   },
   {
-   "id": "e51",
+   "id": "e50",
    "kind": "attribute",
    "source": "cyber:apt1-pla-61398",
    "target": "state:china",
@@ -6210,7 +6148,7 @@
    "raw": "cyber attribution.country \"China\""
   },
   {
-   "id": "e52",
+   "id": "e51",
    "kind": "attribute",
    "source": "cyber:apt1-pla-61398",
    "target": "state:united-states",
@@ -6219,7 +6157,7 @@
    "role": "target"
   },
   {
-   "id": "e53",
+   "id": "e52",
    "kind": "attribute",
    "source": "cyber:apt1-pla-61398",
    "target": "state:canada",
@@ -6228,7 +6166,7 @@
    "role": "target"
   },
   {
-   "id": "e54",
+   "id": "e53",
    "kind": "attribute",
    "source": "cyber:apt1-pla-61398",
    "target": "state:united-kingdom",
@@ -6237,7 +6175,7 @@
    "role": "target"
   },
   {
-   "id": "e55",
+   "id": "e54",
    "kind": "attribute",
    "source": "cyber:apt1-pla-61398",
    "target": "state:south-korea",
@@ -6246,7 +6184,7 @@
    "role": "target"
   },
   {
-   "id": "e56",
+   "id": "e55",
    "kind": "attribute",
    "source": "cyber:apt1-pla-61398",
    "target": "state:japan",
@@ -6255,7 +6193,7 @@
    "role": "target"
   },
   {
-   "id": "e57",
+   "id": "e56",
    "kind": "attribute",
    "source": "cyber:apt1-pla-61398",
    "target": "state:taiwan",
@@ -6264,7 +6202,7 @@
    "role": "target"
   },
   {
-   "id": "e58",
+   "id": "e57",
    "kind": "attribute",
    "source": "cyber:salt-typhoon",
    "target": "state:china",
@@ -6275,7 +6213,7 @@
    "raw": "cyber attribution.country \"China\""
   },
   {
-   "id": "e59",
+   "id": "e58",
    "kind": "attribute",
    "source": "cyber:salt-typhoon",
    "target": "state:united-states",
@@ -6284,7 +6222,7 @@
    "role": "target"
   },
   {
-   "id": "e60",
+   "id": "e59",
    "kind": "attribute",
    "source": "cyber:flame-flamer",
    "target": "state:iran",
@@ -6293,7 +6231,7 @@
    "role": "target"
   },
   {
-   "id": "e61",
+   "id": "e60",
    "kind": "attribute",
    "source": "cyber:flame-flamer",
    "target": "state:israel",
@@ -6302,7 +6240,7 @@
    "role": "target"
   },
   {
-   "id": "e62",
+   "id": "e61",
    "kind": "attribute",
    "source": "cyber:flame-flamer",
    "target": "state:saudi-arabia",
@@ -6311,7 +6249,7 @@
    "role": "target"
   },
   {
-   "id": "e63",
+   "id": "e62",
    "kind": "attribute",
    "source": "cyber:flame-flamer",
    "target": "state:egypt",
@@ -6320,7 +6258,7 @@
    "role": "target"
   },
   {
-   "id": "e64",
+   "id": "e63",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:china",
@@ -6331,7 +6269,7 @@
    "raw": "cyber attribution.country \"China\""
   },
   {
-   "id": "e65",
+   "id": "e64",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:united-states",
@@ -6340,7 +6278,7 @@
    "role": "target"
   },
   {
-   "id": "e66",
+   "id": "e65",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:united-kingdom",
@@ -6349,7 +6287,7 @@
    "role": "target"
   },
   {
-   "id": "e67",
+   "id": "e66",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:japan",
@@ -6358,7 +6296,7 @@
    "role": "target"
   },
   {
-   "id": "e68",
+   "id": "e67",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:australia",
@@ -6367,7 +6305,7 @@
    "role": "target"
   },
   {
-   "id": "e69",
+   "id": "e68",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:canada",
@@ -6376,7 +6314,7 @@
    "role": "target"
   },
   {
-   "id": "e70",
+   "id": "e69",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:france",
@@ -6385,7 +6323,7 @@
    "role": "target"
   },
   {
-   "id": "e71",
+   "id": "e70",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:germany",
@@ -6394,7 +6332,7 @@
    "role": "target"
   },
   {
-   "id": "e72",
+   "id": "e71",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:netherlands",
@@ -6403,7 +6341,7 @@
    "role": "target"
   },
   {
-   "id": "e73",
+   "id": "e72",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:sweden",
@@ -6412,7 +6350,7 @@
    "role": "target"
   },
   {
-   "id": "e74",
+   "id": "e73",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:switzerland",
@@ -6421,7 +6359,7 @@
    "role": "target"
   },
   {
-   "id": "e75",
+   "id": "e74",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:brazil",
@@ -6430,7 +6368,7 @@
    "role": "target"
   },
   {
-   "id": "e76",
+   "id": "e75",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:india",
@@ -6439,7 +6377,7 @@
    "role": "target"
   },
   {
-   "id": "e77",
+   "id": "e76",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "state:south-korea",
@@ -6448,7 +6386,7 @@
    "role": "target"
   },
   {
-   "id": "e78",
+   "id": "e77",
    "kind": "attribute",
    "source": "orbital:2",
    "target": "state:china",
@@ -6459,7 +6397,7 @@
    "raw": "orbital actor \"China\""
   },
   {
-   "id": "e79",
+   "id": "e78",
    "kind": "attribute",
    "source": "orbital:3",
    "target": "state:united-states",
@@ -6470,7 +6408,7 @@
    "raw": "orbital actor \"United States\""
   },
   {
-   "id": "e80",
+   "id": "e79",
    "kind": "attribute",
    "source": "orbital:6",
    "target": "state:north-korea",
@@ -6481,7 +6419,7 @@
    "raw": "orbital actor \"North Korea\""
   },
   {
-   "id": "e81",
+   "id": "e80",
    "kind": "attribute",
    "source": "orbital:7",
    "target": "state:china",
@@ -6492,7 +6430,7 @@
    "raw": "orbital actor \"China\""
   },
   {
-   "id": "e82",
+   "id": "e81",
    "kind": "attribute",
    "source": "orbital:8",
    "target": "state:russia",
@@ -6503,7 +6441,7 @@
    "raw": "orbital actor \"Russia\""
   },
   {
-   "id": "e83",
+   "id": "e82",
    "kind": "attribute",
    "source": "orbital:9",
    "target": "state:russia",
@@ -6514,7 +6452,7 @@
    "raw": "orbital actor \"Russia\""
   },
   {
-   "id": "e84",
+   "id": "e83",
    "kind": "attribute",
    "source": "orbital:10",
    "target": "state:russia",
@@ -6525,7 +6463,7 @@
    "raw": "orbital actor \"Russia (attributed: FSB Turla APT)\""
   },
   {
-   "id": "e85",
+   "id": "e84",
    "kind": "attribute",
    "source": "orbital:11",
    "target": "state:north-korea",
@@ -6536,7 +6474,7 @@
    "raw": "orbital actor \"North Korea\""
   },
   {
-   "id": "e86",
+   "id": "e85",
    "kind": "attribute",
    "source": "orbital:12",
    "target": "state:china",
@@ -6547,7 +6485,7 @@
    "raw": "orbital actor \"China\""
   },
   {
-   "id": "e87",
+   "id": "e86",
    "kind": "attribute",
    "source": "orbital:13",
    "target": "state:russia",
@@ -6558,7 +6496,7 @@
    "raw": "orbital actor \"Russia\""
   },
   {
-   "id": "e88",
+   "id": "e87",
    "kind": "attribute",
    "source": "orbital:14",
    "target": "state:russia",
@@ -6569,7 +6507,7 @@
    "raw": "orbital actor \"Russia\""
   },
   {
-   "id": "e89",
+   "id": "e88",
    "kind": "attribute",
    "source": "orbital:15",
    "target": "state:russia",
@@ -6580,7 +6518,7 @@
    "raw": "orbital actor \"Russia\""
   },
   {
-   "id": "e90",
+   "id": "e89",
    "kind": "attribute",
    "source": "orbital:16",
    "target": "state:india",
@@ -6591,7 +6529,7 @@
    "raw": "orbital actor \"India\""
   },
   {
-   "id": "e91",
+   "id": "e90",
    "kind": "attribute",
    "source": "orbital:17",
    "target": "state:russia",
@@ -6602,7 +6540,7 @@
    "raw": "orbital actor \"Russia\""
   },
   {
-   "id": "e92",
+   "id": "e91",
    "kind": "attribute",
    "source": "orbital:19",
    "target": "state:russia",
@@ -6613,7 +6551,7 @@
    "raw": "orbital actor \"Russia\""
   },
   {
-   "id": "e93",
+   "id": "e92",
    "kind": "attribute",
    "source": "orbital:20",
    "target": "state:russia",
@@ -6624,7 +6562,7 @@
    "raw": "orbital actor \"Russia\""
   },
   {
-   "id": "e94",
+   "id": "e93",
    "kind": "attribute",
    "source": "orbital:21",
    "target": "state:russia",
@@ -6635,9 +6573,20 @@
    "raw": "orbital actor \"Russia (GRU Sandworm)\""
   },
   {
-   "id": "e95",
+   "id": "e94",
    "kind": "attribute",
    "source": "orbital:22",
+   "target": "state:russia",
+   "basis": "attributed_state",
+   "basisText": "Orbital incident field actor reads \"Russia\".",
+   "role": "attributed",
+   "confidence": "confirmed",
+   "raw": "orbital actor \"Russia\""
+  },
+  {
+   "id": "e95",
+   "kind": "attribute",
+   "source": "orbital:23",
    "target": "state:russia",
    "basis": "attributed_state",
    "basisText": "Orbital incident field actor reads \"Russia\".",
@@ -6648,7 +6597,7 @@
   {
    "id": "e96",
    "kind": "attribute",
-   "source": "orbital:23",
+   "source": "orbital:24",
    "target": "state:russia",
    "basis": "attributed_state",
    "basisText": "Orbital incident field actor reads \"Russia\".",
@@ -6659,17 +6608,6 @@
   {
    "id": "e97",
    "kind": "attribute",
-   "source": "orbital:24",
-   "target": "state:russia",
-   "basis": "attributed_state",
-   "basisText": "Orbital incident field actor reads \"Russia\".",
-   "role": "attributed",
-   "confidence": "confirmed",
-   "raw": "orbital actor \"Russia\""
-  },
-  {
-   "id": "e98",
-   "kind": "attribute",
    "source": "orbital:26",
    "target": "state:china",
    "basis": "attributed_state",
@@ -6679,7 +6617,7 @@
    "raw": "orbital actor \"China\""
   },
   {
-   "id": "e99",
+   "id": "e98",
    "kind": "attribute",
    "source": "orbital:27",
    "target": "state:russia",
@@ -6690,7 +6628,7 @@
    "raw": "orbital actor \"Russia\""
   },
   {
-   "id": "e100",
+   "id": "e99",
    "kind": "attribute",
    "source": "nuclear:us-palo-verde",
    "target": "state:united-states",
@@ -6699,7 +6637,7 @@
    "role": "host"
   },
   {
-   "id": "e101",
+   "id": "e100",
    "kind": "attribute",
    "source": "nuclear:us-vogtle",
    "target": "state:united-states",
@@ -6708,7 +6646,7 @@
    "role": "host"
   },
   {
-   "id": "e102",
+   "id": "e101",
    "kind": "attribute",
    "source": "nuclear:us-south-texas",
    "target": "state:united-states",
@@ -6717,7 +6655,7 @@
    "role": "host"
   },
   {
-   "id": "e103",
+   "id": "e102",
    "kind": "attribute",
    "source": "nuclear:us-diablo-canyon",
    "target": "state:united-states",
@@ -6726,7 +6664,7 @@
    "role": "host"
   },
   {
-   "id": "e104",
+   "id": "e103",
    "kind": "attribute",
    "source": "nuclear:us-peach-bottom",
    "target": "state:united-states",
@@ -6735,7 +6673,7 @@
    "role": "host"
   },
   {
-   "id": "e105",
+   "id": "e104",
    "kind": "attribute",
    "source": "nuclear:us-braidwood",
    "target": "state:united-states",
@@ -6744,7 +6682,7 @@
    "role": "host"
   },
   {
-   "id": "e106",
+   "id": "e105",
    "kind": "attribute",
    "source": "nuclear:us-comanche-peak",
    "target": "state:united-states",
@@ -6753,7 +6691,7 @@
    "role": "host"
   },
   {
-   "id": "e107",
+   "id": "e106",
    "kind": "attribute",
    "source": "nuclear:us-watts-bar",
    "target": "state:united-states",
@@ -6762,7 +6700,7 @@
    "role": "host"
   },
   {
-   "id": "e108",
+   "id": "e107",
    "kind": "attribute",
    "source": "nuclear:us-browns-ferry",
    "target": "state:united-states",
@@ -6771,7 +6709,7 @@
    "role": "host"
   },
   {
-   "id": "e109",
+   "id": "e108",
    "kind": "attribute",
    "source": "nuclear:us-calvert-cliffs",
    "target": "state:united-states",
@@ -6780,7 +6718,7 @@
    "role": "host"
   },
   {
-   "id": "e110",
+   "id": "e109",
    "kind": "attribute",
    "source": "nuclear:us-seabrook",
    "target": "state:united-states",
@@ -6789,7 +6727,7 @@
    "role": "host"
   },
   {
-   "id": "e111",
+   "id": "e110",
    "kind": "attribute",
    "source": "nuclear:us-millstone",
    "target": "state:united-states",
@@ -6798,7 +6736,7 @@
    "role": "host"
   },
   {
-   "id": "e112",
+   "id": "e111",
    "kind": "attribute",
    "source": "nuclear:us-north-anna",
    "target": "state:united-states",
@@ -6807,7 +6745,7 @@
    "role": "host"
   },
   {
-   "id": "e113",
+   "id": "e112",
    "kind": "attribute",
    "source": "nuclear:us-oconee",
    "target": "state:united-states",
@@ -6816,7 +6754,7 @@
    "role": "host"
   },
   {
-   "id": "e114",
+   "id": "e113",
    "kind": "attribute",
    "source": "nuclear:us-grand-gulf",
    "target": "state:united-states",
@@ -6825,7 +6763,7 @@
    "role": "host"
   },
   {
-   "id": "e115",
+   "id": "e114",
    "kind": "attribute",
    "source": "nuclear:us-turkey-point",
    "target": "state:united-states",
@@ -6834,7 +6772,7 @@
    "role": "host"
   },
   {
-   "id": "e116",
+   "id": "e115",
    "kind": "attribute",
    "source": "nuclear:us-columbia",
    "target": "state:united-states",
@@ -6843,7 +6781,7 @@
    "role": "host"
   },
   {
-   "id": "e117",
+   "id": "e116",
    "kind": "attribute",
    "source": "nuclear:us-indian-point",
    "target": "state:united-states",
@@ -6852,7 +6790,7 @@
    "role": "host"
   },
   {
-   "id": "e118",
+   "id": "e117",
    "kind": "attribute",
    "source": "nuclear:us-three-mile-island",
    "target": "state:united-states",
@@ -6861,7 +6799,7 @@
    "role": "host"
   },
   {
-   "id": "e119",
+   "id": "e118",
    "kind": "attribute",
    "source": "nuclear:us-san-onofre",
    "target": "state:united-states",
@@ -6870,7 +6808,7 @@
    "role": "host"
   },
   {
-   "id": "e120",
+   "id": "e119",
    "kind": "attribute",
    "source": "nuclear:fr-gravelines",
    "target": "state:france",
@@ -6879,7 +6817,7 @@
    "role": "host"
   },
   {
-   "id": "e121",
+   "id": "e120",
    "kind": "attribute",
    "source": "nuclear:fr-cattenom",
    "target": "state:france",
@@ -6888,7 +6826,7 @@
    "role": "host"
   },
   {
-   "id": "e122",
+   "id": "e121",
    "kind": "attribute",
    "source": "nuclear:fr-paluel",
    "target": "state:france",
@@ -6897,7 +6835,7 @@
    "role": "host"
   },
   {
-   "id": "e123",
+   "id": "e122",
    "kind": "attribute",
    "source": "nuclear:fr-flamanville",
    "target": "state:france",
@@ -6906,7 +6844,7 @@
    "role": "host"
   },
   {
-   "id": "e124",
+   "id": "e123",
    "kind": "attribute",
    "source": "nuclear:fr-chinon",
    "target": "state:france",
@@ -6915,7 +6853,7 @@
    "role": "host"
   },
   {
-   "id": "e125",
+   "id": "e124",
    "kind": "attribute",
    "source": "nuclear:fr-blayais",
    "target": "state:france",
@@ -6924,7 +6862,7 @@
    "role": "host"
   },
   {
-   "id": "e126",
+   "id": "e125",
    "kind": "attribute",
    "source": "nuclear:cn-qinshan",
    "target": "state:china",
@@ -6933,7 +6871,7 @@
    "role": "host"
   },
   {
-   "id": "e127",
+   "id": "e126",
    "kind": "attribute",
    "source": "nuclear:cn-daya-bay",
    "target": "state:china",
@@ -6942,7 +6880,7 @@
    "role": "host"
   },
   {
-   "id": "e128",
+   "id": "e127",
    "kind": "attribute",
    "source": "nuclear:cn-tianwan",
    "target": "state:china",
@@ -6951,7 +6889,7 @@
    "role": "host"
   },
   {
-   "id": "e129",
+   "id": "e128",
    "kind": "attribute",
    "source": "nuclear:cn-hongyanhe",
    "target": "state:china",
@@ -6960,7 +6898,7 @@
    "role": "host"
   },
   {
-   "id": "e130",
+   "id": "e129",
    "kind": "attribute",
    "source": "nuclear:cn-yangjiang",
    "target": "state:china",
@@ -6969,7 +6907,7 @@
    "role": "host"
   },
   {
-   "id": "e131",
+   "id": "e130",
    "kind": "attribute",
    "source": "nuclear:cn-taishan",
    "target": "state:china",
@@ -6978,7 +6916,7 @@
    "role": "host"
   },
   {
-   "id": "e132",
+   "id": "e131",
    "kind": "attribute",
    "source": "nuclear:ru-balakovo",
    "target": "state:russia",
@@ -6987,7 +6925,7 @@
    "role": "host"
   },
   {
-   "id": "e133",
+   "id": "e132",
    "kind": "attribute",
    "source": "nuclear:ru-leningrad",
    "target": "state:russia",
@@ -6996,7 +6934,7 @@
    "role": "host"
   },
   {
-   "id": "e134",
+   "id": "e133",
    "kind": "attribute",
    "source": "nuclear:ru-kalinin",
    "target": "state:russia",
@@ -7005,7 +6943,7 @@
    "role": "host"
   },
   {
-   "id": "e135",
+   "id": "e134",
    "kind": "attribute",
    "source": "nuclear:ru-smolensk",
    "target": "state:russia",
@@ -7014,7 +6952,7 @@
    "role": "host"
   },
   {
-   "id": "e136",
+   "id": "e135",
    "kind": "attribute",
    "source": "nuclear:ru-beloyarsk",
    "target": "state:russia",
@@ -7023,7 +6961,7 @@
    "role": "host"
   },
   {
-   "id": "e137",
+   "id": "e136",
    "kind": "attribute",
    "source": "nuclear:kr-kori",
    "target": "state:south-korea",
@@ -7032,7 +6970,7 @@
    "role": "host"
   },
   {
-   "id": "e138",
+   "id": "e137",
    "kind": "attribute",
    "source": "nuclear:kr-hanul",
    "target": "state:south-korea",
@@ -7041,7 +6979,7 @@
    "role": "host"
   },
   {
-   "id": "e139",
+   "id": "e138",
    "kind": "attribute",
    "source": "nuclear:kr-hanbit",
    "target": "state:south-korea",
@@ -7050,7 +6988,7 @@
    "role": "host"
   },
   {
-   "id": "e140",
+   "id": "e139",
    "kind": "attribute",
    "source": "nuclear:ca-bruce",
    "target": "state:canada",
@@ -7059,7 +6997,7 @@
    "role": "host"
   },
   {
-   "id": "e141",
+   "id": "e140",
    "kind": "attribute",
    "source": "nuclear:ca-darlington",
    "target": "state:canada",
@@ -7068,7 +7006,7 @@
    "role": "host"
   },
   {
-   "id": "e142",
+   "id": "e141",
    "kind": "attribute",
    "source": "nuclear:ca-pickering",
    "target": "state:canada",
@@ -7077,7 +7015,7 @@
    "role": "host"
   },
   {
-   "id": "e143",
+   "id": "e142",
    "kind": "attribute",
    "source": "nuclear:gb-sizewell-b",
    "target": "state:united-kingdom",
@@ -7086,7 +7024,7 @@
    "role": "host"
   },
   {
-   "id": "e144",
+   "id": "e143",
    "kind": "attribute",
    "source": "nuclear:gb-heysham",
    "target": "state:united-kingdom",
@@ -7095,7 +7033,7 @@
    "role": "host"
   },
   {
-   "id": "e145",
+   "id": "e144",
    "kind": "attribute",
    "source": "nuclear:gb-torness",
    "target": "state:united-kingdom",
@@ -7104,7 +7042,7 @@
    "role": "host"
   },
   {
-   "id": "e146",
+   "id": "e145",
    "kind": "attribute",
    "source": "nuclear:gb-hinkley-c",
    "target": "state:united-kingdom",
@@ -7113,7 +7051,7 @@
    "role": "host"
   },
   {
-   "id": "e147",
+   "id": "e146",
    "kind": "attribute",
    "source": "nuclear:jp-sendai",
    "target": "state:japan",
@@ -7122,7 +7060,7 @@
    "role": "host"
   },
   {
-   "id": "e148",
+   "id": "e147",
    "kind": "attribute",
    "source": "nuclear:jp-genkai",
    "target": "state:japan",
@@ -7131,7 +7069,7 @@
    "role": "host"
   },
   {
-   "id": "e149",
+   "id": "e148",
    "kind": "attribute",
    "source": "nuclear:jp-takahama",
    "target": "state:japan",
@@ -7140,7 +7078,7 @@
    "role": "host"
   },
   {
-   "id": "e150",
+   "id": "e149",
    "kind": "attribute",
    "source": "nuclear:jp-fukushima-daini",
    "target": "state:japan",
@@ -7149,7 +7087,7 @@
    "role": "host"
   },
   {
-   "id": "e151",
+   "id": "e150",
    "kind": "attribute",
    "source": "nuclear:in-kudankulam",
    "target": "state:india",
@@ -7158,7 +7096,7 @@
    "role": "host"
   },
   {
-   "id": "e152",
+   "id": "e151",
    "kind": "attribute",
    "source": "nuclear:in-tarapur",
    "target": "state:india",
@@ -7167,7 +7105,7 @@
    "role": "host"
   },
   {
-   "id": "e153",
+   "id": "e152",
    "kind": "attribute",
    "source": "nuclear:in-rajasthan",
    "target": "state:india",
@@ -7176,7 +7114,7 @@
    "role": "host"
   },
   {
-   "id": "e154",
+   "id": "e153",
    "kind": "attribute",
    "source": "nuclear:ua-zaporizhzhia",
    "target": "state:ukraine",
@@ -7185,7 +7123,7 @@
    "role": "host"
   },
   {
-   "id": "e155",
+   "id": "e154",
    "kind": "attribute",
    "source": "nuclear:ua-rivne",
    "target": "state:ukraine",
@@ -7194,7 +7132,7 @@
    "role": "host"
   },
   {
-   "id": "e156",
+   "id": "e155",
    "kind": "attribute",
    "source": "nuclear:ua-south-ukraine",
    "target": "state:ukraine",
@@ -7203,7 +7141,7 @@
    "role": "host"
   },
   {
-   "id": "e157",
+   "id": "e156",
    "kind": "attribute",
    "source": "nuclear:fi-olkiluoto",
    "target": "state:finland",
@@ -7212,7 +7150,7 @@
    "role": "host"
   },
   {
-   "id": "e158",
+   "id": "e157",
    "kind": "attribute",
    "source": "nuclear:fi-loviisa",
    "target": "state:finland",
@@ -7221,7 +7159,7 @@
    "role": "host"
   },
   {
-   "id": "e159",
+   "id": "e158",
    "kind": "attribute",
    "source": "nuclear:se-forsmark",
    "target": "state:sweden",
@@ -7230,7 +7168,7 @@
    "role": "host"
   },
   {
-   "id": "e160",
+   "id": "e159",
    "kind": "attribute",
    "source": "nuclear:se-ringhals",
    "target": "state:sweden",
@@ -7239,7 +7177,7 @@
    "role": "host"
   },
   {
-   "id": "e161",
+   "id": "e160",
    "kind": "attribute",
    "source": "nuclear:be-doel",
    "target": "state:belgium",
@@ -7248,7 +7186,7 @@
    "role": "host"
   },
   {
-   "id": "e162",
+   "id": "e161",
    "kind": "attribute",
    "source": "nuclear:be-tihange",
    "target": "state:belgium",
@@ -7257,7 +7195,7 @@
    "role": "host"
   },
   {
-   "id": "e163",
+   "id": "e162",
    "kind": "attribute",
    "source": "nuclear:cz-dukovany",
    "target": "state:czech-republic",
@@ -7266,7 +7204,7 @@
    "role": "host"
   },
   {
-   "id": "e164",
+   "id": "e163",
    "kind": "attribute",
    "source": "nuclear:cz-temelin",
    "target": "state:czech-republic",
@@ -7275,7 +7213,7 @@
    "role": "host"
   },
   {
-   "id": "e165",
+   "id": "e164",
    "kind": "attribute",
    "source": "nuclear:hu-paks",
    "target": "state:hungary",
@@ -7284,7 +7222,7 @@
    "role": "host"
   },
   {
-   "id": "e166",
+   "id": "e165",
    "kind": "attribute",
    "source": "nuclear:es-almaraz",
    "target": "state:spain",
@@ -7293,7 +7231,7 @@
    "role": "host"
   },
   {
-   "id": "e167",
+   "id": "e166",
    "kind": "attribute",
    "source": "nuclear:es-cofrentes",
    "target": "state:spain",
@@ -7302,7 +7240,7 @@
    "role": "host"
   },
   {
-   "id": "e168",
+   "id": "e167",
    "kind": "attribute",
    "source": "nuclear:ch-leibstadt",
    "target": "state:switzerland",
@@ -7311,7 +7249,7 @@
    "role": "host"
   },
   {
-   "id": "e169",
+   "id": "e168",
    "kind": "attribute",
    "source": "nuclear:ch-beznau",
    "target": "state:switzerland",
@@ -7320,7 +7258,7 @@
    "role": "host"
   },
   {
-   "id": "e170",
+   "id": "e169",
    "kind": "attribute",
    "source": "nuclear:de-isar",
    "target": "state:germany",
@@ -7329,7 +7267,7 @@
    "role": "host"
   },
   {
-   "id": "e171",
+   "id": "e170",
    "kind": "attribute",
    "source": "nuclear:nl-borssele",
    "target": "state:netherlands",
@@ -7338,7 +7276,7 @@
    "role": "host"
   },
   {
-   "id": "e172",
+   "id": "e171",
    "kind": "attribute",
    "source": "nuclear:ae-barakah",
    "target": "state:united-arab-emirates",
@@ -7347,7 +7285,7 @@
    "role": "host"
   },
   {
-   "id": "e173",
+   "id": "e172",
    "kind": "attribute",
    "source": "nuclear:ar-atucha",
    "target": "state:argentina",
@@ -7356,7 +7294,7 @@
    "role": "host"
   },
   {
-   "id": "e174",
+   "id": "e173",
    "kind": "attribute",
    "source": "nuclear:br-angra",
    "target": "state:brazil",
@@ -7365,7 +7303,7 @@
    "role": "host"
   },
   {
-   "id": "e175",
+   "id": "e174",
    "kind": "attribute",
    "source": "nuclear:za-koeberg",
    "target": "state:south-africa",
@@ -7374,7 +7312,7 @@
    "role": "host"
   },
   {
-   "id": "e176",
+   "id": "e175",
    "kind": "attribute",
    "source": "nuclear:pk-kanupp",
    "target": "state:pakistan",
@@ -7383,7 +7321,7 @@
    "role": "host"
   },
   {
-   "id": "e177",
+   "id": "e176",
    "kind": "attribute",
    "source": "nuclear:ir-bushehr",
    "target": "state:iran",
@@ -7392,7 +7330,7 @@
    "role": "host"
   },
   {
-   "id": "e178",
+   "id": "e177",
    "kind": "attribute",
    "source": "nuclear:mx-laguna-verde",
    "target": "state:mexico",
@@ -7401,7 +7339,7 @@
    "role": "host"
   },
   {
-   "id": "e179",
+   "id": "e178",
    "kind": "attribute",
    "source": "nuclear:ro-cernavoda",
    "target": "state:romania",
@@ -7410,7 +7348,7 @@
    "role": "host"
   },
   {
-   "id": "e180",
+   "id": "e179",
    "kind": "attribute",
    "source": "nuclear:si-krsko",
    "target": "state:slovenia",
@@ -7419,7 +7357,7 @@
    "role": "host"
   },
   {
-   "id": "e181",
+   "id": "e180",
    "kind": "attribute",
    "source": "nuclear:am-metsamor",
    "target": "state:armenia",
@@ -7428,7 +7366,7 @@
    "role": "host"
   },
   {
-   "id": "e182",
+   "id": "e181",
    "kind": "attribute",
    "source": "nuclear:by-ostrovets",
    "target": "state:belarus",
@@ -7437,7 +7375,7 @@
    "role": "host"
   },
   {
-   "id": "e183",
+   "id": "e182",
    "kind": "attribute",
    "source": "nuclear:bd-rooppur",
    "target": "state:bangladesh",
@@ -7446,7 +7384,7 @@
    "role": "host"
   },
   {
-   "id": "e184",
+   "id": "e183",
    "kind": "attribute",
    "source": "nuclear:tr-akkuyu",
    "target": "state:turkey",
@@ -7455,7 +7393,7 @@
    "role": "host"
   },
   {
-   "id": "e185",
+   "id": "e184",
    "kind": "attribute",
    "source": "nuclear:eg-el-dabaa",
    "target": "state:egypt",
@@ -7464,7 +7402,7 @@
    "role": "host"
   },
   {
-   "id": "e186",
+   "id": "e185",
    "kind": "attribute",
    "source": "lunar:country-usa",
    "target": "state:united-states",
@@ -7474,7 +7412,7 @@
    "raw": "lunar country profile \"United States\""
   },
   {
-   "id": "e187",
+   "id": "e186",
    "kind": "attribute",
    "source": "lunar:country-china",
    "target": "state:china",
@@ -7484,7 +7422,7 @@
    "raw": "lunar country profile \"China\""
   },
   {
-   "id": "e188",
+   "id": "e187",
    "kind": "attribute",
    "source": "lunar:country-russia",
    "target": "state:russia",
@@ -7494,7 +7432,7 @@
    "raw": "lunar country profile \"Russia\""
   },
   {
-   "id": "e189",
+   "id": "e188",
    "kind": "attribute",
    "source": "lunar:country-japan",
    "target": "state:japan",
@@ -7504,7 +7442,7 @@
    "raw": "lunar country profile \"Japan\""
   },
   {
-   "id": "e190",
+   "id": "e189",
    "kind": "attribute",
    "source": "lunar:country-india",
    "target": "state:india",
@@ -7514,7 +7452,7 @@
    "raw": "lunar country profile \"India\""
   },
   {
-   "id": "e191",
+   "id": "e190",
    "kind": "attribute",
    "source": "lunar:country-luxembourg",
    "target": "state:luxembourg",
@@ -7524,7 +7462,7 @@
    "raw": "lunar country profile \"Luxembourg\""
   },
   {
-   "id": "e192",
+   "id": "e191",
    "kind": "attribute",
    "source": "lunar:country-uae",
    "target": "state:united-arab-emirates",
@@ -7534,7 +7472,7 @@
    "raw": "lunar country profile \"United Arab Emirates\""
   },
   {
-   "id": "e193",
+   "id": "e192",
    "kind": "attribute",
    "source": "lunar:country-esa",
    "target": "state:eu-esa",
@@ -7544,7 +7482,7 @@
    "raw": "lunar country profile \"ESA / European Union\""
   },
   {
-   "id": "e194",
+   "id": "e193",
    "kind": "attribute",
    "source": "cyber:stuxnet",
    "target": "sector:energy-power",
@@ -7552,7 +7490,7 @@
    "basisText": "Cyber case targetSectors includes \"energy\"."
   },
   {
-   "id": "e195",
+   "id": "e194",
    "kind": "attribute",
    "source": "cyber:ukraine-power-grid-2015",
    "target": "sector:energy-power",
@@ -7560,7 +7498,7 @@
    "basisText": "Cyber case targetSectors includes \"energy\"."
   },
   {
-   "id": "e196",
+   "id": "e195",
    "kind": "attribute",
    "source": "cyber:ukraine-power-grid-2016",
    "target": "sector:energy-power",
@@ -7568,7 +7506,7 @@
    "basisText": "Cyber case targetSectors includes \"energy\"."
   },
   {
-   "id": "e197",
+   "id": "e196",
    "kind": "attribute",
    "source": "cyber:wannacry",
    "target": "sector:communications",
@@ -7576,9 +7514,17 @@
    "basisText": "Cyber case targetSectors includes \"telecommunications\"."
   },
   {
-   "id": "e198",
+   "id": "e197",
    "kind": "attribute",
    "source": "cyber:colonial-pipeline",
+   "target": "sector:energy-power",
+   "basis": "infrastructure_category",
+   "basisText": "Cyber case targetSectors includes \"energy\"."
+  },
+  {
+   "id": "e198",
+   "kind": "attribute",
+   "source": "cyber:viasat-kasat",
    "target": "sector:energy-power",
    "basis": "infrastructure_category",
    "basisText": "Cyber case targetSectors includes \"energy\"."
@@ -7587,20 +7533,12 @@
    "id": "e199",
    "kind": "attribute",
    "source": "cyber:viasat-kasat",
-   "target": "sector:energy-power",
-   "basis": "infrastructure_category",
-   "basisText": "Cyber case targetSectors includes \"energy\"."
-  },
-  {
-   "id": "e200",
-   "kind": "attribute",
-   "source": "cyber:viasat-kasat",
    "target": "sector:communications",
    "basis": "infrastructure_category",
    "basisText": "Cyber case targetSectors includes \"telecommunications\"."
   },
   {
-   "id": "e201",
+   "id": "e200",
    "kind": "attribute",
    "source": "cyber:shamoon-aramco",
    "target": "sector:energy-power",
@@ -7608,7 +7546,7 @@
    "basisText": "Cyber case targetSectors includes \"energy\"."
   },
   {
-   "id": "e202",
+   "id": "e201",
    "kind": "attribute",
    "source": "cyber:iran-nuclear-cyber",
    "target": "sector:energy-power",
@@ -7616,7 +7554,7 @@
    "basisText": "Cyber case targetSectors includes \"energy\"."
   },
   {
-   "id": "e203",
+   "id": "e202",
    "kind": "attribute",
    "source": "cyber:taiwan-telecom",
    "target": "sector:communications",
@@ -7624,9 +7562,17 @@
    "basisText": "Cyber case targetSectors includes \"telecommunications\"."
   },
   {
-   "id": "e204",
+   "id": "e203",
    "kind": "attribute",
    "source": "cyber:industroyer2",
+   "target": "sector:energy-power",
+   "basis": "infrastructure_category",
+   "basisText": "Cyber case targetSectors includes \"energy\"."
+  },
+  {
+   "id": "e204",
+   "kind": "attribute",
+   "source": "cyber:volt-typhoon",
    "target": "sector:energy-power",
    "basis": "infrastructure_category",
    "basisText": "Cyber case targetSectors includes \"energy\"."
@@ -7635,20 +7581,12 @@
    "id": "e205",
    "kind": "attribute",
    "source": "cyber:volt-typhoon",
-   "target": "sector:energy-power",
-   "basis": "infrastructure_category",
-   "basisText": "Cyber case targetSectors includes \"energy\"."
-  },
-  {
-   "id": "e206",
-   "kind": "attribute",
-   "source": "cyber:volt-typhoon",
    "target": "sector:communications",
    "basis": "infrastructure_category",
    "basisText": "Cyber case targetSectors includes \"telecommunications\"."
   },
   {
-   "id": "e207",
+   "id": "e206",
    "kind": "attribute",
    "source": "cyber:kyivstar",
    "target": "sector:communications",
@@ -7656,7 +7594,7 @@
    "basisText": "Cyber case targetSectors includes \"telecommunications\"."
   },
   {
-   "id": "e208",
+   "id": "e207",
    "kind": "attribute",
    "source": "cyber:belgacom-operation-socialist",
    "target": "sector:communications",
@@ -7664,7 +7602,7 @@
    "basisText": "Cyber case targetSectors includes \"telecommunications\"."
   },
   {
-   "id": "e209",
+   "id": "e208",
    "kind": "attribute",
    "source": "cyber:apt1-pla-61398",
    "target": "sector:energy-power",
@@ -7672,7 +7610,7 @@
    "basisText": "Cyber case targetSectors includes \"energy\"."
   },
   {
-   "id": "e210",
+   "id": "e209",
    "kind": "attribute",
    "source": "cyber:apt1-pla-61398",
    "target": "sector:communications",
@@ -7680,7 +7618,7 @@
    "basisText": "Cyber case targetSectors includes \"telecommunications\"."
   },
   {
-   "id": "e211",
+   "id": "e210",
    "kind": "attribute",
    "source": "cyber:salt-typhoon",
    "target": "sector:communications",
@@ -7688,7 +7626,7 @@
    "basisText": "Cyber case targetSectors includes \"telecommunications\"."
   },
   {
-   "id": "e212",
+   "id": "e211",
    "kind": "attribute",
    "source": "cyber:flame-flamer",
    "target": "sector:energy-power",
@@ -7696,7 +7634,7 @@
    "basisText": "Cyber case targetSectors includes \"energy\"."
   },
   {
-   "id": "e213",
+   "id": "e212",
    "kind": "attribute",
    "source": "cyber:cloud-hopper-apt10",
    "target": "sector:communications",
@@ -7704,7 +7642,7 @@
    "basisText": "Cyber case targetSectors includes \"telecommunications\"."
   },
   {
-   "id": "e214",
+   "id": "e213",
    "kind": "attribute",
    "source": "orbital:5",
    "target": "sector:navigation-timing",
@@ -7712,7 +7650,7 @@
    "basisText": "Orbital incident type is \"spoofing\" and the record concerns satellite navigation signals."
   },
   {
-   "id": "e215",
+   "id": "e214",
    "kind": "attribute",
    "source": "orbital:6",
    "target": "sector:communications",
@@ -7720,7 +7658,7 @@
    "basisText": "Orbital incident target or subtype mentions a communications service (\"South Korean aviation, shipping, military communications\")."
   },
   {
-   "id": "e216",
+   "id": "e215",
    "kind": "attribute",
    "source": "orbital:6",
    "target": "sector:navigation-timing",
@@ -7728,7 +7666,7 @@
    "basisText": "Orbital incident type is \"jamming\" and the record concerns satellite navigation signals."
   },
   {
-   "id": "e217",
+   "id": "e216",
    "kind": "attribute",
    "source": "orbital:10",
    "target": "sector:communications",
@@ -7736,7 +7674,7 @@
    "basisText": "Orbital incident target or subtype mentions a communications service (\"Commercial satellite internet links (multiple countries)\")."
   },
   {
-   "id": "e218",
+   "id": "e217",
    "kind": "attribute",
    "source": "orbital:11",
    "target": "sector:navigation-timing",
@@ -7744,7 +7682,7 @@
    "basisText": "Orbital incident type is \"jamming\" and the record concerns satellite navigation signals."
   },
   {
-   "id": "e219",
+   "id": "e218",
    "kind": "attribute",
    "source": "orbital:13",
    "target": "sector:navigation-timing",
@@ -7752,7 +7690,7 @@
    "basisText": "Orbital incident type is \"spoofing\" and the record concerns satellite navigation signals."
   },
   {
-   "id": "e220",
+   "id": "e219",
    "kind": "attribute",
    "source": "orbital:15",
    "target": "sector:navigation-timing",
@@ -7760,7 +7698,7 @@
    "basisText": "Orbital incident type is \"jamming\" and the record concerns satellite navigation signals."
   },
   {
-   "id": "e221",
+   "id": "e220",
    "kind": "attribute",
    "source": "orbital:18",
    "target": "sector:navigation-timing",
@@ -7768,7 +7706,7 @@
    "basisText": "Orbital incident type is \"spoofing\" and the record concerns satellite navigation signals."
   },
   {
-   "id": "e222",
+   "id": "e221",
    "kind": "attribute",
    "source": "orbital:21",
    "target": "sector:communications",
@@ -7776,7 +7714,7 @@
    "basisText": "Orbital incident target or subtype mentions a communications service (\"Viasat KA-SAT network (Ukraine + ~40,000 modems across Europe)\")."
   },
   {
-   "id": "e223",
+   "id": "e222",
    "kind": "attribute",
    "source": "orbital:22",
    "target": "sector:communications",
@@ -7784,7 +7722,7 @@
    "basisText": "Orbital incident target or subtype mentions a communications service (\"SpaceX Starlink terminals (Ukrainian military and civilian users)\")."
   },
   {
-   "id": "e224",
+   "id": "e223",
    "kind": "attribute",
    "source": "orbital:23",
    "target": "sector:navigation-timing",
@@ -7792,7 +7730,7 @@
    "basisText": "Orbital incident type is \"jamming\" and the record concerns satellite navigation signals."
   },
   {
-   "id": "e225",
+   "id": "e224",
    "kind": "attribute",
    "source": "orbital:25",
    "target": "sector:navigation-timing",
@@ -7800,7 +7738,7 @@
    "basisText": "Orbital incident type is \"spoofing\" and the record concerns satellite navigation signals."
   },
   {
-   "id": "e226",
+   "id": "e225",
    "kind": "attribute",
    "source": "orbital:28",
    "target": "sector:navigation-timing",
@@ -7808,7 +7746,7 @@
    "basisText": "Orbital incident type is \"spoofing\" and the record concerns satellite navigation signals."
   },
   {
-   "id": "e227",
+   "id": "e226",
    "kind": "attribute",
    "source": "nuclear:us-palo-verde",
    "target": "sector:energy-power",
@@ -7816,7 +7754,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e228",
+   "id": "e227",
    "kind": "attribute",
    "source": "nuclear:us-vogtle",
    "target": "sector:energy-power",
@@ -7824,7 +7762,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e229",
+   "id": "e228",
    "kind": "attribute",
    "source": "nuclear:us-south-texas",
    "target": "sector:energy-power",
@@ -7832,7 +7770,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e230",
+   "id": "e229",
    "kind": "attribute",
    "source": "nuclear:us-diablo-canyon",
    "target": "sector:energy-power",
@@ -7840,7 +7778,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e231",
+   "id": "e230",
    "kind": "attribute",
    "source": "nuclear:us-peach-bottom",
    "target": "sector:energy-power",
@@ -7848,7 +7786,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e232",
+   "id": "e231",
    "kind": "attribute",
    "source": "nuclear:us-braidwood",
    "target": "sector:energy-power",
@@ -7856,7 +7794,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e233",
+   "id": "e232",
    "kind": "attribute",
    "source": "nuclear:us-comanche-peak",
    "target": "sector:energy-power",
@@ -7864,7 +7802,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e234",
+   "id": "e233",
    "kind": "attribute",
    "source": "nuclear:us-watts-bar",
    "target": "sector:energy-power",
@@ -7872,7 +7810,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e235",
+   "id": "e234",
    "kind": "attribute",
    "source": "nuclear:us-browns-ferry",
    "target": "sector:energy-power",
@@ -7880,7 +7818,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e236",
+   "id": "e235",
    "kind": "attribute",
    "source": "nuclear:us-calvert-cliffs",
    "target": "sector:energy-power",
@@ -7888,7 +7826,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e237",
+   "id": "e236",
    "kind": "attribute",
    "source": "nuclear:us-seabrook",
    "target": "sector:energy-power",
@@ -7896,7 +7834,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e238",
+   "id": "e237",
    "kind": "attribute",
    "source": "nuclear:us-millstone",
    "target": "sector:energy-power",
@@ -7904,7 +7842,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e239",
+   "id": "e238",
    "kind": "attribute",
    "source": "nuclear:us-north-anna",
    "target": "sector:energy-power",
@@ -7912,7 +7850,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e240",
+   "id": "e239",
    "kind": "attribute",
    "source": "nuclear:us-oconee",
    "target": "sector:energy-power",
@@ -7920,7 +7858,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e241",
+   "id": "e240",
    "kind": "attribute",
    "source": "nuclear:us-grand-gulf",
    "target": "sector:energy-power",
@@ -7928,7 +7866,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e242",
+   "id": "e241",
    "kind": "attribute",
    "source": "nuclear:us-turkey-point",
    "target": "sector:energy-power",
@@ -7936,7 +7874,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e243",
+   "id": "e242",
    "kind": "attribute",
    "source": "nuclear:us-columbia",
    "target": "sector:energy-power",
@@ -7944,7 +7882,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e244",
+   "id": "e243",
    "kind": "attribute",
    "source": "nuclear:us-indian-point",
    "target": "sector:energy-power",
@@ -7952,7 +7890,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e245",
+   "id": "e244",
    "kind": "attribute",
    "source": "nuclear:us-three-mile-island",
    "target": "sector:energy-power",
@@ -7960,7 +7898,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e246",
+   "id": "e245",
    "kind": "attribute",
    "source": "nuclear:us-san-onofre",
    "target": "sector:energy-power",
@@ -7968,7 +7906,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e247",
+   "id": "e246",
    "kind": "attribute",
    "source": "nuclear:fr-gravelines",
    "target": "sector:energy-power",
@@ -7976,7 +7914,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e248",
+   "id": "e247",
    "kind": "attribute",
    "source": "nuclear:fr-cattenom",
    "target": "sector:energy-power",
@@ -7984,7 +7922,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e249",
+   "id": "e248",
    "kind": "attribute",
    "source": "nuclear:fr-paluel",
    "target": "sector:energy-power",
@@ -7992,7 +7930,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e250",
+   "id": "e249",
    "kind": "attribute",
    "source": "nuclear:fr-flamanville",
    "target": "sector:energy-power",
@@ -8000,7 +7938,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e251",
+   "id": "e250",
    "kind": "attribute",
    "source": "nuclear:fr-chinon",
    "target": "sector:energy-power",
@@ -8008,7 +7946,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e252",
+   "id": "e251",
    "kind": "attribute",
    "source": "nuclear:fr-blayais",
    "target": "sector:energy-power",
@@ -8016,7 +7954,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e253",
+   "id": "e252",
    "kind": "attribute",
    "source": "nuclear:cn-qinshan",
    "target": "sector:energy-power",
@@ -8024,7 +7962,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e254",
+   "id": "e253",
    "kind": "attribute",
    "source": "nuclear:cn-daya-bay",
    "target": "sector:energy-power",
@@ -8032,7 +7970,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e255",
+   "id": "e254",
    "kind": "attribute",
    "source": "nuclear:cn-tianwan",
    "target": "sector:energy-power",
@@ -8040,7 +7978,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e256",
+   "id": "e255",
    "kind": "attribute",
    "source": "nuclear:cn-hongyanhe",
    "target": "sector:energy-power",
@@ -8048,7 +7986,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e257",
+   "id": "e256",
    "kind": "attribute",
    "source": "nuclear:cn-yangjiang",
    "target": "sector:energy-power",
@@ -8056,7 +7994,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e258",
+   "id": "e257",
    "kind": "attribute",
    "source": "nuclear:cn-taishan",
    "target": "sector:energy-power",
@@ -8064,7 +8002,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e259",
+   "id": "e258",
    "kind": "attribute",
    "source": "nuclear:ru-balakovo",
    "target": "sector:energy-power",
@@ -8072,7 +8010,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e260",
+   "id": "e259",
    "kind": "attribute",
    "source": "nuclear:ru-leningrad",
    "target": "sector:energy-power",
@@ -8080,7 +8018,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e261",
+   "id": "e260",
    "kind": "attribute",
    "source": "nuclear:ru-kalinin",
    "target": "sector:energy-power",
@@ -8088,7 +8026,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e262",
+   "id": "e261",
    "kind": "attribute",
    "source": "nuclear:ru-smolensk",
    "target": "sector:energy-power",
@@ -8096,7 +8034,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e263",
+   "id": "e262",
    "kind": "attribute",
    "source": "nuclear:ru-beloyarsk",
    "target": "sector:energy-power",
@@ -8104,7 +8042,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e264",
+   "id": "e263",
    "kind": "attribute",
    "source": "nuclear:kr-kori",
    "target": "sector:energy-power",
@@ -8112,7 +8050,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e265",
+   "id": "e264",
    "kind": "attribute",
    "source": "nuclear:kr-hanul",
    "target": "sector:energy-power",
@@ -8120,7 +8058,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e266",
+   "id": "e265",
    "kind": "attribute",
    "source": "nuclear:kr-hanbit",
    "target": "sector:energy-power",
@@ -8128,7 +8066,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e267",
+   "id": "e266",
    "kind": "attribute",
    "source": "nuclear:ca-bruce",
    "target": "sector:energy-power",
@@ -8136,7 +8074,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e268",
+   "id": "e267",
    "kind": "attribute",
    "source": "nuclear:ca-darlington",
    "target": "sector:energy-power",
@@ -8144,7 +8082,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e269",
+   "id": "e268",
    "kind": "attribute",
    "source": "nuclear:ca-pickering",
    "target": "sector:energy-power",
@@ -8152,7 +8090,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e270",
+   "id": "e269",
    "kind": "attribute",
    "source": "nuclear:gb-sizewell-b",
    "target": "sector:energy-power",
@@ -8160,7 +8098,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e271",
+   "id": "e270",
    "kind": "attribute",
    "source": "nuclear:gb-heysham",
    "target": "sector:energy-power",
@@ -8168,7 +8106,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e272",
+   "id": "e271",
    "kind": "attribute",
    "source": "nuclear:gb-torness",
    "target": "sector:energy-power",
@@ -8176,7 +8114,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e273",
+   "id": "e272",
    "kind": "attribute",
    "source": "nuclear:gb-hinkley-c",
    "target": "sector:energy-power",
@@ -8184,7 +8122,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e274",
+   "id": "e273",
    "kind": "attribute",
    "source": "nuclear:jp-sendai",
    "target": "sector:energy-power",
@@ -8192,7 +8130,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e275",
+   "id": "e274",
    "kind": "attribute",
    "source": "nuclear:jp-genkai",
    "target": "sector:energy-power",
@@ -8200,7 +8138,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e276",
+   "id": "e275",
    "kind": "attribute",
    "source": "nuclear:jp-takahama",
    "target": "sector:energy-power",
@@ -8208,7 +8146,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e277",
+   "id": "e276",
    "kind": "attribute",
    "source": "nuclear:jp-fukushima-daini",
    "target": "sector:energy-power",
@@ -8216,7 +8154,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e278",
+   "id": "e277",
    "kind": "attribute",
    "source": "nuclear:in-kudankulam",
    "target": "sector:energy-power",
@@ -8224,7 +8162,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e279",
+   "id": "e278",
    "kind": "attribute",
    "source": "nuclear:in-tarapur",
    "target": "sector:energy-power",
@@ -8232,7 +8170,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e280",
+   "id": "e279",
    "kind": "attribute",
    "source": "nuclear:in-rajasthan",
    "target": "sector:energy-power",
@@ -8240,7 +8178,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e281",
+   "id": "e280",
    "kind": "attribute",
    "source": "nuclear:ua-zaporizhzhia",
    "target": "sector:energy-power",
@@ -8248,7 +8186,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e282",
+   "id": "e281",
    "kind": "attribute",
    "source": "nuclear:ua-rivne",
    "target": "sector:energy-power",
@@ -8256,7 +8194,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e283",
+   "id": "e282",
    "kind": "attribute",
    "source": "nuclear:ua-south-ukraine",
    "target": "sector:energy-power",
@@ -8264,7 +8202,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e284",
+   "id": "e283",
    "kind": "attribute",
    "source": "nuclear:fi-olkiluoto",
    "target": "sector:energy-power",
@@ -8272,7 +8210,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e285",
+   "id": "e284",
    "kind": "attribute",
    "source": "nuclear:fi-loviisa",
    "target": "sector:energy-power",
@@ -8280,7 +8218,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e286",
+   "id": "e285",
    "kind": "attribute",
    "source": "nuclear:se-forsmark",
    "target": "sector:energy-power",
@@ -8288,7 +8226,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e287",
+   "id": "e286",
    "kind": "attribute",
    "source": "nuclear:se-ringhals",
    "target": "sector:energy-power",
@@ -8296,7 +8234,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e288",
+   "id": "e287",
    "kind": "attribute",
    "source": "nuclear:be-doel",
    "target": "sector:energy-power",
@@ -8304,7 +8242,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e289",
+   "id": "e288",
    "kind": "attribute",
    "source": "nuclear:be-tihange",
    "target": "sector:energy-power",
@@ -8312,7 +8250,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e290",
+   "id": "e289",
    "kind": "attribute",
    "source": "nuclear:cz-dukovany",
    "target": "sector:energy-power",
@@ -8320,7 +8258,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e291",
+   "id": "e290",
    "kind": "attribute",
    "source": "nuclear:cz-temelin",
    "target": "sector:energy-power",
@@ -8328,7 +8266,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e292",
+   "id": "e291",
    "kind": "attribute",
    "source": "nuclear:hu-paks",
    "target": "sector:energy-power",
@@ -8336,7 +8274,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e293",
+   "id": "e292",
    "kind": "attribute",
    "source": "nuclear:es-almaraz",
    "target": "sector:energy-power",
@@ -8344,7 +8282,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e294",
+   "id": "e293",
    "kind": "attribute",
    "source": "nuclear:es-cofrentes",
    "target": "sector:energy-power",
@@ -8352,7 +8290,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e295",
+   "id": "e294",
    "kind": "attribute",
    "source": "nuclear:ch-leibstadt",
    "target": "sector:energy-power",
@@ -8360,7 +8298,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e296",
+   "id": "e295",
    "kind": "attribute",
    "source": "nuclear:ch-beznau",
    "target": "sector:energy-power",
@@ -8368,7 +8306,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e297",
+   "id": "e296",
    "kind": "attribute",
    "source": "nuclear:de-isar",
    "target": "sector:energy-power",
@@ -8376,7 +8314,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e298",
+   "id": "e297",
    "kind": "attribute",
    "source": "nuclear:nl-borssele",
    "target": "sector:energy-power",
@@ -8384,7 +8322,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e299",
+   "id": "e298",
    "kind": "attribute",
    "source": "nuclear:ae-barakah",
    "target": "sector:energy-power",
@@ -8392,7 +8330,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e300",
+   "id": "e299",
    "kind": "attribute",
    "source": "nuclear:ar-atucha",
    "target": "sector:energy-power",
@@ -8400,7 +8338,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e301",
+   "id": "e300",
    "kind": "attribute",
    "source": "nuclear:br-angra",
    "target": "sector:energy-power",
@@ -8408,7 +8346,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e302",
+   "id": "e301",
    "kind": "attribute",
    "source": "nuclear:za-koeberg",
    "target": "sector:energy-power",
@@ -8416,7 +8354,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e303",
+   "id": "e302",
    "kind": "attribute",
    "source": "nuclear:pk-kanupp",
    "target": "sector:energy-power",
@@ -8424,7 +8362,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e304",
+   "id": "e303",
    "kind": "attribute",
    "source": "nuclear:ir-bushehr",
    "target": "sector:energy-power",
@@ -8432,7 +8370,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e305",
+   "id": "e304",
    "kind": "attribute",
    "source": "nuclear:mx-laguna-verde",
    "target": "sector:energy-power",
@@ -8440,7 +8378,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e306",
+   "id": "e305",
    "kind": "attribute",
    "source": "nuclear:ro-cernavoda",
    "target": "sector:energy-power",
@@ -8448,7 +8386,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e307",
+   "id": "e306",
    "kind": "attribute",
    "source": "nuclear:si-krsko",
    "target": "sector:energy-power",
@@ -8456,7 +8394,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e308",
+   "id": "e307",
    "kind": "attribute",
    "source": "nuclear:am-metsamor",
    "target": "sector:energy-power",
@@ -8464,7 +8402,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e309",
+   "id": "e308",
    "kind": "attribute",
    "source": "nuclear:by-ostrovets",
    "target": "sector:energy-power",
@@ -8472,7 +8410,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e310",
+   "id": "e309",
    "kind": "attribute",
    "source": "nuclear:bd-rooppur",
    "target": "sector:energy-power",
@@ -8480,7 +8418,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e311",
+   "id": "e310",
    "kind": "attribute",
    "source": "nuclear:tr-akkuyu",
    "target": "sector:energy-power",
@@ -8488,7 +8426,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e312",
+   "id": "e311",
    "kind": "attribute",
    "source": "nuclear:eg-el-dabaa",
    "target": "sector:energy-power",
@@ -8496,7 +8434,7 @@
    "basisText": "Nuclear atlas record is a commercial nuclear power plant."
   },
   {
-   "id": "e313",
+   "id": "e312",
    "kind": "attribute",
    "source": "lunar:igl-001",
    "target": "sector:navigation-timing",
@@ -8504,7 +8442,7 @@
    "basisText": "Lunar infrastructure link type is \"nav\"."
   },
   {
-   "id": "e314",
+   "id": "e313",
    "kind": "attribute",
    "source": "lunar:igl-002",
    "target": "sector:communications",
@@ -8512,7 +8450,7 @@
    "basisText": "Lunar infrastructure link type is \"comms\"."
   },
   {
-   "id": "e315",
+   "id": "e314",
    "kind": "attribute",
    "source": "lunar:igl-003",
    "target": "sector:energy-power",
@@ -8520,9 +8458,20 @@
    "basisText": "Lunar infrastructure link type is \"power\"."
   },
   {
-   "id": "e316",
+   "id": "e315",
    "kind": "attribute",
    "source": "cyber:colonial-pipeline",
+   "target": "instrument:tallinn-manual-2",
+   "basis": "instrument_referenced",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
+   "level": "record",
+   "detail": "Rules 14, 15 and 17, State Responsibility and Attribution",
+   "via": "legalFrameworks:tallinn-r14"
+  },
+  {
+   "id": "e316",
+   "kind": "attribute",
+   "source": "cyber:costa-rica-conti",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
@@ -8533,7 +8482,7 @@
   {
    "id": "e317",
    "kind": "attribute",
-   "source": "cyber:costa-rica-conti",
+   "source": "cyber:wannacry",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
@@ -8544,7 +8493,7 @@
   {
    "id": "e318",
    "kind": "attribute",
-   "source": "cyber:wannacry",
+   "source": "cyber:cloud-hopper-apt10",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
@@ -8555,7 +8504,7 @@
   {
    "id": "e319",
    "kind": "attribute",
-   "source": "cyber:cloud-hopper-apt10",
+   "source": "cyber:salt-typhoon",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
@@ -8566,7 +8515,7 @@
   {
    "id": "e320",
    "kind": "attribute",
-   "source": "cyber:salt-typhoon",
+   "source": "cyber:belgacom-operation-socialist",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
@@ -8577,17 +8526,6 @@
   {
    "id": "e321",
    "kind": "attribute",
-   "source": "cyber:belgacom-operation-socialist",
-   "target": "instrument:tallinn-manual-2",
-   "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rules 14, 15 and 17, State Responsibility and Attribution.",
-   "level": "record",
-   "detail": "Rules 14, 15 and 17, State Responsibility and Attribution",
-   "via": "legalFrameworks:tallinn-r14"
-  },
-  {
-   "id": "e322",
-   "kind": "attribute",
    "source": "cyber:volt-typhoon",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
@@ -8597,9 +8535,20 @@
    "via": "legalFrameworks:tallinn-r6"
   },
   {
-   "id": "e323",
+   "id": "e322",
    "kind": "attribute",
    "source": "cyber:viasat-kasat",
+   "target": "instrument:tallinn-manual-2",
+   "basis": "instrument_referenced",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 93, Distinction.",
+   "level": "record",
+   "detail": "Rule 93, Distinction",
+   "via": "legalFrameworks:tallinn-r93"
+  },
+  {
+   "id": "e323",
+   "kind": "attribute",
+   "source": "cyber:kyivstar",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 93, Distinction.",
@@ -8610,7 +8559,7 @@
   {
    "id": "e324",
    "kind": "attribute",
-   "source": "cyber:kyivstar",
+   "source": "cyber:ukraine-power-grid-2015",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 93, Distinction.",
@@ -8621,18 +8570,18 @@
   {
    "id": "e325",
    "kind": "attribute",
-   "source": "cyber:ukraine-power-grid-2015",
+   "source": "cyber:notpetya",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 93, Distinction.",
+   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 113, Proportionality.",
    "level": "record",
-   "detail": "Rule 93, Distinction",
-   "via": "legalFrameworks:tallinn-r93"
+   "detail": "Rule 113, Proportionality",
+   "via": "legalFrameworks:tallinn-r113"
   },
   {
    "id": "e326",
    "kind": "attribute",
-   "source": "cyber:notpetya",
+   "source": "cyber:stuxnet",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 113, Proportionality.",
@@ -8643,17 +8592,6 @@
   {
    "id": "e327",
    "kind": "attribute",
-   "source": "cyber:stuxnet",
-   "target": "instrument:tallinn-manual-2",
-   "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Tallinn Manual 2.0, Rule 113, Proportionality.",
-   "level": "record",
-   "detail": "Rule 113, Proportionality",
-   "via": "legalFrameworks:tallinn-r113"
-  },
-  {
-   "id": "e328",
-   "kind": "attribute",
    "source": "cyber:iran-nuclear-cyber",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
@@ -8663,7 +8601,7 @@
    "via": "legalFrameworks:tallinn-r20"
   },
   {
-   "id": "e329",
+   "id": "e328",
    "kind": "attribute",
    "source": "cyber:albania-iran",
    "target": "instrument:tallinn-manual-2",
@@ -8674,7 +8612,7 @@
    "via": "legalFrameworks:tallinn-r20"
   },
   {
-   "id": "e330",
+   "id": "e329",
    "kind": "attribute",
    "source": "cyber:australia-parliament",
    "target": "instrument:tallinn-manual-2",
@@ -8685,9 +8623,20 @@
    "via": "legalFrameworks:tallinn-r66"
   },
   {
-   "id": "e331",
+   "id": "e330",
    "kind": "attribute",
    "source": "cyber:stuxnet",
+   "target": "instrument:un-charter",
+   "basis": "instrument_referenced",
+   "basisText": "Cyber legal framework table lists this case under UN Charter, Article 2(4), Prohibition on the Use of Force.",
+   "level": "record",
+   "detail": "Article 2(4), Prohibition on the Use of Force",
+   "via": "legalFrameworks:un-2-4"
+  },
+  {
+   "id": "e331",
+   "kind": "attribute",
+   "source": "cyber:notpetya",
    "target": "instrument:un-charter",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under UN Charter, Article 2(4), Prohibition on the Use of Force.",
@@ -8698,7 +8647,7 @@
   {
    "id": "e332",
    "kind": "attribute",
-   "source": "cyber:notpetya",
+   "source": "cyber:viasat-kasat",
    "target": "instrument:un-charter",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under UN Charter, Article 2(4), Prohibition on the Use of Force.",
@@ -8709,18 +8658,18 @@
   {
    "id": "e333",
    "kind": "attribute",
-   "source": "cyber:viasat-kasat",
+   "source": "cyber:ukraine-power-grid-2015",
    "target": "instrument:un-charter",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under UN Charter, Article 2(4), Prohibition on the Use of Force.",
+   "basisText": "Cyber legal framework table lists this case under UN Charter, Article 51, Self-Defence.",
    "level": "record",
-   "detail": "Article 2(4), Prohibition on the Use of Force",
-   "via": "legalFrameworks:un-2-4"
+   "detail": "Article 51, Self-Defence",
+   "via": "legalFrameworks:un-51"
   },
   {
    "id": "e334",
    "kind": "attribute",
-   "source": "cyber:ukraine-power-grid-2015",
+   "source": "cyber:shamoon-aramco",
    "target": "instrument:un-charter",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under UN Charter, Article 51, Self-Defence.",
@@ -8731,18 +8680,18 @@
   {
    "id": "e335",
    "kind": "attribute",
-   "source": "cyber:shamoon-aramco",
-   "target": "instrument:un-charter",
+   "source": "cyber:kyivstar",
+   "target": "instrument:ihl",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under UN Charter, Article 51, Self-Defence.",
+   "basisText": "Cyber legal framework table lists this case under Geneva Conventions / IHL, Principle of Distinction.",
    "level": "record",
-   "detail": "Article 51, Self-Defence",
-   "via": "legalFrameworks:un-51"
+   "detail": "Principle of Distinction",
+   "via": "legalFrameworks:ihl-distinction"
   },
   {
    "id": "e336",
    "kind": "attribute",
-   "source": "cyber:kyivstar",
+   "source": "cyber:viasat-kasat",
    "target": "instrument:ihl",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under Geneva Conventions / IHL, Principle of Distinction.",
@@ -8753,7 +8702,7 @@
   {
    "id": "e337",
    "kind": "attribute",
-   "source": "cyber:viasat-kasat",
+   "source": "cyber:industroyer2",
    "target": "instrument:ihl",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under Geneva Conventions / IHL, Principle of Distinction.",
@@ -8764,18 +8713,18 @@
   {
    "id": "e338",
    "kind": "attribute",
-   "source": "cyber:industroyer2",
+   "source": "cyber:notpetya",
    "target": "instrument:ihl",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Geneva Conventions / IHL, Principle of Distinction.",
+   "basisText": "Cyber legal framework table lists this case under Geneva Conventions / IHL, Principle of Proportionality.",
    "level": "record",
-   "detail": "Principle of Distinction",
-   "via": "legalFrameworks:ihl-distinction"
+   "detail": "Principle of Proportionality",
+   "via": "legalFrameworks:ihl-proportionality"
   },
   {
    "id": "e339",
    "kind": "attribute",
-   "source": "cyber:notpetya",
+   "source": "cyber:wannacry",
    "target": "instrument:ihl",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under Geneva Conventions / IHL, Principle of Proportionality.",
@@ -8786,17 +8735,6 @@
   {
    "id": "e340",
    "kind": "attribute",
-   "source": "cyber:wannacry",
-   "target": "instrument:ihl",
-   "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under Geneva Conventions / IHL, Principle of Proportionality.",
-   "level": "record",
-   "detail": "Principle of Proportionality",
-   "via": "legalFrameworks:ihl-proportionality"
-  },
-  {
-   "id": "e341",
-   "kind": "attribute",
    "source": "cyber:stuxnet",
    "target": "instrument:ihl",
    "basis": "instrument_referenced",
@@ -8806,9 +8744,20 @@
    "via": "legalFrameworks:ihl-precaution"
   },
   {
-   "id": "e342",
+   "id": "e341",
    "kind": "attribute",
    "source": "cyber:exchange-hafnium",
+   "target": "instrument:un-gge-2015",
+   "basis": "instrument_referenced",
+   "basisText": "Cyber legal framework table lists this case under UN GGE Voluntary Norms (2015), Norm 13(a), Cooperation on Security.",
+   "level": "record",
+   "detail": "Norm 13(a), Cooperation on Security",
+   "via": "legalFrameworks:gge-13a"
+  },
+  {
+   "id": "e342",
+   "kind": "attribute",
+   "source": "cyber:volt-typhoon",
    "target": "instrument:un-gge-2015",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under UN GGE Voluntary Norms (2015), Norm 13(a), Cooperation on Security.",
@@ -8819,17 +8768,6 @@
   {
    "id": "e343",
    "kind": "attribute",
-   "source": "cyber:volt-typhoon",
-   "target": "instrument:un-gge-2015",
-   "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under UN GGE Voluntary Norms (2015), Norm 13(a), Cooperation on Security.",
-   "level": "record",
-   "detail": "Norm 13(a), Cooperation on Security",
-   "via": "legalFrameworks:gge-13a"
-  },
-  {
-   "id": "e344",
-   "kind": "attribute",
    "source": "cyber:ukraine-power-grid-2015",
    "target": "instrument:un-gge-2015",
    "basis": "instrument_referenced",
@@ -8839,7 +8777,7 @@
    "via": "legalFrameworks:gge-13f"
   },
   {
-   "id": "e345",
+   "id": "e344",
    "kind": "attribute",
    "source": "cyber:notpetya",
    "target": "instrument:un-gge-2015",
@@ -8850,7 +8788,7 @@
    "via": "legalFrameworks:gge-13f"
   },
   {
-   "id": "e346",
+   "id": "e345",
    "kind": "attribute",
    "source": "cyber:colonial-pipeline",
    "target": "instrument:un-gge-2015",
@@ -8861,7 +8799,7 @@
    "via": "legalFrameworks:gge-13f"
   },
   {
-   "id": "e347",
+   "id": "e346",
    "kind": "attribute",
    "source": "cyber:kyivstar",
    "target": "instrument:un-gge-2015",
@@ -8872,7 +8810,7 @@
    "via": "legalFrameworks:gge-13f"
   },
   {
-   "id": "e348",
+   "id": "e347",
    "kind": "attribute",
    "source": "cyber:salt-typhoon",
    "target": "instrument:un-gge-2015",
@@ -8883,7 +8821,7 @@
    "via": "legalFrameworks:gge-13f"
   },
   {
-   "id": "e349",
+   "id": "e348",
    "kind": "attribute",
    "source": "cyber:belgacom-operation-socialist",
    "target": "instrument:un-gge-2015",
@@ -8894,9 +8832,20 @@
    "via": "legalFrameworks:gge-13f"
   },
   {
-   "id": "e350",
+   "id": "e349",
    "kind": "attribute",
    "source": "cyber:wannacry",
+   "target": "instrument:un-gge-2015",
+   "basis": "instrument_referenced",
+   "basisText": "Cyber legal framework table lists this case under UN GGE Voluntary Norms (2015), Norm 13(j), Vulnerability Disclosure.",
+   "level": "record",
+   "detail": "Norm 13(j), Vulnerability Disclosure",
+   "via": "legalFrameworks:gge-13j"
+  },
+  {
+   "id": "e350",
+   "kind": "attribute",
+   "source": "cyber:storm-0558",
    "target": "instrument:un-gge-2015",
    "basis": "instrument_referenced",
    "basisText": "Cyber legal framework table lists this case under UN GGE Voluntary Norms (2015), Norm 13(j), Vulnerability Disclosure.",
@@ -8907,18 +8856,18 @@
   {
    "id": "e351",
    "kind": "attribute",
-   "source": "cyber:storm-0558",
-   "target": "instrument:un-gge-2015",
+   "source": "cyber:ukraine-power-grid-2016",
+   "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
-   "basisText": "Cyber legal framework table lists this case under UN GGE Voluntary Norms (2015), Norm 13(j), Vulnerability Disclosure.",
+   "basisText": "Cyber norms table lists this case under the norm \"Prohibition on Targeting Civilian Critical Infrastructure\", anchored in Tallinn Manual 2.0, Rule 93 – Distinction.",
    "level": "record",
-   "detail": "Norm 13(j), Vulnerability Disclosure",
-   "via": "legalFrameworks:gge-13j"
+   "detail": "Tallinn Manual 2.0, Rule 93 – Distinction",
+   "via": "norms:civilian-infrastructure"
   },
   {
    "id": "e352",
    "kind": "attribute",
-   "source": "cyber:ukraine-power-grid-2016",
+   "source": "cyber:industroyer2",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
    "basisText": "Cyber norms table lists this case under the norm \"Prohibition on Targeting Civilian Critical Infrastructure\", anchored in Tallinn Manual 2.0, Rule 93 – Distinction.",
@@ -8929,17 +8878,6 @@
   {
    "id": "e353",
    "kind": "attribute",
-   "source": "cyber:industroyer2",
-   "target": "instrument:tallinn-manual-2",
-   "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"Prohibition on Targeting Civilian Critical Infrastructure\", anchored in Tallinn Manual 2.0, Rule 93 – Distinction.",
-   "level": "record",
-   "detail": "Tallinn Manual 2.0, Rule 93 – Distinction",
-   "via": "norms:civilian-infrastructure"
-  },
-  {
-   "id": "e354",
-   "kind": "attribute",
    "source": "cyber:ukraine-power-grid-2016",
    "target": "instrument:un-gge-2015",
    "basis": "instrument_referenced",
@@ -8949,7 +8887,7 @@
    "via": "norms:civilian-infrastructure"
   },
   {
-   "id": "e355",
+   "id": "e354",
    "kind": "attribute",
    "source": "cyber:viasat-kasat",
    "target": "instrument:un-gge-2015",
@@ -8960,7 +8898,7 @@
    "via": "norms:civilian-infrastructure"
   },
   {
-   "id": "e356",
+   "id": "e355",
    "kind": "attribute",
    "source": "cyber:industroyer2",
    "target": "instrument:un-gge-2015",
@@ -8971,7 +8909,7 @@
    "via": "norms:civilian-infrastructure"
   },
   {
-   "id": "e357",
+   "id": "e356",
    "kind": "attribute",
    "source": "cyber:colonial-pipeline",
    "target": "instrument:ilc-articles-on-state-responsibility-art-8",
@@ -8982,7 +8920,7 @@
    "via": "norms:state-proxy-responsibility"
   },
   {
-   "id": "e358",
+   "id": "e357",
    "kind": "attribute",
    "source": "cyber:costa-rica-conti",
    "target": "instrument:ilc-articles-on-state-responsibility-art-8",
@@ -8993,9 +8931,20 @@
    "via": "norms:state-proxy-responsibility"
   },
   {
-   "id": "e359",
+   "id": "e358",
    "kind": "attribute",
    "source": "cyber:scattered-spider-mgm",
+   "target": "instrument:ilc-articles-on-state-responsibility-art-8",
+   "basis": "instrument_referenced",
+   "basisText": "Cyber norms table lists this case under the norm \"State Responsibility for Proxy and Contractor Operations\", anchored in ILC Articles on State Responsibility Art. 8.",
+   "level": "record",
+   "detail": "ILC Articles on State Responsibility Art. 8",
+   "via": "norms:state-proxy-responsibility"
+  },
+  {
+   "id": "e359",
+   "kind": "attribute",
+   "source": "cyber:wannacry",
    "target": "instrument:ilc-articles-on-state-responsibility-art-8",
    "basis": "instrument_referenced",
    "basisText": "Cyber norms table lists this case under the norm \"State Responsibility for Proxy and Contractor Operations\", anchored in ILC Articles on State Responsibility Art. 8.",
@@ -9006,7 +8955,7 @@
   {
    "id": "e360",
    "kind": "attribute",
-   "source": "cyber:wannacry",
+   "source": "cyber:salt-typhoon",
    "target": "instrument:ilc-articles-on-state-responsibility-art-8",
    "basis": "instrument_referenced",
    "basisText": "Cyber norms table lists this case under the norm \"State Responsibility for Proxy and Contractor Operations\", anchored in ILC Articles on State Responsibility Art. 8.",
@@ -9017,7 +8966,7 @@
   {
    "id": "e361",
    "kind": "attribute",
-   "source": "cyber:salt-typhoon",
+   "source": "cyber:cloud-hopper-apt10",
    "target": "instrument:ilc-articles-on-state-responsibility-art-8",
    "basis": "instrument_referenced",
    "basisText": "Cyber norms table lists this case under the norm \"State Responsibility for Proxy and Contractor Operations\", anchored in ILC Articles on State Responsibility Art. 8.",
@@ -9028,17 +8977,6 @@
   {
    "id": "e362",
    "kind": "attribute",
-   "source": "cyber:cloud-hopper-apt10",
-   "target": "instrument:ilc-articles-on-state-responsibility-art-8",
-   "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"State Responsibility for Proxy and Contractor Operations\", anchored in ILC Articles on State Responsibility Art. 8.",
-   "level": "record",
-   "detail": "ILC Articles on State Responsibility Art. 8",
-   "via": "norms:state-proxy-responsibility"
-  },
-  {
-   "id": "e363",
-   "kind": "attribute",
    "source": "cyber:scattered-spider-mgm",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
@@ -9048,9 +8986,20 @@
    "via": "norms:state-proxy-responsibility"
   },
   {
-   "id": "e364",
+   "id": "e363",
    "kind": "attribute",
    "source": "cyber:sony-pictures",
+   "target": "instrument:tallinn-manual-2",
+   "basis": "instrument_referenced",
+   "basisText": "Cyber norms table lists this case under the norm \"Proportionality in Cyber Operations\", anchored in Tallinn Manual 2.0, Rule 113 – Proportionality; Rule 23 – Proportionality of countermeasures.",
+   "level": "record",
+   "detail": "Tallinn Manual 2.0, Rule 113 – Proportionality; Rule 23 – Proportionality of countermeasures",
+   "via": "norms:proportionality"
+  },
+  {
+   "id": "e364",
+   "kind": "attribute",
+   "source": "cyber:shamoon-aramco",
    "target": "instrument:tallinn-manual-2",
    "basis": "instrument_referenced",
    "basisText": "Cyber norms table lists this case under the norm \"Proportionality in Cyber Operations\", anchored in Tallinn Manual 2.0, Rule 113 – Proportionality; Rule 23 – Proportionality of countermeasures.",
@@ -9061,17 +9010,6 @@
   {
    "id": "e365",
    "kind": "attribute",
-   "source": "cyber:shamoon-aramco",
-   "target": "instrument:tallinn-manual-2",
-   "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"Proportionality in Cyber Operations\", anchored in Tallinn Manual 2.0, Rule 113 – Proportionality; Rule 23 – Proportionality of countermeasures.",
-   "level": "record",
-   "detail": "Tallinn Manual 2.0, Rule 113 – Proportionality; Rule 23 – Proportionality of countermeasures",
-   "via": "norms:proportionality"
-  },
-  {
-   "id": "e366",
-   "kind": "attribute",
    "source": "cyber:sony-pictures",
    "target": "instrument:un-charter",
    "basis": "instrument_referenced",
@@ -9081,9 +9019,20 @@
    "via": "norms:proportionality"
   },
   {
-   "id": "e367",
+   "id": "e366",
    "kind": "attribute",
    "source": "cyber:sony-pictures",
+   "target": "instrument:ihl",
+   "basis": "instrument_referenced",
+   "basisText": "Cyber norms table lists this case under the norm \"Proportionality in Cyber Operations\", anchored in IHL Additional Protocol I Art. 51(5)(b).",
+   "level": "record",
+   "detail": "IHL Additional Protocol I Art. 51(5)(b)",
+   "via": "norms:proportionality"
+  },
+  {
+   "id": "e367",
+   "kind": "attribute",
+   "source": "cyber:shamoon-aramco",
    "target": "instrument:ihl",
    "basis": "instrument_referenced",
    "basisText": "Cyber norms table lists this case under the norm \"Proportionality in Cyber Operations\", anchored in IHL Additional Protocol I Art. 51(5)(b).",
@@ -9094,17 +9043,6 @@
   {
    "id": "e368",
    "kind": "attribute",
-   "source": "cyber:shamoon-aramco",
-   "target": "instrument:ihl",
-   "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"Proportionality in Cyber Operations\", anchored in IHL Additional Protocol I Art. 51(5)(b).",
-   "level": "record",
-   "detail": "IHL Additional Protocol I Art. 51(5)(b)",
-   "via": "norms:proportionality"
-  },
-  {
-   "id": "e369",
-   "kind": "attribute",
    "source": "cyber:solarwinds",
    "target": "instrument:un-gge-2015",
    "basis": "instrument_referenced",
@@ -9114,7 +9052,7 @@
    "via": "norms:vulnerability-disclosure"
   },
   {
-   "id": "e370",
+   "id": "e369",
    "kind": "attribute",
    "source": "cyber:wannacry",
    "target": "instrument:wassenaar-arrangement",
@@ -9125,7 +9063,7 @@
    "via": "norms:vulnerability-disclosure"
   },
   {
-   "id": "e371",
+   "id": "e370",
    "kind": "attribute",
    "source": "cyber:exchange-hafnium",
    "target": "instrument:wassenaar-arrangement",
@@ -9136,7 +9074,7 @@
    "via": "norms:vulnerability-disclosure"
   },
   {
-   "id": "e372",
+   "id": "e371",
    "kind": "attribute",
    "source": "cyber:solarwinds",
    "target": "instrument:wassenaar-arrangement",
@@ -9147,7 +9085,7 @@
    "via": "norms:vulnerability-disclosure"
   },
   {
-   "id": "e373",
+   "id": "e372",
    "kind": "attribute",
    "source": "cyber:storm-0558",
    "target": "instrument:wassenaar-arrangement",
@@ -9158,7 +9096,7 @@
    "via": "norms:vulnerability-disclosure"
   },
   {
-   "id": "e374",
+   "id": "e373",
    "kind": "attribute",
    "source": "cyber:australia-parliament",
    "target": "instrument:un-gge-2015",
@@ -9169,29 +9107,7 @@
    "via": "norms:electoral-noninterference"
   },
   {
-   "id": "e375",
-   "kind": "attribute",
-   "source": "cyber:thailand-election-2019",
-   "target": "instrument:un-gge-2015",
-   "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"Non-Interference in Electoral Infrastructure\", anchored in UN GGE 2015 Norm 13(b).",
-   "level": "record",
-   "detail": "UN GGE 2015 Norm 13(b)",
-   "via": "norms:electoral-noninterference"
-  },
-  {
-   "id": "e376",
-   "kind": "attribute",
-   "source": "cyber:thailand-election-2019",
-   "target": "instrument:tallinn-manual-2",
-   "basis": "instrument_referenced",
-   "basisText": "Cyber norms table lists this case under the norm \"Non-Interference in Electoral Infrastructure\", anchored in Tallinn Manual 2.0, Rule 66 – Intervention by States.",
-   "level": "record",
-   "detail": "Tallinn Manual 2.0, Rule 66 – Intervention by States",
-   "via": "norms:electoral-noninterference"
-  },
-  {
-   "id": "e377",
+   "id": "e374",
    "kind": "attribute",
    "source": "cyber:volt-typhoon",
    "target": "instrument:un-oewg-2021-recommendations",
@@ -9202,7 +9118,7 @@
    "via": "norms:no-first-use-ci"
   },
   {
-   "id": "e378",
+   "id": "e375",
    "kind": "attribute",
    "source": "cyber:taiwan-telecom",
    "target": "instrument:un-oewg-2021-recommendations",
@@ -9213,7 +9129,7 @@
    "via": "norms:no-first-use-ci"
   },
   {
-   "id": "e379",
+   "id": "e376",
    "kind": "attribute",
    "source": "cyber:ukraine-power-grid-2015",
    "target": "instrument:un-oewg-2021-recommendations",
@@ -9224,7 +9140,7 @@
    "via": "norms:no-first-use-ci"
   },
   {
-   "id": "e380",
+   "id": "e377",
    "kind": "attribute",
    "source": "cyber:taiwan-telecom",
    "target": "instrument:tallinn-manual-2",
@@ -9235,7 +9151,7 @@
    "via": "norms:no-first-use-ci"
   },
   {
-   "id": "e381",
+   "id": "e378",
    "kind": "attribute",
    "source": "lunar:dp-001",
    "target": "instrument:outer-space-treaty",
@@ -9246,7 +9162,7 @@
    "via": "discretionPoints:OST-1967"
   },
   {
-   "id": "e382",
+   "id": "e379",
    "kind": "attribute",
    "source": "lunar:dp-002",
    "target": "instrument:artemis-accords",
@@ -9257,7 +9173,7 @@
    "via": "discretionPoints:AA-2020"
   },
   {
-   "id": "e383",
+   "id": "e380",
    "kind": "attribute",
    "source": "lunar:dp-003",
    "target": "instrument:artemis-accords",
@@ -9268,7 +9184,7 @@
    "via": "discretionPoints:AA-2020"
   },
   {
-   "id": "e384",
+   "id": "e381",
    "kind": "attribute",
    "source": "lunar:dp-004",
    "target": "instrument:ilrs-mou-2021",
@@ -9279,7 +9195,7 @@
    "via": "discretionPoints:ILRS-MOU-2021"
   },
   {
-   "id": "e385",
+   "id": "e382",
    "kind": "attribute",
    "source": "lunar:dp-005",
    "target": "instrument:ilrs-guide-2023",
@@ -9290,7 +9206,7 @@
    "via": "discretionPoints:ILRS-GUIDE-2023"
   },
   {
-   "id": "e386",
+   "id": "e383",
    "kind": "attribute",
    "source": "lunar:dp-006",
    "target": "instrument:uae-law-2019",
@@ -9301,7 +9217,7 @@
    "via": "discretionPoints:UAE-LAW-2019"
   },
   {
-   "id": "e387",
+   "id": "e384",
    "kind": "attribute",
    "source": "lunar:dp-007",
    "target": "instrument:jp-bsl-2008",
@@ -9312,7 +9228,7 @@
    "via": "discretionPoints:JP-BSL-2008"
   },
   {
-   "id": "e388",
+   "id": "e385",
    "kind": "attribute",
    "source": "lunar:dp-008",
    "target": "instrument:lux-srl-2017",
@@ -9323,7 +9239,7 @@
    "via": "discretionPoints:LUX-SRL-2017"
   },
   {
-   "id": "e389",
+   "id": "e386",
    "kind": "attribute",
    "source": "lunar:dp-009",
    "target": "instrument:in-sab-2023",
@@ -9334,7 +9250,7 @@
    "via": "discretionPoints:IN-SAB-2023"
   },
   {
-   "id": "e390",
+   "id": "e387",
    "kind": "attribute",
    "source": "lunar:dp-010",
    "target": "instrument:us-ostp-ltc-2024",
@@ -9345,7 +9261,7 @@
    "via": "discretionPoints:US-OSTP-LTC-2024"
   },
   {
-   "id": "e391",
+   "id": "e388",
    "kind": "attribute",
    "source": "lunar:dp-011",
    "target": "instrument:esa-stmt-2023",
@@ -9356,7 +9272,7 @@
    "via": "discretionPoints:ESA-STMT-2023"
   },
   {
-   "id": "e392",
+   "id": "e389",
    "kind": "attribute",
    "source": "lunar:dp-012",
    "target": "instrument:cn-lep4-2024",
@@ -9367,7 +9283,7 @@
    "via": "discretionPoints:CN-LEP4-2024"
   },
   {
-   "id": "e393",
+   "id": "e390",
    "kind": "attribute",
    "source": "lunar:dp-013",
    "target": "instrument:artemis-accords",
@@ -9378,7 +9294,7 @@
    "via": "discretionPoints:AA-2020"
   },
   {
-   "id": "e394",
+   "id": "e391",
    "kind": "attribute",
    "source": "lunar:dp-014",
    "target": "instrument:jp-bsl-2008",
@@ -9389,7 +9305,7 @@
    "via": "discretionPoints:JP-BSL-2008"
   },
   {
-   "id": "e395",
+   "id": "e392",
    "kind": "attribute",
    "source": "lunar:dp-014",
    "target": "instrument:jp-nasa-2022",
@@ -9400,7 +9316,7 @@
    "via": "discretionPoints:JP-NASA-2022"
   },
   {
-   "id": "e396",
+   "id": "e393",
    "kind": "attribute",
    "source": "lunar:dp-015",
    "target": "instrument:in-sab-2023",
@@ -9411,7 +9327,7 @@
    "via": "discretionPoints:IN-SAB-2023"
   },
   {
-   "id": "e397",
+   "id": "e394",
    "kind": "attribute",
    "source": "lunar:dp-016",
    "target": "instrument:esa-stmt-2023",
@@ -9422,7 +9338,7 @@
    "via": "discretionPoints:ESA-STMT-2023"
   },
   {
-   "id": "e398",
+   "id": "e395",
    "kind": "attribute",
    "source": "lunar:dp-016",
    "target": "instrument:nasa-lunanet",
@@ -9433,7 +9349,7 @@
    "via": "discretionPoints:NASA-LUNANET"
   },
   {
-   "id": "e399",
+   "id": "e396",
    "kind": "attribute",
    "source": "lunar:dp-017",
    "target": "instrument:lux-srl-2017",
@@ -9444,7 +9360,7 @@
    "via": "discretionPoints:LUX-SRL-2017"
   },
   {
-   "id": "e400",
+   "id": "e397",
    "kind": "attribute",
    "source": "lunar:dp-017",
    "target": "instrument:us-cslca-2015",
@@ -9455,7 +9371,7 @@
    "via": "discretionPoints:US-CSLCA-2015"
   },
   {
-   "id": "e401",
+   "id": "e398",
    "kind": "attribute",
    "source": "lunar:country-usa",
    "target": "instrument:artemis-accords",
@@ -9466,7 +9382,7 @@
    "via": "countries:doc-usa-01"
   },
   {
-   "id": "e402",
+   "id": "e399",
    "kind": "attribute",
    "source": "lunar:country-usa",
    "target": "instrument:us-ostp-ltc-2024",
@@ -9477,7 +9393,7 @@
    "via": "countries:doc-usa-02"
   },
   {
-   "id": "e403",
+   "id": "e400",
    "kind": "attribute",
    "source": "lunar:country-china",
    "target": "instrument:ilrs-guide-2023",
@@ -9488,7 +9404,7 @@
    "via": "countries:doc-cn-01"
   },
   {
-   "id": "e404",
+   "id": "e401",
    "kind": "attribute",
    "source": "lunar:country-china",
    "target": "instrument:cn-lep4-2024",
@@ -9499,7 +9415,7 @@
    "via": "countries:doc-cn-02"
   },
   {
-   "id": "e405",
+   "id": "e402",
    "kind": "attribute",
    "source": "lunar:country-russia",
    "target": "instrument:ilrs-mou-2021",
@@ -9510,7 +9426,7 @@
    "via": "countries:doc-ru-01"
   },
   {
-   "id": "e406",
+   "id": "e403",
    "kind": "attribute",
    "source": "lunar:country-japan",
    "target": "instrument:jp-bsl-2008",
@@ -9521,7 +9437,7 @@
    "via": "countries:doc-jp-01"
   },
   {
-   "id": "e407",
+   "id": "e404",
    "kind": "attribute",
    "source": "lunar:country-japan",
    "target": "instrument:jp-nasa-2022",
@@ -9532,7 +9448,7 @@
    "via": "countries:doc-jp-02"
   },
   {
-   "id": "e408",
+   "id": "e405",
    "kind": "attribute",
    "source": "lunar:country-india",
    "target": "instrument:in-sab-2023",
@@ -9543,7 +9459,7 @@
    "via": "countries:doc-in-01"
   },
   {
-   "id": "e409",
+   "id": "e406",
    "kind": "attribute",
    "source": "lunar:country-luxembourg",
    "target": "instrument:lux-srl-2017",
@@ -9554,7 +9470,7 @@
    "via": "countries:doc-lu-01"
   },
   {
-   "id": "e410",
+   "id": "e407",
    "kind": "attribute",
    "source": "lunar:country-uae",
    "target": "instrument:uae-law-2019",
@@ -9565,7 +9481,7 @@
    "via": "countries:doc-ae-01"
   },
   {
-   "id": "e411",
+   "id": "e408",
    "kind": "attribute",
    "source": "lunar:country-esa",
    "target": "instrument:esa-stmt-2023",
@@ -9576,7 +9492,7 @@
    "via": "countries:doc-esa-01"
   },
   {
-   "id": "e412",
+   "id": "e409",
    "kind": "attribute",
    "source": "lunar:igl-004",
    "target": "instrument:artemis-accords",
@@ -9587,7 +9503,7 @@
    "via": "infrastructure:igl-004"
   },
   {
-   "id": "e413",
+   "id": "e410",
    "kind": "attribute",
    "source": "lunar:igl-004",
    "target": "instrument:lux-srl-2017",
@@ -10999,8 +10915,7 @@
    "byDomain": {
     "cyber": {
      "target": [
-      "cyber:bangladesh-bank-swift",
-      "cyber:bangladesh-egov-2021"
+      "cyber:bangladesh-bank-swift"
      ]
     },
     "nuclear": {
@@ -11431,7 +11346,7 @@
    "id": "source-branch-cyber",
    "severity": "warning",
    "title": "Cyber Escalation Atlas was read from branch claude/gtc-hardening, not the deployed branch",
-   "detail": "The snapshot read cyber-escalation-atlas at claude/gtc-hardening (d311e2b). The production site https://cyber-escalation-atlas.vercel.app, which record links open, is built from claude/setup-cyber-atlas-scaffold-ieuDR. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
+   "detail": "The snapshot read cyber-escalation-atlas at claude/gtc-hardening (8bc0031). The production site https://cyber-escalation-atlas.vercel.app, which record links open, is built from claude/setup-cyber-atlas-scaffold-ieuDR. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
    "records": []
   },
   {
