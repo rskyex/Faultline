@@ -54,7 +54,7 @@
    "name": "Global Nuclear Infrastructure Atlas",
    "url": "https://globalnuclearinfrastructureatlas.vercel.app",
    "repo": "Global-Nuclear-Infrastructure-Atlas",
-   "commit": "e76aa3701c630a3f154d776630f8e2c649c209e4",
+   "commit": "daadd82d0f23854b2ea624c8696aaa728d7cdee6",
    "commitDate": "2026-10-29",
    "dataClean": true,
    "branch": "claude/gtc-hardening",
@@ -100,13 +100,13 @@
  },
  "counts": {
   "records": 179,
-  "entities": 74,
+  "entities": 75,
   "entitiesByType": {
    "state": 41,
    "sector": 3,
-   "instrument": 30
+   "instrument": 31
   },
-  "nodes": 253,
+  "nodes": 254,
   "attributeEdges": 410,
   "attributeEdgesByBasis": {
    "attributed_state": 42,
@@ -136,7 +136,7 @@
   },
   "illustrativeExcluded": 4,
   "orbitalIncidentsTotalInSource": 32,
-  "stateContextEdges": 111,
+  "stateContextEdges": 112,
   "facets": 25,
   "facetsByType": {
    "state": 22,
@@ -3951,7 +3951,7 @@
     "digitalIandC": false,
     "reportedCyberIncident": false,
     "criticalInfrastructureOverlap": false,
-    "safeguardsStatus": "CSA + Additional Protocol (INFCIRC/435)"
+    "safeguardsStatus": "CSA (INFCIRC/435) - Quadripartite Agreement with ABACC; no Additional Protocol"
    }
   },
   {
@@ -4140,7 +4140,7 @@
     "digitalIandC": true,
     "reportedCyberIncident": false,
     "criticalInfrastructureOverlap": false,
-    "safeguardsStatus": "CSA + Additional Protocol"
+    "safeguardsStatus": "CSA - Additional Protocol signed 2005, not in force"
    }
   },
   {
@@ -5595,6 +5595,16 @@
    "type": "instrument",
    "domain": "shared",
    "label": "IAEA Additional Protocol",
+   "domains": [
+    "nuclear"
+   ]
+  },
+  {
+   "id": "instrument:tpnw",
+   "kind": "entity",
+   "type": "instrument",
+   "domain": "shared",
+   "label": "TPNW",
    "domains": [
     "nuclear"
    ]
@@ -9668,13 +9678,6 @@
    "basisText": "Nuclear atlas countryGovernance.treaty_obligations for Argentina lists Tlatelolco Treaty."
   },
   {
-   "state": "state:argentina",
-   "instrument": "instrument:iaea-additional-protocol",
-   "domain": "nuclear",
-   "status": "listed",
-   "basisText": "Nuclear atlas countryGovernance.treaty_obligations for Argentina lists Additional Protocol."
-  },
-  {
    "state": "state:armenia",
    "instrument": "instrument:npt",
    "domain": "nuclear",
@@ -9703,18 +9706,18 @@
    "basisText": "Nuclear atlas countryGovernance.treaty_obligations for Bangladesh lists Additional Protocol."
   },
   {
+   "state": "state:bangladesh",
+   "instrument": "instrument:tpnw",
+   "domain": "nuclear",
+   "status": "listed",
+   "basisText": "Nuclear atlas countryGovernance.treaty_obligations for Bangladesh lists TPNW."
+  },
+  {
    "state": "state:belarus",
    "instrument": "instrument:npt",
    "domain": "nuclear",
    "status": "listed",
    "basisText": "Nuclear atlas countryGovernance.treaty_obligations for Belarus lists NPT."
-  },
-  {
-   "state": "state:belarus",
-   "instrument": "instrument:iaea-additional-protocol",
-   "domain": "nuclear",
-   "status": "listed",
-   "basisText": "Nuclear atlas countryGovernance.treaty_obligations for Belarus lists Additional Protocol."
   },
   {
    "state": "state:belgium",
@@ -9920,6 +9923,13 @@
    "basisText": "Nuclear atlas countryGovernance.treaty_obligations for Mexico lists Additional Protocol."
   },
   {
+   "state": "state:mexico",
+   "instrument": "instrument:tpnw",
+   "domain": "nuclear",
+   "status": "listed",
+   "basisText": "Nuclear atlas countryGovernance.treaty_obligations for Mexico lists TPNW."
+  },
+  {
    "state": "state:netherlands",
    "instrument": "instrument:npt",
    "domain": "nuclear",
@@ -10009,6 +10019,13 @@
    "domain": "nuclear",
    "status": "listed",
    "basisText": "Nuclear atlas countryGovernance.treaty_obligations for South Africa lists Additional Protocol."
+  },
+  {
+   "state": "state:south-africa",
+   "instrument": "instrument:tpnw",
+   "domain": "nuclear",
+   "status": "listed",
+   "basisText": "Nuclear atlas countryGovernance.treaty_obligations for South Africa lists TPNW."
   },
   {
    "state": "state:south-korea",
@@ -11360,7 +11377,7 @@
    "id": "source-branch-nuclear",
    "severity": "warning",
    "title": "Global Nuclear Infrastructure Atlas was read from branch claude/gtc-hardening, not the deployed branch",
-   "detail": "The snapshot read Global-Nuclear-Infrastructure-Atlas at claude/gtc-hardening (e76aa37). The production site https://globalnuclearinfrastructureatlas.vercel.app, which record links open, is built from claude/nuclear-infrastructure-atlas-IIjPg. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
+   "detail": "The snapshot read Global-Nuclear-Infrastructure-Atlas at claude/gtc-hardening (daadd82). The production site https://globalnuclearinfrastructureatlas.vercel.app, which record links open, is built from claude/nuclear-infrastructure-atlas-IIjPg. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
    "records": []
   },
   {
