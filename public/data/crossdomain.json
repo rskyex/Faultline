@@ -33,7 +33,7 @@
    "name": "Orbital Risk Tracker",
    "url": "https://orbitalrisktracker.vercel.app",
    "repo": "Orbital-Risk-Tracker",
-   "commit": "b3c279f2e46086e6dc395f55e2329b85fb80bb28",
+   "commit": "aafc9377ea00bec9d23d8f72b368f56950cd03c3",
    "commitDate": "2026-10-29",
    "dataClean": true,
    "branch": "claude/gtc-hardening",
@@ -2182,17 +2182,17 @@
    "kind": "record",
    "domain": "orbital",
    "type": "incident",
-   "label": "Russia Cosmos-2536 Object Release (ISS Proximity)",
+   "label": "Russia Cosmos 2543 Object Release (Space-Based ASAT Test)",
    "date": "2020-07-15",
    "year": 2020,
    "url": "https://orbitalrisktracker.vercel.app/#/incidents/19",
    "urlPrecision": "record",
-   "summary": "Russia's Cosmos-2536 ejected a projectile in July 2020. USSPACECOM tracked the object. US Space Force General David Thompson called it 'a weapons test in space'. Russia claimed it was a routine experiment. The timing…",
+   "summary": "On 15 July 2020 Russia's inspector satellite Cosmos 2543 released a high-speed object near another Russian satellite, according to USSPACECOM, which called it further evidence of Russia's space-based anti-satellite…",
    "fields": {
     "actor": "Russia",
     "type": "proximity",
-    "subtype": "Object ejection in ISS proximity orbit",
-    "target": "International Space Station orbital belt (LEO ~400 km)",
+    "subtype": "Object released from an inspector satellite",
+    "target": "Near another Russian satellite (LEO)",
     "orbit": "LEO",
     "confidence": "confirmed",
     "severity": "high"
@@ -10260,9 +10260,9 @@
    "state": "state:china",
    "instrument": "instrument:copuos-lts-guidelines",
    "domain": "orbital",
-   "status": "not_adopted",
+   "status": "consensus_2019",
    "positive": false,
-   "basisText": "Orbital treaty compliance matrix: China, COPUOS LTS Guidelines (2019) = not_adopted."
+   "basisText": "Orbital treaty compliance matrix: China, COPUOS LTS Guidelines (2019) = consensus_2019."
   },
   {
    "state": "state:china",
@@ -11353,7 +11353,7 @@
    "id": "source-branch-orbital",
    "severity": "warning",
    "title": "Orbital Risk Tracker was read from branch claude/gtc-hardening, not the deployed branch",
-   "detail": "The snapshot read Orbital-Risk-Tracker at claude/gtc-hardening (b3c279f). The production site https://orbitalrisktracker.vercel.app, which record links open, is built from claude/space-incidents-dashboard-HOnqa. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
+   "detail": "The snapshot read Orbital-Risk-Tracker at claude/gtc-hardening (aafc937). The production site https://orbitalrisktracker.vercel.app, which record links open, is built from claude/space-incidents-dashboard-HOnqa. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
    "records": []
   },
   {
