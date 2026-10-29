@@ -76,8 +76,8 @@
    "name": "Lunar Governance Tracker",
    "url": "https://lunar-mandate-atlas.vercel.app",
    "repo": "lunar-mandate-atlas",
-   "commit": "65894c27615ff4d4ab976a768c5dc114e7062e73",
-   "commitDate": "2026-10-28",
+   "commit": "cba5fa2f612457974106055f6429793d630245c0",
+   "commitDate": "2026-10-29",
    "dataClean": true,
    "branch": "claude/gtc-hardening",
    "deployedBranch": "claude/lunar-governance-tracker-txA5R",
@@ -90,31 +90,31 @@
     "src/data/constants.ts",
     "src/data/documents.ts"
    ],
-   "records": 32,
+   "records": 31,
    "recordTypes": {
-    "discretion-point": 17,
+    "discretion-point": 16,
     "country-profile": 8,
     "infrastructure-link": 7
    }
   }
  },
  "counts": {
-  "records": 179,
-  "entities": 75,
+  "records": 178,
+  "entities": 76,
   "entitiesByType": {
    "state": 41,
    "sector": 3,
-   "instrument": 31
+   "instrument": 32
   },
   "nodes": 254,
-  "attributeEdges": 410,
+  "attributeEdges": 407,
   "attributeEdgesByBasis": {
    "attributed_state": 42,
    "target_state": 56,
    "host_state": 86,
    "profiled_state": 8,
    "infrastructure_category": 122,
-   "instrument_referenced": 96
+   "instrument_referenced": 93
   },
   "links": 6,
   "linksByBasis": {
@@ -4246,7 +4246,7 @@
     "documentIds": [
      "AA-2020"
     ],
-    "section": "Section 11.4",
+    "section": "Section 11, para. 4",
     "holder": "Signatory / Drafting party (USA)",
     "coalition": "artemis",
     "type": "open_ended_qualifier"
@@ -4269,7 +4269,7 @@
     "documentIds": [
      "AA-2020"
     ],
-    "section": "Section 11.7",
+    "section": "Section 11, para. 7",
     "holder": "Operating State (unilateral notification)",
     "coalition": "artemis",
     "type": "procedural_deferral"
@@ -4280,19 +4280,19 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Co-consultation (Roscosmos–CNSA Memorandum of Understanding on the ILRS)",
+   "label": "Co-consultation (China–Russia intergovernmental Memorandum of Understanding on the ILRS (9 March 2021))",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "Consultation without voting rights. Joining partners are consulted but founding states retain architectural control over station design, location, and operational rules.",
+   "summary": "Consultation without voting rights. Joining partners are consulted but founding states retain architectural control over station design, location, and operational rules. The MoU itself is not public, so its terms…",
    "fields": {
     "term": "Co-consultation",
-    "document": "Roscosmos–CNSA Memorandum of Understanding on the ILRS",
+    "document": "China–Russia intergovernmental Memorandum of Understanding on the ILRS (9 March 2021)",
     "documentIds": [
      "ILRS-MOU-2021"
     ],
-    "section": "Article 4",
+    "section": "MoU text not public; CNSA summary of 9 March 2021",
     "holder": "CNSA / Roscosmos (founding partners)",
     "coalition": "ilrs",
     "type": "procedural_deferral"
@@ -4303,20 +4303,20 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Appropriate Utilization (ILRS Guide for Partnership)",
+   "label": "All Interested International Partners (ILRS Guide for Partnership (V1.0, CNSA and Roscosmos))",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "Resource use framed as \"appropriate\" without defining limits, allowing the lead agency to set extraction norms through precedent rather than negotiation.",
+   "summary": "Open invitation framed by \"the interests of all humankind\" without defining who qualifies as a partner or how benefits are shared. The two founding agencies set the terms of partnership.",
    "fields": {
-    "term": "Appropriate Utilization",
-    "document": "ILRS Guide for Partnership",
+    "term": "All Interested International Partners",
+    "document": "ILRS Guide for Partnership (V1.0, CNSA and Roscosmos)",
     "documentIds": [
      "ILRS-GUIDE-2023"
     ],
-    "section": "Section 3.2",
-    "holder": "CNSA (architectural lead)",
+    "section": "Preface, p. 2",
+    "holder": "CNSA / Roscosmos (joint authors and conveners)",
     "coalition": "ilrs",
     "type": "definitional_gap"
    }
@@ -4331,14 +4331,14 @@
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "Data sharing obligations yield to undefined \"national interest,\" creating a black-box override for transparency commitments.",
+   "summary": "Data sharing obligations yield to undefined \"national interest,\" creating a black-box override for transparency commitments. Unverified: the 2019 law text could not be read, and the law was repealed by Federal…",
    "fields": {
     "term": "National Interest",
     "document": "UAE Federal Law No. 12 of 2019 on the Regulation of the Space Sector",
     "documentIds": [
      "UAE-LAW-2019"
     ],
-    "section": "Article 7",
+    "section": "Article 7 (as cited; not checked)",
     "holder": "UAE Space Agency",
     "coalition": "national",
     "type": "carve_out"
@@ -4349,20 +4349,20 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Peaceful Purposes (Japan Basic Space Law)",
+   "label": "Peaceful Use (pacifist principles / national security) (Japan Basic Space Law)",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "Shift from \"non-military\" to \"non-aggressive\" interpretation. The executive branch claimed authority to redefine a constitutional constraint without legislative amendment.",
+   "summary": "The Act, passed by the Diet, keeps outer space use \"in accordance with the pacifist principles of the Constitution\" (Art. 2) while directing the government to promote space use \"to contribute to Japan’s national…",
    "fields": {
-    "term": "Peaceful Purposes",
+    "term": "Peaceful Use (pacifist principles / national security)",
     "document": "Japan Basic Space Law",
     "documentIds": [
      "JP-BSL-2008"
     ],
-    "section": "Article 2 (reinterpreted 2008)",
-    "holder": "Cabinet Office (post-2008 reinterpretation)",
+    "section": "Article 2; see also Articles 3 and 14",
+    "holder": "National Diet (statute, 2008); the Government in applying it",
     "coalition": "national",
     "type": "interpretive_monopoly"
    }
@@ -4372,20 +4372,20 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Appropriation (negative definition) (Luxembourg Space Resources Law)",
+   "label": "Space Resources Capable of Appropriation (Luxembourg Space Resources Law)",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "Defines what appropriation is NOT (national sovereignty claim) to permit what it IS (commercial extraction). Reframes OST Article II through silence on resource rights.",
+   "summary": "The law states affirmatively that space resources can be appropriated, using the word that OST Article II applies to outer space and celestial bodies. It does not define \"space resources\" or where a resource ends and a…",
    "fields": {
-    "term": "Appropriation (negative definition)",
+    "term": "Space Resources Capable of Appropriation",
     "document": "Luxembourg Space Resources Law",
     "documentIds": [
      "LUX-SRL-2017"
     ],
     "section": "Article 1",
-    "holder": "Luxembourg Government (unilateral legislative act)",
+    "holder": "Luxembourg legislature; ministers for the economy and space activities (mission authorisation, Art. 2)",
     "coalition": "national",
     "type": "definitional_gap"
    }
@@ -4395,20 +4395,20 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Centralized Authorization (India Space Activities Bill)",
+   "label": "Licence Requirement (draft) (Draft Space Activities Bill, 2017 (India))",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "Single gateway authorization concentrates interpretive authority over all commercial and international space activity involving Indian entities.",
+   "summary": "Single gateway licensing concentrates authority over all commercial space activity involving Indian entities in the Central Government. This is a 2017 draft published for consultation, not enacted law.",
    "fields": {
-    "term": "Centralized Authorization",
-    "document": "India Space Activities Bill",
+    "term": "Licence Requirement (draft)",
+    "document": "Draft Space Activities Bill, 2017 (India)",
     "documentIds": [
      "IN-SAB-2023"
     ],
-    "section": "Chapter III",
-    "holder": "IN-SPACe (Indian National Space Promotion and Authorization Centre)",
+    "section": "Chapter III, section 6(1)",
+    "holder": "Central Government (licensing authority under the draft)",
     "coalition": "national",
     "type": "interpretive_monopoly"
    }
@@ -4423,15 +4423,15 @@
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "Authority over reference frames. Whoever defines the time standard for cislunar space defines the coordination infrastructure all actors must adopt.",
+   "summary": "Authority over reference frames. Whoever defines the time standard for cislunar space defines the coordination infrastructure all actors must adopt. The instrument is an OSTP policy memorandum to federal agencies, not…",
    "fields": {
     "term": "Lunar Time Standard",
     "document": "OSTP Coordinated Lunar Time (LTC) Framework",
     "documentIds": [
      "US-OSTP-LTC-2024"
     ],
-    "section": "Presidential Directive",
-    "holder": "NASA / OSTP (USA)",
+    "section": "OSTP memorandum, Section 2(b)",
+    "holder": "NASA (tasked by OSTP)",
     "coalition": "artemis",
     "type": "interpretive_monopoly"
    }
@@ -4441,20 +4441,20 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Multilateral Alignment (ESA Statement on Artemis Accords Principles)",
+   "label": "Non-signatory Participation (ESA: Gateway MoU and Artemis Accords – FAQs)",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "Defers to existing multilateral frameworks (COPUOS) while participating operationally in Artemis, creating dual-track legitimation.",
+   "summary": "ESA participates operationally in Artemis (Gateway) but cannot sign the Accords; signature is left to its member states one by one, creating dual-track legitimation. No ESA statement \"welcoming the principles\" was…",
    "fields": {
-    "term": "Multilateral Alignment",
-    "document": "ESA Statement on Artemis Accords Principles",
+    "term": "Non-signatory Participation",
+    "document": "ESA: Gateway MoU and Artemis Accords – FAQs",
     "documentIds": [
      "ESA-STMT-2023"
     ],
-    "section": "Director General Statement",
-    "holder": "ESA Member States (collective)",
+    "section": "FAQ: \"What are the Artemis Accords?\"",
+    "holder": "ESA Member States (individually)",
     "coalition": "artemis",
     "type": "procedural_deferral"
    }
@@ -4464,7 +4464,7 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Phase 4 Exploration (CNSA Lunar Exploration Programme Phase 4)",
+   "label": "Phase 4 Exploration (SCIO briefing on \"China’s Space Program: A 2021 Perspective\" (lunar exploration Phase 4))",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
@@ -4472,11 +4472,11 @@
    "summary": "Phased programme structure allows iterative expansion of scope without requiring partner re-consent at each stage. Architectural decisions cascade.",
    "fields": {
     "term": "Phase 4 Exploration",
-    "document": "CNSA Lunar Exploration Programme Phase 4",
+    "document": "SCIO briefing on \"China’s Space Program: A 2021 Perspective\" (lunar exploration Phase 4)",
     "documentIds": [
      "CN-LEP4-2024"
     ],
-    "section": "Programme Architecture",
+    "section": "SCIO briefing, 28 January 2022 (Wu Yanhua, CNSA)",
     "holder": "CNSA (state agency)",
     "coalition": "ilrs",
     "type": "procedural_deferral"
@@ -4506,48 +4506,24 @@
    }
   },
   {
-   "id": "lunar:dp-014",
-   "kind": "record",
-   "domain": "lunar",
-   "type": "discretion-point",
-   "label": "Non-military / Non-aggressive (Japan Basic Space Law + JAXA-NASA Artemis MoU (Gateway / HLS))",
-   "date": null,
-   "year": null,
-   "url": "https://lunar-mandate-atlas.vercel.app/",
-   "urlPrecision": "root",
-   "summary": "Japan reserves the interpretation of \"peaceful use\" to domestic law. The shift from \"non-military\" to \"non-aggressive\" enables dual-use space capabilities under constitutional cover.",
-   "fields": {
-    "term": "Non-military / Non-aggressive",
-    "document": "Japan Basic Space Law + JAXA-NASA Artemis MoU (Gateway / HLS)",
-    "documentIds": [
-     "JP-BSL-2008",
-     "JP-NASA-2022"
-    ],
-    "section": "Article 2 / Preamble",
-    "holder": "Cabinet Office / Japanese Government",
-    "coalition": "national",
-    "type": "interpretive_monopoly"
-   }
-  },
-  {
    "id": "lunar:dp-015",
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Authorised Entity (India Space Activities Bill)",
+   "label": "Authorisation by IN-SPACe (Indian Space Policy 2023)",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "The criteria for \"authorised entity\" status are not defined in statute, vesting complete discretion in the Central Government to approve or reject any actor entering the space sector.",
+   "summary": "Authorisation is defined only as permission granted by IN-SPACe; the criteria are left to IN-SPACe \"subject to relevant Government directives\" (Section 5). A policy document, not legislation.",
    "fields": {
-    "term": "Authorised Entity",
-    "document": "India Space Activities Bill",
+    "term": "Authorisation by IN-SPACe",
+    "document": "Indian Space Policy 2023",
     "documentIds": [
-     "IN-SAB-2023"
+     "IN-ISP-2023"
     ],
-    "section": "Chapter II, Definitions",
-    "holder": "Central Government / IN-SPACe",
+    "section": "Definitions, no. 1; Section 5",
+    "holder": "IN-SPACe, subject to Government directives",
     "coalition": "national",
     "type": "definitional_gap"
    }
@@ -4557,21 +4533,20 @@
    "kind": "record",
    "domain": "lunar",
    "type": "discretion-point",
-   "label": "Interoperability Standards (ESA Statement on Artemis Accords Principles + LunaNet Interoperability Specification)",
+   "label": "Interoperability Standards (LunaNet Interoperability Specification (Version 5))",
    "date": null,
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "ESA advocates for multilateral standard-setting but depends on NASA-defined LunaNet interoperability standards. De jure multilateralism coexists with de facto US technical authority.",
+   "summary": "The specification is written and approved jointly by NASA, ESA and JAXA, but the document is controlled by NASA’s SCaN board. Mutual agreement on paper coexists with a US-held control point for the baseline standards.",
    "fields": {
     "term": "Interoperability Standards",
-    "document": "ESA Statement on Artemis Accords Principles + LunaNet Interoperability Specification",
+    "document": "LunaNet Interoperability Specification (Version 5)",
     "documentIds": [
-     "ESA-STMT-2023",
      "NASA-LUNANET"
     ],
-    "section": "Technical Specifications",
-    "holder": "NASA (de facto) / ESA (de jure multilateral claim)",
+    "section": "Section 1 (Introduction)",
+    "holder": "NASA SCaN Control Board (document control); NASA, ESA and JAXA (authors)",
     "coalition": "artemis",
     "type": "procedural_deferral"
    }
@@ -4586,7 +4561,7 @@
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "The boundary between \"ownership of extracted resources\" (permitted) and \"appropriation of celestial bodies\" (prohibited by OST) is drawn unilaterally by national legislation without international adjudication.",
+   "summary": "The boundary between \"ownership of extracted resources\" (permitted) and \"appropriation of celestial bodies\" (prohibited by OST) is drawn unilaterally by national legislation without international adjudication. The US…",
    "fields": {
     "term": "Ownership vs. Appropriation",
     "document": "Luxembourg Space Resources Law + U.S. Commercial Space Launch Competitiveness Act",
@@ -4594,7 +4569,7 @@
      "LUX-SRL-2017",
      "US-CSLCA-2015"
     ],
-    "section": "Article 1 / Title IV",
+    "section": "51 U.S.C. 51303 / Luxembourg Art. 1",
     "holder": "National legislatures (Luxembourg, USA)",
     "coalition": "artemis",
     "type": "definitional_gap"
@@ -4635,8 +4610,8 @@
     "country": "China",
     "coalition": "ilrs",
     "documents": [
-     "ILRS Guide for Partnership",
-     "CNSA Lunar Exploration Programme Phase 4"
+     "ILRS Guide for Partnership (V1.0, CNSA and Roscosmos)",
+     "SCIO briefing on \"China’s Space Program: A 2021 Perspective\" (lunar exploration Phase 4)"
     ]
    }
   },
@@ -4655,7 +4630,7 @@
     "country": "Russia",
     "coalition": "ilrs",
     "documents": [
-     "Roscosmos–CNSA Memorandum of Understanding on the ILRS"
+     "China–Russia intergovernmental Memorandum of Understanding on the ILRS (9 March 2021)"
     ]
    }
   },
@@ -4669,7 +4644,7 @@
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "Cabinet Office holds interpretive monopoly over what \"peaceful\" means in practice, enabling progressive militarization.",
+   "summary": "The Act does not define \"peaceful\"; the Government, in applying Articles 2 and 14, decides what it permits in practice.",
    "fields": {
     "country": "Japan",
     "coalition": "artemis",
@@ -4692,9 +4667,9 @@
    "summary": "IN-SPACe holds exclusive authorization power over all commercial and international space activity by Indian entities.",
    "fields": {
     "country": "India",
-    "coalition": "dual",
+    "coalition": "artemis",
     "documents": [
-     "India Space Activities Bill"
+     "Indian Space Policy 2023"
     ]
    }
   },
@@ -4708,7 +4683,7 @@
    "year": null,
    "url": "https://lunar-mandate-atlas.vercel.app/",
    "urlPrecision": "root",
-   "summary": "Unilaterally defines what \"appropriation\" is NOT, permitting commercial extraction without multilateral consent.",
+   "summary": "Unilaterally declares space resources appropriable and licenses extraction (Art. 2) without multilateral consent.",
    "fields": {
     "country": "Luxembourg",
     "coalition": "artemis",
@@ -4751,7 +4726,7 @@
     "country": "ESA / European Union",
     "coalition": "artemis",
     "documents": [
-     "ESA Statement on Artemis Accords Principles"
+     "ESA: Gateway MoU and Artemis Accords – FAQs"
     ]
    }
   },
@@ -5454,7 +5429,7 @@
    "kind": "entity",
    "type": "instrument",
    "domain": "shared",
-   "label": "Roscosmos–CNSA Memorandum of Understanding on the ILRS",
+   "label": "China–Russia intergovernmental Memorandum of Understanding on the ILRS (9 March 2021)",
    "domains": [
     "lunar"
    ]
@@ -5464,7 +5439,7 @@
    "kind": "entity",
    "type": "instrument",
    "domain": "shared",
-   "label": "ILRS Guide for Partnership",
+   "label": "ILRS Guide for Partnership (V1.0, CNSA and Roscosmos)",
    "domains": [
     "lunar"
    ]
@@ -5504,7 +5479,7 @@
    "kind": "entity",
    "type": "instrument",
    "domain": "shared",
-   "label": "India Space Activities Bill",
+   "label": "Draft Space Activities Bill, 2017 (India)",
    "domains": [
     "lunar"
    ]
@@ -5524,7 +5499,7 @@
    "kind": "entity",
    "type": "instrument",
    "domain": "shared",
-   "label": "ESA Statement on Artemis Accords Principles",
+   "label": "ESA: Gateway MoU and Artemis Accords – FAQs",
    "domains": [
     "lunar"
    ]
@@ -5534,17 +5509,17 @@
    "kind": "entity",
    "type": "instrument",
    "domain": "shared",
-   "label": "CNSA Lunar Exploration Programme Phase 4",
+   "label": "SCIO briefing on \"China’s Space Program: A 2021 Perspective\" (lunar exploration Phase 4)",
    "domains": [
     "lunar"
    ]
   },
   {
-   "id": "instrument:jp-nasa-2022",
+   "id": "instrument:in-isp-2023",
    "kind": "entity",
    "type": "instrument",
    "domain": "shared",
-   "label": "JAXA-NASA Artemis MoU (Gateway / HLS)",
+   "label": "Indian Space Policy 2023",
    "domains": [
     "lunar"
    ]
@@ -5554,7 +5529,7 @@
    "kind": "entity",
    "type": "instrument",
    "domain": "shared",
-   "label": "LunaNet Interoperability Specification",
+   "label": "LunaNet Interoperability Specification (Version 5)",
    "domains": [
     "lunar"
    ]
@@ -5565,6 +5540,16 @@
    "type": "instrument",
    "domain": "shared",
    "label": "U.S. Commercial Space Launch Competitiveness Act",
+   "domains": [
+    "lunar"
+   ]
+  },
+  {
+   "id": "instrument:jp-nasa-2022",
+   "kind": "entity",
+   "type": "instrument",
+   "domain": "shared",
+   "label": "JAXA-NASA Artemis MoU (Gateway / HLS)",
    "domains": [
     "lunar"
    ]
@@ -9177,9 +9162,9 @@
    "source": "lunar:dp-002",
    "target": "instrument:artemis-accords",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in Artemis Accords (AA-2020), Section 11.4.",
+   "basisText": "Lunar discretion point is located in Artemis Accords (AA-2020), Section 11, para. 4.",
    "level": "record",
-   "detail": "Section 11.4: \"Harmful Interference\"",
+   "detail": "Section 11, para. 4: \"Harmful Interference\"",
    "via": "discretionPoints:AA-2020"
   },
   {
@@ -9188,9 +9173,9 @@
    "source": "lunar:dp-003",
    "target": "instrument:artemis-accords",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in Artemis Accords (AA-2020), Section 11.7.",
+   "basisText": "Lunar discretion point is located in Artemis Accords (AA-2020), Section 11, para. 7.",
    "level": "record",
-   "detail": "Section 11.7: \"Safety Zone\"",
+   "detail": "Section 11, para. 7: \"Safety Zone\"",
    "via": "discretionPoints:AA-2020"
   },
   {
@@ -9199,9 +9184,9 @@
    "source": "lunar:dp-004",
    "target": "instrument:ilrs-mou-2021",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in Roscosmos–CNSA Memorandum of Understanding on the ILRS (ILRS-MOU-2021), Article 4.",
+   "basisText": "Lunar discretion point is located in China–Russia intergovernmental Memorandum of Understanding on the ILRS (9 March 2021) (ILRS-MOU-2021), MoU text not public; CNSA summary of 9 March 2021.",
    "level": "record",
-   "detail": "Article 4: \"Co-consultation\"",
+   "detail": "MoU text not public; CNSA summary of 9 March 2021: \"Co-consultation\"",
    "via": "discretionPoints:ILRS-MOU-2021"
   },
   {
@@ -9210,9 +9195,9 @@
    "source": "lunar:dp-005",
    "target": "instrument:ilrs-guide-2023",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in ILRS Guide for Partnership (ILRS-GUIDE-2023), Section 3.2.",
+   "basisText": "Lunar discretion point is located in ILRS Guide for Partnership (V1.0, CNSA and Roscosmos) (ILRS-GUIDE-2023), Preface, p. 2.",
    "level": "record",
-   "detail": "Section 3.2: \"Appropriate Utilization\"",
+   "detail": "Preface, p. 2: \"All Interested International Partners\"",
    "via": "discretionPoints:ILRS-GUIDE-2023"
   },
   {
@@ -9221,9 +9206,9 @@
    "source": "lunar:dp-006",
    "target": "instrument:uae-law-2019",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in UAE Federal Law No. 12 of 2019 on the Regulation of the Space Sector (UAE-LAW-2019), Article 7.",
+   "basisText": "Lunar discretion point is located in UAE Federal Law No. 12 of 2019 on the Regulation of the Space Sector (UAE-LAW-2019), Article 7 (as cited; not checked).",
    "level": "record",
-   "detail": "Article 7: \"National Interest\"",
+   "detail": "Article 7 (as cited; not checked): \"National Interest\"",
    "via": "discretionPoints:UAE-LAW-2019"
   },
   {
@@ -9232,9 +9217,9 @@
    "source": "lunar:dp-007",
    "target": "instrument:jp-bsl-2008",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in Japan Basic Space Law (JP-BSL-2008), Article 2 (reinterpreted 2008).",
+   "basisText": "Lunar discretion point is located in Japan Basic Space Law (JP-BSL-2008), Article 2; see also Articles 3 and 14.",
    "level": "record",
-   "detail": "Article 2 (reinterpreted 2008): \"Peaceful Purposes\"",
+   "detail": "Article 2; see also Articles 3 and 14: \"Peaceful Use (pacifist principles / national security)\"",
    "via": "discretionPoints:JP-BSL-2008"
   },
   {
@@ -9245,7 +9230,7 @@
    "basis": "instrument_referenced",
    "basisText": "Lunar discretion point is located in Luxembourg Space Resources Law (LUX-SRL-2017), Article 1.",
    "level": "record",
-   "detail": "Article 1: \"Appropriation (negative definition)\"",
+   "detail": "Article 1: \"Space Resources Capable of Appropriation\"",
    "via": "discretionPoints:LUX-SRL-2017"
   },
   {
@@ -9254,9 +9239,9 @@
    "source": "lunar:dp-009",
    "target": "instrument:in-sab-2023",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in India Space Activities Bill (IN-SAB-2023), Chapter III.",
+   "basisText": "Lunar discretion point is located in Draft Space Activities Bill, 2017 (India) (IN-SAB-2023), Chapter III, section 6(1).",
    "level": "record",
-   "detail": "Chapter III: \"Centralized Authorization\"",
+   "detail": "Chapter III, section 6(1): \"Licence Requirement (draft)\"",
    "via": "discretionPoints:IN-SAB-2023"
   },
   {
@@ -9265,9 +9250,9 @@
    "source": "lunar:dp-010",
    "target": "instrument:us-ostp-ltc-2024",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in OSTP Coordinated Lunar Time (LTC) Framework (US-OSTP-LTC-2024), Presidential Directive.",
+   "basisText": "Lunar discretion point is located in OSTP Coordinated Lunar Time (LTC) Framework (US-OSTP-LTC-2024), OSTP memorandum, Section 2(b).",
    "level": "record",
-   "detail": "Presidential Directive: \"Lunar Time Standard\"",
+   "detail": "OSTP memorandum, Section 2(b): \"Lunar Time Standard\"",
    "via": "discretionPoints:US-OSTP-LTC-2024"
   },
   {
@@ -9276,9 +9261,9 @@
    "source": "lunar:dp-011",
    "target": "instrument:esa-stmt-2023",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in ESA Statement on Artemis Accords Principles (ESA-STMT-2023), Director General Statement.",
+   "basisText": "Lunar discretion point is located in ESA: Gateway MoU and Artemis Accords – FAQs (ESA-STMT-2023), FAQ: \"What are the Artemis Accords?\".",
    "level": "record",
-   "detail": "Director General Statement: \"Multilateral Alignment\"",
+   "detail": "FAQ: \"What are the Artemis Accords?\": \"Non-signatory Participation\"",
    "via": "discretionPoints:ESA-STMT-2023"
   },
   {
@@ -9287,9 +9272,9 @@
    "source": "lunar:dp-012",
    "target": "instrument:cn-lep4-2024",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in CNSA Lunar Exploration Programme Phase 4 (CN-LEP4-2024), Programme Architecture.",
+   "basisText": "Lunar discretion point is located in SCIO briefing on \"China’s Space Program: A 2021 Perspective\" (lunar exploration Phase 4) (CN-LEP4-2024), SCIO briefing, 28 January 2022 (Wu Yanhua, CNSA).",
    "level": "record",
-   "detail": "Programme Architecture: \"Phase 4 Exploration\"",
+   "detail": "SCIO briefing, 28 January 2022 (Wu Yanhua, CNSA): \"Phase 4 Exploration\"",
    "via": "discretionPoints:CN-LEP4-2024"
   },
   {
@@ -9306,82 +9291,49 @@
   {
    "id": "e391",
    "kind": "attribute",
-   "source": "lunar:dp-014",
-   "target": "instrument:jp-bsl-2008",
+   "source": "lunar:dp-015",
+   "target": "instrument:in-isp-2023",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in Japan Basic Space Law (JP-BSL-2008), Article 2 / Preamble.",
+   "basisText": "Lunar discretion point is located in Indian Space Policy 2023 (IN-ISP-2023), Definitions, no. 1; Section 5.",
    "level": "record",
-   "detail": "Article 2 / Preamble: \"Non-military / Non-aggressive\"",
-   "via": "discretionPoints:JP-BSL-2008"
+   "detail": "Definitions, no. 1; Section 5: \"Authorisation by IN-SPACe\"",
+   "via": "discretionPoints:IN-ISP-2023"
   },
   {
    "id": "e392",
    "kind": "attribute",
-   "source": "lunar:dp-014",
-   "target": "instrument:jp-nasa-2022",
+   "source": "lunar:dp-016",
+   "target": "instrument:nasa-lunanet",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in JAXA-NASA Artemis MoU (Gateway / HLS) (JP-NASA-2022), Article 2 / Preamble.",
+   "basisText": "Lunar discretion point is located in LunaNet Interoperability Specification (Version 5) (NASA-LUNANET), Section 1 (Introduction).",
    "level": "record",
-   "detail": "Article 2 / Preamble: \"Non-military / Non-aggressive\"",
-   "via": "discretionPoints:JP-NASA-2022"
+   "detail": "Section 1 (Introduction): \"Interoperability Standards\"",
+   "via": "discretionPoints:NASA-LUNANET"
   },
   {
    "id": "e393",
    "kind": "attribute",
-   "source": "lunar:dp-015",
-   "target": "instrument:in-sab-2023",
+   "source": "lunar:dp-017",
+   "target": "instrument:lux-srl-2017",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in India Space Activities Bill (IN-SAB-2023), Chapter II, Definitions.",
+   "basisText": "Lunar discretion point is located in Luxembourg Space Resources Law (LUX-SRL-2017), 51 U.S.C. 51303 / Luxembourg Art. 1.",
    "level": "record",
-   "detail": "Chapter II, Definitions: \"Authorised Entity\"",
-   "via": "discretionPoints:IN-SAB-2023"
+   "detail": "51 U.S.C. 51303 / Luxembourg Art. 1: \"Ownership vs. Appropriation\"",
+   "via": "discretionPoints:LUX-SRL-2017"
   },
   {
    "id": "e394",
    "kind": "attribute",
-   "source": "lunar:dp-016",
-   "target": "instrument:esa-stmt-2023",
-   "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in ESA Statement on Artemis Accords Principles (ESA-STMT-2023), Technical Specifications.",
-   "level": "record",
-   "detail": "Technical Specifications: \"Interoperability Standards\"",
-   "via": "discretionPoints:ESA-STMT-2023"
-  },
-  {
-   "id": "e395",
-   "kind": "attribute",
-   "source": "lunar:dp-016",
-   "target": "instrument:nasa-lunanet",
-   "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in LunaNet Interoperability Specification (NASA-LUNANET), Technical Specifications.",
-   "level": "record",
-   "detail": "Technical Specifications: \"Interoperability Standards\"",
-   "via": "discretionPoints:NASA-LUNANET"
-  },
-  {
-   "id": "e396",
-   "kind": "attribute",
-   "source": "lunar:dp-017",
-   "target": "instrument:lux-srl-2017",
-   "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in Luxembourg Space Resources Law (LUX-SRL-2017), Article 1 / Title IV.",
-   "level": "record",
-   "detail": "Article 1 / Title IV: \"Ownership vs. Appropriation\"",
-   "via": "discretionPoints:LUX-SRL-2017"
-  },
-  {
-   "id": "e397",
-   "kind": "attribute",
    "source": "lunar:dp-017",
    "target": "instrument:us-cslca-2015",
    "basis": "instrument_referenced",
-   "basisText": "Lunar discretion point is located in U.S. Commercial Space Launch Competitiveness Act (US-CSLCA-2015), Article 1 / Title IV.",
+   "basisText": "Lunar discretion point is located in U.S. Commercial Space Launch Competitiveness Act (US-CSLCA-2015), 51 U.S.C. 51303 / Luxembourg Art. 1.",
    "level": "record",
-   "detail": "Article 1 / Title IV: \"Ownership vs. Appropriation\"",
+   "detail": "51 U.S.C. 51303 / Luxembourg Art. 1: \"Ownership vs. Appropriation\"",
    "via": "discretionPoints:US-CSLCA-2015"
   },
   {
-   "id": "e398",
+   "id": "e395",
    "kind": "attribute",
    "source": "lunar:country-usa",
    "target": "instrument:artemis-accords",
@@ -9392,7 +9344,7 @@
    "via": "countries:doc-usa-01"
   },
   {
-   "id": "e399",
+   "id": "e396",
    "kind": "attribute",
    "source": "lunar:country-usa",
    "target": "instrument:us-ostp-ltc-2024",
@@ -9403,40 +9355,40 @@
    "via": "countries:doc-usa-02"
   },
   {
-   "id": "e400",
+   "id": "e397",
    "kind": "attribute",
    "source": "lunar:country-china",
    "target": "instrument:ilrs-guide-2023",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"ILRS Guide for Partnership\" (same document id).",
+   "basisText": "Lunar country profile lists the document \"ILRS Guide for Partnership (V1.0, CNSA and Roscosmos)\" (same document id).",
    "level": "record",
-   "detail": "ILRS Guide for Partnership",
+   "detail": "ILRS Guide for Partnership (V1.0, CNSA and Roscosmos)",
    "via": "countries:doc-cn-01"
   },
   {
-   "id": "e401",
+   "id": "e398",
    "kind": "attribute",
    "source": "lunar:country-china",
    "target": "instrument:cn-lep4-2024",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"CNSA Lunar Exploration Programme Phase 4\" (same document id).",
+   "basisText": "Lunar country profile lists the document \"SCIO briefing on \"China’s Space Program: A 2021 Perspective\" (lunar exploration Phase 4)\" (same document id).",
    "level": "record",
-   "detail": "CNSA Lunar Exploration Programme Phase 4",
+   "detail": "SCIO briefing on \"China’s Space Program: A 2021 Perspective\" (lunar exploration Phase 4)",
    "via": "countries:doc-cn-02"
   },
   {
-   "id": "e402",
+   "id": "e399",
    "kind": "attribute",
    "source": "lunar:country-russia",
    "target": "instrument:ilrs-mou-2021",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"Roscosmos–CNSA Memorandum of Understanding on the ILRS\" (same document id).",
+   "basisText": "Lunar country profile lists the document \"China–Russia intergovernmental Memorandum of Understanding on the ILRS (9 March 2021)\" (same document id).",
    "level": "record",
-   "detail": "Roscosmos–CNSA Memorandum of Understanding on the ILRS",
+   "detail": "China–Russia intergovernmental Memorandum of Understanding on the ILRS (9 March 2021)",
    "via": "countries:doc-ru-01"
   },
   {
-   "id": "e403",
+   "id": "e400",
    "kind": "attribute",
    "source": "lunar:country-japan",
    "target": "instrument:jp-bsl-2008",
@@ -9447,29 +9399,29 @@
    "via": "countries:doc-jp-01"
   },
   {
-   "id": "e404",
+   "id": "e401",
    "kind": "attribute",
    "source": "lunar:country-japan",
    "target": "instrument:jp-nasa-2022",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"JAXA-NASA Artemis MoU (Gateway / HLS)\" (same document id).",
+   "basisText": "Lunar country profile lists the document \"JAXA-NASA Artemis MoU (Gateway / HLS)\" (document id, no discretion point).",
    "level": "record",
    "detail": "JAXA-NASA Artemis MoU (Gateway / HLS)",
    "via": "countries:doc-jp-02"
   },
   {
-   "id": "e405",
+   "id": "e402",
    "kind": "attribute",
    "source": "lunar:country-india",
-   "target": "instrument:in-sab-2023",
+   "target": "instrument:in-isp-2023",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"India Space Activities Bill\" (same document id).",
+   "basisText": "Lunar country profile lists the document \"Indian Space Policy 2023\" (same document id).",
    "level": "record",
-   "detail": "India Space Activities Bill",
+   "detail": "Indian Space Policy 2023",
    "via": "countries:doc-in-01"
   },
   {
-   "id": "e406",
+   "id": "e403",
    "kind": "attribute",
    "source": "lunar:country-luxembourg",
    "target": "instrument:lux-srl-2017",
@@ -9480,7 +9432,7 @@
    "via": "countries:doc-lu-01"
   },
   {
-   "id": "e407",
+   "id": "e404",
    "kind": "attribute",
    "source": "lunar:country-uae",
    "target": "instrument:uae-law-2019",
@@ -9491,18 +9443,18 @@
    "via": "countries:doc-ae-01"
   },
   {
-   "id": "e408",
+   "id": "e405",
    "kind": "attribute",
    "source": "lunar:country-esa",
    "target": "instrument:esa-stmt-2023",
    "basis": "instrument_referenced",
-   "basisText": "Lunar country profile lists the document \"ESA Statement on Artemis Accords Principles\" (same document id).",
+   "basisText": "Lunar country profile lists the document \"ESA: Gateway MoU and Artemis Accords – FAQs\" (same document id).",
    "level": "record",
-   "detail": "ESA Statement on Artemis Accords Principles",
+   "detail": "ESA: Gateway MoU and Artemis Accords – FAQs",
    "via": "countries:doc-esa-01"
   },
   {
-   "id": "e409",
+   "id": "e406",
    "kind": "attribute",
    "source": "lunar:igl-004",
    "target": "instrument:artemis-accords",
@@ -9513,7 +9465,7 @@
    "via": "infrastructure:igl-004"
   },
   {
-   "id": "e410",
+   "id": "e407",
    "kind": "attribute",
    "source": "lunar:igl-004",
    "target": "instrument:lux-srl-2017",
@@ -11384,7 +11336,7 @@
    "id": "source-branch-lunar",
    "severity": "warning",
    "title": "Lunar Governance Tracker was read from branch claude/gtc-hardening, not the deployed branch",
-   "detail": "The snapshot read lunar-mandate-atlas at claude/gtc-hardening (65894c2). The production site https://lunar-mandate-atlas.vercel.app, which record links open, is built from claude/lunar-governance-tracker-txA5R. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
+   "detail": "The snapshot read lunar-mandate-atlas at claude/gtc-hardening (cba5fa2). The production site https://lunar-mandate-atlas.vercel.app, which record links open, is built from claude/lunar-governance-tracker-txA5R. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
    "records": []
   },
   {
