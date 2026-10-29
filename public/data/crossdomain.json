@@ -10,7 +10,7 @@
    "name": "Cyber Escalation Atlas",
    "url": "https://cyber-escalation-atlas.vercel.app",
    "repo": "cyber-escalation-atlas",
-   "commit": "63f3ff202787a1759b597c45a85afc860603a001",
+   "commit": "d311e2b90f35479ff518df3605e881059c1a5ded",
    "commitDate": "2026-10-29",
    "dataClean": true,
    "branch": "claude/gtc-hardening",
@@ -687,7 +687,7 @@
    "fields": {
     "incidentType": "espionage",
     "attributionCountry": "Russia",
-    "attributionConfidence": "high",
+    "attributionConfidence": "confirmed",
     "aliases": [
      "APT29",
      "Cozy Bear",
@@ -757,7 +757,7 @@
    "fields": {
     "incidentType": "destructive",
     "attributionCountry": "North Korea",
-    "attributionConfidence": "high",
+    "attributionConfidence": "confirmed",
     "aliases": [
      "Lazarus Group",
      "HIDDEN COBRA",
@@ -792,7 +792,7 @@
    "fields": {
     "incidentType": "sabotage",
     "attributionCountry": "Russia",
-    "attributionConfidence": "high",
+    "attributionConfidence": "confirmed",
     "aliases": [
      "Sandworm",
      "Voodoo Bear",
@@ -826,7 +826,7 @@
    "fields": {
     "incidentType": "sabotage",
     "attributionCountry": "Russia",
-    "attributionConfidence": "high",
+    "attributionConfidence": "confirmed",
     "aliases": [
      "Sandworm",
      "Voodoo Bear",
@@ -860,7 +860,7 @@
    "fields": {
     "incidentType": "ransomware",
     "attributionCountry": "North Korea",
-    "attributionConfidence": "high",
+    "attributionConfidence": "confirmed",
     "aliases": [
      "Lazarus Group",
      "HIDDEN COBRA"
@@ -894,7 +894,7 @@
    "fields": {
     "incidentType": "ransomware",
     "attributionCountry": "Russia (criminal, not directly state-sponsored per US assessment)",
-    "attributionConfidence": "high",
+    "attributionConfidence": "confirmed",
     "aliases": [
      "DarkSide",
      "BlackMatter"
@@ -993,7 +993,7 @@
    "fields": {
     "incidentType": "espionage",
     "attributionCountry": "China",
-    "attributionConfidence": "high",
+    "attributionConfidence": "confirmed",
     "aliases": [
      "Hafnium",
      "Silk Typhoon"
@@ -1064,7 +1064,7 @@
    "fields": {
     "incidentType": "destructive",
     "attributionCountry": "Iran",
-    "attributionConfidence": "high",
+    "attributionConfidence": "confirmed",
     "aliases": [
      "Homeland Justice",
      "DEV-0861",
@@ -1128,7 +1128,7 @@
    "fields": {
     "incidentType": "hybrid",
     "attributionCountry": "North Korea",
-    "attributionConfidence": "high",
+    "attributionConfidence": "confirmed",
     "aliases": [
      "Lazarus Group",
      "APT38",
@@ -1192,7 +1192,7 @@
    "fields": {
     "incidentType": "sabotage",
     "attributionCountry": "Israel (attributed by Iran; not officially confirmed)",
-    "attributionConfidence": "moderate",
+    "attributionConfidence": "low",
     "aliases": [],
     "targetSectors": [
      "energy",
@@ -1252,7 +1252,7 @@
    "fields": {
     "incidentType": "sabotage",
     "attributionCountry": "Russia",
-    "attributionConfidence": "confirmed",
+    "attributionConfidence": "high",
     "aliases": [
      "Sandworm",
      "Voodoo Bear",
@@ -1384,7 +1384,7 @@
    "fields": {
     "incidentType": "espionage",
     "attributionCountry": "China",
-    "attributionConfidence": "high",
+    "attributionConfidence": "confirmed",
     "aliases": [
      "Volt Typhoon",
      "BRONZE SILHOUETTE",
@@ -1420,7 +1420,7 @@
    "fields": {
     "incidentType": "espionage",
     "attributionCountry": "Russia",
-    "attributionConfidence": "confirmed",
+    "attributionConfidence": "high",
     "aliases": [
      "Midnight Blizzard",
      "APT29",
@@ -1569,7 +1569,7 @@
    "fields": {
     "incidentType": "espionage",
     "attributionCountry": "Unknown (regional state-linked actors assessed)",
-    "attributionConfidence": "moderate",
+    "attributionConfidence": "low",
     "aliases": [],
     "targetSectors": [
      "government"
@@ -5742,7 +5742,7 @@
    "basis": "attributed_state",
    "basisText": "Cyber case field attribution.country reads \"Russia\".",
    "role": "attributed",
-   "confidence": "high",
+   "confidence": "confirmed",
    "raw": "cyber attribution.country \"Russia\""
   },
   {
@@ -5780,7 +5780,7 @@
    "basis": "attributed_state",
    "basisText": "Cyber case field attribution.country reads \"North Korea\".",
    "role": "attributed",
-   "confidence": "high",
+   "confidence": "confirmed",
    "raw": "cyber attribution.country \"North Korea\""
   },
   {
@@ -5800,7 +5800,7 @@
    "basis": "attributed_state",
    "basisText": "Cyber case field attribution.country reads \"Russia\".",
    "role": "attributed",
-   "confidence": "high",
+   "confidence": "confirmed",
    "raw": "cyber attribution.country \"Russia\""
   },
   {
@@ -5820,7 +5820,7 @@
    "basis": "attributed_state",
    "basisText": "Cyber case field attribution.country reads \"Russia\".",
    "role": "attributed",
-   "confidence": "high",
+   "confidence": "confirmed",
    "raw": "cyber attribution.country \"Russia\""
   },
   {
@@ -5840,7 +5840,7 @@
    "basis": "attributed_state",
    "basisText": "Cyber case field attribution.country reads \"North Korea\".",
    "role": "attributed",
-   "confidence": "high",
+   "confidence": "confirmed",
    "raw": "cyber attribution.country \"North Korea\""
   },
   {
@@ -5916,7 +5916,7 @@
    "basis": "attributed_state",
    "basisText": "Cyber case field attribution.country reads \"China\".",
    "role": "attributed",
-   "confidence": "high",
+   "confidence": "confirmed",
    "raw": "cyber attribution.country \"China\""
   },
   {
@@ -5936,7 +5936,7 @@
    "basis": "attributed_state",
    "basisText": "Cyber case field attribution.country reads \"Iran\".",
    "role": "attributed",
-   "confidence": "high",
+   "confidence": "confirmed",
    "raw": "cyber attribution.country \"Iran\""
   },
   {
@@ -5956,7 +5956,7 @@
    "basis": "attributed_state",
    "basisText": "Cyber case field attribution.country reads \"North Korea\".",
    "role": "attributed",
-   "confidence": "high",
+   "confidence": "confirmed",
    "raw": "cyber attribution.country \"North Korea\""
   },
   {
@@ -6003,7 +6003,7 @@
    "basis": "attributed_state",
    "basisText": "Cyber case field attribution.country reads \"Russia\".",
    "role": "attributed",
-   "confidence": "confirmed",
+   "confidence": "high",
    "raw": "cyber attribution.country \"Russia\""
   },
   {
@@ -6061,7 +6061,7 @@
    "basis": "attributed_state",
    "basisText": "Cyber case field attribution.country reads \"China\".",
    "role": "attributed",
-   "confidence": "high",
+   "confidence": "confirmed",
    "raw": "cyber attribution.country \"China\""
   },
   {
@@ -6081,7 +6081,7 @@
    "basis": "attributed_state",
    "basisText": "Cyber case field attribution.country reads \"Russia\".",
    "role": "attributed",
-   "confidence": "confirmed",
+   "confidence": "high",
    "raw": "cyber attribution.country \"Russia\""
   },
   {
@@ -11431,7 +11431,7 @@
    "id": "source-branch-cyber",
    "severity": "warning",
    "title": "Cyber Escalation Atlas was read from branch claude/gtc-hardening, not the deployed branch",
-   "detail": "The snapshot read cyber-escalation-atlas at claude/gtc-hardening (63f3ff2). The production site https://cyber-escalation-atlas.vercel.app, which record links open, is built from claude/setup-cyber-atlas-scaffold-ieuDR. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
+   "detail": "The snapshot read cyber-escalation-atlas at claude/gtc-hardening (d311e2b). The production site https://cyber-escalation-atlas.vercel.app, which record links open, is built from claude/setup-cyber-atlas-scaffold-ieuDR. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
    "records": []
   },
   {
@@ -11459,7 +11459,7 @@
    "id": "actor-state-not-resolved",
    "severity": "info",
    "title": "Actor fields not resolved to a state",
-   "detail": "13 records name a state in the actor field but are not linked to it: cyber:stuxnet (\"United States / Israel\": attribution confidence \"moderate\" is below high); cyber:colonial-pipeline (\"Russia (criminal, not directly state-sponsored per US assessment)\": qualifier says the actor is not the state); cyber:costa-rica-conti (\"Russia (criminal, not directly state-sponsored per public assessments)\": qualifier says the actor is not the state); cyber:shamoon-aramco (\"Iran (assessed)\": attribution confidence \"moderate\" is below high); cyber:iran-nuclear-cyber (\"Israel (attributed by Iran; not officially confirmed)\": attribution confidence \"moderate\" is below high); cyber:taiwan-telecom (\"China (assessed)\": attribution confidence \"moderate\" is below high); cyber:scattered-spider-mgm (\"United States / United Kingdom (individuals; not state-sponsored)\": qualifier says the actor is not the state); cyber:change-healthcare (\"Russia (criminal, possible state nexus)\": qualifier says the actor is not the state); cyber:india-pakistan-cyber (\"India / Pakistan (reciprocal)\": attribution confidence \"moderate\" is below high); cyber:flame-flamer (\"United States / Israel\": attribution confidence \"moderate\" is below high); orbital:1 (\"China\": attribution confidence \"medium\" is below high); orbital:4 (\"China\": attribution confidence \"medium\" is below high); orbital:5 (\"Iran\": attribution confidence \"medium\" is below high).",
+   "detail": "13 records name a state in the actor field but are not linked to it: cyber:stuxnet (\"United States / Israel\": attribution confidence \"moderate\" is below high); cyber:colonial-pipeline (\"Russia (criminal, not directly state-sponsored per US assessment)\": qualifier says the actor is not the state); cyber:costa-rica-conti (\"Russia (criminal, not directly state-sponsored per public assessments)\": qualifier says the actor is not the state); cyber:shamoon-aramco (\"Iran (assessed)\": attribution confidence \"moderate\" is below high); cyber:iran-nuclear-cyber (\"Israel (attributed by Iran; not officially confirmed)\": attribution confidence \"low\" is below high); cyber:taiwan-telecom (\"China (assessed)\": attribution confidence \"moderate\" is below high); cyber:scattered-spider-mgm (\"United States / United Kingdom (individuals; not state-sponsored)\": qualifier says the actor is not the state); cyber:change-healthcare (\"Russia (criminal, possible state nexus)\": qualifier says the actor is not the state); cyber:india-pakistan-cyber (\"India / Pakistan (reciprocal)\": attribution confidence \"moderate\" is below high); cyber:flame-flamer (\"United States / Israel\": attribution confidence \"moderate\" is below high); orbital:1 (\"China\": attribution confidence \"medium\" is below high); orbital:4 (\"China\": attribution confidence \"medium\" is below high); orbital:5 (\"Iran\": attribution confidence \"medium\" is below high).",
    "records": [
     "cyber:stuxnet",
     "cyber:colonial-pipeline",
