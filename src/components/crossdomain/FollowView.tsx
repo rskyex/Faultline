@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { BASIS_META, DOMAIN_META, DOMAINS, LINK_BASES, TIER_META, type CrossDomainData, type LinkBasis, type LinkEdge, type RecordNode, type Tier } from "@/lib/crossdomainMeta";
-import { instrumentsFor, otherEnd, RECORD_TYPE_LABEL, type Index } from "./model";
+import { BASIS_META, DOMAIN_META, DOMAINS, LINK_BASES, ROLE_META, TIER_META, TIERS, type CrossDomainData, type FacetRole, type LinkBasis, type LinkEdge, type RecordNode, type Tier } from "@/lib/crossdomainMeta";
+import { facetCount, instrumentsFor, otherEnd, RECORD_TYPE_LABEL, type Index } from "./model";
 
 type Props = { data: CrossDomainData; idx: Index; selected: string; onSelect: (id: string) => void };
 
@@ -70,16 +70,17 @@ export default function FollowView({ data, idx, selected, onSelect }: Props) {
       }
       return out;
     };
-    return { direct: build("direct"), contextual: build("contextual") };
+    return { "same-event": build("same-event"), "same-intrusion-set": build("same-intrusion-set") } as Record<Tier, ReturnType<typeof build>>;
   }, [idx, selected, rec.domain]);
-  const tierTotals = {
-    direct: groups.direct.reduce((n, g) => n + g.total, 0),
-    contextual: groups.contextual.reduce((n, g) => n + g.total, 0),
+  const tierTotals: Record<Tier, number> = {
+    "same-event": groups["same-event"].reduce((n, g) => n + g.total, 0),
+    "same-intrusion-set": groups["same-intrusion-set"].reduce((n, g) => n + g.total, 0),
   };
+  const linkTotal = tierTotals["same-event"] + tierTotals["same-intrusion-set"];
 
   const renderGroups = (tier: Tier) => (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-      {groups[tier].map((g) => (
+      {groups[tier].filter((g) => g.total > 0).map((g) => (
         <section key={g.domain} className="bg-surface border border-white/6 p-4 min-w-0" aria-label={`${DOMAIN_META[g.domain].label}, ${TIER_META[tier].label.toLowerCase()} links`}>
           <div className="flex items-center gap-2 mb-3">
             <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: DOMAIN_META[g.domain].color }} aria-hidden="true" />
@@ -87,9 +88,6 @@ export default function FollowView({ data, idx, selected, onSelect }: Props) {
               {DOMAIN_META[g.domain].label} ({g.total})
             </h4>
           </div>
-          {g.total === 0 && (
-            <p className="text-[12px] text-text-muted leading-relaxed">No {TIER_META[tier].label.toLowerCase()} link to this domain can be derived from the coded fields.</p>
-          )}
           <div className="space-y-4">
             {g.bases.map((b) => {
               const key = `${tier}:${g.domain}:${b.basis}`;
@@ -112,10 +110,7 @@ export default function FollowView({ data, idx, selected, onSelect }: Props) {
                           </button>
                           {l.bases.map((x, i) => (
                             <p key={i} className="text-[11.5px] text-text-secondary leading-relaxed mt-1">
-                              <span className="text-text-primary/70">
-                                {BASIS_META[x.basis].short}
-                                {tier === "direct" && x.tier === "contextual" ? " (contextual)" : ""}:
-                              </span>{" "}
+                              <span className="text-text-primary/70">{BASIS_META[x.basis].short}:</span>{" "}
                               {x.text}
                             </p>
                           ))}
@@ -154,7 +149,9 @@ export default function FollowView({ data, idx, selected, onSelect }: Props) {
   const inst = instrumentsFor(idx, selected);
   const checks = data.checks.filter((c) => c.records.includes(selected));
 
-  const roleLabel: Record<string, string> = { attributed: "named as actor", target: "named as target", host: "host state", profiled: "profiled state" };
+  const roleLabel: Record<string, string> = { attributed: "named as actor", target: "listed as a target country", host: "host state", profiled: "state profiled in lunar data" };
+  const recFacets = idx.facetsByRecord.get(selected) ?? [];
+  const roleText = (role: FacetRole, n: number) => `${n} ${n === 1 ? ROLE_META[role].one : ROLE_META[role].many}`;
 
   return (
     <div className="space-y-8">
@@ -192,36 +189,59 @@ export default function FollowView({ data, idx, selected, onSelect }: Props) {
         </div>
       </article>
 
-      {/* Connections: direct first, contextual collapsed */}
+      {/* Record links: same event, then same intrusion set */}
       <div>
-        <h3 className="text-[11px] font-medium tracking-[0.2em] uppercase text-text-secondary mb-1 font-[family-name:var(--font-body)]">
-          Direct links ({tierTotals.direct})
-        </h3>
-        <p className="text-[12px] text-text-secondary mb-4 max-w-3xl">{TIER_META.direct.explain}</p>
-        {tierTotals.direct === 0 ? (
-          <p className="bg-surface border border-white/6 p-4 text-[12.5px] text-text-secondary leading-relaxed">
-            No direct link. No other dataset names this record&apos;s incident or threat group.
+        <h3 className="text-[11px] font-medium tracking-[0.2em] uppercase text-text-secondary mb-1 font-[family-name:var(--font-body)]">Record links ({linkTotal})</h3>
+        {linkTotal === 0 ? (
+          <p className="bg-surface border border-white/6 p-4 text-[12.5px] text-text-secondary leading-relaxed max-w-3xl">
+            No record link. No other dataset records this incident or names its intrusion set. Shared states and infrastructure categories are listed below as facets.
           </p>
         ) : (
-          renderGroups("direct")
-        )}
-
-        <details className="mt-6 bg-surface/40 border border-white/6">
-          <summary className="cursor-pointer p-4 text-[12.5px] text-text-primary hover:text-orbital-400">
-            <span className="text-[11px] font-medium tracking-[0.2em] uppercase">Contextual links ({tierTotals.contextual})</span>
-            <span className="block text-text-secondary mt-1 normal-case">
-              These records share context with this one (an acting state, or an energy target and host state). They are not evidence about the same event.
-            </span>
-          </summary>
-          <div className="p-4 pt-0">
-            {tierTotals.contextual === 0 ? (
-              <p className="text-[12.5px] text-text-secondary">No contextual link.</p>
-            ) : (
-              renderGroups("contextual")
-            )}
+          <div className="space-y-6">
+            {TIERS.filter((t) => tierTotals[t] > 0).map((t) => (
+              <div key={t}>
+                <p className="text-[12.5px] text-text-primary mb-1">
+                  {TIER_META[t].label} <span className="font-mono-data text-text-secondary">({tierTotals[t]})</span>
+                </p>
+                <p className="text-[12px] text-text-secondary mb-3 max-w-3xl">{TIER_META[t].explain}</p>
+                {renderGroups(t)}
+              </div>
+            ))}
           </div>
-        </details>
+        )}
       </div>
+
+      {/* Facets: shared states and categories, not pairwise links */}
+      <section aria-labelledby="xd-facets-title">
+        <h3 id="xd-facets-title" className="text-[11px] font-medium tracking-[0.2em] uppercase text-text-secondary mb-1 font-[family-name:var(--font-body)]">
+          Shared states and categories ({recFacets.length})
+        </h3>
+        <p className="text-[12px] text-text-secondary mb-3 max-w-3xl">
+          States and infrastructure categories this record shares with other datasets. Each line says how many records in each dataset include the same entity. It is not a link between those records.
+        </p>
+        {recFacets.length === 0 ? (
+          <p className="bg-surface border border-white/6 p-4 text-[12.5px] text-text-secondary">No state or category in this record appears in another dataset.</p>
+        ) : (
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {recFacets.map((f) => (
+              <li key={f.entity} className="bg-surface border border-white/6 p-4 text-[12.5px] leading-relaxed">
+                <p className="text-text-primary">
+                  {f.domains.length === 2 ? "Both" : `${f.domains.length}`} datasets include {f.label}
+                  {f.type === "sector" ? " (infrastructure category)" : ""}:
+                </p>
+                <ul className="mt-1 text-text-secondary">
+                  {f.domains.map((d) => (
+                    <li key={d}>
+                      <span className={DOMAIN_META[d].textClass}>{DOMAIN_META[d].label}</span>: {facetCount(f, d)} {facetCount(f, d) === 1 ? "record" : "records"} (
+                      {(Object.entries(f.byDomain[d] ?? {}) as [FacetRole, string[]][]).map(([role, ids]) => roleText(role, ids.length)).join("; ")})
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
 
       {/* Shared entities */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -241,7 +261,7 @@ export default function FollowView({ data, idx, selected, onSelect }: Props) {
           )}
         </section>
         <section className="bg-surface border border-white/6 p-4" aria-label="Infrastructure categories">
-          <h4 className="text-[11px] font-medium tracking-[0.18em] uppercase text-text-secondary mb-3 font-[family-name:var(--font-body)]">Shared infrastructure categories</h4>
+          <h4 className="text-[11px] font-medium tracking-[0.18em] uppercase text-text-secondary mb-3 font-[family-name:var(--font-body)]">Infrastructure categories</h4>
           {sectors.length ? (
             <ul className="space-y-2 text-[12.5px]">
               {sectors.map((a) => {

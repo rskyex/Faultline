@@ -14,9 +14,7 @@ export default function AboutSection() {
         <ScrollReveal>
           <div className="mb-20 text-center">
             <blockquote className="text-lg md:text-xl leading-[1.7] text-text-primary/70 max-w-3xl mx-auto italic">
-              &ldquo;Orbital, nuclear, lunar governance, and cyber systems do not fail
-              in isolation. Faultline maps the dependencies, escalation pathways, and
-              governance fractures that emerge across them.&rdquo;
+              &ldquo;Do orbital, nuclear, lunar governance and cyber systems fail in isolation? Faultline argues they do not, and sets four datasets side by side to see where that argument holds.&rdquo;
             </blockquote>
             <div className="mt-6 flex items-center justify-center gap-3">
               <div className="w-6 h-px bg-orbital-500/30" />
@@ -86,18 +84,12 @@ export default function AboutSection() {
               <p className="text-base md:text-lg leading-[1.75] text-text-primary/70">
                 Faultline is a connective research interface linking four
                 domain-specific platforms: orbital infrastructure, nuclear
-                infrastructure, lunar governance, and cyber escalation. Its purpose is not only to
-                display separate systems, but to reveal the structural fault lines
-                that form between them.
+                infrastructure, lunar governance, and cyber escalation. It shows the four datasets side by side and asks where structural fault lines form between them.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <p className="text-sm leading-[1.75] text-text-secondary">
-                Each platform maps one domain in depth. Faultline provides the
-                connective layer&mdash;identifying where dependencies accumulate,
-                where escalation pathways cross boundaries, and where governance
-                structures remain fragmented across sectors that are increasingly
-                coupled in practice.
+                Each platform covers one domain in depth. Faultline&apos;s cross-domain layer maps where their records name the same incident, intrusion set, state, infrastructure category or instrument. Whether dependencies accumulate, escalation crosses boundaries or governance stays fragmented at those points is the research question, not a result the layer computes.
               </p>
             </ScrollReveal>
 

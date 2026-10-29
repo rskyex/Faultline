@@ -17,7 +17,7 @@ export default function CrossDomainCallout() {
               The links, with their evidence
             </h2>
             <p className="mt-5 text-text-primary/70 text-sm max-w-xl leading-relaxed">
-              The cross-domain layer reads the records of all four platforms and links them only where a coded field matches: the same named incident or the same threat group (direct links), or a shared acting state or an energy sector target in a state that hosts a nuclear plant (contextual links, which share context rather than evidence). Every link shows its basis and tier. You can follow a single incident across domains, see where junctions have no instrument referenced in the data, and download the snapshot.
+              The cross-domain layer reads the records of all four platforms and links two records only when they are about the same thing. So far that is rare: one incident, the Viasat KA-SAT attack, is recorded in two domains (cyber and orbital), and five more cyber cases share its Sandworm intrusion set. States and infrastructure categories that several datasets include are listed as shared entities, not as links. Every link shows its basis. You can follow a record across domains, see which instruments each dataset cites, and download the snapshot.
             </p>
             <a
               href="/crossdomain"
@@ -40,7 +40,7 @@ export default function CrossDomainCallout() {
             </dl>
             <div className="mt-4 bg-surface border border-white/6 p-4">
               <p className="text-[10px] tracking-[0.16em] uppercase text-text-secondary mb-3">
-                {c.links} record links in snapshot v{meta.version} ({meta.generated}): {c.linksByTier.direct} direct, {c.linksByTier.contextual} contextual
+                {c.links} record links in snapshot v{meta.version} ({meta.generated}): {c.linksByTier["same-event"]} same event, {c.linksByTier["same-intrusion-set"]} same intrusion set; {c.facets} shared entities
               </p>
               <ul className="space-y-2">
                 {bases.map(([b, n]) => (

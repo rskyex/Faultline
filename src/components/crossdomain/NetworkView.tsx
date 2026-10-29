@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { BASIS_META, DOMAIN_META, DOMAINS, LINK_BASES, TIER_META, TIERS, type CrossDomainData, type Domain, type LinkBasis, type Tier } from "@/lib/crossdomainMeta";
-import { pairKey, type Index } from "./model";
+import { pairKey, RECORD_TYPE_LABEL, type Index } from "./model";
 
 const SIZE = 880;
 const C = SIZE / 2;
@@ -18,13 +18,81 @@ type Props = {
   setBases: (b: Set<LinkBasis>) => void;
   pair: string | null;
   setPair: (p: string | null) => void;
-  includeContextual: boolean;
-  setIncludeContextual: (v: boolean) => void;
 };
 
 const TYPE_ORDER = ["case", "incident", "country-profile", "discretion-point", "infrastructure-link", "plant"];
 
-export default function NetworkView({ data, idx, selected, onSelect, bases, setBases, pair, setPair, includeContextual, setIncludeContextual }: Props) {
+/** Keyboard-operable list of every node in the graph, with a text filter. */
+function NodeList({ data, idx, selected, onSelect, degree }: { data: CrossDomainData; idx: Index; selected: string; onSelect: (id: string) => void; degree: Map<string, number> }) {
+  const [q, setQ] = useState("");
+  const [linkedOnly, setLinkedOnly] = useState(true);
+  const needle = q.trim().toLowerCase();
+  const groups = DOMAINS.map((d) => ({
+    domain: d,
+    recs: data.records
+      .filter((r) => r.domain === d && (!linkedOnly || (idx.linksByRecord.get(r.id) ?? []).length > 0) && (!needle || r.label.toLowerCase().includes(needle)))
+      .sort((a, b) => (degree.get(b.id) ?? 0) - (degree.get(a.id) ?? 0) || a.label.localeCompare(b.label)),
+  }));
+  const total = groups.reduce((n, g) => n + g.recs.length, 0);
+  return (
+    <div className="border border-white/8 bg-elevated p-4">
+      <h3 className="text-[11px] font-medium tracking-[0.2em] uppercase text-text-secondary mb-3 font-[family-name:var(--font-body)]">Nodes in the graph</h3>
+      <label htmlFor="xd-node-filter" className="sr-only">
+        Filter nodes by name
+      </label>
+      <input
+        id="xd-node-filter"
+        type="search"
+        value={q}
+        onChange={(e) => setQ(e.target.value)}
+        placeholder="Filter by name"
+        className="w-full bg-surface border border-white/10 text-text-primary text-[13px] px-3 py-2 focus:border-orbital-500/50"
+      />
+      <label className="mt-2 flex items-center gap-2 text-[12px] text-text-secondary cursor-pointer">
+        <input type="checkbox" className="accent-orbital-500" checked={linkedOnly} onChange={(e) => setLinkedOnly(e.target.checked)} />
+        Only records with a link
+      </label>
+      <p className="mt-2 text-[11.5px] text-text-secondary" aria-live="polite">
+        {total} {total === 1 ? "node" : "nodes"} listed. Select one to highlight it in the graph and follow it below.
+      </p>
+      <div className="mt-2 max-h-72 overflow-y-auto pr-1 space-y-3">
+        {groups
+          .filter((g) => g.recs.length)
+          .map((g) => (
+            <div key={g.domain}>
+              <p className={`text-[10px] tracking-[0.16em] uppercase mb-1 ${DOMAIN_META[g.domain].textClass}`}>{DOMAIN_META[g.domain].label}</p>
+              <ul className="space-y-0.5">
+                {g.recs.map((r) => {
+                  const n = (idx.linksByRecord.get(r.id) ?? []).length;
+                  const isSel = r.id === selected;
+                  return (
+                    <li key={r.id}>
+                      <button
+                        type="button"
+                        aria-pressed={isSel}
+                        onClick={() => onSelect(r.id)}
+                        className={`w-full text-left px-2 py-1 text-[12.5px] leading-snug border transition-colors ${
+                          isSel ? "border-orbital-500/50 bg-orbital-500/10 text-text-primary" : "border-transparent text-text-primary/85 hover:border-white/15"
+                        }`}
+                      >
+                        {r.label}
+                        <span className="text-text-secondary">
+                          {" "}
+                          ({RECORD_TYPE_LABEL[r.type] ?? r.type}, {n} {n === 1 ? "link" : "links"})
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+      </div>
+    </div>
+  );
+}
+
+export default function NetworkView({ data, idx, selected, onSelect, bases, setBases, pair, setPair }: Props) {
   const [hover, setHover] = useState<string | null>(null);
 
   const layout = useMemo(() => {
@@ -46,18 +114,12 @@ export default function NetworkView({ data, idx, selected, onSelect, bases, setB
     return { pos, arcs };
   }, [data.records]);
 
-  // A basis is active when its checkbox is on and its tier is shown. With
-  // contextual links hidden, a direct link still shows through its direct bases.
-  const activeBases = useMemo(
-    () => new Set(LINK_BASES.filter((b) => bases.has(b) && (includeContextual || BASIS_META[b].tier === "direct"))),
-    [bases, includeContextual],
-  );
-  const isVisible = (l: (typeof data.links)[number]) => l.bases.some((b) => activeBases.has(b.basis));
+  const isVisible = (l: (typeof data.links)[number]) => l.bases.some((b) => bases.has(b.basis));
 
   const visibleLinks = useMemo(
     () => data.links.filter((l) => isVisible(l) && (!pair || pairKey(l.domains[0], l.domains[1]) === pair)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [data.links, activeBases, pair],
+    [data.links, bases, pair],
   );
 
   const degree = useMemo(() => {
@@ -71,20 +133,20 @@ export default function NetworkView({ data, idx, selected, onSelect, bases, setB
 
   // Per pair: links shown with the current filters, plus the full count by tier.
   const matrix = useMemo(() => {
-    const m = new Map<string, { shown: number; direct: number; contextual: number }>();
+    const m = new Map<string, { shown: number } & Record<Tier, number>>();
     for (const l of data.links) {
       const k = pairKey(l.domains[0], l.domains[1]);
-      if (!m.has(k)) m.set(k, { shown: 0, direct: 0, contextual: 0 });
+      if (!m.has(k)) m.set(k, { shown: 0, "same-event": 0, "same-intrusion-set": 0 });
       const cell = m.get(k)!;
       cell[l.tier] += 1;
       if (isVisible(l)) cell.shown += 1;
     }
     return m;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data.links, activeBases]);
+  }, [data.links, bases]);
 
   const tierCounts = useMemo(() => {
-    const m: Record<Tier, number> = { direct: 0, contextual: 0 };
+    const m: Record<Tier, number> = { "same-event": 0, "same-intrusion-set": 0 };
     for (const l of data.links) m[l.tier] += 1;
     return m;
   }, [data.links]);
@@ -97,8 +159,7 @@ export default function NetworkView({ data, idx, selected, onSelect, bases, setB
 
   const focus = hover ?? selected;
   const linkColor = (l: (typeof visibleLinks)[number]) => {
-    const order = LINK_BASES.filter((b) => activeBases.has(b));
-    const top = order.find((b) => l.bases.some((x) => x.basis === b)) ?? l.bases[0].basis;
+    const top = LINK_BASES.find((b) => bases.has(b) && l.bases.some((x) => x.basis === b)) ?? l.bases[0].basis;
     return BASIS_META[top].color;
   };
   const path = (s: string, t: string) => {
@@ -121,17 +182,11 @@ export default function NetworkView({ data, idx, selected, onSelect, bases, setB
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
       <div className="lg:col-span-7">
         <div className="bg-surface border border-white/6 p-3 sm:p-4">
-          <svg
-            viewBox={`0 0 ${SIZE} ${SIZE}`}
-            className="w-full h-auto block"
-            role="img"
-            aria-labelledby="xd-net-title xd-net-desc"
-          >
+          <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="w-full h-auto block" role="img" aria-labelledby="xd-net-title xd-net-desc">
             <title id="xd-net-title">Cross-domain link network</title>
             <desc id="xd-net-desc">
-              {`Records from four platforms are arranged around a circle by domain. ${visibleLinks.length} cross-domain links are drawn with the current filters. The matrix and the record selector next to this chart give the same information as text.`}
+              {`Records from four platforms are arranged around a circle by domain. ${visibleLinks.length} cross-domain links are drawn with the current filters. The node list and the matrix next to this chart give the same information as text and can be used with a keyboard.`}
             </desc>
-            {/* domain arcs */}
             {layout.arcs.map((arc) => {
               const r = R + 26;
               const p = (deg: number) => [C + r * Math.cos((deg * Math.PI) / 180), C + r * Math.sin((deg * Math.PI) / 180)];
@@ -153,22 +208,14 @@ export default function NetworkView({ data, idx, selected, onSelect, bases, setB
                 </g>
               );
             })}
-            {/* links */}
             <g fill="none">
               {visibleLinks.map((l, i) => (
-                <path
-                  key={i}
-                  d={path(l.s, l.t)}
-                  stroke={linkColor(l)}
-                  strokeOpacity={focusLinks.length ? 0.06 : 0.22}
-                  strokeWidth={1}
-                />
+                <path key={i} d={path(l.s, l.t)} stroke={linkColor(l)} strokeOpacity={focusLinks.length ? 0.15 : 0.5} strokeWidth={1.2} />
               ))}
               {focusLinks.map((l, i) => (
-                <path key={`f${i}`} d={path(l.s, l.t)} stroke={linkColor(l)} strokeOpacity={0.95} strokeWidth={1.8} />
+                <path key={`f${i}`} d={path(l.s, l.t)} stroke={linkColor(l)} strokeOpacity={0.95} strokeWidth={2} />
               ))}
             </g>
-            {/* nodes */}
             {data.records.map((r) => {
               const p = layout.pos.get(r.id)!;
               const isSel = r.id === selected;
@@ -197,13 +244,13 @@ export default function NetworkView({ data, idx, selected, onSelect, bases, setB
           <div className="mt-3 min-h-[44px] text-[12px] leading-relaxed text-text-secondary" aria-live="polite">
             {hoverRec ? (
               <p>
-                <span className={DOMAIN_META[hoverRec.domain].textClass}>{DOMAIN_META[hoverRec.domain].label}</span>{" "}
-                <span className="text-text-primary">{hoverRec.label}</span>. {(idx.linksByRecord.get(hoverRec.id) ?? []).length} cross-domain links. Click to follow it.
+                <span className={DOMAIN_META[hoverRec.domain].textClass}>{DOMAIN_META[hoverRec.domain].label}</span> <span className="text-text-primary">{hoverRec.label}</span>.{" "}
+                {(idx.linksByRecord.get(hoverRec.id) ?? []).length} cross-domain links. Click to follow it.
               </p>
             ) : selRec ? (
               <p>
-                Selected: <span className={DOMAIN_META[selRec.domain].textClass}>{DOMAIN_META[selRec.domain].label}</span>{" "}
-                <span className="text-text-primary">{selRec.label}</span>, {focusLinks.length} {focusLinks.length === 1 ? "link" : "links"} shown with current filters.{" "}
+                Selected: <span className={DOMAIN_META[selRec.domain].textClass}>{DOMAIN_META[selRec.domain].label}</span> <span className="text-text-primary">{selRec.label}</span>,{" "}
+                {focusLinks.length} {focusLinks.length === 1 ? "link" : "links"} shown with current filters.{" "}
                 <a href="#follow" className="text-orbital-400 underline underline-offset-2 hover:text-text-primary">
                   See its connections
                 </a>
@@ -214,64 +261,33 @@ export default function NetworkView({ data, idx, selected, onSelect, bases, setB
       </div>
 
       <div className="lg:col-span-5 space-y-6">
-        <div className="border border-white/8 bg-elevated p-4">
-          <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-text-secondary mb-3">Link strength</p>
-          <ul className="space-y-2 text-[12.5px] leading-relaxed mb-3">
-            {TIERS.map((t) => (
-              <li key={t}>
-                <span className="text-text-primary font-medium">
-                  {TIER_META[t].label} <span className="font-mono-data text-text-secondary">({tierCounts[t]})</span>
-                </span>
-                <span className="text-text-secondary">: {TIER_META[t].explain}</span>
-              </li>
-            ))}
-          </ul>
-          <label className="flex items-center gap-3 text-[13px] text-text-primary cursor-pointer">
-            <input
-              type="checkbox"
-              className="accent-orbital-500 w-4 h-4"
-              checked={includeContextual}
-              onChange={(e) => setIncludeContextual(e.target.checked)}
-            />
-            Include contextual links ({tierCounts.contextual})
-          </label>
-          {!includeContextual && (
-            <p className="mt-2 text-[11.5px] text-text-secondary">Showing direct links only. Dots without a line have no direct link.</p>
-          )}
-        </div>
+        <NodeList data={data} idx={idx} selected={selected} onSelect={onSelect} degree={degree} />
 
-        <fieldset>
-          <legend className="text-[11px] font-medium tracking-[0.2em] uppercase text-text-secondary mb-3">Link basis</legend>
-          <div className="space-y-2">
-            {LINK_BASES.map((b) => {
-              const n = basisCounts.get(b) ?? 0;
-              const tierOff = BASIS_META[b].tier === "contextual" && !includeContextual;
+        <fieldset className="border border-white/8 bg-elevated p-4">
+          <legend className="px-1 text-[11px] font-medium tracking-[0.2em] uppercase text-text-secondary">Link type</legend>
+          <div className="space-y-2.5 mt-1">
+            {TIERS.map((t) => {
+              const b = LINK_BASES.find((x) => BASIS_META[x].tier === t)!;
               return (
-                <label key={b} className={`flex items-start gap-3 text-[13px] ${n && !tierOff ? "text-text-primary/90 cursor-pointer" : "text-text-muted"}`}>
-                  <input
-                    type="checkbox"
-                    className="mt-1 accent-orbital-500"
-                    checked={bases.has(b) && !tierOff}
-                    onChange={() => toggleBasis(b)}
-                    disabled={!n || tierOff}
-                  />
+                <label key={t} className="flex items-start gap-3 text-[13px] text-text-primary/90 cursor-pointer">
+                  <input type="checkbox" className="mt-1 accent-orbital-500" checked={bases.has(b)} onChange={() => toggleBasis(b)} />
                   <span className="inline-block w-3 h-[2px] mt-[9px] shrink-0" style={{ backgroundColor: BASIS_META[b].color }} aria-hidden="true" />
                   <span>
-                    {BASIS_META[b].label} <span className="font-mono-data text-text-secondary">({n})</span>{" "}
-                    <span className="text-[10px] tracking-[0.12em] uppercase text-text-muted">{TIER_META[BASIS_META[b].tier].label}</span>
-                    {!n && <span className="block text-[11px] text-text-muted">No link of this type can be derived from the current data.</span>}
+                    {TIER_META[t].label} <span className="font-mono-data text-text-secondary">({tierCounts[t]})</span>
+                    <span className="block text-[11.5px] text-text-secondary">{TIER_META[t].explain}</span>
                   </span>
                 </label>
               );
             })}
           </div>
+          <p className="mt-3 text-[11.5px] text-text-secondary leading-relaxed">
+            {basisCounts.get("same_intrusion_set") ?? 0} links name the same intrusion set; one of them, Viasat, is also the same event and is counted under same event. Shared states and infrastructure categories are not drawn as lines; they are listed as facets in the record follower.
+          </p>
         </fieldset>
 
         <div>
           <div className="flex items-center justify-between mb-3 gap-3">
-            <h3 className="text-[11px] font-medium tracking-[0.2em] uppercase text-text-secondary font-[family-name:var(--font-body)]">
-              Links by domain pair
-            </h3>
+            <h3 className="text-[11px] font-medium tracking-[0.2em] uppercase text-text-secondary font-[family-name:var(--font-body)]">Links by domain pair</h3>
             {pair && (
               <button type="button" onClick={() => setPair(null)} className="text-[11px] text-orbital-400 hover:text-text-primary underline underline-offset-2">
                 Show all pairs
@@ -280,7 +296,7 @@ export default function NetworkView({ data, idx, selected, onSelect, bases, setB
           </div>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-[12px]">
-              <caption className="sr-only">Number of cross-domain links between each pair of domains, with the current basis filters. Select a cell to show only that pair in the network.</caption>
+              <caption className="sr-only">Number of cross-domain links between each pair of domains, with the current link type filters. Select a cell to show only that pair in the network.</caption>
               <thead>
                 <tr>
                   <th scope="col" className="p-1.5" />
@@ -305,7 +321,7 @@ export default function NetworkView({ data, idx, selected, onSelect, bases, setB
                           </td>
                         );
                       const k = pairKey(row, col);
-                      const cell = matrix.get(k) ?? { shown: 0, direct: 0, contextual: 0 };
+                      const cell = matrix.get(k) ?? { shown: 0, "same-event": 0, "same-intrusion-set": 0 };
                       const n = cell.shown;
                       const active = pair === k;
                       return (
@@ -313,19 +329,15 @@ export default function NetworkView({ data, idx, selected, onSelect, bases, setB
                           <button
                             type="button"
                             aria-pressed={active}
-                            aria-label={`${DOMAIN_META[row].label} and ${DOMAIN_META[col].label}: ${n} links shown; ${cell.direct} direct, ${cell.contextual} contextual in total`}
+                            aria-label={`${DOMAIN_META[row].label} and ${DOMAIN_META[col].label}: ${n} links shown; ${cell["same-event"]} same event, ${cell["same-intrusion-set"]} same intrusion set in total`}
                             onClick={() => setPair(active ? null : k)}
                             className={`w-full py-1.5 font-mono-data border transition-colors flex flex-col items-center leading-tight ${
-                              active
-                                ? "border-orbital-500/60 bg-orbital-500/15 text-text-primary"
-                                : n
-                                  ? "border-white/8 bg-elevated text-text-primary hover:border-white/20"
-                                  : "border-white/5 bg-surface text-text-muted hover:border-white/15"
+                              active ? "border-orbital-500/60 bg-orbital-500/15 text-text-primary" : n ? "border-white/8 bg-elevated text-text-primary hover:border-white/20" : "border-white/5 bg-surface text-text-muted hover:border-white/15"
                             }`}
                           >
                             <span className="text-[13px]">{n}</span>
                             <span className="text-[9.5px] text-text-secondary whitespace-nowrap" aria-hidden="true">
-                              {cell.direct}D {cell.contextual}C
+                              {cell["same-event"]}E {cell["same-intrusion-set"]}I
                             </span>
                           </button>
                         </td>
@@ -337,7 +349,7 @@ export default function NetworkView({ data, idx, selected, onSelect, bases, setB
             </table>
           </div>
           <p className="mt-3 text-[12px] text-text-secondary leading-relaxed">
-            Large number: links shown with the current filters. Small line: all direct (D) and contextual (C) links for the pair. A zero means no link of the selected types can be derived from the coded fields for that pair. It does not mean the two domains are unrelated.
+            Large number: links shown with the current filters. Small line: same event (E) and same intrusion set (I) links for the pair. A zero means the coded fields give no such link for that pair. It does not mean the two domains are unrelated.
           </p>
         </div>
       </div>

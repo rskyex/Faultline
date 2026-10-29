@@ -20,7 +20,7 @@ export default function ThesisSection() {
                   fill="none"
                   className="w-full"
                   role="img"
-                  aria-label="Layered diagram showing escalation and spillover pathways between four infrastructure layers"
+                  aria-label="Conceptual diagram of hypothesised escalation and spillover pathways between four infrastructure layers. It illustrates the argument and is not drawn from the data."
                 >
                   {/* Orbital layer */}
                   <rect x="30" y="30" width="360" height="100" fill={C.orbital[500]} fillOpacity="0.04" stroke={C.orbital[500]} strokeWidth="1" rx="2" />
@@ -58,13 +58,13 @@ export default function ThesisSection() {
 
                   {/* Escalation labels */}
                   <rect x="75" y="140" width="76" height="16" rx="2" fill={C.elevated} stroke={C.orbital[500]} strokeWidth="0.5" opacity="0.7" />
-                  <text x="113" y="151" textAnchor="middle" fill={C.orbital[400]} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.1em">ESCALATION</text>
+                  <text x="113" y="151" textAnchor="middle" fill={C.orbital[400]} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.1em">ESCALATION?</text>
 
                   <rect x="210" y="280" width="66" height="16" rx="2" fill={C.elevated} stroke={C.nuclear[500]} strokeWidth="0.5" opacity="0.7" />
-                  <text x="243" y="291" textAnchor="middle" fill={C.nuclear[400]} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.1em">SPILLOVER</text>
+                  <text x="243" y="291" textAnchor="middle" fill={C.nuclear[400]} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.1em">SPILLOVER?</text>
 
                   <rect x="120" y="420" width="80" height="16" rx="2" fill={C.elevated} stroke={C.space[500]} strokeWidth="0.5" opacity="0.7" />
-                  <text x="160" y="431" textAnchor="middle" fill={C.space[400]} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.1em">GOVERNANCE</text>
+                  <text x="160" y="431" textAnchor="middle" fill={C.space[400]} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.1em">GOVERNANCE GAP?</text>
 
                   {/* Fault line */}
                   <circle cx="210" cy="300" r="10" fill="none" stroke={C.text.muted} strokeWidth="1" opacity="0.3" />
@@ -100,32 +100,27 @@ export default function ThesisSection() {
 
             <ScrollReveal delay={200}>
               <p className="text-sm leading-[1.75] text-text-secondary">
-                A disruption in orbital systems can degrade nuclear
-                command-and-control. Contested lunar governance frameworks shape
-                strategic posture. A cyber operation against energy grids can
-                alter nuclear calculations. Misperception in one domain
-                can trigger escalation in another. To understand these dynamics,
-                separate maps are not enough.
+                The argument: a disruption in orbital systems could degrade nuclear command-and-control, contested lunar governance frameworks may shape strategic posture, and a cyber operation against energy grids could alter nuclear calculations. If misperception in one domain can trigger escalation in another, separate maps are not enough to see it.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={300}>
               <div className="space-y-3 pt-4">
                 <div className="p-4 border-l-2 border-orbital-500/30 bg-elevated/30">
-                  <p className="text-text-primary text-sm font-medium mb-1">Infrastructure interdependence creates risk spillover</p>
+                  <p className="text-text-primary text-sm font-medium mb-1">Does infrastructure interdependence create risk spillover?</p>
                   <p className="text-text-secondary text-[13px] leading-[1.7]">Systems designed independently now share physical links, data pathways, and supply chains that transmit disruption across boundaries.</p>
                 </div>
                 <div className="p-4 border-l-2 border-nuclear-500/30 bg-elevated/30">
-                  <p className="text-text-primary text-sm font-medium mb-1">Escalation travels through technical and political coupling</p>
-                  <p className="text-text-secondary text-[13px] leading-[1.7]">A failure or attack in one domain can reshape calculations and responses in others, often through indirect and poorly understood channels.</p>
+                  <p className="text-text-primary text-sm font-medium mb-1">Does escalation travel through technical and political coupling?</p>
+                  <p className="text-text-secondary text-[13px] leading-[1.7]">The hypothesis is that a failure or attack in one domain reshapes calculations and responses in others, often through indirect and poorly understood channels.</p>
                 </div>
                 <div className="p-4 border-l-2 border-space-500/30 bg-elevated/30">
-                  <p className="text-text-primary text-sm font-medium mb-1">Governance authority concentrates through ambiguous mandates</p>
+                  <p className="text-text-primary text-sm font-medium mb-1">Does governance authority concentrate through ambiguous mandates?</p>
                   <p className="text-text-secondary text-[13px] leading-[1.7]">Competing lunar governance frameworks deploy universalist language while concentrating interpretive power, leaving cross-domain authority contested.</p>
                 </div>
                 <div className="p-4 border-l-2 border-cyber-500/30 bg-elevated/30">
-                  <p className="text-text-primary text-sm font-medium mb-1">Governance institutions remain fragmented by sector</p>
-                  <p className="text-text-secondary text-[13px] leading-[1.7]">Regulatory and diplomatic frameworks still operate within domain silos, leaving cross-domain risks systematically under-governed.</p>
+                  <p className="text-text-primary text-sm font-medium mb-1">Are governance institutions still fragmented by sector?</p>
+                  <p className="text-text-secondary text-[13px] leading-[1.7]">Regulatory and diplomatic frameworks largely operate within domain silos, which would leave cross-domain risks under-governed.</p>
                 </div>
               </div>
             </ScrollReveal>

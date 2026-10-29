@@ -5,7 +5,7 @@ import { LINK_BASES, type CrossDomainData, type LinkBasis } from "@/lib/crossdom
 import { buildIndex } from "./model";
 import NetworkView from "./NetworkView";
 import FollowView from "./FollowView";
-import GovernanceGaps from "./GovernanceGaps";
+import InstrumentCoverage from "./InstrumentCoverage";
 
 const DEFAULT_RECORD = "cyber:viasat-kasat";
 
@@ -26,8 +26,6 @@ export default function CrossDomainExplorer({ data }: { data: CrossDomainData })
   const [selected, setSelected] = useState(DEFAULT_RECORD);
   const [bases, setBases] = useState<Set<LinkBasis>>(new Set(LINK_BASES));
   const [pair, setPair] = useState<string | null>(null);
-  // Default view: direct links only. Contextual links are opt in.
-  const [includeContextual, setIncludeContextual] = useState(false);
 
   useEffect(() => {
     const r = new URLSearchParams(window.location.search).get("record");
@@ -62,9 +60,9 @@ export default function CrossDomainExplorer({ data }: { data: CrossDomainData })
       <section className="relative py-12 lg:py-16" aria-labelledby="map">
         <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
           <SectionHead id="map" eyebrow="View 1" title="Connection map">
-            Each dot is a record in one of the four platforms. A line is drawn only when the two records share a coded field. The map opens on direct links, where both records name the same incident or the same threat group. Contextual links, where records only share an acting state or an energy target and host state, can be switched on. Click a dot to follow that record, or select a cell in the matrix to show one pair of domains.
+            Each dot is a record in one of the four platforms. A line is drawn only where two records are about the same thing. One incident, the Viasat KA-SAT attack of February 2022, is recorded in two domains (cyber and orbital): that is the only same-event link. Five other cyber cases attributed to Sandworm link to the same orbital record because it names Sandworm too; they are the same intrusion set, not the same event. Shared states and infrastructure categories are not drawn as lines. Click a dot, or use the node list, to follow a record.
           </SectionHead>
-          <NetworkView data={data} idx={idx} selected={selected} onSelect={select} bases={bases} setBases={setBases} pair={pair} setPair={setPair} includeContextual={includeContextual} setIncludeContextual={setIncludeContextual} />
+          <NetworkView data={data} idx={idx} selected={selected} onSelect={select} bases={bases} setBases={setBases} pair={pair} setPair={setPair} />
         </div>
       </section>
 
@@ -75,7 +73,7 @@ export default function CrossDomainExplorer({ data }: { data: CrossDomainData })
       <section className="relative py-12 lg:py-16" aria-labelledby="follow">
         <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
           <SectionHead id="follow" eyebrow="View 2" title="Follow an incident">
-            Pick any record to see what it connects to in the other three datasets, and why. Direct links come first. Contextual links are collapsed below them. The default is the Viasat KA-SAT attack, which appears in both the cyber and the orbital data.
+            Pick any record to see its record links, and the states and infrastructure categories it shares with the other datasets. The default is the Viasat KA-SAT attack, the one incident recorded in both the cyber and the orbital data.
           </SectionHead>
           <FollowView data={data} idx={idx} selected={selected} onSelect={select} />
         </div>
@@ -85,12 +83,12 @@ export default function CrossDomainExplorer({ data }: { data: CrossDomainData })
         <div className="h-px bg-white/6" />
       </div>
 
-      <section className="relative py-12 lg:py-16" aria-labelledby="gaps">
+      <section className="relative py-12 lg:py-16" aria-labelledby="coverage">
         <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
-          <SectionHead id="gaps" eyebrow="View 3" title="Governance gaps">
-            For every junction between two domains (direct links by default), this view lists the legal and normative instruments each dataset associates with the records on either side. A flag means no instrument is referenced in the dataset. That is a statement about the coded data, not a legal finding that no rule applies.
+          <SectionHead id="coverage" eyebrow="View 3" title="Instrument coverage in the datasets">
+            For each record link, this view lists the legal and normative instruments each dataset associates with the records on either side. Orbital incident and nuclear plant records reference no instrument at record level: those datasets have no field for it. So a junction marked “no instrument referenced” mostly reflects the schema of the source dataset. It is not a legal finding that no rule applies, and not evidence of a governance gap.
           </SectionHead>
-          <GovernanceGaps data={data} idx={idx} onFollow={followAndScroll} includeContextual={includeContextual} setIncludeContextual={setIncludeContextual} />
+          <InstrumentCoverage data={data} idx={idx} onFollow={followAndScroll} />
         </div>
       </section>
     </>

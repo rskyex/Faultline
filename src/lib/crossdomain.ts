@@ -2,7 +2,7 @@
 // The snapshot itself is produced by scripts/build-crossdomain.mjs.
 
 import snapshot from "@/data/crossdomain.json";
-import type { Check, ContextEdge, CrossDomainData, Domain, EntityNode, LinkBasis, LinkEdge, RecordNode, AttrEdge, Tier } from "./crossdomainMeta";
+import type { Check, ContextEdge, CrossDomainData, Domain, EntityNode, Facet, LinkBasis, LinkEdge, RecordNode, AttrEdge, Tier } from "./crossdomainMeta";
 
 export * from "./crossdomainMeta";
 
@@ -69,6 +69,7 @@ export function getCrossDomainData(): CrossDomainData {
     nodes: RawNode[];
     edges: Record<string, unknown>[];
     stateContext: Record<string, unknown>[];
+    facets: Facet[];
     checks: Check[];
   };
 
@@ -123,7 +124,7 @@ export function getCrossDomainData(): CrossDomainData {
     text: c.basisText as string,
   }));
 
-  return { version: s.version, snapshotId: s.snapshotId, generated: s.generated, records, entities, attrs, links, context, checks: s.checks };
+  return { version: s.version, snapshotId: s.snapshotId, generated: s.generated, records, entities, attrs, links, context, facets: s.facets, checks: s.checks };
 }
 
 /** Full snapshot metadata for the methodology section (server only). */
@@ -133,7 +134,24 @@ export function getSnapshotMeta() {
     snapshotId: string;
     generated: string;
     generator: string;
-    sources: Record<Domain, { name: string; url: string; repo: string; commit: string | null; commitDate: string | null; files: string[]; records: number; recordTypes: Record<string, number> }>;
+    sources: Record<
+      Domain,
+      {
+        name: string;
+        url: string;
+        repo: string;
+        commit: string | null;
+        commitDate: string | null;
+        dataClean: boolean | null;
+        branch: string | null;
+        deployedBranch: string | null;
+        deployedBranchSource: string | null;
+        onDeployedBranch: boolean | null;
+        files: string[];
+        records: number;
+        recordTypes: Record<string, number>;
+      }
+    >;
     counts: {
       records: number;
       entities: number;
@@ -149,7 +167,12 @@ export function getSnapshotMeta() {
       illustrativeExcluded: number;
       orbitalIncidentsTotalInSource: number;
       stateContextEdges: number;
+      facets: number;
+      facetsByType: Record<string, number>;
+      actorsNotResolved: number;
     };
+    facetRule: string;
+    facets: Facet[];
     crosswalks: {
       states: { id: string; label: string; spellings: string[] }[];
       stateRule: string;

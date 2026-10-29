@@ -14,9 +14,9 @@ export default function CenterpieceSection() {
         <ScrollReveal>
           <div className="text-center mb-14">
             <p className="text-[11px] font-medium tracking-[0.25em] uppercase mb-3 text-orbital-500">Systems Convergence</p>
-            <h2 className="wordmark text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">Mapping the Fault Lines</h2>
+            <h2 className="wordmark text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">Where the Fault Lines Might Run</h2>
             <p className="mt-4 text-text-primary/70 text-sm max-w-lg mx-auto leading-relaxed">
-              Where orbital, nuclear, lunar governance, and cyber infrastructures intersect, strategic vulnerabilities accumulate.
+              Where orbital, nuclear, lunar governance and cyber infrastructures intersect, do strategic vulnerabilities accumulate? The diagram sketches the argument; the cross-domain layer shows what the data record.
             </p>
           </div>
         </ScrollReveal>
@@ -25,7 +25,7 @@ export default function CenterpieceSection() {
         <ScrollReveal delay={150} distance={16}>
           {/* Mobile */}
           <div className="block md:hidden">
-            <svg viewBox="0 0 400 400" fill="none" className="w-full max-w-[360px] mx-auto" role="img" aria-label="Cross-domain convergence diagram">
+            <svg viewBox="0 0 400 400" fill="none" className="w-full max-w-[360px] mx-auto" role="img" aria-label="Conceptual diagram of hypothesised cross-domain convergence, not drawn from the data">
               {/* Domain nodes */}
               <circle cx="200" cy="50" r="6" fill={C.orbital[500]} opacity="0.6" />
               <text x="200" y="32" textAnchor="middle" fill={C.orbital[500]} fontSize="9" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" letterSpacing="0.15em" opacity="0.7">ORBITAL</text>
@@ -56,7 +56,7 @@ export default function CenterpieceSection() {
 
           {/* Desktop */}
           <div className="hidden md:block">
-            <svg viewBox="0 0 1000 600" fill="none" className="w-full max-w-[1000px] mx-auto" role="img" aria-label="Cross-domain systems convergence map">
+            <svg viewBox="0 0 1000 600" fill="none" className="w-full max-w-[1000px] mx-auto" role="img" aria-label="Conceptual diagram of hypothesised cross-domain risk pathways, not drawn from the data">
               <defs>
                 <radialGradient id="cp-glow" cx="0.5" cy="0.5" r="0.45">
                   <stop offset="0%" stopColor={C.orbital[500]} stopOpacity="0.03" />
@@ -125,15 +125,15 @@ export default function CenterpieceSection() {
               <circle cx="500" cy="300" r="4" fill={C.text.secondary} opacity="0.5" className="animate-gentle-pulse" style={{ transformOrigin: '500px 300px' }} />
 
               {/* Labels */}
-              <text x="420" y="258" fill={C.text.muted} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.4" transform="rotate(-50 420 258)" letterSpacing="0.1em">ESCALATION PATHWAY</text>
-              <text x="350" y="350" fill={C.text.muted} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.35" letterSpacing="0.1em">DEPENDENCIES</text>
-              <text x="570" y="350" fill={C.text.muted} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.3" letterSpacing="0.1em">GOVERNANCE GAPS</text>
-              <text x="440" y="400" fill={C.text.muted} fontSize="7.5" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.3" letterSpacing="0.08em">INFRASTRUCTURAL COUPLING</text>
+              <text x="420" y="258" fill={C.text.muted} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.4" transform="rotate(-50 420 258)" letterSpacing="0.1em">ESCALATION PATHWAY?</text>
+              <text x="350" y="350" fill={C.text.muted} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.35" letterSpacing="0.1em">DEPENDENCIES?</text>
+              <text x="570" y="350" fill={C.text.muted} fontSize="8" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.3" letterSpacing="0.1em">GOVERNANCE GAPS?</text>
+              <text x="440" y="400" fill={C.text.muted} fontSize="7.5" fontFamily="Barlow Condensed, sans-serif" fontWeight="600" opacity="0.3" letterSpacing="0.08em">INFRASTRUCTURAL COUPLING?</text>
             </svg>
           </div>
 
           <p className="text-center text-text-secondary text-[11px] mt-6 tracking-[0.08em]">
-            Structural convergence of cross-domain risk pathways and governance fault lines
+            Conceptual diagram of hypothesised risk pathways and governance fault lines; not derived from the data
           </p>
         </ScrollReveal>
       </div>

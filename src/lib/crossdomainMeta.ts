@@ -10,35 +10,44 @@ export const DOMAIN_META: Record<Domain, { label: string; platform: string; colo
   nuclear: { label: "Nuclear", platform: "Global Nuclear Infrastructure Atlas", color: "#2dd4bf", textClass: "text-nuclear-400" },
 };
 
-export const LINK_BASES = [
-  "same_incident",
-  "same_threat_group",
-  "same_attributed_state",
-  "energy_target_host_state",
-  "shared_instrument",
-] as const;
+export const LINK_BASES = ["same_event", "same_intrusion_set"] as const;
 export type LinkBasis = (typeof LINK_BASES)[number];
 
-export type Tier = "direct" | "contextual";
-export const TIERS: Tier[] = ["direct", "contextual"];
+export type Tier = "same-event" | "same-intrusion-set";
+export const TIERS: Tier[] = ["same-event", "same-intrusion-set"];
 
 export const TIER_META: Record<Tier, { label: string; explain: string }> = {
-  direct: {
-    label: "Direct",
-    explain: "Record-level evidence: the same named incident or the same named threat group appears in both records.",
+  "same-event": {
+    label: "Same event",
+    explain: "One incident recorded in two datasets: the cyber case name appears in the orbital incident title and both give the same year.",
   },
-  contextual: {
-    label: "Contextual",
-    explain: "Shared context, not evidence: the records name the same acting state, pair an energy sector target with the state that hosts a plant, or cite the same instrument.",
+  "same-intrusion-set": {
+    label: "Same intrusion set",
+    explain: "Both records name the same intrusion set (threat group). They can be different operations by that group.",
   },
 };
 
 export const BASIS_META: Record<LinkBasis, { label: string; short: string; color: string; tier: Tier }> = {
-  same_incident: { label: "Same named incident in two datasets", short: "Same incident", color: "#f472b6", tier: "direct" },
-  same_threat_group: { label: "Same named threat group", short: "Same threat group", color: "#fb923c", tier: "direct" },
-  same_attributed_state: { label: "Same state named as actor", short: "Same acting state", color: "#94a3b8", tier: "contextual" },
-  energy_target_host_state: { label: "Energy sector target in a state that hosts the plant", short: "Energy target, host state", color: "#34d399", tier: "contextual" },
-  shared_instrument: { label: "Same instrument referenced by both records", short: "Shared instrument", color: "#facc15", tier: "contextual" },
+  same_event: { label: "Same incident recorded in two datasets", short: "Same event", color: "#f472b6", tier: "same-event" },
+  same_intrusion_set: { label: "Same intrusion set named in both records", short: "Same intrusion set", color: "#fb923c", tier: "same-intrusion-set" },
+};
+
+/** Role of a record towards a shared state or infrastructure category. */
+export type FacetRole = "actor" | "target" | "host" | "profiled" | "category";
+export const ROLE_META: Record<FacetRole, { one: string; many: string }> = {
+  actor: { one: "record names it as the actor", many: "records name it as the actor" },
+  target: { one: "record lists it as a target country", many: "records list it as a target country" },
+  host: { one: "plant is hosted there", many: "plants are hosted there" },
+  profiled: { one: "country profile: state profiled in lunar data", many: "country profiles: state profiled in lunar data" },
+  category: { one: "record in this category", many: "records in this category" },
+};
+
+export type Facet = {
+  entity: string;
+  type: "state" | "sector";
+  label: string;
+  domains: Domain[];
+  byDomain: Partial<Record<Domain, Partial<Record<FacetRole, string[]>>>>;
 };
 
 export type RecordNode = {
@@ -97,6 +106,7 @@ export type CrossDomainData = {
   attrs: AttrEdge[];
   links: LinkEdge[];
   context: ContextEdge[];
+  facets: Facet[];
   checks: Check[];
 };
 

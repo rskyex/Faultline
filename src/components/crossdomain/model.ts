@@ -1,4 +1,4 @@
-import type { AttrEdge, ContextEdge, CrossDomainData, Domain, EntityNode, LinkEdge, RecordNode } from "@/lib/crossdomainMeta";
+import type { AttrEdge, ContextEdge, CrossDomainData, Domain, EntityNode, Facet, LinkEdge, RecordNode } from "@/lib/crossdomainMeta";
 
 export type InstrumentRef = { id: string; label: string; details: string[] };
 export type ContextRef = { id: string; label: string; status: string; state: string; text: string };
@@ -10,6 +10,8 @@ export type Index = {
   linksByRecord: Map<string, LinkEdge[]>;
   attrsByRecord: Map<string, AttrEdge[]>;
   contextByState: Map<string, ContextEdge[]>;
+  /** Facets (states, categories in two or more datasets) each record belongs to. */
+  facetsByRecord: Map<string, Facet[]>;
 };
 
 export function buildIndex(data: CrossDomainData): Index {
@@ -32,7 +34,18 @@ export function buildIndex(data: CrossDomainData): Index {
     if (!contextByState.has(c.state)) contextByState.set(c.state, []);
     contextByState.get(c.state)!.push(c);
   }
-  return { records, entities, linksByRecord, attrsByRecord, contextByState };
+  const facetsByRecord = new Map<string, Facet[]>();
+  for (const f of data.facets) {
+    for (const roles of Object.values(f.byDomain)) {
+      for (const ids of Object.values(roles ?? {})) {
+        for (const id of ids ?? []) {
+          if (!facetsByRecord.has(id)) facetsByRecord.set(id, []);
+          if (!facetsByRecord.get(id)!.includes(f)) facetsByRecord.get(id)!.push(f);
+        }
+      }
+    }
+  }
+  return { records, entities, linksByRecord, attrsByRecord, contextByState, facetsByRecord };
 }
 
 export const otherEnd = (l: LinkEdge, id: string) => (l.s === id ? l.t : l.s);
@@ -100,3 +113,8 @@ export const RECORD_TYPE_LABEL: Record<string, string> = {
   "country-profile": "Country profile",
   "infrastructure-link": "Infrastructure link",
 };
+
+/** Number of records a facet lists for one domain, across roles. */
+export function facetCount(f: Facet, d: Domain): number {
+  return new Set(Object.values(f.byDomain[d] ?? {}).flat()).size;
+}

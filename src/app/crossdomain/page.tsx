@@ -7,20 +7,14 @@ import { BASIS_META, DOMAIN_META, DOMAINS, LINK_BASES, TIER_META, TIERS, getCros
 export const metadata: Metadata = {
   title: "Cross-Domain Layer · Faultline",
   description:
-    "Links between records in the cyber, orbital, nuclear and lunar governance datasets, each with the field it comes from. Includes a record follower, a governance gap view, the method, and the data snapshot.",
+    "Links between records in the cyber, orbital, nuclear and lunar governance datasets, each with the field it comes from. Includes a record follower, an instrument coverage view, the method, and the data snapshot.",
 };
 
 const BASIS_RULES: Record<string, string> = {
-  same_incident:
+  same_event:
     "Cyber case and orbital incident. The cyber case name or short name appears as whole words in the orbital incident title, and both records give the same year. Matching malware names in the orbital title or tags are noted when present.",
-  same_threat_group:
-    "Cyber case and orbital incident. A group name listed in the cyber case attribution aliases (four characters or longer) appears as a whole word in the orbital incident actor field.",
-  same_attributed_state:
-    "Any two of: cyber case attribution.country, orbital incident actor, lunar country profile name. Both resolve to the same state through the state crosswalk. Parentheticals are removed first, so an orbital actor of “Russia (GRU Sandworm)” resolves to Russia, while “Unknown (attributed: China)” resolves to nothing.",
-  energy_target_host_state:
-    "Cyber case and nuclear plant. The cyber case lists energy in targetSectors and lists the plant’s host country in targetCountries. The nuclear atlas digital I&C and critical infrastructure overlap flags for the plant are reported in the basis text but do not create links on their own.",
-  shared_instrument:
-    "Two records in different domains reference the same canonical instrument at record level. The current data produce no such pair: cyber records reference cyber law and norms, lunar records reference space law documents, and orbital incident and nuclear plant records reference no instrument directly.",
+  same_intrusion_set:
+    "Cyber case and orbital incident. A group name listed in the cyber case attribution aliases (four characters or longer) appears as a whole word in the orbital incident actor field. The two records can describe different operations by the same group.",
 };
 
 function fmt(n: number) {
@@ -65,6 +59,9 @@ export default function CrossDomainPage() {
             <p className="mt-5 text-sm md:text-base leading-[1.75] text-text-secondary max-w-3xl">
               This page reads the records of the four Faultline platforms side by side and shows where they connect. Every link comes from a field that already exists in the source data, and every link states its basis. Nothing here is added by hand.
             </p>
+            <p className="mt-3 text-sm md:text-base leading-[1.75] text-text-primary/85 max-w-3xl">
+              In plain terms: one incident, the Viasat KA-SAT attack, is recorded in two domains (cyber and orbital). Five more cyber cases connect to that orbital record only because both name the Sandworm intrusion set. Everything else the datasets share is a state or an infrastructure category that both include, shown as facets rather than links.
+            </p>
 
             <dl className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/6 border border-white/6 max-w-4xl">
               {DOMAINS.map((d: Domain) => (
@@ -77,17 +74,24 @@ export default function CrossDomainPage() {
                 </div>
               ))}
               <div className="bg-surface p-4">
-                <dt className="text-[10px] tracking-[0.18em] uppercase text-orbital-400">Direct links</dt>
+                <dt className="text-[10px] tracking-[0.18em] uppercase text-orbital-400">Same event</dt>
                 <dd className="mt-1">
-                  <span className="font-mono-data text-xl text-text-primary">{fmt(c.linksByTier.direct)}</span>
-                  <span className="block text-[11px] text-text-secondary mt-0.5">same incident or threat group</span>
+                  <span className="font-mono-data text-xl text-text-primary">{fmt(c.linksByTier["same-event"])}</span>
+                  <span className="block text-[11px] text-text-secondary mt-0.5">one incident in two datasets</span>
                 </dd>
               </div>
               <div className="bg-surface p-4">
-                <dt className="text-[10px] tracking-[0.18em] uppercase text-text-secondary">Contextual links</dt>
+                <dt className="text-[10px] tracking-[0.18em] uppercase text-orbital-400">Same intrusion set</dt>
                 <dd className="mt-1">
-                  <span className="font-mono-data text-xl text-text-primary">{fmt(c.linksByTier.contextual)}</span>
-                  <span className="block text-[11px] text-text-secondary mt-0.5">shared context only</span>
+                  <span className="font-mono-data text-xl text-text-primary">{fmt(c.linksByTier["same-intrusion-set"])}</span>
+                  <span className="block text-[11px] text-text-secondary mt-0.5">same threat group named</span>
+                </dd>
+              </div>
+              <div className="bg-surface p-4">
+                <dt className="text-[10px] tracking-[0.18em] uppercase text-text-secondary">Shared entities</dt>
+                <dd className="mt-1">
+                  <span className="font-mono-data text-xl text-text-primary">{fmt(c.facets)}</span>
+                  <span className="block text-[11px] text-text-secondary mt-0.5">states and categories in two or more datasets</span>
                 </dd>
               </div>
               <div className="bg-surface p-4">
@@ -106,7 +110,7 @@ export default function CrossDomainPage() {
               {[
                 ["#map", "Connection map"],
                 ["#follow", "Follow an incident"],
-                ["#gaps", "Governance gaps"],
+                ["#coverage", "Instrument coverage"],
                 ["#method", "Method and limits"],
                 ["#download", "Download"],
               ].map(([href, label]) => (
@@ -144,7 +148,7 @@ export default function CrossDomainPage() {
                 </p>
 
                 <div>
-                  <h3 className="text-[11px] font-medium tracking-[0.2em] uppercase text-text-secondary mb-3 font-[family-name:var(--font-body)]">Link strength tiers</h3>
+                  <h3 className="text-[11px] font-medium tracking-[0.2em] uppercase text-text-secondary mb-3 font-[family-name:var(--font-body)]">Link types</h3>
                   <ul className="space-y-2 text-[13px]">
                     {TIERS.map((t) => (
                       <li key={t}>
@@ -156,7 +160,14 @@ export default function CrossDomainPage() {
                     ))}
                   </ul>
                   <p className="text-[13px] text-text-secondary mt-2">
-                    A link is direct when at least one of its bases is direct; otherwise it is contextual. Contextual links are hidden by default on this page. They are kept because shared actors and shared exposure are part of the cross-domain picture, but they say only that two records sit in the same context. For example, a cyber case that targeted the French energy sector is contextually linked to every French nuclear plant in the atlas; the data do not say any of those plants was affected.
+                    Pairwise links are kept only where two records are about the same incident or name the same intrusion set. Earlier versions of this snapshot also linked every pair of records that named the same acting state, and every energy-sector cyber case to every nuclear plant in a listed target country. Those links said only that two records sit in the same context, and the energy pairing read more into the data than it holds: the cyber atlas lists target sectors and target countries separately, so a case listing energy and Germany does not say it targeted the German energy sector.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-[11px] font-medium tracking-[0.2em] uppercase text-text-secondary mb-3 font-[family-name:var(--font-body)]">Shared states and categories (facets)</h3>
+                  <p className="text-[13px] text-text-secondary">
+                    {meta.facetRule} The snapshot has {fmt(c.facets)} facets ({c.facetsByType.state ?? 0} states, {c.facetsByType.sector ?? 0} infrastructure categories). A state counts for an actor field only when the record&apos;s attribution confidence is high or confirmed and no qualifier says the actor is criminal, individuals or otherwise not the state ({c.actorsNotResolved} actor fields are left unresolved for these reasons; they are listed in the dataset checks). Lunar country profiles count as &ldquo;state profiled in lunar data&rdquo;: a profile is not an actor in an event.
                   </p>
                 </div>
 
@@ -173,7 +184,7 @@ export default function CrossDomainPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="text-[12.5px] text-text-secondary mt-3">One pair of records can have more than one basis, so the counts above add up to more than the {fmt(c.links)} links.</p>
+                  <p className="text-[12.5px] text-text-secondary mt-3">One pair of records can have both bases (Viasat), so the counts above add up to more than the {fmt(c.links)} links.</p>
                 </div>
 
                 <div>
@@ -185,7 +196,7 @@ export default function CrossDomainPage() {
                     <li>Nuclear: plant records name no instrument. The country governance table gives host state treaty obligations as state level context.</li>
                   </ul>
                   <p className="text-[13px] text-text-secondary mt-2">
-                    State level context is shown separately from record level references and is never presented as a record level citation.
+                    State level context is shown separately from record level references and is never presented as a record level citation. Because two of the four datasets have no record-level instrument field, the instrument coverage view reflects the schemas as much as the records.
                   </p>
                 </div>
 
@@ -216,8 +227,13 @@ export default function CrossDomainPage() {
                               .join(", ")}
                           </p>
                           <p className="font-mono-data text-[11px] text-text-muted break-all">
-                            {s.repo} @ {s.commit ? s.commit.slice(0, 7) : "unknown"} ({s.commitDate})
+                            {s.repo} @ {s.branch ?? "unknown branch"} {s.commit ? s.commit.slice(0, 7) : "unknown"} ({s.commitDate})
                           </p>
+                          {s.onDeployedBranch === false && (
+                            <p className="text-[11.5px] text-cyber-400 leading-relaxed">
+                              Not the deployed branch. Record links open {s.url}, built from {s.deployedBranch}; those pages can differ from this snapshot.
+                            </p>
+                          )}
                         </li>
                       );
                     })}
@@ -295,7 +311,7 @@ export default function CrossDomainPage() {
               Download the snapshot
             </h2>
             <p className="text-[13.5px] text-text-primary/75 leading-relaxed max-w-3xl mb-5">
-              One JSON file with every record, shared entity, link and basis shown on this page, plus the crosswalk tables, source commits, dataset checks and the excluded fictional records. It holds {fmt(c.nodes)} nodes ({fmt(c.records)} records and {fmt(c.entities)} shared entities), {fmt(c.attributeEdges)} record to entity edges and {fmt(c.links)} record links ({fmt(c.linksByTier.direct)} direct, {fmt(c.linksByTier.contextual)} contextual). Each link carries a <code className="font-mono-data text-text-primary">tier</code> field.
+              One JSON file with every record, shared entity, link, facet and basis shown on this page, plus the crosswalk tables, source branches and commits, dataset checks and the excluded fictional records. It holds {fmt(c.nodes)} nodes ({fmt(c.records)} records and {fmt(c.entities)} shared entities), {fmt(c.attributeEdges)} record to entity edges, {fmt(c.links)} record links ({fmt(c.linksByTier["same-event"])} same event, {fmt(c.linksByTier["same-intrusion-set"])} same intrusion set) and {fmt(c.facets)} facets. Each link carries a <code className="font-mono-data text-text-primary">tier</code> field.
             </p>
             <a
               href="/data/crossdomain.json"

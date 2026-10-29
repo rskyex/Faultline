@@ -35,8 +35,8 @@ const argVal = (flag) => {
 const REPOS = path.resolve(argVal("--repos") ?? path.join(ROOT, ".."));
 const GENERATED = argVal("--date") ?? new Date().toISOString().slice(0, 10);
 
-const SNAPSHOT_VERSION = "1.1.0";
-const SCHEMA_VERSION = 1;
+const SNAPSHOT_VERSION = "2.0.0";
+const SCHEMA_VERSION = 2;
 
 const SOURCES = {
   cyber: {
@@ -90,15 +90,26 @@ const uniq = (arr) => [...new Set(arr)];
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 function gitInfo(repoDir) {
+  const run = (cmd) => execSync(cmd, { cwd: repoDir, stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
   try {
-    const commit = execSync("git rev-parse HEAD", { cwd: repoDir }).toString().trim();
-    const date = execSync("git log -1 --format=%cs", { cwd: repoDir }).toString().trim();
+    const commit = run("git rev-parse HEAD");
+    const date = run("git log -1 --format=%cs");
     // True when the data directory has no uncommitted changes, so the commit
     // hash fully describes what was read.
-    const dirty = execSync("git status --porcelain -- src/data", { cwd: repoDir }).toString().trim();
-    return { commit, commitDate: date, dataClean: dirty === "" };
+    const dirty = run("git status --porcelain -- src/data");
+    const branch = run("git branch --show-current") || null;
+    // The production site is built from the repository's default branch, read
+    // here from origin/HEAD. It can be wrong if the Vercel project was set to
+    // another branch, so the snapshot names where the value came from.
+    let deployedBranch = null;
+    try {
+      deployedBranch = run("git symbolic-ref --short refs/remotes/origin/HEAD").replace(/^origin\//, "");
+    } catch {
+      deployedBranch = null;
+    }
+    return { commit, commitDate: date, dataClean: dirty === "", branch, deployedBranch, deployedBranchSource: "origin/HEAD (default branch)" };
   } catch {
-    return { commit: null, commitDate: null, dataClean: null };
+    return { commit: null, commitDate: null, dataClean: null, branch: null, deployedBranch: null, deployedBranchSource: null };
   }
 }
 
@@ -146,6 +157,15 @@ for (const [id, label, spellings] of STATES) {
 }
 const stripParens = (s) => String(s).replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
 
+// A qualifier that says the actor is not the state ("criminal, not directly
+// state-sponsored", "individuals; not state-sponsored") blocks state
+// resolution: removing it would turn a criminal group into a state actor.
+const NON_STATE_QUALIFIER = /\b(criminal|non-state|not (?:directly |officially )?state|individuals?|hacktivists?|private|patriotic hackers?)\b/i;
+const qualifiersOf = (s) => [...String(s).matchAll(/\(([^)]*)\)/g)].map((m) => m[1].trim());
+// State links need at least this attribution confidence on the record.
+const STATE_CONFIDENCE = new Set(["confirmed", "high"]);
+const unresolvedActors = []; // { record, value, reason }
+
 /** Exact lookup; nuclear and lunar country names not in STATES are added on the fly. */
 function stateOf(value, { allowNew = false } = {}) {
   const key = String(value).trim().toLowerCase();
@@ -159,8 +179,12 @@ function stateOf(value, { allowNew = false } = {}) {
   return null;
 }
 
-/** "Russia (GRU Sandworm)" -> [Russia]; "United States / Israel" -> [US, Israel]. */
+/**
+ * "Russia (GRU Sandworm)" -> [Russia]; "United States / Israel" -> [US, Israel];
+ * "Russia (criminal, not directly state-sponsored ...)" -> [] (non-state qualifier).
+ */
 function statesInActorField(raw) {
+  if (qualifiersOf(raw).some((q) => NON_STATE_QUALIFIER.test(q))) return [];
   const stripped = stripParens(raw);
   const parts = stripped.split("/").map((p) => p.trim()).filter(Boolean);
   const out = [];
@@ -490,9 +514,24 @@ for (const l of lunarInfra) {
 // Attribute edges: states
 // ---------------------------------------------------------------------------
 
+/** States an actor field resolves to, or [] with the reason recorded. */
+function actorStates(recordId, value, confidence) {
+  const states = statesInActorField(value);
+  if (!states.length) {
+    if (qualifiersOf(value).some((q) => NON_STATE_QUALIFIER.test(q)))
+      unresolvedActors.push({ record: recordId, value, reason: "qualifier says the actor is not the state" });
+    return [];
+  }
+  if (!STATE_CONFIDENCE.has(String(confidence).toLowerCase())) {
+    unresolvedActors.push({ record: recordId, value, reason: `attribution confidence "${confidence}" is below high` });
+    return [];
+  }
+  return states;
+}
+
 for (const c of cyberIncidents) {
   const rid = `cyber:${c.slug}`;
-  for (const st of statesInActorField(c.attribution.country)) {
+  for (const st of actorStates(rid, c.attribution.country, c.attribution.confidence)) {
     addAttr(rid, ensureState(st), "attributed_state", `Cyber case field attribution.country reads "${c.attribution.country}".`, {
       role: "attributed",
       confidence: c.attribution.confidence,
@@ -506,7 +545,7 @@ for (const c of cyberIncidents) {
 }
 for (const o of orbitalReal) {
   const rid = `orbital:${o.id}`;
-  for (const st of statesInActorField(o.actor)) {
+  for (const st of actorStates(rid, o.actor, o.confidence)) {
     addAttr(rid, ensureState(st), "attributed_state", `Orbital incident field actor reads "${o.actor}".`, { role: "attributed", confidence: o.confidence, raw: `orbital actor "${o.actor}"` });
   }
 }
@@ -516,7 +555,7 @@ for (const p of nuclearPlants) {
 }
 for (const c of lunarCountries) {
   const st = stateOf(c.name, { allowNew: true });
-  addAttr(`lunar:country-${c.id}`, ensureState(st), "profiled_state", `Lunar country profile name reads "${c.name}".`, { role: "profiled", raw: `lunar country profile "${c.name}"` });
+  addAttr(`lunar:country-${c.id}`, ensureState(st), "profiled_state", `State profiled in lunar data: the lunar atlas has a country authority profile for "${c.name}". A profile is not an actor in an event.`, { role: "profiled", raw: `lunar country profile "${c.name}"` });
 }
 
 // ---------------------------------------------------------------------------
@@ -688,33 +727,27 @@ for (const ce of contextEdges) ensureState({ id: ce.state.slice(6), label: nodes
 // Cross-domain record links
 // ---------------------------------------------------------------------------
 
-// Link strength tiers.
-//   direct: record-level evidence that the two records concern the same event
-//           or the same named actor (same incident, same threat group).
-//   contextual: the records share context only (an acting state, an energy
-//           target and host state, or an instrument both cite). Shared context
-//           is not evidence that the records are about the same thing.
+// Link tiers. Pairwise record links are kept only where two records are about
+// the same thing:
+//   same-event: the same incident is recorded in two datasets.
+//   same-intrusion-set: the records name the same intrusion set (threat group).
+// Shared states, sectors and instruments are not pairwise links. They are
+// reported as entity facets ("both datasets include Russia: n and m records").
 const TIER_OF_BASIS = {
-  same_incident: "direct",
-  same_threat_group: "direct",
-  same_attributed_state: "contextual",
-  energy_target_host_state: "contextual",
-  shared_instrument: "contextual",
+  same_event: "same-event",
+  same_intrusion_set: "same-intrusion-set",
 };
 const TIERS = {
-  direct: "Record-level evidence: the same named incident or the same named threat group appears in both records.",
-  contextual: "Shared context only: the records name the same acting state, pair an energy sector target with a host state, or cite the same instrument. Not evidence that they concern the same event.",
+  "same-event": "The same incident is recorded in both datasets: the cyber case name appears in the orbital incident title and both give the same year.",
+  "same-intrusion-set": "The records name the same intrusion set: a group name from the cyber case aliases appears in the orbital actor field. They may be different operations by the same group.",
 };
 
 const BASIS = {
-  same_incident: "Same named incident in two datasets",
-  same_threat_group: "Same named threat group",
-  same_attributed_state: "Same state named as actor",
-  energy_target_host_state: "Energy-sector cyber target and nuclear host state are the same",
-  shared_instrument: "Same instrument referenced at record level",
+  same_event: "Same incident recorded in two datasets",
+  same_intrusion_set: "Same intrusion set named in both records",
 };
 
-// L1 same incident: cyber name/shortName appears in orbital title, same year.
+// L1 same event: cyber name/shortName appears in orbital title, same year.
 const sameIncidentPairs = [];
 for (const c of cyberIncidents) {
   for (const o of orbitalReal) {
@@ -723,8 +756,8 @@ for (const c of cyberIncidents) {
     const hit = names.find((n) => new RegExp(`\\b${escapeRe(norm(n))}\\b`).test(t));
     if (hit && c.year === o.year) {
       const mal = (c.infrastructure.malwareFamilies ?? []).filter((m) => new RegExp(`\\b${escapeRe(m)}\\b`, "i").test(`${o.title} ${(o.tags ?? []).join(" ")} ${o.subtype}`));
-      addLink(`cyber:${c.slug}`, `orbital:${o.id}`, "same_incident",
-        `Cyber case "${c.name}" and orbital incident "${o.title}" share the name "${hit}" and the year ${c.year}.` +
+      addLink(`cyber:${c.slug}`, `orbital:${o.id}`, "same_event",
+        `One incident recorded in two datasets: cyber case "${c.name}" and orbital incident "${o.title}" share the name "${hit}" and the year ${c.year}.` +
           (mal.length ? ` The orbital record also names the malware ${mal.join(", ")}, listed in the cyber case malwareFamilies.` : ""),
         { via: "name" });
       sameIncidentPairs.push({ c, o });
@@ -732,75 +765,18 @@ for (const c of cyberIncidents) {
   }
 }
 
-// L2 same threat group: a cyber alias appears as a whole word in the orbital actor field.
+// L2 same intrusion set: a cyber alias appears as a whole word in the orbital actor field.
 for (const c of cyberIncidents) {
   for (const o of orbitalReal) {
     for (const alias of c.attribution.aliases ?? []) {
       if (alias.length < 4) continue;
       if (new RegExp(`\\b${escapeRe(alias)}\\b`, "i").test(o.actor)) {
-        addLink(`cyber:${c.slug}`, `orbital:${o.id}`, "same_threat_group",
+        addLink(`cyber:${c.slug}`, `orbital:${o.id}`, "same_intrusion_set",
           `Orbital actor field "${o.actor}" names ${alias}, which is listed in the cyber case attribution aliases.`,
           { via: `alias:${slug(alias)}` });
       }
     }
   }
-}
-
-// L3 same attributed / profiled state across cyber, orbital and lunar country profiles.
-const actorStateEdges = edges.filter((e) => e.kind === "attribute" && (e.basis === "attributed_state" || e.basis === "profiled_state"));
-const byState = new Map();
-for (const e of actorStateEdges) {
-  if (!byState.has(e.target)) byState.set(e.target, []);
-  byState.get(e.target).push(e);
-}
-for (const [stateId, list] of byState) {
-  for (let i = 0; i < list.length; i++) {
-    for (let j = i + 1; j < list.length; j++) {
-      const a = list[i], b = list[j];
-      const da = nodes.get(a.source).domain, db = nodes.get(b.source).domain;
-      if (da === db) continue;
-      const label = nodes.get(stateId).label;
-      addLink(a.source, b.source, "same_attributed_state",
-        `Both records name ${label} as the acting state (${a.raw}; ${b.raw}).`,
-        { via: stateId });
-    }
-  }
-}
-
-// L4 cyber case targets energy in state X, nuclear plant hosted in X.
-for (const c of cyberIncidents) {
-  if (!c.infrastructure.targetSectors.includes("energy")) continue;
-  for (const tc of c.infrastructure.targetCountries) {
-    const st = stateOf(tc);
-    if (!st) continue;
-    for (const p of nuclearPlants) {
-      if (stateOf(p.country)?.id !== st.id) continue;
-      const flags = [];
-      if (p.digital_i_and_c) flags.push("the nuclear atlas codes this plant with digital I&C");
-      if (p.reported_cyber_incident) flags.push("the nuclear atlas records a reported cyber incident at this plant");
-      flags.push(p.critical_infrastructure_overlap
-        ? "the nuclear atlas sets critical_infrastructure_overlap = true for this host state"
-        : "the nuclear atlas sets critical_infrastructure_overlap = false for this host state");
-      addLink(`cyber:${c.slug}`, `nuclear:${p.id}`, "energy_target_host_state",
-        `Cyber case targets the energy sector in ${st.label} (targetSectors, targetCountries); the plant is hosted in ${st.label}. Also: ${flags.join("; ")}.`,
-        { via: `state:${st.id}`, digitalIandC: !!p.digital_i_and_c, plantStatus: p.status });
-    }
-  }
-}
-
-// L5 same instrument referenced at record level by two domains.
-const instByRecord = new Map();
-for (const e of edges) {
-  if (e.basis !== "instrument_referenced") continue;
-  if (!instByRecord.has(e.target)) instByRecord.set(e.target, []);
-  instByRecord.get(e.target).push(e.source);
-}
-for (const [instId, recs] of instByRecord) {
-  for (let i = 0; i < recs.length; i++)
-    for (let j = i + 1; j < recs.length; j++) {
-      if (nodes.get(recs[i]).domain === nodes.get(recs[j]).domain) continue;
-      addLink(recs[i], recs[j], "shared_instrument", `Both records reference ${nodes.get(instId).label}.`, { via: instId });
-    }
 }
 
 // Finalise link ids and push into edges.
@@ -809,12 +785,42 @@ links.forEach((l, i) => {
   l.id = `l${i + 1}`;
   l.basis = l.bases.map((b) => b.basis).sort((x, y) => Object.keys(BASIS).indexOf(x) - Object.keys(BASIS).indexOf(y))[0];
   for (const b of l.bases) b.tier = TIER_OF_BASIS[b.basis];
-  l.tier = l.bases.some((b) => b.tier === "direct") ? "direct" : "contextual";
+  l.tier = l.bases.some((b) => b.tier === "same-event") ? "same-event" : "same-intrusion-set";
   edges.push(l);
 });
 
 // Instrument nodes into graph
 for (const inst of instrumentNodes.values()) addNode(inst);
+
+// ---------------------------------------------------------------------------
+// Entity facets: states and infrastructure categories that appear in two or
+// more datasets, with the records in each dataset and the role they play.
+// These replace pairwise "same state" and "energy target / host state" links:
+// two records naming Russia are not evidence about each other.
+// ---------------------------------------------------------------------------
+
+const ROLE_OF_BASIS = {
+  attributed_state: "actor",
+  target_state: "target",
+  host_state: "host",
+  profiled_state: "profiled",
+  infrastructure_category: "category",
+};
+const facets = [];
+for (const ent of [...nodes.values()].filter((n) => n.kind === "entity" && (n.type === "state" || n.type === "sector"))) {
+  const byDomain = {};
+  for (const e of edges) {
+    if (e.kind !== "attribute" || e.target !== ent.id || !ROLE_OF_BASIS[e.basis]) continue;
+    const d = nodes.get(e.source).domain;
+    const role = ROLE_OF_BASIS[e.basis];
+    byDomain[d] ??= {};
+    (byDomain[d][role] ??= []).push(e.source);
+  }
+  const domains = Object.keys(byDomain).sort();
+  if (domains.length < 2) continue;
+  facets.push({ entity: ent.id, type: ent.type, label: ent.label, domains, byDomain });
+}
+facets.sort((a, b) => b.domains.length - a.domains.length || a.label.localeCompare(b.label));
 
 // ---------------------------------------------------------------------------
 // Dataset checks: cross-dataset discrepancies found while building. Reported,
@@ -855,6 +861,29 @@ for (const { c, o } of sameIncidentPairs) {
     records: [`cyber:${c.slug}`, `orbital:${o.id}`],
   });
 }
+
+// Source branches: the snapshot links records to the production sites, which
+// are built from each repository's default branch.
+for (const [k, m] of Object.entries(sourceMeta)) {
+  if (m.branch && m.deployedBranch && m.branch !== m.deployedBranch)
+    checks.push({
+      id: `source-branch-${k}`,
+      severity: "warning",
+      title: `${m.name} was read from branch ${m.branch}, not the deployed branch`,
+      detail: `The snapshot read ${m.repo} at ${m.branch} (${String(m.commit).slice(0, 7)}). The production site ${m.url}, which record links open, is built from ${m.deployedBranch}. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.`,
+      records: [],
+    });
+  if (m.dataClean === false)
+    checks.push({ id: `source-dirty-${k}`, severity: "warning", title: `${m.name} had uncommitted data changes when read`, detail: `src/data in ${m.repo} differed from commit ${String(m.commit).slice(0, 7)}.`, records: [] });
+}
+if (unresolvedActors.length)
+  checks.push({
+    id: "actor-state-not-resolved",
+    severity: "info",
+    title: "Actor fields not resolved to a state",
+    detail: `${unresolvedActors.length} records name a state in the actor field but are not linked to it: ${unresolvedActors.map((u) => `${u.record} ("${u.value}": ${u.reason})`).join("; ")}.`,
+    records: unresolvedActors.map((u) => u.record),
+  });
 
 // Nuclear overlay tables that name plant ids absent from commercialPlants.js.
 // Newer versions export every lookup table as facilityLookups; older ones are
@@ -1051,11 +1080,11 @@ const attrEdges = edges.filter((e) => e.kind === "attribute");
 const linkBasisCounts = {};
 for (const l of linkEdges) for (const b of uniq(l.bases.map((x) => x.basis))) linkBasisCounts[b] = (linkBasisCounts[b] ?? 0) + 1;
 const domainPairCounts = countBy(linkEdges, (l) => l.domains.join("-"));
-const tierCounts = { direct: 0, contextual: 0, ...countBy(linkEdges, (l) => l.tier) };
+const tierCounts = { "same-event": 0, "same-intrusion-set": 0, ...countBy(linkEdges, (l) => l.tier) };
 const tierByPair = {};
 for (const l of linkEdges) {
   const k = l.domains.join("-");
-  tierByPair[k] ??= { direct: 0, contextual: 0 };
+  tierByPair[k] ??= { "same-event": 0, "same-intrusion-set": 0 };
   tierByPair[k][l.tier] += 1;
 }
 
@@ -1077,6 +1106,10 @@ const snapshot = {
         commit: m.commit,
         commitDate: m.commitDate,
         dataClean: m.dataClean,
+        branch: m.branch,
+        deployedBranch: m.deployedBranch,
+        deployedBranchSource: m.deployedBranchSource,
+        onDeployedBranch: m.branch && m.deployedBranch ? m.branch === m.deployedBranch : null,
         files: m.files,
         records: recordNodes.filter((n) => n.domain === k).length,
         recordTypes: countBy(recordNodes.filter((n) => n.domain === k), (n) => n.type),
@@ -1098,23 +1131,28 @@ const snapshot = {
     illustrativeExcluded: orbitalIllustrative.length,
     orbitalIncidentsTotalInSource: orbitalAll.length,
     stateContextEdges: contextEdges.length,
+    facets: facets.length,
+    facetsByType: countBy(facets, (f) => f.type),
+    actorsNotResolved: unresolvedActors.length,
   },
   tiers: TIERS,
   tierOfBasis: TIER_OF_BASIS,
-  tierRule: "A link is direct when at least one of its bases is direct; otherwise it is contextual.",
+  tierRule: "A link is same-event when one of its bases is same_event; otherwise it is same-intrusion-set. Shared states and infrastructure categories are reported as facets, not links.",
+  facetRule:
+    "A facet lists a state or infrastructure category that records in two or more datasets connect to, with the records and their role in each dataset (actor, target, host, profiled, category). It says the datasets both include the entity, not that the records are related.",
   basisTypes: {
     ...BASIS,
     attributed_state: "Record names this state as the acting state",
     target_state: "Record names this state as a target",
     host_state: "Record is located in this state",
-    profiled_state: "Record profiles this state",
+    profiled_state: "State profiled in lunar data (a country authority profile, not an actor in an event)",
     infrastructure_category: "Record falls in this shared infrastructure category (see crosswalk)",
     instrument_referenced: "Record references this instrument",
   },
   crosswalks: {
     states: STATES.map(([id, label, spellings]) => ({ id: `state:${id}`, label, spellings })),
     stateRule:
-      "A field is linked to a state only when its value, with any parenthetical removed and split on '/', matches a listed spelling exactly. Values such as 'Unknown', 'Multiple', 'Global' or 'Central Europe' are not linked.",
+      "A field is linked to a state only when its value, with any parenthetical removed and split on '/', matches a listed spelling exactly. Values such as 'Unknown', 'Multiple', 'Global' or 'Central Europe' are not linked. An actor field is not linked when a parenthetical says the actor is criminal, not the state, individuals or similar, or when the record's attribution confidence is below high.",
     sectors: SECTORS,
     instruments: INSTRUMENTS.map((i) => ({ id: `instrument:${i.id}`, label: i.label, pattern: i.re.source, sourceIds: i.ids })),
     instrumentRule:
@@ -1131,12 +1169,14 @@ const snapshot = {
     note: "Fictional sample record in the Orbital Risk Tracker. Excluded from all links and real-world counts.",
     url: `${SOURCES.orbital.url}/#/incidents/${o.id}`,
   })),
+  facets,
   checks,
   limitations: [
     "All four source datasets are analyst-coded from public sources. Coding choices in those datasets carry into this layer.",
     "The datasets are not exhaustive. A missing link means no link can be derived from the coded fields, not that no relationship exists.",
-    "State-level links (same acting state, energy target and host state) show co-occurrence in the data, not causation or coordination.",
-    "Instrument references show which instruments each dataset associates with a record. A junction with no instrument referenced is a gap in the dataset, not a legal conclusion that no law applies.",
+    "Facets (a state or infrastructure category present in two datasets) show co-occurrence in the data, not causation, coordination or a relationship between the records.",
+    "The cyber atlas lists target sectors and target countries separately, so a case that lists energy and Germany does not say it targeted the German energy sector.",
+    "Instrument references show which instruments each dataset associates with a record. Orbital incident and nuclear plant records reference no instrument at record level, so instrument coverage reflects the schema of each dataset, not a legal conclusion that no law applies.",
     "Free-text fields (summaries, policy responses) are not parsed for links, except the short keyword rules listed in the sector crosswalk.",
     "This layer describes recorded events. It makes no prediction.",
   ],

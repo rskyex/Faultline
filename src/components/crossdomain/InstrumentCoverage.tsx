@@ -8,8 +8,6 @@ type Props = {
   data: CrossDomainData;
   idx: Index;
   onFollow: (id: string) => void;
-  includeContextual: boolean;
-  setIncludeContextual: (v: boolean) => void;
 };
 
 const PAIRS: [Domain, Domain][] = [];
@@ -34,7 +32,7 @@ function SideInstruments({ v }: { v: InstrumentView }) {
   );
 }
 
-export default function GovernanceGaps({ data, idx, onFollow, includeContextual, setIncludeContextual }: Props) {
+export default function InstrumentCoverage({ data, idx, onFollow }: Props) {
   const [pair, setPair] = useState<string>(pairKey("cyber", "orbital"));
   const [statusFilter, setStatusFilter] = useState<JunctionStatus | null>(null);
   const [limit, setLimit] = useState(PAGE);
@@ -42,14 +40,9 @@ export default function GovernanceGaps({ data, idx, onFollow, includeContextual,
   const [da, db] = PAIRS.find(([a, b]) => pairKey(a, b) === pair)!;
 
   const pairLinks = useMemo(() => data.links.filter((l) => pairKey(l.domains[0], l.domains[1]) === pair), [data.links, pair]);
-  const pairTiers = {
-    direct: pairLinks.filter((l) => l.tier === "direct").length,
-    contextual: pairLinks.filter((l) => l.tier === "contextual").length,
-  };
 
   const junctions = useMemo(() => {
     return pairLinks
-      .filter((l) => includeContextual || l.tier === "direct")
       .map((l) => {
         const aId = idx.records.get(l.s)!.domain === da ? l.s : l.t;
         const bId = aId === l.s ? l.t : l.s;
@@ -59,11 +52,11 @@ export default function GovernanceGaps({ data, idx, onFollow, includeContextual,
       })
       .sort(
         (x, y) =>
-          (x.link.tier === y.link.tier ? 0 : x.link.tier === "direct" ? -1 : 1) ||
+          (x.link.tier === y.link.tier ? 0 : x.link.tier === "same-event" ? -1 : 1) ||
           STATUSES.indexOf(x.status) - STATUSES.indexOf(y.status) ||
           x.a.label.localeCompare(y.a.label),
       );
-  }, [pairLinks, idx, da, includeContextual]);
+  }, [pairLinks, idx, da]);
 
   const statusCounts = useMemo(() => {
     const m = new Map<JunctionStatus, number>();
@@ -109,8 +102,6 @@ export default function GovernanceGaps({ data, idx, onFollow, includeContextual,
         {PAIRS.map(([a, b]) => {
           const k = pairKey(a, b);
           const pl = data.links.filter((l) => pairKey(l.domains[0], l.domains[1]) === k);
-          const nd = pl.filter((l) => l.tier === "direct").length;
-          const nc = pl.length - nd;
           const active = k === pair;
           return (
             <button
@@ -127,19 +118,11 @@ export default function GovernanceGaps({ data, idx, onFollow, includeContextual,
               }`}
             >
               <span className={DOMAIN_META[a].textClass}>{DOMAIN_META[a].label}</span> + <span className={DOMAIN_META[b].textClass}>{DOMAIN_META[b].label}</span>{" "}
-              <span className="font-mono-data text-text-secondary normal-case">
-                ({nd} direct, {nc} contextual)
-              </span>
+              <span className="font-mono-data text-text-secondary normal-case">({pl.length} {pl.length === 1 ? "link" : "links"})</span>
             </button>
           );
         })}
       </div>
-
-      <label className="flex items-center gap-3 text-[13px] text-text-primary cursor-pointer">
-        <input type="checkbox" className="accent-orbital-500 w-4 h-4" checked={includeContextual} onChange={(e) => setIncludeContextual(e.target.checked)} />
-        Include contextual links
-        <span className="text-text-secondary text-[12px]">(off by default; they share context, not evidence)</span>
-      </label>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         <section className="lg:col-span-5 bg-elevated border border-white/6 p-5" aria-label="Pair summary">
@@ -147,11 +130,9 @@ export default function GovernanceGaps({ data, idx, onFollow, includeContextual,
             {DOMAIN_META[da].label} and {DOMAIN_META[db].label}
           </h3>
           <p className="text-[12.5px] text-text-secondary leading-relaxed mb-4">
-            {pairTiers.direct + pairTiers.contextual === 0
+            {pairLinks.length === 0
               ? "No record link between these two datasets can be derived from the coded fields."
-              : `${pairTiers.direct} direct and ${pairTiers.contextual} contextual record links (junctions) between the two datasets. ${
-                  includeContextual ? "Showing both tiers, direct first." : "Showing direct links only."
-                }`}
+              : `${pairLinks.length} record links (junctions) between the two datasets, same event first.`}
           </p>
           {junctions.length > 0 && (
             <div className="space-y-1.5 mb-5" role="group" aria-label="Filter junctions by instrument status">
@@ -212,11 +193,9 @@ export default function GovernanceGaps({ data, idx, onFollow, includeContextual,
         <section className="lg:col-span-7 min-w-0" aria-label="Junctions">
           {filtered.length === 0 ? (
             <div className="bg-surface border border-white/6 p-5 text-[12.5px] text-text-secondary leading-relaxed">
-              {pairTiers.direct + pairTiers.contextual === 0
-                ? "With no record links for this pair, there are no junctions to compare. The summary lists the states and categories both datasets mention, which is where a future coding pass could look."
-                : junctions.length === 0
-                  ? `No direct link for this pair. Turn on contextual links to see the ${pairTiers.contextual} junctions that share context only.`
-                  : "No junction has this status."}
+              {pairLinks.length === 0
+                ? "With no record links for this pair, there are no junctions to compare. The summary lists the states and categories both datasets include, which is where a future coding pass could look."
+                : "No junction has this status."}
             </div>
           ) : (
             <ul className="space-y-3">
@@ -228,7 +207,7 @@ export default function GovernanceGaps({ data, idx, onFollow, includeContextual,
                       {STATUS_META[j.status].label}
                       {j.common.length > 0 && <span className="text-text-secondary"> ({j.common.map((c) => idx.entities.get(c)?.label).join("; ")})</span>}
                       <span className="block text-text-secondary text-[11.5px]">
-                        <span className={j.link.tier === "direct" ? "text-orbital-400" : "text-text-muted"}>{TIER_META[j.link.tier].label} link</span>, by:{" "}
+                        <span className="text-orbital-400">{TIER_META[j.link.tier].label} link</span>, by:{" "}
                         {[...new Set(j.link.bases.map((b) => BASIS_META[b.basis].short))].join(", ")}
                       </span>
                     </p>

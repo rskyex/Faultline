@@ -40,8 +40,7 @@ export default function HeroSection() {
 
           {/* Subtitle */}
           <p className="text-text-primary/90 text-sm md:text-base max-w-2xl leading-relaxed animate-fade-in-up animate-delay-200" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}>
-            Mapping the dependencies, escalation pathways, and governance fractures
-            across orbital, nuclear, lunar governance, and cyber systems.
+            Four datasets on orbital, nuclear, lunar governance and cyber systems, and a layer that maps where their records meet. The research question: do dependencies, escalation and governance gaps cross from one domain to another?
           </p>
 
           {/* Domain indicators */}

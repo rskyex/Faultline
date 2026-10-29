@@ -7,28 +7,28 @@ const reveals = [
     num: "01",
     numColor: "text-orbital-500",
     title: "Cross-Domain Dependencies",
-    text: "Orbital communication links underpin nuclear command-and-control. Cyber networks enable satellite operations. Energy grids sustain all four. Faultline maps these dependencies to show where disruption in one domain degrades capacity in another.",
+    text: "Do orbital communication links, cyber networks and energy grids depend on one another closely enough that disruption in one domain degrades capacity in another? The four datasets each record one domain; the cross-domain layer maps where their records name the same incident, intrusion set, state or infrastructure category.",
     borderColor: "border-orbital-500/20",
   },
   {
     num: "02",
     numColor: "text-nuclear-500",
     title: "Escalation Transfer",
-    text: "A cyber intrusion into early-warning systems can trigger nuclear miscalculation. Anti-satellite operations can sever the communications that prevent escalation. These are not hypotheticals\u2014they are structural features of interconnected systems.",
+    text: "Could a cyber intrusion into early-warning systems, or an anti-satellite strike on the communications that prevent escalation, push a crisis towards nuclear miscalculation? This is an argument from how the systems are coupled, not a finding from the data: the datasets have no field that records escalation passing from one domain to another.",
     borderColor: "border-nuclear-500/20",
   },
   {
     num: "03",
     numColor: "text-space-500",
     title: "Governance Authority Concentration",
-    text: "Competing lunar governance frameworks\u2014the Artemis Accords and the ILRS\u2014deploy universalist language while concentrating interpretive power. Discretion points in governance documents create authority vacuums that shape strategic posture.",
+    text: "The Lunar Governance Tracker argues that the competing frameworks, the Artemis Accords and the ILRS, use universalist language while concentrating interpretive power, and it codes the discretion points in their documents where that power sits. Whether those discretion points shape strategic posture is the question it puts to the record.",
     borderColor: "border-space-500/20",
   },
   {
     num: "04",
     numColor: "text-cyber-500",
     title: "Shared Pressure Points",
-    text: "Certain nodes\u2014undersea cables, ground stations, enrichment facilities, critical data centers\u2014sit at the intersection of multiple domains. Their compromise generates cascading effects that single-domain analysis cannot anticipate.",
+    text: "Which nodes sit at the intersection of several domains? Undersea cables, ground stations, enrichment facilities and data centres are candidates, and single-domain analysis would miss cascading effects through them. None of the four datasets records them as shared nodes yet, so this is a question for future coding, not something the layer can show.",
     borderColor: "border-cyber-500/20",
   },
 ];
@@ -46,7 +46,7 @@ export default function RevealsSection() {
               Analytical Framework
             </p>
             <h2 className="wordmark text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">
-              What the Platform Reveals
+              Questions the Platform Asks
             </h2>
             <div className="mt-5 w-12 h-px bg-white/8" />
           </div>
