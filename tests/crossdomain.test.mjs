@@ -57,3 +57,16 @@ test("every source records its branch and the deployed branch", () => {
     if (s.onDeployedBranch === false) assert.ok(snap.checks.some((c) => c.id === `source-branch-${k}`), k);
   }
 });
+
+test("intrusion sets join by MITRE ID and Viasat's same-event link has structured evidence", () => {
+  for (const l of links.filter((x) => x.tier === "same-intrusion-set")) assert.ok(l.bases.some((b) => b.via === "mitre:G0034"), l.id);
+  const viasat = links.find((l) => l.tier === "same-event");
+  const vias = viasat.bases.map((b) => b.via);
+  for (const v of ["name", "related-record", "target-entity"]) assert.ok(vias.includes(v), v);
+});
+
+test("cyber target countries are ISO codes mapped to states", () => {
+  const n = snap.nodes.find((x) => x.id === "cyber:kyivstar");
+  assert.deepEqual(n.fields.targetCountries, ["UA"]);
+  assert.ok(attrs.some((a) => a.source === "cyber:kyivstar" && a.basis === "target_state" && a.target === "state:ukraine"));
+});

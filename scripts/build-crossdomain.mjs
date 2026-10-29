@@ -35,7 +35,7 @@ const argVal = (flag) => {
 const REPOS = path.resolve(argVal("--repos") ?? path.join(ROOT, ".."));
 const GENERATED = argVal("--date") ?? new Date().toISOString().slice(0, 10);
 
-const SNAPSHOT_VERSION = "2.0.0";
+const SNAPSHOT_VERSION = "2.1.0";
 const SCHEMA_VERSION = 2;
 
 const SOURCES = {
@@ -151,6 +151,9 @@ const STATES = [
   ["bangladesh", "Bangladesh", ["Bangladesh"]],
   ["egypt", "Egypt", ["Egypt"]],
 ];
+// ISO 3166-1 alpha-2 codes used by the cyber atlas since dataset 2.0.0.
+const ISO_NAMES = { AL: "Albania", AU: "Australia", BD: "Bangladesh", BE: "Belgium", BR: "Brazil", CA: "Canada", CH: "Switzerland", CR: "Costa Rica", DE: "Germany", EG: "Egypt", FR: "France", GB: "United Kingdom", GU: "Guam", IL: "Israel", IN: "India", IR: "Iran", IT: "Italy", JP: "Japan", KR: "South Korea", LB: "Lebanon", NL: "Netherlands", PH: "Philippines", PK: "Pakistan", PS: "Palestinian Territories", SA: "Saudi Arabia", SD: "Sudan", SE: "Sweden", SY: "Syria", TH: "Thailand", TW: "Taiwan", UA: "Ukraine", US: "United States" };
+const countryOf = (v) => ISO_NAMES[v] ?? v;
 const STATE_BY_SPELLING = new Map();
 for (const [id, label, spellings] of STATES) {
   for (const s of spellings) STATE_BY_SPELLING.set(s.toLowerCase(), { id, label });
@@ -420,6 +423,10 @@ for (const c of cyberIncidents) {
       aliases: c.attribution.aliases,
       targetSectors: c.infrastructure.targetSectors,
       targetCountries: c.infrastructure.targetCountries,
+      geographicScope: c.infrastructure.geographicScope,
+      intrusionSetIds: c.attribution.intrusionSetIds,
+      organ: c.attribution.organ,
+      targetEntities: (c.infrastructure.targetEntities ?? []).map((t) => t.name),
     },
   });
 }
@@ -436,7 +443,20 @@ for (const o of orbitalReal) {
     url: `${SOURCES.orbital.url}/#/incidents/${o.id}`,
     urlPrecision: "record",
     summary: clip(o.summary),
-    fields: { actor: o.actor, type: o.type, subtype: o.subtype, target: o.target, orbit: o.orbit, confidence: o.confidence, severity: o.severity },
+    fields: {
+      actor: o.actor,
+      actorOrg: o.actorOrg,
+      intrusionSetIds: o.intrusionSetIds,
+      type: o.type,
+      subtype: o.subtype,
+      cyberVector: o.cyberVector,
+      malwareFamilies: o.malwareFamilies,
+      target: o.target,
+      targetOperator: o.targetOperator,
+      orbit: o.orbit,
+      confidence: o.confidence,
+      severity: o.severity,
+    },
   });
 }
 
@@ -539,8 +559,8 @@ for (const c of cyberIncidents) {
     });
   }
   for (const tc of c.infrastructure.targetCountries) {
-    const st = stateOf(tc);
-    if (st) addAttr(rid, ensureState(st), "target_state", `Cyber case field infrastructure.targetCountries lists "${tc}".`, { role: "target" });
+    const st = stateOf(countryOf(tc));
+    if (st) addAttr(rid, ensureState(st), "target_state", `Cyber case field infrastructure.targetCountries lists "${tc}" (${countryOf(tc)}).`, { role: "target" });
   }
 }
 for (const o of orbitalReal) {
@@ -738,8 +758,8 @@ const TIER_OF_BASIS = {
   same_intrusion_set: "same-intrusion-set",
 };
 const TIERS = {
-  "same-event": "The same incident is recorded in both datasets: the cyber case name appears in the orbital incident title and both give the same year.",
-  "same-intrusion-set": "The records name the same intrusion set: a group name from the cyber case aliases appears in the orbital actor field. They may be different operations by the same group.",
+  "same-event": "The same incident is recorded in both datasets: same name and year, a cited source naming both (relatedRecords), or the same named target in the same year.",
+  "same-intrusion-set": "The records list the same MITRE ATT&CK group (intrusionSetIds); without IDs, a cyber alias appears in the orbital actor field. They may be different operations by the same group.",
 };
 
 const BASIS = {
@@ -765,9 +785,43 @@ for (const c of cyberIncidents) {
   }
 }
 
-// L2 same intrusion set: a cyber alias appears as a whole word in the orbital actor field.
+// L1b same event, from structured fields: a cited source names both records
+// (relatedRecords), or the cyber case's named target entity is the orbital
+// incident's target operator in the same year.
+const entityKey = (x) => norm(x).replace(/\b(ka sat|inc|ltd|plc)\b/g, "").trim();
 for (const c of cyberIncidents) {
   for (const o of orbitalReal) {
+    const rel = [...(c.relatedRecords ?? []).filter((r) => r.id === `orbital:${o.id}`), ...(o.relatedRecords ?? []).filter((r) => r.id === `cyber:${c.slug}`)];
+    if (rel.length)
+      addLink(`cyber:${c.slug}`, `orbital:${o.id}`, "same_event",
+        `A cited source names both records (${uniq(rel.map((r) => r.sourceUrl)).join(", ")}), recorded in the relatedRecords field.`,
+        { via: "related-record" });
+    if (o.targetOperator && c.year === o.year) {
+      const hit = (c.infrastructure.targetEntities ?? []).find((t) => {
+        const a = entityKey(t.name), b = entityKey(o.targetOperator);
+        return a && b && (a === b || a.split(" ")[0] === b.split(" ")[0]);
+      });
+      if (hit)
+        addLink(`cyber:${c.slug}`, `orbital:${o.id}`, "same_event",
+          `The cyber case target entity "${hit.name}" and the orbital incident target operator "${o.targetOperator}" are the same organisation, in the same year.`,
+          { via: "target-entity" });
+    }
+  }
+}
+
+// L2 same intrusion set: the records share a MITRE ATT&CK group ID. Records
+// without IDs fall back to a cyber alias appearing in the orbital actor field.
+for (const c of cyberIncidents) {
+  for (const o of orbitalReal) {
+    const cIds = c.attribution.intrusionSetIds ?? [];
+    const oIds = o.intrusionSetIds ?? [];
+    if (cIds.length && oIds.length) {
+      for (const id of cIds.filter((x) => oIds.includes(x)))
+        addLink(`cyber:${c.slug}`, `orbital:${o.id}`, "same_intrusion_set",
+          `Both records list MITRE ATT&CK group ${id} (cyber aliases: ${c.attribution.aliases.join(", ")}; orbital actor: "${o.actor}").`,
+          { via: `mitre:${id}` });
+      continue;
+    }
     for (const alias of c.attribution.aliases ?? []) {
       if (alias.length < 4) continue;
       if (new RegExp(`\\b${escapeRe(alias)}\\b`, "i").test(o.actor)) {
@@ -914,6 +968,21 @@ if (unresolvedActors.length)
   }
 }
 
+// Nuclear reported cyber incidents and their cross-dataset references.
+for (const p of nuclearPlants.filter((x) => x.reported_cyber_incident)) {
+  const ref = p.cyber_incident?.reportedCyberIncidentRef;
+  const caseId = ref?.cyberCase ? `cyber:${ref.cyberCase}` : null;
+  checks.push({
+    id: `nuclear-cyber-ref-${p.id}`,
+    severity: "info",
+    title: `${p.name}: reported cyber incident ${caseId ? "references a cyber case" : "has no cyber atlas case"}`,
+    detail: caseId
+      ? `The nuclear record references ${caseId}.`
+      : `The nuclear atlas records ${p.cyber_incident?.year ?? "a"} incident (${p.cyber_incident?.label ?? "see record"}) with source ${ref?.sourceUrl ?? p.cyber_incident?.source?.url ?? "not given"}. The cyber atlas has no case for it, so no link is drawn.`,
+    records: [`nuclear:${p.id}`],
+  });
+}
+
 // Nuclear critical_infrastructure_overlap vs cyber target countries.
 {
   const overlapTrue = new Set(nuclearPlants.filter((p) => p.critical_infrastructure_overlap).map((p) => p.country));
@@ -921,7 +990,7 @@ if (unresolvedActors.length)
   const cyberTargets = new Map();
   for (const c of cyberIncidents)
     for (const tc of c.infrastructure.targetCountries) {
-      const st = stateOf(tc);
+      const st = stateOf(countryOf(tc));
       if (!st) continue;
       if (!cyberTargets.has(st.label)) cyberTargets.set(st.label, []);
       cyberTargets.get(st.label).push(c.slug);

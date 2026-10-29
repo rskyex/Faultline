@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 const BASIS_RULES: Record<string, string> = {
   same_event:
-    "Cyber case and orbital incident. The cyber case name or short name appears as whole words in the orbital incident title, and both records give the same year. Matching malware names in the orbital title or tags are noted when present.",
+    "Cyber case and orbital incident, on any of three bases: the cyber case name appears as whole words in the orbital incident title and both give the same year; a cited source names both records (relatedRecords field); or the cyber case's named target entity is the orbital incident's target operator in the same year.",
   same_intrusion_set:
-    "Cyber case and orbital incident. A group name listed in the cyber case attribution aliases (four characters or longer) appears as a whole word in the orbital incident actor field. The two records can describe different operations by the same group.",
+    "Cyber case and orbital incident that list the same MITRE ATT&CK group ID (intrusionSetIds in both datasets). Where a record has no IDs, a cyber alias appearing as a whole word in the orbital actor field is used instead. The two records can describe different operations by the same group.",
 };
 
 function fmt(n: number) {

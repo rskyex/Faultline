@@ -19,11 +19,11 @@ export const TIERS: Tier[] = ["same-event", "same-intrusion-set"];
 export const TIER_META: Record<Tier, { label: string; explain: string }> = {
   "same-event": {
     label: "Same event",
-    explain: "One incident recorded in two datasets: the cyber case name appears in the orbital incident title and both give the same year.",
+    explain: "One incident recorded in two datasets: same name and year, a cited source naming both, or the same named target in the same year.",
   },
   "same-intrusion-set": {
     label: "Same intrusion set",
-    explain: "Both records name the same intrusion set (threat group). They can be different operations by that group.",
+    explain: "Both records list the same MITRE ATT&CK group. They can be different operations by that group.",
   },
 };
 
