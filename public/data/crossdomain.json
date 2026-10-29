@@ -54,7 +54,7 @@
    "name": "Global Nuclear Infrastructure Atlas",
    "url": "https://globalnuclearinfrastructureatlas.vercel.app",
    "repo": "Global-Nuclear-Infrastructure-Atlas",
-   "commit": "1287b7f86ab4a7aabf90f857b07f32f1de571854",
+   "commit": "e76aa3701c630a3f154d776630f8e2c649c209e4",
    "commitDate": "2026-10-29",
    "dataClean": true,
    "branch": "claude/gtc-hardening",
@@ -11360,7 +11360,7 @@
    "id": "source-branch-nuclear",
    "severity": "warning",
    "title": "Global Nuclear Infrastructure Atlas was read from branch claude/gtc-hardening, not the deployed branch",
-   "detail": "The snapshot read Global-Nuclear-Infrastructure-Atlas at claude/gtc-hardening (1287b7f). The production site https://globalnuclearinfrastructureatlas.vercel.app, which record links open, is built from claude/nuclear-infrastructure-atlas-IIjPg. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
+   "detail": "The snapshot read Global-Nuclear-Infrastructure-Atlas at claude/gtc-hardening (e76aa37). The production site https://globalnuclearinfrastructureatlas.vercel.app, which record links open, is built from claude/nuclear-infrastructure-atlas-IIjPg. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
    "records": []
   },
   {
