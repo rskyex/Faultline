@@ -1,8 +1,8 @@
 {
  "schemaVersion": 2,
  "version": "2.1.0",
- "snapshotId": "faultline-crossdomain-2.1.0-2026-10-29",
- "generated": "2026-10-29",
+ "snapshotId": "faultline-crossdomain-2.1.0-2026-10-30",
+ "generated": "2026-10-30",
  "generator": "scripts/build-crossdomain.mjs",
  "description": "Cross-domain linkage snapshot for Faultline. Records come from four analyst-coded platform datasets. Links are derived only from fields present in those datasets, through the crosswalk tables included here.",
  "sources": {
@@ -76,8 +76,8 @@
    "name": "Lunar Governance Tracker",
    "url": "https://lunar-mandate-atlas.vercel.app",
    "repo": "lunar-mandate-atlas",
-   "commit": "cba5fa2f612457974106055f6429793d630245c0",
-   "commitDate": "2026-10-29",
+   "commit": "d3d48a1d807508867324b3196794c69330a72f48",
+   "commitDate": "2026-10-30",
    "dataClean": true,
    "branch": "claude/gtc-hardening",
    "deployedBranch": "claude/lunar-governance-tracker-txA5R",
@@ -4247,7 +4247,7 @@
      "AA-2020"
     ],
     "section": "Section 11, para. 4",
-    "holder": "Signatory / Drafting party (USA)",
+    "holder": "Each Signatory (self-judging)",
     "coalition": "artemis",
     "type": "open_ended_qualifier"
    }
@@ -4270,7 +4270,7 @@
      "AA-2020"
     ],
     "section": "Section 11, para. 7",
-    "holder": "Operating State (unilateral notification)",
+    "holder": "Operating Signatory (sets and notifies the safety zone)",
     "coalition": "artemis",
     "type": "procedural_deferral"
    }
@@ -4364,7 +4364,7 @@
     "section": "Article 2; see also Articles 3 and 14",
     "holder": "National Diet (statute, 2008); the Government in applying it",
     "coalition": "national",
-    "type": "interpretive_monopoly"
+    "type": "definitional_gap"
    }
   },
   {
@@ -4410,7 +4410,7 @@
     "section": "Chapter III, section 6(1)",
     "holder": "Central Government (licensing authority under the draft)",
     "coalition": "national",
-    "type": "interpretive_monopoly"
+    "type": "procedural_deferral"
    }
   },
   {
@@ -4432,8 +4432,8 @@
     ],
     "section": "OSTP memorandum, Section 2(b)",
     "holder": "NASA (tasked by OSTP)",
-    "coalition": "artemis",
-    "type": "interpretive_monopoly"
+    "coalition": "national",
+    "type": "procedural_deferral"
    }
   },
   {
@@ -4454,7 +4454,7 @@
      "ESA-STMT-2023"
     ],
     "section": "FAQ: \"What are the Artemis Accords?\"",
-    "holder": "ESA Member States (individually)",
+    "holder": "ESA member states, each deciding whether to sign",
     "coalition": "artemis",
     "type": "procedural_deferral"
    }
@@ -4525,7 +4525,7 @@
     "section": "Definitions, no. 1; Section 5",
     "holder": "IN-SPACe, subject to Government directives",
     "coalition": "national",
-    "type": "definitional_gap"
+    "type": "procedural_deferral"
    }
   },
   {
@@ -4571,7 +4571,7 @@
     ],
     "section": "51 U.S.C. 51303 / Luxembourg Art. 1",
     "holder": "National legislatures (Luxembourg, USA)",
-    "coalition": "artemis",
+    "coalition": "national",
     "type": "definitional_gap"
    }
   },
@@ -11336,7 +11336,7 @@
    "id": "source-branch-lunar",
    "severity": "warning",
    "title": "Lunar Governance Tracker was read from branch claude/gtc-hardening, not the deployed branch",
-   "detail": "The snapshot read lunar-mandate-atlas at claude/gtc-hardening (cba5fa2). The production site https://lunar-mandate-atlas.vercel.app, which record links open, is built from claude/lunar-governance-tracker-txA5R. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
+   "detail": "The snapshot read lunar-mandate-atlas at claude/gtc-hardening (d3d48a1). The production site https://lunar-mandate-atlas.vercel.app, which record links open, is built from claude/lunar-governance-tracker-txA5R. Records, fields and counts on the linked pages can differ from this snapshot until that branch is deployed.",
    "records": []
   },
   {
